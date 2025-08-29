@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "title": "ポートフォリオサイト",
+    "description": "React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト",
+    "longDescription": "このポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。\n\n主な特徴：\n• React 19とTypeScriptによる型安全な開発\n• Tailwind CSS v4による効率的なスタイリング\n• Viteによる高速な開発体験\n• React Routerによるクライアントサイドルーティング\n• ESLintとPrettierによるコード品質の担保\n\nこのプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、パフォーマンスを重視したWebアプリケーションの構築方法を学びました。",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "React Router"
+    ],
+    "images": [
+      "https://via.placeholder.com/800x600?text=Portfolio+Main",
+      "https://via.placeholder.com/800x600?text=Portfolio+About", 
+      "https://via.placeholder.com/800x600?text=Portfolio+Works"
+    ],
+    "image": "https://via.placeholder.com/300x200",
+    "github": "https://github.com/Soki0909/Soki0909.github.io",
+    "demo": "https://soki0909.github.io/",
+    "challenges": [
+      "Tailwind CSS v4の新しい設定方法への対応",
+      "TypeScriptとReact 19の最新機能の活用",
+      "レスポンシブデザインの実装"
+    ],
+    "learned": [
+      "モダンなReact開発パターン",
+      "Tailwind CSSによる効率的なスタイリング",
+      "Viteによる高速な開発環境の構築"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "タスク管理アプリ",
+    "description": "React Hooksを活用したシンプルなタスク管理アプリケーション",
+    "longDescription": "このタスク管理アプリは、React Hooksを中心とした状態管理と、ローカルストレージを活用したデータ永続化を実装したアプリケーションです。\n\n主な機能：\n• タスクの追加、編集、削除\n• タスクの完了状態の管理\n• ローカルストレージによるデータ永続化\n• レスポンシブデザイン\n• ダークモード対応\n\nReact HooksのuseState、useEffect、useContextを活用し、効率的な状態管理パターンを学習しました。",
+    "technologies": [
+      "React",
+      "TypeScript",
+      "CSS Modules",
+      "Local Storage API"
+    ],
+    "images": [
+      "https://via.placeholder.com/800x600?text=Todo+App+Main",
+      "https://via.placeholder.com/800x600?text=Todo+App+Dark+Mode"
+    ],
+    "image": "https://via.placeholder.com/300x200",
+    "github": "#",
+    "demo": "#",
+    "challenges": [
+      "React Hooksによる効率的な状態管理",
+      "ローカルストレージとの同期処理",
+      "ダークモード切り替えの実装"
+    ],
+    "learned": [
+      "React Hooksの実践的な使用方法",
+      "ブラウザAPIの活用",
+      "ユーザビリティを考慮したUI設計"
+    ]
+  }
+]

@@ -1,56 +1,9 @@
 import { useParams, Link } from 'react-router-dom';
-
-// TODO: 後で外部ファイルから読み込む予定
-const projectsData = [
-  {
-    id: 1,
-    title: 'ポートフォリオサイト',
-    description:
-      'React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト',
-    longDescription: `
-      このポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。
-      
-      主な特徴：
-      • React 19とTypeScriptによる型安全な開発
-      • Tailwind CSS v4による効率的なスタイリング
-      • Viteによる高速な開発体験
-      • React Routerによるクライアントサイドルーティング
-      • ESLintとPrettierによるコード品質の担保
-      
-      このプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、
-      パフォーマンスを重視したWebアプリケーションの構築方法を学びました。
-    `,
-    technologies: [
-      'React',
-      'TypeScript',
-      'Tailwind CSS',
-      'Vite',
-      'React Router',
-    ],
-    images: [
-      'https://via.placeholder.com/800x600?text=Portfolio+Main',
-      'https://via.placeholder.com/800x600?text=Portfolio+About',
-      'https://via.placeholder.com/800x600?text=Portfolio+Works',
-    ],
-    github: 'https://github.com/Soki0909/Soki0909.github.io',
-    demo: '#',
-    challenges: [
-      'Tailwind CSS v4の新しい設定方法への対応',
-      'TypeScriptとReact 19の最新機能の活用',
-      'レスポンシブデザインの実装',
-    ],
-    learned: [
-      'モダンなReact開発パターン',
-      'Tailwind CSSによる効率的なスタイリング',
-      'Viteによる高速な開発環境の構築',
-    ],
-  },
-  // 他のプロジェクトデータは後で追加予定
-];
+import { getProjectById } from '../utils/projects';
 
 const WorkDetail = () => {
   const { id } = useParams<{ id: string }>();
-  const project = projectsData.find((p) => p.id === Number(id));
+  const project = getProjectById(Number(id));
 
   if (!project) {
     return (
