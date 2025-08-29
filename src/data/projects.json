@@ -13,7 +13,7 @@
     ],
     "images": [
       "https://via.placeholder.com/800x600?text=Portfolio+Main",
-      "https://via.placeholder.com/800x600?text=Portfolio+About", 
+      "https://via.placeholder.com/800x600?text=Portfolio+About",
       "https://via.placeholder.com/800x600?text=Portfolio+Works"
     ],
     "image": "https://via.placeholder.com/300x200",
@@ -35,12 +35,7 @@
     "title": "タスク管理アプリ",
     "description": "React Hooksを活用したシンプルなタスク管理アプリケーション",
     "longDescription": "このタスク管理アプリは、React Hooksを中心とした状態管理と、ローカルストレージを活用したデータ永続化を実装したアプリケーションです。\n\n主な機能：\n• タスクの追加、編集、削除\n• タスクの完了状態の管理\n• ローカルストレージによるデータ永続化\n• レスポンシブデザイン\n• ダークモード対応\n\nReact HooksのuseState、useEffect、useContextを活用し、効率的な状態管理パターンを学習しました。",
-    "technologies": [
-      "React",
-      "TypeScript",
-      "CSS Modules",
-      "Local Storage API"
-    ],
+    "technologies": ["React", "TypeScript", "CSS Modules", "Local Storage API"],
     "images": [
       "https://via.placeholder.com/800x600?text=Todo+App+Main",
       "https://via.placeholder.com/800x600?text=Todo+App+Dark+Mode"

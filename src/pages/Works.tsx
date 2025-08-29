@@ -7,10 +7,10 @@ const Works = () => {
   const allProjects = getAllProjects();
   const allTechnologies = getAllTechnologies();
   const [selectedTechnology, setSelectedTechnology] = useState<string>('');
-  
+
   // フィルタリングされたプロジェクト
   const filteredProjects = selectedTechnology
-    ? allProjects.filter(project => 
+    ? allProjects.filter((project) =>
         project.technologies.includes(selectedTechnology)
       )
     : allProjects;
@@ -22,7 +22,7 @@ const Works = () => {
         <p className="text-gray-600 mb-8">
           これまでに取り組んだプロジェクトの一覧です。
         </p>
-        
+
         {/* フィルタリング機能 */}
         <div className="mb-8">
           <h2 className="text-lg font-semibold mb-3">技術スタックで絞り込み</h2>
@@ -61,7 +61,7 @@ const Works = () => {
             プロジェクト一覧 ({filteredProjects.length}件)
           </h2>
         </div>
-        
+
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filteredProjects.map((project) => (
             <div
@@ -110,7 +110,7 @@ const Works = () => {
             </div>
           ))}
         </div>
-        
+
         {filteredProjects.length === 0 && (
           <div className="text-center py-12">
             <p className="text-gray-500">

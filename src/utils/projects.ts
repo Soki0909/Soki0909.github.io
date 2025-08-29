@@ -12,7 +12,9 @@ export const getAllProjects = (): Project[] => {
  * IDでプロジェクトを取得
  */
 export const getProjectById = (id: number): Project | undefined => {
-  return projectsData.find((project) => project.id === id) as Project | undefined;
+  return projectsData.find((project) => project.id === id) as
+    | Project
+    | undefined;
 };
 
 /**
