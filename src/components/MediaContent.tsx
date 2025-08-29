@@ -1,32 +1,77 @@
+/**
+ * メディアコンテンツ表示コンポーネント
+ *
+ * @description 動画、音声、画像の表示を統一的に処理する
+ * 再利用可能なメディア表示コンポーネント。
+ *
+ * @since v1.0.0
+ */
+
 import MediaPlayer from './MediaPlayer';
 import LazyImage from './LazyImage';
 
+/**
+ * メディアタイプの定義
+ */
+type MediaType = 'videos' | 'audios' | 'images';
+
+/**
+ * MediaContentコンポーネントのProps型定義
+ */
 interface MediaContentProps {
-  type: 'videos' | 'audios' | 'images';
-  items: string[];
+  /** メディアの種類 */
+  type: MediaType;
+
+  /** メディアファイルのURL配列（readonly対応） */
+  items: readonly string[];
+
+  /** プロジェクトタイトル（アクセシビリティ用） */
   projectTitle: string;
+
+  /** 追加CSSクラス名 */
   className?: string;
 }
 
+/**
+ * メディアコンテンツ表示コンポーネント
+ *
+ * @param props - コンポーネントのProps
+ * @returns JSX要素
+ */
 const MediaContent = ({
   type,
   items,
   projectTitle,
   className = '',
 }: MediaContentProps) => {
+  // Early return - 空のアイテム配列の場合
   if (!items || items.length === 0) {
     return null;
   }
 
-  const getFileName = (path: string) => {
-    return path
-      .split('/')
-      .pop()
-      ?.replace(/\.[^/.]+$/, '');
+  /**
+   * ファイルパスからファイル名を抽出
+   *
+   * @param path - ファイルパス
+   * @returns 拡張子を除いたファイル名
+   */
+  const getFileName = (path: string): string => {
+    return (
+      path
+        .split('/')
+        .pop()
+        ?.replace(/\.[^/.]+$/, '') ?? 'Unknown'
+    );
   };
 
-  const getLabel = (type: string) => {
-    switch (type) {
+  /**
+   * メディアタイプから日本語ラベルを取得
+   *
+   * @param mediaType - メディアタイプ
+   * @returns 日本語ラベル
+   */
+  const getLabel = (mediaType: string): string => {
+    switch (mediaType) {
       case 'videos':
         return '動画';
       case 'audios':
@@ -38,6 +83,7 @@ const MediaContent = ({
     }
   };
 
+  // 画像の場合のレンダリング
   if (type === 'images') {
     return (
       <div className={`grid grid-cols-1 md:grid-cols-2 gap-4 ${className}`}>
@@ -57,6 +103,7 @@ const MediaContent = ({
     );
   }
 
+  // 動画・音声の場合のレンダリング
   return (
     <div className={`space-y-6 ${className}`}>
       {items.map((item, index) => (

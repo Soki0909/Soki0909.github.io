@@ -141,15 +141,578 @@ src/
 └── assets/                  # 静的アセット
 ```
 
-### 📝 **ファイル命名規則**
+### 📝 **包括的コーディング規約**
 
-| ファイル種別     | 命名規則              | 例                   |
-| ---------------- | --------------------- | -------------------- |
-| React Component  | PascalCase.tsx        | `MediaPlayer.tsx`    |
-| Custom Hook      | camelCase.ts          | `useMediaPlayer.ts`  |
-| Utility Function | camelCase.ts          | `analytics.ts`       |
-| Type Definition  | PascalCase.ts         | `Project.ts`         |
-| Context          | PascalCaseContext.tsx | `ProjectContext.tsx` |
+### 🏷️ **ファイル・ディレクトリ命名規則**
+
+| 種別                   | 命名規則                   | 例                            | 必須接尾辞       |
+| ---------------------- | -------------------------- | ----------------------------- | ---------------- |
+| **React Component**    | PascalCase.tsx             | `MediaPlayer.tsx`             | `.tsx`           |
+| **Custom Hook**        | use + PascalCase.ts        | `useMediaPlayer.ts`           | `use*.ts`        |
+| **Context Definition** | PascalCase + Definition.ts | `ProjectContextDefinition.ts` | `*Definition.ts` |
+| **Context Provider**   | PascalCase + Context.tsx   | `ProjectContext.tsx`          | `*Context.tsx`   |
+| **Type Definition**    | PascalCase.ts              | `Project.ts`                  | `.ts`            |
+| **Utility Function**   | camelCase.ts               | `analytics.ts`                | `.ts`            |
+| **Data File**          | camelCase.json             | `projects.json`               | `.json`          |
+| **Asset Directory**    | kebab-case/                | `project-images/`             | `/`              |
+
+### 💻 **変数・関数命名規則**
+
+#### **JavaScript/TypeScript識別子**
+
+| 識別子種別               | 命名規則        | 例                    | 説明                         |
+| ------------------------ | --------------- | --------------------- | ---------------------------- |
+| **変数**                 | camelCase       | `currentProject`      | 名詞、状態を表現             |
+| **関数**                 | camelCase       | `handlePlayPause`     | 動詞で開始、アクションを表現 |
+| **定数**                 | SCREAMING_SNAKE | `MAX_FILE_SIZE`       | 大文字、アンダースコア区切り |
+| **イベントハンドラー**   | handle + Action | `handleSubmit`        | `handle`プレフィックス必須   |
+| **プライベート変数**     | \_camelCase     | `_internalState`      | アンダースコアプレフィックス |
+| **型・インターフェース** | PascalCase      | `ProjectContextState` | 大文字開始、型を明示         |
+| **Enum値**               | PascalCase      | `MediaType.Video`     | 階層的命名                   |
+
+#### **React固有命名規則**
+
+| 要素種別            | 命名規則              | 例                      | 必須パターン           |
+| ------------------- | --------------------- | ----------------------- | ---------------------- |
+| **Component**       | PascalCase            | `MediaPlayer`           | 名詞、UI要素を表現     |
+| **Props Interface** | ComponentProps        | `MediaPlayerProps`      | `{Component}Props`     |
+| **State Variable**  | [is/has/should] + Adj | `isLoading`, `hasError` | 状態フラグは真偽値命名 |
+| **Ref Variable**    | elementRef            | `videoRef`, `modalRef`  | `{element}Ref`         |
+| **Custom Hook**     | use + Feature         | `useMediaPlayer`        | `use`で開始            |
+| **Context**         | FeatureContext        | `ProjectContext`        | `{Feature}Context`     |
+
+### 🎨 **CSS・スタイリング規約**
+
+#### **Tailwind CSS使用方針**
+
+```typescript
+// ✅ 推奨: セマンティック・論理的グルーピング
+className="
+  // Layout
+  flex items-center justify-between
+  // Spacing
+  px-6 py-3 gap-4
+  // Typography
+  text-lg font-medium
+  // Colors & Visual
+  bg-blue-500 text-white
+  // Interactions
+  hover:bg-blue-600 transition-colors
+  // Responsive
+  sm:px-8 md:text-xl
+"
+
+// ✅ 推奨: 条件付きスタイル - 明確な分離
+className={`
+  base-button-styles px-6 py-3 font-medium transition-colors
+  ${isActive
+    ? 'bg-blue-500 text-white border-blue-500'
+    : 'bg-gray-100 text-gray-700 border-gray-300'
+  }
+  ${isDisabled ? 'opacity-50 cursor-not-allowed' : 'hover:opacity-90'}
+`}
+
+// ❌ 避ける: 長すぎる単一行、論理的グルーピングなし
+className="flex items-center justify-between px-6 py-3 gap-4 text-lg font-medium bg-blue-500 text-white hover:bg-blue-600 transition-colors sm:px-8 md:text-xl"
+```
+
+#### **クラス順序規則（重要度順）**
+
+1. **Layout**: `flex`, `grid`, `block`, `inline`
+2. **Positioning**: `relative`, `absolute`, `top`, `left`
+3. **Spacing**: `m-*`, `p-*`, `gap-*`, `space-*`
+4. **Sizing**: `w-*`, `h-*`, `min-*`, `max-*`
+5. **Typography**: `text-*`, `font-*`, `leading-*`
+6. **Colors**: `bg-*`, `text-*`, `border-*`
+7. **Effects**: `shadow-*`, `opacity-*`, `transform`
+8. **Interactions**: `hover:*`, `focus:*`, `active:*`
+9. **Responsive**: `sm:*`, `md:*`, `lg:*`, `xl:*`
+
+### 🏗️ **コンポーネント構造規約**
+
+#### **コンポーネントファイル構造**
+
+```typescript
+// 1. Import文（グループ化・順序固定）
+// External libraries
+import React, { useState, useEffect, useCallback } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
+
+// Internal - Types first
+import type { Project, MediaType } from '../types/project';
+
+// Internal - Hooks
+import { useMediaPlayer } from '../hooks/useMediaPlayer';
+import { useProjects } from '../hooks/useProjects';
+
+// Internal - Components
+import TabNavigation from './TabNavigation';
+import MediaContent from './MediaContent';
+
+// Internal - Utilities
+import { formatTime, validateUrl } from '../utils/media';
+
+// 2. Type definitions
+interface MediaPlayerProps {
+  project: Project;
+  autoPlay?: boolean;
+  onComplete?: () => void;
+}
+
+// 3. Constants（コンポーネント外）
+const DEFAULT_VOLUME = 0.8;
+const SUPPORTED_FORMATS = ['mp4', 'webm', 'mp3', 'wav'] as const;
+
+// 4. Main component
+export const MediaPlayer: React.FC<MediaPlayerProps> = ({
+  project,
+  autoPlay = false,
+  onComplete
+}) => {
+  // 4.1 Hooks（順序固定）
+  const navigate = useNavigate();
+  const { isPlaying, currentTime, handlePlayPause } = useMediaPlayer();
+
+  // 4.2 State（関連するものをグループ化）
+  const [volume, setVolume] = useState(DEFAULT_VOLUME);
+  const [isLoading, setIsLoading] = useState(false);
+  const [hasError, setHasError] = useState(false);
+
+  // 4.3 Computed values
+  const formattedTime = formatTime(currentTime);
+  const isVideoProject = project.demoType === 'video';
+
+  // 4.4 Event handlers
+  const handleVolumeChange = useCallback((newVolume: number) => {
+    setVolume(Math.max(0, Math.min(1, newVolume)));
+  }, []);
+
+  // 4.5 Effects
+  useEffect(() => {
+    if (autoPlay) {
+      handlePlayPause();
+    }
+  }, [autoPlay, handlePlayPause]);
+
+  // 4.6 Early returns
+  if (hasError) {
+    return <ErrorFallback onRetry={() => setHasError(false)} />;
+  }
+
+  // 4.7 Main render
+  return (
+    <div className="media-player-container">
+      {/* Component JSX */}
+    </div>
+  );
+};
+
+// 5. Default export
+export default MediaPlayer;
+```
+
+### 📋 **TypeScript型定義規約**
+
+#### **インターフェース設計原則**
+
+```typescript
+// ✅ 推奨: 明確で拡張可能な型定義
+export interface Project {
+  // Required fields - 必須フィールド（コメント付き）
+  readonly id: number; // 一意識別子、変更不可
+  title: string; // プロジェクト名
+  description: string; // 詳細説明
+  technologies: readonly string[]; // 使用技術（変更不可配列）
+
+  // Optional fields - オプションフィールド
+  videos?: readonly string[]; // 動画URL配列
+  audios?: readonly string[]; // 音声URL配列
+  images?: readonly string[]; // 画像URL配列
+  githubUrl?: string; // GitHubリポジトリURL
+  demoUrl?: string; // デモサイトURL
+
+  // Discriminated union for demo type
+  demoType?: 'external' | 'video' | 'audio' | 'interactive';
+
+  // Metadata
+  createdAt: Date; // 作成日時
+  updatedAt: Date; // 更新日時
+}
+
+// ✅ 推奨: 型安全なユニオン型
+export type MediaType = 'video' | 'audio' | 'image';
+export type ProjectStatus = 'draft' | 'published' | 'archived';
+
+// ✅ 推奨: 関数型定義
+export type ProjectFilterFunction = (projects: Project[]) => Project[];
+export type EventHandler<T = void> = (event: React.SyntheticEvent) => T;
+
+// ❌ 避ける: any型、不明確な命名
+interface BadProject {
+  data: any; // 型が不明
+  stuff: unknown[]; // 用途が不明
+  callback: Function; // 型安全性なし
+}
+```
+
+### 🎣 **Custom Hook設計規約**
+
+#### **フック命名・構造規則**
+
+```typescript
+// ✅ 推奨: 明確な責任範囲と戻り値型
+export interface UseMediaPlayerReturn {
+  // State - 状態値（readonly for immutability）
+  readonly isPlaying: boolean;
+  readonly currentTime: number;
+  readonly duration: number;
+  readonly volume: number;
+  readonly isLoading: boolean;
+  readonly hasError: boolean;
+
+  // Refs - DOM参照
+  readonly mediaRef: React.RefObject<HTMLVideoElement | HTMLAudioElement>;
+
+  // Actions - アクション関数
+  readonly play: () => Promise<void>;
+  readonly pause: () => void;
+  readonly seek: (time: number) => void;
+  readonly setVolume: (volume: number) => void;
+  readonly reset: () => void;
+
+  // Utilities - ユーティリティ関数
+  readonly formatTime: (time: number) => string;
+  readonly getProgress: () => number;
+}
+
+export const useMediaPlayer = (
+  initialVolume: number = 0.8
+): UseMediaPlayerReturn => {
+  // フック内の実装...
+
+  // 戻り値は型安全性とimmutabilityを保証
+  return {
+    // State
+    isPlaying,
+    currentTime,
+    duration,
+    volume,
+    isLoading,
+    hasError,
+
+    // Refs
+    mediaRef,
+
+    // Actions
+    play,
+    pause,
+    seek,
+    setVolume: handleVolumeChange,
+    reset: handleReset,
+
+    // Utilities
+    formatTime,
+    getProgress,
+  } as const; // as constで型を固定
+};
+```
+
+### 🔍 **エラーハンドリング規約**
+
+#### **エラー処理パターン**
+
+```typescript
+// ✅ 推奨: 段階的エラーハンドリング
+export const LazyImage: React.FC<LazyImageProps> = ({
+  src,
+  alt,
+  fallbackSrc,
+  showRetryButton = false,
+  onError
+}) => {
+  const [loadState, setLoadState] = useState<'loading' | 'loaded' | 'error'>('loading');
+  const [retryCount, setRetryCount] = useState(0);
+
+  const handleImageError = useCallback((error: React.SyntheticEvent<HTMLImageElement>) => {
+    console.error(`Image load failed: ${src}`, error);
+    setLoadState('error');
+    onError?.(error);
+  }, [src, onError]);
+
+  const handleRetry = useCallback(() => {
+    if (retryCount < MAX_RETRY_COUNT) {
+      setRetryCount(prev => prev + 1);
+      setLoadState('loading');
+    }
+  }, [retryCount]);
+
+  // エラー状態の段階的表示
+  if (loadState === 'error') {
+    return (
+      <div className="error-container">
+        {fallbackSrc ? (
+          <img src={fallbackSrc} alt={alt} />
+        ) : (
+          <div className="error-placeholder">
+            <ErrorIcon />
+            <span>画像を読み込めませんでした</span>
+            {showRetryButton && retryCount < MAX_RETRY_COUNT && (
+              <button onClick={handleRetry}>再試行</button>
+            )}
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // 正常状態
+  return (
+    <img
+      src={src}
+      alt={alt}
+      onError={handleImageError}
+      onLoad={() => setLoadState('loaded')}
+    />
+  );
+};
+```
+
+### 📊 **パフォーマンス規約**
+
+#### **最適化必須項目**
+
+```typescript
+// ✅ 推奨: メモ化とコールバック最適化
+export const ProjectList: React.FC<ProjectListProps> = ({ projects, onProjectSelect }) => {
+  // 高コストな計算はuseMemoで最適化
+  const sortedProjects = useMemo(() => {
+    return projects
+      .filter(project => project.status === 'published')
+      .sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+  }, [projects]);
+
+  // イベントハンドラーはuseCallbackで最適化
+  const handleProjectClick = useCallback((projectId: number) => {
+    const project = projects.find(p => p.id === projectId);
+    if (project) {
+      onProjectSelect(project);
+    }
+  }, [projects, onProjectSelect]);
+
+  return (
+    <div className="project-list">
+      {sortedProjects.map(project => (
+        <ProjectCard
+          key={project.id}
+          project={project}
+          onClick={() => handleProjectClick(project.id)}
+        />
+      ))}
+    </div>
+  );
+};
+
+// ✅ 推奨: React.memoでの不要再レンダリング防止
+export const ProjectCard = React.memo<ProjectCardProps>(({ project, onClick }) => {
+  return (
+    <div className="project-card" onClick={onClick}>
+      <h3>{project.title}</h3>
+      <p>{project.description}</p>
+    </div>
+  );
+});
+
+ProjectCard.displayName = 'ProjectCard';
+```
+
+### 🔒 **品質保証規約**
+
+#### **コミット前必須チェックリスト**
+
+```bash
+# 自動チェック（必須実行）
+npm run format    # ✅ Prettier - コード整形
+npm run lint      # ✅ ESLint - 品質検査
+npm run build     # ✅ TypeScript - 型検査・ビルド
+
+# 手動チェック（確認必須）
+✅ すべてのimport文が整理されている
+✅ 未使用の変数・import がない
+✅ console.log等のデバッグコードが残っていない
+✅ TODO/FIXMEコメントが適切に管理されている
+✅ 型定義にany型を使用していない
+✅ エラーハンドリングが適切に実装されている
+✅ パフォーマンスに影響する変更がある場合、最適化を検討
+✅ アクセシビリティ要件を満たしている
+```
+
+#### **禁止事項（絶対回避）**
+
+```typescript
+// 🚫 禁止: any型の使用
+const data: any = fetchData();
+
+// ✅ 推奨: 適切な型定義
+const data: Project[] = fetchData();
+
+// 🚫 禁止: 長すぎる関数（50行超過）
+const handleEverything = () => {
+  // 100+ lines of mixed logic...
+};
+
+// ✅ 推奨: 単一責任・短い関数
+const handleSubmit = () => {
+  /* ... */
+};
+const validateForm = () => {
+  /* ... */
+};
+
+// 🚫 禁止: 深いネスト（3層超過）
+if (user) {
+  if (user.profile) {
+    if (user.profile.settings) {
+      // 深すぎるネスト
+    }
+  }
+}
+
+// ✅ 推奨: Early return・Optional chaining
+if (!user?.profile?.settings) return;
+// メインロジック
+
+// 🚫 禁止: 直接DOM操作
+document.getElementById('modal').style.display = 'block';
+
+// ✅ 推奨: React状態管理
+const [isModalOpen, setIsModalOpen] = useState(false);
+```
+
+### 🎯 **アクセシビリティ規約**
+
+#### **必須実装項目**
+
+```typescript
+// ✅ 推奨: セマンティックHTML + ARIA
+export const MediaPlayer: React.FC<MediaPlayerProps> = ({ project }) => {
+  return (
+    <section
+      aria-labelledby="media-title"
+      role="region"
+    >
+      <h2 id="media-title">{project.title}</h2>
+
+      <button
+        aria-label={`${isPlaying ? '一時停止' : '再生'}: ${project.title}`}
+        aria-pressed={isPlaying}
+        onClick={handlePlayPause}
+      >
+        {isPlaying ? <PauseIcon /> : <PlayIcon />}
+      </button>
+
+      <input
+        type="range"
+        min="0"
+        max="100"
+        value={volume * 100}
+        onChange={handleVolumeChange}
+        aria-label="音量調整"
+        aria-valuetext={`音量 ${Math.round(volume * 100)}%`}
+      />
+    </section>
+  );
+};
+```
+
+#### **キーボード操作サポート**
+
+```typescript
+// ✅ 推奨: キーボードナビゲーション
+const handleKeyDown = useCallback(
+  (event: React.KeyboardEvent) => {
+    switch (event.key) {
+      case ' ':
+      case 'Enter':
+        event.preventDefault();
+        handlePlayPause();
+        break;
+      case 'ArrowRight':
+        seek(currentTime + 10);
+        break;
+      case 'ArrowLeft':
+        seek(currentTime - 10);
+        break;
+      case 'ArrowUp':
+        setVolume(Math.min(1, volume + 0.1));
+        break;
+      case 'ArrowDown':
+        setVolume(Math.max(0, volume - 0.1));
+        break;
+    }
+  },
+  [currentTime, volume, handlePlayPause, seek, setVolume]
+);
+```
+
+---
+
+````
+
+### 🧪 **コメント・ドキュメント規約**
+
+#### **JSDocコメント規則**
+
+```typescript
+/**
+ * メディアプレイヤーの状態を管理するカスタムフック
+ *
+ * @description
+ * 動画・音声ファイルの再生、一時停止、シーク、音量調整などの
+ * メディア制御機能を提供します。エラーハンドリングと
+ * パフォーマンス最適化が組み込まれています。
+ *
+ * @param initialVolume - 初期音量（0.0 - 1.0）
+ * @returns メディア制御のための状態と関数群
+ *
+ * @example
+ * ```typescript
+ * const { isPlaying, play, pause, seek } = useMediaPlayer(0.8);
+ *
+ * // 再生開始
+ * await play();
+ *
+ * // 30秒の位置にシーク
+ * seek(30);
+ * ```
+ *
+ * @see {@link UseMediaPlayerReturn} 戻り値の型定義
+ * @since v1.0.0
+ */
+export const useMediaPlayer = (initialVolume: number = 0.8): UseMediaPlayerReturn => {
+  // 実装...
+};
+
+/**
+ * プロジェクト情報を表すインターフェース
+ *
+ * @interface Project
+ * @description ポートフォリオサイトで表示するプロジェクトの
+ * 全情報を含む型定義です。
+ */
+export interface Project {
+  /** プロジェクトの一意識別子（変更不可） */
+  readonly id: number;
+
+  /** プロジェクト名（必須） */
+  title: string;
+
+  /** プロジェクトの詳細説明 */
+  description: string;
+
+  /** 使用技術の配列（変更不可） */
+  technologies: readonly string[];
+}
+````
 
 ---
 
