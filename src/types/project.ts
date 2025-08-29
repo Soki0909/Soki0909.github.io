@@ -10,4 +10,8 @@ export interface Project {
   demo: string;
   challenges: string[];
   learned: string[];
+  // メディアファイル用の新しいフィールド
+  videos?: string[];
+  audios?: string[];
+  demoType?: 'external' | 'video' | 'audio' | 'interactive';
 }

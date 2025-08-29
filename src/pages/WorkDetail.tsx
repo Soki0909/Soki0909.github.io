@@ -1,9 +1,12 @@
 import { useParams, Link } from 'react-router-dom';
+import { useState } from 'react';
 import { getProjectById } from '../utils/projects';
 import LazyImage from '../components/LazyImage';
+import DemoModal from '../components/DemoModal';
 
 const WorkDetail = () => {
   const { id } = useParams<{ id: string }>();
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const project = getProjectById(Number(id));
 
   if (!project) {
@@ -55,14 +58,33 @@ const WorkDetail = () => {
           >
             GitHub で見る
           </a>
-          <a
-            href={project.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
-          >
-            デモを見る
-          </a>
+
+          {/* デモボタン - 動画/音声がある場合はモーダル、ない場合は外部リンク */}
+          {(project.videos && project.videos.length > 0) ||
+          (project.audios && project.audios.length > 0) ? (
+            <button
+              onClick={() => setIsDemoModalOpen(true)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+            >
+              🎬 デモを見る
+            </button>
+          ) : project.demo !== '#' ? (
+            <a
+              href={project.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+            >
+              デモを見る
+            </a>
+          ) : (
+            <button
+              onClick={() => setIsDemoModalOpen(true)}
+              className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors"
+            >
+              📱 プロジェクト詳細
+            </button>
+          )}
         </div>
       </header>
 
@@ -122,6 +144,13 @@ const WorkDetail = () => {
           </div>
         </div>
       </section>
+
+      {/* デモモーダル */}
+      <DemoModal
+        project={project}
+        isOpen={isDemoModalOpen}
+        onClose={() => setIsDemoModalOpen(false)}
+      />
     </div>
   );
 };

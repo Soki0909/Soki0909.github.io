@@ -22,6 +22,9 @@
     "image": "/images/projects/sleep-buster/main.jpg",
     "github": "https://github.com/Saisei2004/WILDCARD",
     "demo": "#",
+    "demoType": "video",
+    "videos": ["/media/videos/system_demo.mp4"],
+    "audios": [],
     "challenges": [
       "WebRTCのP2P通信を活用したリアルタイム映像配信システムの実装",
       "Firebaseによる複数端末間のリアルタイム状態同期の実現",
@@ -57,6 +60,7 @@
     "image": "/images/projects/portfolio/main.jpg",
     "github": "https://github.com/Soki0909/Soki0909.github.io",
     "demo": "https://soki0909.github.io/",
+    "demoType": "external",
     "challenges": [
       "Tailwind CSS v4の新しい設定方法への対応",
       "TypeScriptとReact 19の最新機能の活用",
