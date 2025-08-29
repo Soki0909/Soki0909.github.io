@@ -56,7 +56,7 @@ const LazyImage = ({
   const handleRetry = () => {
     setHasError(false);
     setIsLoaded(false);
-    setRetryCount(prev => prev + 1);
+    setRetryCount((prev) => prev + 1);
     // 強制的に画像を再読み込み
     if (imgRef.current) {
       imgRef.current.src = `${src}?retry=${retryCount + 1}`;
@@ -79,7 +79,7 @@ const LazyImage = ({
     <div className={`relative overflow-hidden ${className}`}>
       <img
         ref={imgRef}
-        src={hasError ? createErrorPlaceholder() : (isInView ? src : placeholder)}
+        src={hasError ? createErrorPlaceholder() : isInView ? src : placeholder}
         alt={alt}
         className={`w-full h-full object-cover transition-opacity duration-300 ${
           isLoaded ? 'opacity-100' : 'opacity-50'
