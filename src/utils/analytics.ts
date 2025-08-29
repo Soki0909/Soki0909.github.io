@@ -38,7 +38,10 @@ export const trackPageView = (path: string) => {
 };
 
 // カスタムイベントの追跡
-export const trackEvent = (eventName: string, parameters?: Record<string, string | number | boolean>) => {
+export const trackEvent = (
+  eventName: string,
+  parameters?: Record<string, string | number | boolean>
+) => {
   if (typeof window.gtag !== 'undefined') {
     window.gtag('event', eventName, parameters);
   }
@@ -59,7 +62,11 @@ export const useGoogleAnalytics = () => {
 // TypeScript declaration for gtag
 declare global {
   interface Window {
-    gtag: (command: 'config' | 'event' | 'js', targetId: string | Date, parameters?: Record<string, unknown>) => void;
+    gtag: (
+      command: 'config' | 'event' | 'js',
+      targetId: string | Date,
+      parameters?: Record<string, unknown>
+    ) => void;
     dataLayer: unknown[];
   }
 }
