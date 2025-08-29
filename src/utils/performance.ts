@@ -2,16 +2,27 @@
  * パフォーマンス計測ユーティリティ
  */
 
+// Layout Shift Entry の型定義
+interface LayoutShiftEntry extends PerformanceEntry {
+  value: number;
+  hadRecentInput: boolean;
+}
+
+// First Input Entry の型定義
+interface FirstInputEntry extends PerformanceEntry {
+  processingStart: number;
+}
+
 // Core Web Vitals の計測
 export const measureCLS = () => {
   return new Promise((resolve) => {
     let clsValue = 0;
-    let clsEntries: PerformanceEntry[] = [];
+    const clsEntries: PerformanceEntry[] = [];
 
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
         // Layout Shift エントリの型キャスト
-        const layoutShiftEntry = entry as any;
+        const layoutShiftEntry = entry as LayoutShiftEntry;
         if (!layoutShiftEntry.hadRecentInput) {
           clsValue += layoutShiftEntry.value;
           clsEntries.push(entry);
@@ -68,8 +79,9 @@ export const measureFID = () => {
   return new Promise((resolve) => {
     const observer = new PerformanceObserver((list) => {
       for (const entry of list.getEntries()) {
+        const firstInputEntry = entry as FirstInputEntry;
         observer.disconnect();
-        resolve((entry as any).processingStart - entry.startTime);
+        resolve(firstInputEntry.processingStart - entry.startTime);
       }
     });
 
