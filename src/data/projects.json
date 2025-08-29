@@ -1,6 +1,44 @@
 [
   {
     "id": 1,
+    "title": "Sleep Buster - チーム開発ハッカソンプロジェクト",
+    "description": "Hackit 2025最優秀賞受賞 - 友人と繋がる革新的なAndroidアラームアプリ",
+    "longDescription": "Sleep Busterは、金沢工業大学のハッカソン「Hackit 2025」で最優秀賞を受賞したチーム開発プロジェクトです。「みんなの朝を『つなぐ』アプリ」というコンセプトで、友人同士が遠隔操作ロボットを使って物理的に起こしあう革新的なアラームアプリケーションを開発しました。\n\n私の担当・貢献：\n• チームリーダーとしてプロジェクト全体の進行管理と技術選定\n• AndroidアプリケーションにおけるWebRTC実装の技術的リード\n• SkyWay WebRTCを使用したP2Pリアルタイム映像通信システムの構築\n• Firebaseを活用したリアルタイム状態管理システムの設計\n\n技術的成果：\n• WebRTCによる低遅延P2P映像配信の実装\n• 複数端末間でのリアルタイム状態同期\n• Android → EV3ロボットのシームレス遠隔制御\n• MVVM + Repository Patternによる保守性の高い設計\n\n3日間の集中開発で完動するプロトタイプを完成させ、ハードウェアとソフトウェアの完全統合を実現しました。",
+    "technologies": [
+      "Kotlin",
+      "Jetpack Compose",
+      "WebRTC",
+      "SkyWay",
+      "Firebase",
+      "Bluetooth",
+      "LEGO MINDSTORMS EV3",
+      "Material Design 3"
+    ],
+    "images": [
+      "https://via.placeholder.com/800x600?text=Sleep+Buster+Main",
+      "https://via.placeholder.com/800x600?text=Robot+Control",
+      "https://via.placeholder.com/800x600?text=WebRTC+Video"
+    ],
+    "image": "https://via.placeholder.com/300x200",
+    "github": "https://github.com/Saisei2004/WILDCARD",
+    "demo": "#",
+    "challenges": [
+      "WebRTCのP2P通信を活用したリアルタイム映像配信システムの実装",
+      "Firebaseによる複数端末間のリアルタイム状態同期の実現",
+      "Android端末からEV3ロボットへの安定した制御信号送信",
+      "3日間という短期間でのハードウェア・ソフトウェア統合開発",
+      "チームリーダーとしての技術選定とプロジェクト進行管理"
+    ],
+    "learned": [
+      "WebRTC技術を使ったP2P通信の実装方法",
+      "リアルタイム通信におけるパフォーマンス最適化",
+      "チーム開発でのリーダーシップとプロジェクトマネジメント",
+      "ハッカソンでの短期集中開発手法",
+      "ハードウェアとソフトウェアの連携システム設計"
+    ]
+  },
+  {
+    "id": 2,
     "title": "久米蒼輝のポートフォリオサイト",
     "description": "React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト",
     "longDescription": "久米蒼輝のポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。\n\n主な特徴：\n• React 19とTypeScriptによる型安全な開発\n• Tailwind CSS v4による効率的なスタイリング\n• Viteによる高速な開発体験\n• React Routerによるクライアントサイドルーティング\n• ESLintとPrettierによるコード品質の担保\n• GitHub Actions CI/CDによる自動デプロイ\n• Google Analytics 4によるアクセス解析\n\nこのプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、パフォーマンスを重視したWebアプリケーションの構築方法を学びました。",
@@ -31,7 +69,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "タスク管理アプリ",
     "description": "React Hooksを活用したシンプルなタスク管理アプリケーション",
     "longDescription": "このタスク管理アプリは、React Hooksを中心とした状態管理と、ローカルストレージを活用したデータ永続化を実装したアプリケーションです。\n\n主な機能：\n• タスクの追加、編集、削除\n• タスクの完了状態の管理\n• ローカルストレージによるデータ永続化\n• レスポンシブデザイン\n• ダークモード対応\n\nReact HooksのuseState、useEffect、useContextを活用し、効率的な状態管理パターンを学習しました。",
