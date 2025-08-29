@@ -105,16 +105,19 @@ Google Analytics 4を使用してアクセス解析を実装：
 3. 以下のいずれかの方法で設定：
 
 #### 方法A: 環境変数で設定（推奨）
+
 ```bash
 # .env.production ファイルを作成
 echo "VITE_GA_MEASUREMENT_ID=G-YOUR-MEASUREMENT-ID" > .env.production
 ```
 
 #### 方法B: GitHubリポジトリのSecretsで設定
+
 1. GitHub リポジトリ → Settings → Secrets and variables → Actions
 2. `VITE_GA_MEASUREMENT_ID` に測定IDを設定
 
 #### 方法C: 直接コードに設定
+
 `src/utils/analytics.ts` の `GA_MEASUREMENT_ID` を直接変更
 
 ## 🎨 特徴
