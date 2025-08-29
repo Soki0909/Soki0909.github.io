@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getProjectById } from '../utils/projects';
+import LazyImage from '../components/LazyImage';
 
 const WorkDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -70,7 +71,7 @@ const WorkDetail = () => {
         <h2 className="text-2xl font-semibold mb-4">スクリーンショット</h2>
         <div className="grid gap-4">
           {project.images.map((image, index) => (
-            <img
+            <LazyImage
               key={index}
               src={image}
               alt={`${project.title} screenshot ${index + 1}`}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getAllProjects, getAllTechnologies } from '../utils/projects';
+import LazyImage from '../components/LazyImage';
 
 const Works = () => {
   const allProjects = getAllProjects();
@@ -67,10 +68,10 @@ const Works = () => {
               key={project.id}
               className="bg-white rounded-lg shadow-md overflow-hidden"
             >
-              <img
+              <LazyImage
                 src={project.image}
                 alt={project.title}
-                className="w-full h-48 object-cover"
+                className="w-full h-48"
               />
               <div className="p-6">
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
