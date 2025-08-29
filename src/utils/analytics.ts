@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 
-// Google Analytics 4の測定ID（実際の値に置き換えてください）
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // TODO: 実際のIDに置き換える
+// Google Analytics 4の測定ID
+const GA_MEASUREMENT_ID = import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
 
 // Google Analytics 4の初期化
 export const initGA = () => {
