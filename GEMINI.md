@@ -1,6 +1,21 @@
 # ポートフォリオサイト開発プロジェクト - アーキテクチャ設計書
 
-## 📋 目次
+## � **最重要事項 - 必読**
+
+**すべてのコミット前に以下3つのコマンドを必ず実行すること:**
+
+```bash
+npm run format  # コード整形
+npm run lint    # 品質検査
+npm run build   # ビルド確認
+```
+
+**これらを実行せずにコミットすることは絶対に禁止です。**
+
+---
+
+## �📋 目次
+
 1. [プロジェクト概要](#1-プロジェクト概要)
 2. [技術スタック](#2-技術スタック)
 3. [アーキテクチャ設計思想](#3-アーキテクチャ設計思想)
@@ -62,22 +77,27 @@
 ### 🎯 **5つの核となる設計原則**
 
 #### **1. 単一責任原則 (Single Responsibility Principle)**
+
 - 各コンポーネント・フック・ユーティリティは**1つの明確な責任**のみを持つ
 - 例: `TabNavigation.tsx` → タブUIのみ、`useMediaPlayer.ts` → メディア制御のみ
 
 #### **2. 関心の分離 (Separation of Concerns)**
+
 - UI表示・状態管理・データ処理・副作用を**明確に分離**
 - コンポーネントは表示に集中、フックはロジックに集中
 
 #### **3. 合成優先 (Composition over Inheritance)**
+
 - 小さな部品を組み合わせて複雑なUIを構築
 - 例: `DemoModal = ModalHeader + TabNavigation + MediaContent + ModalFooter`
 
 #### **4. 依存関係逆転 (Dependency Inversion)**
+
 - 上位層は下位層の**抽象（型・インターフェース）**に依存
 - 具象実装への直接依存を避ける
 
 #### **5. パフォーマンス第一 (Performance-First)**
+
 - 初期表示速度とCore Web Vitalsを最優先
 - Code Splitting、Lazy Loading、最適化された状態管理
 
@@ -93,7 +113,7 @@ src/
 │   └── ProjectContext.tsx    # プロジェクトデータの状態管理
 ├── pages/                    # ページコンポーネント
 │   ├── Home.tsx             # トップページ
-│   ├── About.tsx            # プロフィールページ  
+│   ├── About.tsx            # プロフィールページ
 │   ├── Works.tsx            # 実績一覧ページ
 │   ├── WorkDetail.tsx       # 実績詳細ページ
 │   └── Contact.tsx          # コンタクトページ
@@ -123,13 +143,13 @@ src/
 
 ### 📝 **ファイル命名規則**
 
-| ファイル種別 | 命名規則 | 例 |
-|-------------|---------|-----|
-| React Component | PascalCase.tsx | `MediaPlayer.tsx` |
-| Custom Hook | camelCase.ts | `useMediaPlayer.ts` |
-| Utility Function | camelCase.ts | `analytics.ts` |
-| Type Definition | PascalCase.ts | `Project.ts` |
-| Context | PascalCaseContext.tsx | `ProjectContext.tsx` |
+| ファイル種別     | 命名規則              | 例                   |
+| ---------------- | --------------------- | -------------------- |
+| React Component  | PascalCase.tsx        | `MediaPlayer.tsx`    |
+| Custom Hook      | camelCase.ts          | `useMediaPlayer.ts`  |
+| Utility Function | camelCase.ts          | `analytics.ts`       |
+| Type Definition  | PascalCase.ts         | `Project.ts`         |
+| Context          | PascalCaseContext.tsx | `ProjectContext.tsx` |
 
 ---
 
@@ -138,13 +158,14 @@ src/
 ### 🎯 **コンポーネント設計**
 
 #### **Props設計の原則**
+
 ```typescript
 // ✅ 推奨: 明確で型安全なProps
 interface TabNavigationProps {
-  tabs: TabItem[];              // 配列は具体的な型で
-  activeTab: string;            // 状態は明示的に
-  onTabChange: (key: string) => void;  // コールバックは明確に
-  className?: string;           // オプションは?で明示
+  tabs: TabItem[]; // 配列は具体的な型で
+  activeTab: string; // 状態は明示的に
+  onTabChange: (key: string) => void; // コールバックは明確に
+  className?: string; // オプションは?で明示
 }
 
 // ❌ 避ける: 曖昧な型
@@ -156,12 +177,15 @@ interface BadProps {
 ```
 
 #### **状態管理の階層**
+
 ```typescript
 // 1. Global State (Context) - アプリ全体で必要
 const ProjectContext = createContext<ProjectContextState>();
 
 // 2. Component State (Custom Hook) - コンポーネント群で共有
-const useMediaPlayer = () => { /* ... */ };
+const useMediaPlayer = () => {
+  /* ... */
+};
 
 // 3. Local State (useState) - 単一コンポーネント内
 const [isModalOpen, setIsModalOpen] = useState(false);
@@ -170,6 +194,7 @@ const [isModalOpen, setIsModalOpen] = useState(false);
 ### 🎣 **Custom Hook設計**
 
 #### **フックの責任分離**
+
 ```typescript
 // ✅ 推奨: 単一の責任
 export const useMediaPlayer = () => {
@@ -189,13 +214,14 @@ export const useEverything = () => {
 ```
 
 #### **フックの戻り値設計**
+
 ```typescript
 // ✅ 推奨: 構造化された戻り値
 export interface UseMediaPlayerReturn {
   // State
   isPlaying: boolean;
   currentTime: number;
-  // Refs  
+  // Refs
   mediaRef: React.RefObject<HTMLVideoElement>;
   // Handlers
   handlePlayPause: () => void;
@@ -207,6 +233,7 @@ export interface UseMediaPlayerReturn {
 ### 🧩 **Component Composition Pattern**
 
 #### **合成設計の実例**
+
 ```typescript
 // ✅ 推奨: 小さな部品の合成
 const DemoModal = ({ project, isOpen, onClose }) => (
@@ -227,13 +254,14 @@ const GiantModal = () => {
 ### 🎨 **スタイリング規則**
 
 #### **Tailwind CSS使用方針**
+
 ```typescript
 // ✅ 推奨: セマンティッククラス名
 className="px-6 py-3 font-medium transition-colors"
 
 // ✅ 推奨: 条件付きスタイル
 className={`px-6 py-3 ${
-  isActive 
+  isActive
     ? 'border-b-2 border-blue-500 text-blue-600'
     : 'text-gray-600 hover:text-gray-900'
 }`}
@@ -255,22 +283,25 @@ const Works = lazy(() => import('./pages/Works'));
 const WorkDetail = lazy(() => import('./pages/WorkDetail'));
 
 // 重要: レイアウトコンポーネントは直接インポート
-import Header from './components/Header';  // 即座に表示
-import Footer from './components/Footer';  // 即座に表示
+import Header from './components/Header'; // 即座に表示
+import Footer from './components/Footer'; // 即座に表示
 ```
 
 ### 🖼️ **画像最適化**
 
 ```typescript
 // LazyImage.tsx - Intersection Observer使用
-const observer = new IntersectionObserver((entries) => {
-  if (entry.isIntersecting) {
-    setIsInView(true);  // ビューポートに入ったら読み込み開始
+const observer = new IntersectionObserver(
+  (entries) => {
+    if (entry.isIntersecting) {
+      setIsInView(true); // ビューポートに入ったら読み込み開始
+    }
+  },
+  {
+    threshold: 0.1,
+    rootMargin: '50px', // 50px手前から読み込み開始
   }
-}, {
-  threshold: 0.1,
-  rootMargin: '50px',  // 50px手前から読み込み開始
-});
+);
 ```
 
 ### 📊 **状態管理最適化**
@@ -279,7 +310,7 @@ const observer = new IntersectionObserver((entries) => {
 // ProjectContext.tsx - データの効率的管理
 const getFilteredProjects = useCallback((): Project[] => {
   if (!selectedTechnology) return projects;
-  return projects.filter(project =>
+  return projects.filter((project) =>
     project.technologies.includes(selectedTechnology)
   );
 }, [projects, selectedTechnology]);
@@ -298,9 +329,9 @@ export interface Project {
   title: string;
   description: string;
   technologies: string[];
-  videos?: string[];     // オプショナルは明示的に
+  videos?: string[]; // オプショナルは明示的に
   audios?: string[];
-  demoType?: 'external' | 'video' | 'audio' | 'interactive';  // Union型
+  demoType?: 'external' | 'video' | 'audio' | 'interactive'; // Union型
 }
 
 // ❌ 避ける: any型の使用
@@ -333,18 +364,21 @@ const handleError = () => {
 ### 🚀 **機能拡張ガイドライン**
 
 #### **新しいページ追加時**
+
 1. `src/pages/NewPage.tsx` 作成
 2. 必要に応じてContext状態を拡張
 3. `App.tsx`にルート追加
 4. Lazy Loadingを適用
 
 #### **新しいコンポーネント追加時**
+
 1. 単一責任を確認
 2. 再利用可能性を考慮
 3. 適切なProps型定義
 4. Tailwind CSSでスタイリング
 
 #### **新しいフック追加時**
+
 1. 明確な責任範囲を定義
 2. 戻り値インターフェースを設計
 3. テスタビリティを考慮
@@ -354,14 +388,28 @@ const handleError = () => {
 
 ```typescript
 // Phase 1: 現在 - 基本的なContext + Custom Hooks
-ProjectContext + useMediaPlayer + useModal
+ProjectContext + useMediaPlayer + useModal;
 
 // Phase 2: 状態管理ライブラリ導入検討
 // 複雑性が増した場合のみZustand/Jotai検討
+// 判断基準: Context が 3つ以上 または 状態が10個以上
 
 // Phase 3: サーバーサイド機能
 // 必要に応じてNext.js移行検討
+// CMS連携、認証機能、SEO最適化が必要になった場合
 ```
+
+### 🚨 **重要: すべての変更前に必須実行**
+
+**以下の3コマンドは絶対に忘れずに実行すること:**
+
+```bash
+npm run format  # コード整形（必須）
+npm run lint    # 品質検査（必須）
+npm run build   # ビルド確認（必須）
+```
+
+**これらを実行せずにコミットすることは絶対に禁止です。**
 
 ### 📈 **パフォーマンス監視**
 
@@ -379,6 +427,7 @@ export const measureWebVitals = () => {
 ## 🔄 **開発フロー**
 
 ### **1. 機能開発**
+
 ```bash
 # 1. 機能ブランチ作成
 git checkout -b feature/new-component
@@ -387,9 +436,10 @@ git checkout -b feature/new-component
 npm run dev
 npm run build  # ビルド確認
 
-# 3. 品質チェック
-npm run lint
-npm run format
+# 3. 品質チェック（必須・絶対実行）
+npm run format  # ⚠️ 必須: コード整形
+npm run lint    # ⚠️ 必須: リント検査
+npm run build   # ⚠️ 必須: ビルド確認
 
 # 4. コミット・プッシュ
 git add .
@@ -397,15 +447,37 @@ git commit -m "feat: add new component with proper architecture"
 git push origin feature/new-component
 ```
 
-### **2. 品質担保**
+### **2. 品質担保（絶対遵守事項）**
+
+#### **🚨 コミット前必須チェック - 例外なし実行**
+
 ```bash
-# 必須チェック項目
+# この3つのコマンドは絶対に実行すること
+npm run format  # Prettierによるコード整形
+npm run lint    # ESLintによる品質検査
+npm run build   # TypeScript + Viteビルド確認
+
+# エラーが1つでもあればコミット禁止
+# 警告もすべて解決してからコミット
+```
+
+#### **✅ 必須チェック項目**
+
+```bash
+✅ npm run format 実行済み（コードフォーマット）
+✅ npm run lint 実行済み（警告・エラーゼロ）
+✅ npm run build 実行済み（ビルド成功）
 ✅ TypeScript型エラーなし
-✅ ESLint警告なし  
-✅ ビルド成功
 ✅ アーキテクチャ原則遵守
 ✅ パフォーマンス影響確認
 ```
+
+#### **🔴 コミット禁止条件**
+
+- `npm run lint` でエラー・警告が出力される
+- `npm run build` が失敗する
+- TypeScript型エラーが存在する
+- フォーマットが未実行（`npm run format`）
 
 ---
 
@@ -425,25 +497,39 @@ test: テスト追加・修正
 
 ## ⚠️ **重要な留意点**
 
-### **🚫 避けるべきアンチパターン**
+### **� 絶対遵守事項（例外なし）**
+
+#### **コミット前必須三原則**
+
+```bash
+1. npm run format  # 必須実行
+2. npm run lint    # 必須実行
+3. npm run build   # 必須実行
+```
+
+**この3つを実行せずにコミットは絶対禁止**
+
+### **�🚫 避けるべきアンチパターン**
 
 1. **God Component**: 100行を超える巨大コンポーネント
 2. **Prop Drilling**: 3層以上のプロパティ渡し
 3. **Mixed Concerns**: UI + ビジネスロジック + データ処理が混在
 4. **Any型濫用**: 型安全性の放棄
 5. **直接DOM操作**: Reactパターンを無視したjQuery的操作
+6. **品質チェック未実行**: format/lint/build を飛ばしたコミット
 
 ### **✅ 守るべき品質基準**
 
-1. **型安全性**: すべての変数・関数に適切な型定義
-2. **パフォーマンス**: Core Web Vitals基準クリア
-3. **再利用性**: コンポーネント・フックの汎用性
-4. **保守性**: 明確な責任分離と依存関係
-5. **一貫性**: 命名規則・アーキテクチャパターンの統一
+1. **品質チェック**: 毎回必ず format → lint → build 実行
+2. **型安全性**: すべての変数・関数に適切な型定義
+3. **パフォーマンス**: Core Web Vitals基準クリア
+4. **再利用性**: コンポーネント・フックの汎用性
+5. **保守性**: 明確な責任分離と依存関係
+6. **一貫性**: 命名規則・アーキテクチャパターンの統一
 
 ---
 
-*このアーキテクチャ設計書は、今後の開発でも一貫した品質と保守性を確保するためのガイドラインです。新しい機能追加・改修時は必ずこの指針に従って開発を進めてください。*
+_このアーキテクチャ設計書は、今後の開発でも一貫した品質と保守性を確保するためのガイドラインです。新しい機能追加・改修時は必ずこの指針に従って開発を進めてください。_
 
 ---
 

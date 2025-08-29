@@ -5,6 +5,9 @@ import { useEffect, Suspense, lazy } from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 
+// Import contexts
+import { ProjectProvider } from './contexts/ProjectContext';
+
 // Import analytics
 import { initGA, useGoogleAnalytics } from './utils/analytics';
 
@@ -28,21 +31,23 @@ const AppLayout = () => {
   useGoogleAnalytics();
 
   return (
-    <div className="min-h-screen bg-gray-100 text-gray-800">
-      <Header />
-      <main className="container mx-auto px-4 sm:px-6 py-6 lg:py-8">
-        <Suspense fallback={<LoadingSpinner />}>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/works" element={<Works />} />
-            <Route path="/works/:id" element={<WorkDetail />} />
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Suspense>
-      </main>
-      <Footer />
-    </div>
+    <ProjectProvider>
+      <div className="min-h-screen bg-gray-100 text-gray-800">
+        <Header />
+        <main className="container mx-auto px-4 sm:px-6 py-6 lg:py-8">
+          <Suspense fallback={<LoadingSpinner />}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/works" element={<Works />} />
+              <Route path="/works/:id" element={<WorkDetail />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Suspense>
+        </main>
+        <Footer />
+      </div>
+    </ProjectProvider>
   );
 };
 

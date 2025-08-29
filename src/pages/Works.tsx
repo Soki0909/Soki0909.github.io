@@ -1,19 +1,20 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { getAllProjects, getAllTechnologies } from '../utils/projects';
+import { useProjects, useFilteredProjects } from '../hooks/useProjects';
 import LazyImage from '../components/LazyImage';
 
 const Works = () => {
-  const allProjects = getAllProjects();
-  const allTechnologies = getAllTechnologies();
-  const [selectedTechnology, setSelectedTechnology] = useState<string>('');
+  const { technologies, selectedTechnology, setSelectedTechnology, isLoading } =
+    useProjects();
 
-  // フィルタリングされたプロジェクト
-  const filteredProjects = selectedTechnology
-    ? allProjects.filter((project) =>
-        project.technologies.includes(selectedTechnology)
-      )
-    : allProjects;
+  const filteredProjects = useFilteredProjects();
+
+  if (isLoading) {
+    return (
+      <div className="flex items-center justify-center py-12">
+        <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
+      </div>
+    );
+  }
 
   return (
     <div className="space-y-8">
@@ -37,7 +38,7 @@ const Works = () => {
             >
               すべて
             </button>
-            {allTechnologies.map((tech) => (
+            {technologies.map((tech) => (
               <button
                 key={tech}
                 onClick={() => setSelectedTechnology(tech)}

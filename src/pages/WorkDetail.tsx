@@ -1,13 +1,13 @@
 import { useParams, Link } from 'react-router-dom';
 import { useState } from 'react';
-import { getProjectById } from '../utils/projects';
+import { useProjectById } from '../hooks/useProjects';
 import LazyImage from '../components/LazyImage';
 import DemoModal from '../components/DemoModal';
 
 const WorkDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
-  const project = getProjectById(Number(id));
+  const project = useProjectById(Number(id));
 
   if (!project) {
     return (
