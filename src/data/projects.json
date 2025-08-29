@@ -15,11 +15,11 @@
       "Material Design 3"
     ],
     "images": [
-      "https://via.placeholder.com/800x600?text=Sleep+Buster+Main",
-      "https://via.placeholder.com/800x600?text=Robot+Control",
-      "https://via.placeholder.com/800x600?text=WebRTC+Video"
+      "/images/projects/sleep-buster/slide_title.jpg",
+      "/images/projects/sleep-buster/buster_mode_ui.jpg",
+      "/images/projects/sleep-buster/buster_mode.jpg"
     ],
-    "image": "https://via.placeholder.com/300x200",
+    "image": "/images/projects/sleep-buster/main.jpg",
     "github": "https://github.com/Saisei2004/WILDCARD",
     "demo": "#",
     "challenges": [
@@ -50,11 +50,11 @@
       "React Router"
     ],
     "images": [
-      "https://via.placeholder.com/800x600?text=Portfolio+Main",
-      "https://via.placeholder.com/800x600?text=Portfolio+About",
-      "https://via.placeholder.com/800x600?text=Portfolio+Works"
+      "/images/projects/portfolio/home-page.jpg",
+      "/images/projects/portfolio/about-page.jpg",
+      "/images/projects/portfolio/works-page.jpg"
     ],
-    "image": "https://via.placeholder.com/300x200",
+    "image": "/images/projects/portfolio/main.jpg",
     "github": "https://github.com/Soki0909/Soki0909.github.io",
     "demo": "https://soki0909.github.io/",
     "challenges": [
@@ -75,10 +75,10 @@
     "longDescription": "このタスク管理アプリは、React Hooksを中心とした状態管理と、ローカルストレージを活用したデータ永続化を実装したアプリケーションです。\n\n主な機能：\n• タスクの追加、編集、削除\n• タスクの完了状態の管理\n• ローカルストレージによるデータ永続化\n• レスポンシブデザイン\n• ダークモード対応\n\nReact HooksのuseState、useEffect、useContextを活用し、効率的な状態管理パターンを学習しました。",
     "technologies": ["React", "TypeScript", "CSS Modules", "Local Storage API"],
     "images": [
-      "https://via.placeholder.com/800x600?text=Todo+App+Main",
-      "https://via.placeholder.com/800x600?text=Todo+App+Dark+Mode"
+      "/images/projects/todo-app/main-view.jpg",
+      "/images/projects/todo-app/dark-mode.jpg"
     ],
-    "image": "https://via.placeholder.com/300x200",
+    "image": "/images/projects/todo-app/main.jpg",
     "github": "#",
     "demo": "#",
     "challenges": [
