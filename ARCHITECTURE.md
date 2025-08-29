@@ -1046,14 +1046,221 @@ npm run build   # TypeScript + Viteビルド確認
 
 ## 📝 **コミットメッセージ規約**
 
+### 🏗️ **基本構造**
+
 ```
-feat: 新機能追加
-fix: バグ修正
-refactor: リファクタリング
-style: UI/スタイリング変更
-perf: パフォーマンス改善
-docs: ドキュメント更新
-test: テスト追加・修正
+<type>(<scope>): <subject>
+
+<body>
+
+<footer>
+```
+
+### 📋 **Type（種別）- 必須**
+
+| Type         | 用途                             | 例                                   |
+| :----------- | :------------------------------- | :----------------------------------- |
+| **feat**     | 新機能追加                       | `feat: add media player component`   |
+| **fix**      | バグ修正                         | `fix: resolve video playback issue`  |
+| **refactor** | リファクタリング（機能変更なし） | `refactor: extract useModal hook`    |
+| **style**    | UI/スタイリング変更              | `style: update modal design`         |
+| **perf**     | パフォーマンス改善               | `perf: optimize image lazy loading`  |
+| **docs**     | ドキュメント更新                 | `docs: update architecture guide`    |
+| **test**     | テスト追加・修正                 | `test: add media player tests`       |
+| **chore**    | 雑務・設定変更                   | `chore: update dependencies`         |
+| **ci**       | CI/CD設定変更                    | `ci: update GitHub Actions workflow` |
+| **revert**   | 以前のコミットの取り消し         | `revert: undo media player changes`  |
+
+### 🎯 **Scope（範囲）- オプション**
+
+| Scope            | 説明                     | 例                              |
+| :--------------- | :----------------------- | :------------------------------ |
+| **components**   | UIコンポーネント関連     | `feat(components): add modal`   |
+| **hooks**        | カスタムフック関連       | `refactor(hooks): useModal`     |
+| **pages**        | ページコンポーネント関連 | `style(pages): update home`     |
+| **utils**        | ユーティリティ関数関連   | `fix(utils): analytics bug`     |
+| **types**        | 型定義関連               | `feat(types): add Project type` |
+| **config**       | 設定ファイル関連         | `chore(config): update eslint`  |
+| **architecture** | アーキテクチャ・設計関連 | `docs(architecture): update`    |
+
+### ✅ **Subject（件名）- 必須**
+
+#### **書き方ルール**
+
+- **現在形・命令法**で記述（`add`, `fix`, `update`）
+- **小文字開始**（`Add` ではなく `add`）
+- **末尾にピリオド不要**
+- **50文字以内**に収める
+- **具体的で明確**な説明
+
+#### **良い例・悪い例**
+
+```bash
+# ✅ 良い例
+feat: add video playback controls
+fix: resolve modal z-index issue
+refactor: extract media player hook
+style: improve responsive navigation
+
+# ❌ 悪い例
+feat: Added some new features  # 過去形、具体性不足
+Fix: Modal Bug                 # 大文字開始、詳細不足
+update stuff                   # type不明、曖昧
+feat: 新しいコンポーネントを追加しました  # 日本語、過去形
+```
+
+### 📄 **Body（本文）- オプション**
+
+#### **記述指針**
+
+- **なぜ**この変更が必要かを説明
+- **何を**変更したかの詳細
+- **どのように**実装したかの概要
+- **影響範囲**や**注意点**があれば記載
+
+#### **実例**
+
+```bash
+feat(components): add comprehensive media player
+
+- Support video, audio, and image display
+- Implement play/pause, seek, volume controls
+- Add keyboard navigation support
+- Include error handling and retry mechanism
+
+Resolves performance issues with large media files
+and improves accessibility compliance.
+```
+
+### 🔗 **Footer（フッター）- オプション**
+
+#### **用途**
+
+- **Breaking Changes**の記述
+- **Issue番号**の参照
+- **Co-authored-by**の記述
+
+#### **実例**
+
+```bash
+# Issue参照
+Closes #123
+Fixes #456
+References #789
+
+# Breaking Changes
+BREAKING CHANGE: MediaPlayer API changed
+- play() method now returns Promise<void>
+- volume property range changed from 0-100 to 0-1
+
+# 共同作成者
+Co-authored-by: John Doe <john@example.com>
+```
+
+### 📝 **実践的なコミット例**
+
+#### **機能追加**
+
+```bash
+feat(hooks): add useMediaPlayer custom hook
+
+- Implement media playback state management
+- Support play, pause, seek, and volume control
+- Add error handling for unsupported formats
+- Include accessibility features for screen readers
+
+Enhances user experience and code reusability
+across media components.
+```
+
+#### **バグ修正**
+
+```bash
+fix(components): resolve modal overlay z-index conflict
+
+The modal overlay was appearing behind navigation header
+due to incorrect z-index stacking context. Updated CSS
+to ensure proper layering order.
+
+Fixes #234
+```
+
+#### **リファクタリング**
+
+```bash
+refactor(architecture): extract ProjectContext
+
+- Move project state management to dedicated context
+- Separate data fetching logic from UI components
+- Improve type safety with proper interfaces
+- Enable better testing and maintainability
+
+No functional changes for end users.
+```
+
+#### **ドキュメント更新**
+
+```bash
+docs(architecture): expand coding standards
+
+- Add comprehensive TypeScript guidelines
+- Include component composition patterns
+- Define performance optimization rules
+- Update commit message conventions
+
+Provides clearer guidance for future development.
+```
+
+### 🚨 **必須遵守事項**
+
+#### **コミット前チェックリスト**
+
+```bash
+✅ Type が適切に選択されている
+✅ Subject が50文字以内で具体的
+✅ 現在形・命令法で記述
+✅ 品質チェック3点セット実行済み
+   - npm run format
+   - npm run lint
+   - npm run build
+```
+
+#### **禁止パターン**
+
+```bash
+# 🚫 禁止例
+"update"                    # type不明、内容不明
+"fix bug"                   # 曖昧、具体性なし
+"WIP: working on modal"     # 作業中コミット
+"oops"                      # 説明不足
+"feat: 新機能"              # 日本語、具体性不足
+"Fixed the thing"           # 大文字開始、曖昧
+```
+
+### 🎯 **チーム開発での活用**
+
+#### **プルリクエスト連携**
+
+```bash
+# PRタイトルもコミット規約に準拠
+feat(components): add media player with full controls
+
+# 複数コミットの場合は要約
+feat(media): comprehensive media handling improvements
+- feat(components): add MediaPlayer component
+- feat(hooks): add useMediaPlayer hook
+- style(components): improve responsive design
+- docs(components): add usage examples
+```
+
+#### **自動化活用**
+
+```bash
+# コミットメッセージから自動生成される情報
+- CHANGELOG.md の自動更新
+- バージョンタグの自動生成
+- リリースノートの自動作成
+- Issue の自動クローズ
 ```
 
 ---
