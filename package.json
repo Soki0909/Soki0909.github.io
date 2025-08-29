@@ -1,7 +1,9 @@
 {
-  "name": "tmp-portfolio",
+  "name": "kume-soki-portfolio",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "久米蒼輝 (KUME Soki) のポートフォリオサイト",
+  "author": "KUME Soki <soki.kume@example.com>",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -17,7 +17,7 @@ const Header = () => {
       <nav className="container mx-auto px-6 py-4">
         <div className="flex justify-between items-center">
           <Link to="/" className="text-xl font-bold" onClick={closeMenu}>
-            My Portfolio
+            KUME Soki
           </Link>
 
           {/* デスクトップメニュー */}

@@ -3,7 +3,7 @@ const Home = () => {
     <div className="space-y-8 lg:space-y-12">
       <section className="text-center py-8 lg:py-16">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
-          Welcome to My Portfolio
+          久米蒼輝 (KUME Soki)
         </h1>
         <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
           情報系エンジニアとして、技術力と創造性で価値のあるソリューションを提供します。

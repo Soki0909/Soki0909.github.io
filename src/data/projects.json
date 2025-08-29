@@ -1,9 +1,9 @@
 [
   {
     "id": 1,
-    "title": "ポートフォリオサイト",
+    "title": "久米蒼輝のポートフォリオサイト",
     "description": "React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト",
-    "longDescription": "このポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。\n\n主な特徴：\n• React 19とTypeScriptによる型安全な開発\n• Tailwind CSS v4による効率的なスタイリング\n• Viteによる高速な開発体験\n• React Routerによるクライアントサイドルーティング\n• ESLintとPrettierによるコード品質の担保\n\nこのプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、パフォーマンスを重視したWebアプリケーションの構築方法を学びました。",
+    "longDescription": "久米蒼輝のポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。\n\n主な特徴：\n• React 19とTypeScriptによる型安全な開発\n• Tailwind CSS v4による効率的なスタイリング\n• Viteによる高速な開発体験\n• React Routerによるクライアントサイドルーティング\n• ESLintとPrettierによるコード品質の担保\n• GitHub Actions CI/CDによる自動デプロイ\n• Google Analytics 4によるアクセス解析\n\nこのプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、パフォーマンスを重視したWebアプリケーションの構築方法を学びました。",
     "technologies": [
       "React",
       "TypeScript",

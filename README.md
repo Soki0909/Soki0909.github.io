@@ -1,8 +1,8 @@
-# ポートフォリオサイト
+# 久米蒼輝 (KUME Soki) - ポートフォリオサイト
 
 ## 🚀 プロジェクト概要
 
-情報系エンジニアとしての技術力、学習意欲、制作実績を効果的に伝えるためのポートフォリオサイトです。
+久米蒼輝の情報系エンジニアとしての技術力、学習意欲、制作実績を効果的に伝えるためのポートフォリオサイトです。
 
 **🔗 デプロイURL**: [https://soki0909.github.io/](https://soki0909.github.io/)
 
@@ -147,4 +147,7 @@ MIT License
 
 ## 👨‍💻 作成者
 
-[Soki0909](https://github.com/Soki0909)
+**久米蒼輝 (KUME Soki)**
+
+- GitHub: [Soki0909](https://github.com/Soki0909)
+- Email: soki.kume@example.com

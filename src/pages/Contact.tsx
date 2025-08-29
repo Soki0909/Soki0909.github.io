@@ -52,7 +52,7 @@ const Contact = () => {
       <section>
         <h1 className="text-3xl font-bold mb-6">Contact</h1>
         <p className="text-gray-600 mb-8">
-          ご質問やお仕事のご相談がございましたら、お気軽にお問い合わせください。
+          久米蒼輝へのご質問やお仕事のご相談がございましたら、お気軽にお問い合わせください。
         </p>
       </section>
 
@@ -65,7 +65,7 @@ const Contact = () => {
                 <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0">
                   @
                 </span>
-                <span className="break-all">your.email@example.com</span>
+                <span className="break-all">soki.kume@example.com</span>
               </div>
               <div className="flex items-center space-x-3">
                 <span className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0">
