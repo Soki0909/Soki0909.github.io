@@ -1058,55 +1058,56 @@ npm run build   # TypeScript + Viteビルド確認
 
 ### 📋 **Type（種別）- 必須**
 
-| Type         | 用途                             | 例                                   |
-| :----------- | :------------------------------- | :----------------------------------- |
-| **feat**     | 新機能追加                       | `feat: add media player component`   |
-| **fix**      | バグ修正                         | `fix: resolve video playback issue`  |
-| **refactor** | リファクタリング（機能変更なし） | `refactor: extract useModal hook`    |
-| **style**    | UI/スタイリング変更              | `style: update modal design`         |
-| **perf**     | パフォーマンス改善               | `perf: optimize image lazy loading`  |
-| **docs**     | ドキュメント更新                 | `docs: update architecture guide`    |
-| **test**     | テスト追加・修正                 | `test: add media player tests`       |
-| **chore**    | 雑務・設定変更                   | `chore: update dependencies`         |
-| **ci**       | CI/CD設定変更                    | `ci: update GitHub Actions workflow` |
-| **revert**   | 以前のコミットの取り消し         | `revert: undo media player changes`  |
+| Type         | 用途                             | 例                                           |
+| :----------- | :------------------------------- | :------------------------------------------- |
+| **feat**     | 新機能追加                       | `feat: メディアプレイヤーコンポーネント追加` |
+| **fix**      | バグ修正                         | `fix: 動画再生の問題を解決`                  |
+| **refactor** | リファクタリング（機能変更なし） | `refactor: useModalフックを抽出`             |
+| **style**    | UI/スタイリング変更              | `style: モーダルデザインを更新`              |
+| **perf**     | パフォーマンス改善               | `perf: 画像遅延読み込みを最適化`             |
+| **docs**     | ドキュメント更新                 | `docs: アーキテクチャガイドを更新`           |
+| **test**     | テスト追加・修正                 | `test: メディアプレイヤーのテスト追加`       |
+| **chore**    | 雑務・設定変更                   | `chore: 依存関係を更新`                      |
+| **ci**       | CI/CD設定変更                    | `ci: GitHub Actionsワークフローを更新`       |
+| **revert**   | 以前のコミットの取り消し         | `revert: メディアプレイヤー変更を取り消し`   |
 
 ### 🎯 **Scope（範囲）- オプション**
 
-| Scope            | 説明                     | 例                              |
-| :--------------- | :----------------------- | :------------------------------ |
-| **components**   | UIコンポーネント関連     | `feat(components): add modal`   |
-| **hooks**        | カスタムフック関連       | `refactor(hooks): useModal`     |
-| **pages**        | ページコンポーネント関連 | `style(pages): update home`     |
-| **utils**        | ユーティリティ関数関連   | `fix(utils): analytics bug`     |
-| **types**        | 型定義関連               | `feat(types): add Project type` |
-| **config**       | 設定ファイル関連         | `chore(config): update eslint`  |
-| **architecture** | アーキテクチャ・設計関連 | `docs(architecture): update`    |
+| Scope            | 説明                     | 例                                     |
+| :--------------- | :----------------------- | :------------------------------------- |
+| **components**   | UIコンポーネント関連     | `feat(components): モーダルを追加`     |
+| **hooks**        | カスタムフック関連       | `refactor(hooks): useModalを改良`      |
+| **pages**        | ページコンポーネント関連 | `style(pages): ホームページを更新`     |
+| **utils**        | ユーティリティ関数関連   | `fix(utils): アナリティクスのバグ修正` |
+| **types**        | 型定義関連               | `feat(types): Project型を追加`         |
+| **config**       | 設定ファイル関連         | `chore(config): ESLint設定を更新`      |
+| **architecture** | アーキテクチャ・設計関連 | `docs(architecture): 設計書を更新`     |
 
 ### ✅ **Subject（件名）- 必須**
 
 #### **書き方ルール**
 
-- **現在形・命令法**で記述（`add`, `fix`, `update`）
-- **小文字開始**（`Add` ではなく `add`）
+- **現在形・命令法**で記述（`追加`, `修正`, `更新`）
+- **日本語で具体的**に記述
 - **末尾にピリオド不要**
 - **50文字以内**に収める
-- **具体的で明確**な説明
+- **何をしたか明確**に説明
 
 #### **良い例・悪い例**
 
 ```bash
 # ✅ 良い例
-feat: add video playback controls
-fix: resolve modal z-index issue
-refactor: extract media player hook
-style: improve responsive navigation
+feat: 動画再生コントロールを追加
+fix: モーダルのz-index問題を解決
+refactor: メディアプレイヤーフックを抽出
+style: レスポンシブナビゲーションを改善
 
 # ❌ 悪い例
-feat: Added some new features  # 過去形、具体性不足
-Fix: Modal Bug                 # 大文字開始、詳細不足
-update stuff                   # type不明、曖昧
-feat: 新しいコンポーネントを追加しました  # 日本語、過去形
+feat: add some features          # 英語、具体性不足
+Fix: Modal Bug                  # 英語、大文字開始
+update stuff                    # 英語、曖昧
+feat: 新機能を追加しました        # 過去形、冗長
+何かを修正                       # type不明
 ```
 
 ### 📄 **Body（本文）- オプション**
@@ -1121,15 +1122,15 @@ feat: 新しいコンポーネントを追加しました  # 日本語、過去�
 #### **実例**
 
 ```bash
-feat(components): add comprehensive media player
+feat(components): 包括的メディアプレイヤーを追加
 
-- Support video, audio, and image display
-- Implement play/pause, seek, volume controls
-- Add keyboard navigation support
-- Include error handling and retry mechanism
+- 動画、音声、画像表示をサポート
+- 再生/一時停止、シーク、音量調整機能を実装
+- キーボードナビゲーション対応を追加
+- エラーハンドリングとリトライ機能を含む
 
-Resolves performance issues with large media files
-and improves accessibility compliance.
+大きなメディアファイルのパフォーマンス問題を解決し、
+アクセシビリティ要件への対応を改善。
 ```
 
 ### 🔗 **Footer（フッター）- オプション**
@@ -1149,12 +1150,12 @@ Fixes #456
 References #789
 
 # Breaking Changes
-BREAKING CHANGE: MediaPlayer API changed
-- play() method now returns Promise<void>
-- volume property range changed from 0-100 to 0-1
+BREAKING CHANGE: MediaPlayer APIを変更
+- play()メソッドがPromise<void>を返すように変更
+- volumeプロパティの範囲を0-100から0-1に変更
 
 # 共同作成者
-Co-authored-by: John Doe <john@example.com>
+Co-authored-by: 田中太郎 <tanaka@example.com>
 ```
 
 ### 📝 **実践的なコミット例**
@@ -1162,25 +1163,26 @@ Co-authored-by: John Doe <john@example.com>
 #### **機能追加**
 
 ```bash
-feat(hooks): add useMediaPlayer custom hook
+feat(hooks): useMediaPlayerカスタムフックを追加
 
-- Implement media playback state management
-- Support play, pause, seek, and volume control
-- Add error handling for unsupported formats
-- Include accessibility features for screen readers
+- メディア再生状態管理を実装
+- 再生、一時停止、シーク、音量調整をサポート
+- 未対応フォーマットのエラーハンドリングを追加
+- スクリーンリーダー向けアクセシビリティ機能を含む
 
-Enhances user experience and code reusability
-across media components.
+ユーザー体験とメディアコンポーネント間の
+コード再利用性を向上。
 ```
 
 #### **バグ修正**
 
 ```bash
-fix(components): resolve modal overlay z-index conflict
+fix(components): モーダルオーバーレイのz-index競合を解決
 
-The modal overlay was appearing behind navigation header
-due to incorrect z-index stacking context. Updated CSS
-to ensure proper layering order.
+モーダルオーバーレイが不正なz-indexスタッキング
+コンテキストによりナビゲーションヘッダーの背後に
+表示される問題を修正。適切なレイヤー順序を保証する
+ようにCSSを更新。
 
 Fixes #234
 ```
@@ -1188,27 +1190,27 @@ Fixes #234
 #### **リファクタリング**
 
 ```bash
-refactor(architecture): extract ProjectContext
+refactor(architecture): ProjectContextを抽出
 
-- Move project state management to dedicated context
-- Separate data fetching logic from UI components
-- Improve type safety with proper interfaces
-- Enable better testing and maintainability
+- プロジェクト状態管理を専用コンテキストに移動
+- UIコンポーネントからデータ取得ロジックを分離
+- 適切なインターフェースで型安全性を向上
+- テスト性と保守性を改善
 
-No functional changes for end users.
+エンドユーザーに対する機能的変更はなし。
 ```
 
 #### **ドキュメント更新**
 
 ```bash
-docs(architecture): expand coding standards
+docs(architecture): コーディング規約を拡充
 
-- Add comprehensive TypeScript guidelines
-- Include component composition patterns
-- Define performance optimization rules
-- Update commit message conventions
+- 包括的TypeScriptガイドラインを追加
+- コンポーネント合成パターンを含む
+- パフォーマンス最適化ルールを定義
+- コミットメッセージ規約を更新
 
-Provides clearer guidance for future development.
+今後の開発により明確な指針を提供。
 ```
 
 ### 🚨 **必須遵守事項**
@@ -1229,12 +1231,13 @@ Provides clearer guidance for future development.
 
 ```bash
 # 🚫 禁止例
-"update"                    # type不明、内容不明
-"fix bug"                   # 曖昧、具体性なし
-"WIP: working on modal"     # 作業中コミット
-"oops"                      # 説明不足
-"feat: 新機能"              # 日本語、具体性不足
-"Fixed the thing"           # 大文字開始、曖昧
+"update"                        # type不明、内容不明
+"fix bug"                       # 曖昧、具体性なし
+"WIP: モーダル作業中"            # 作業中コミット
+"oops"                         # 説明不足
+"feat: 新機能"                  # 具体性不足
+"Fixed the thing"              # 英語、曖昧
+"何かを修正"                    # type不明、曖昧
 ```
 
 ### 🎯 **チーム開発での活用**
@@ -1243,14 +1246,14 @@ Provides clearer guidance for future development.
 
 ```bash
 # PRタイトルもコミット規約に準拠
-feat(components): add media player with full controls
+feat(components): フル機能メディアプレイヤーを追加
 
 # 複数コミットの場合は要約
-feat(media): comprehensive media handling improvements
-- feat(components): add MediaPlayer component
-- feat(hooks): add useMediaPlayer hook
-- style(components): improve responsive design
-- docs(components): add usage examples
+feat(media): 包括的メディア処理機能を改善
+- feat(components): MediaPlayerコンポーネントを追加
+- feat(hooks): useMediaPlayerフックを追加
+- style(components): レスポンシブデザインを改善
+- docs(components): 使用例を追加
 ```
 
 #### **自動化活用**
