@@ -46,7 +46,7 @@ function App() {
   }, []);
 
   return (
-    <BrowserRouter basename="/Soki0909.github.io">
+    <BrowserRouter>
       <AppLayout />
     </BrowserRouter>
   );

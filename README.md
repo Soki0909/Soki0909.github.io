@@ -4,7 +4,7 @@
 
 情報系エンジニアとしての技術力、学習意欲、制作実績を効果的に伝えるためのポートフォリオサイトです。
 
-**🔗 デプロイURL**: [https://soki0909.github.io/Soki0909.github.io/](https://soki0909.github.io/Soki0909.github.io/)
+**🔗 デプロイURL**: [https://soki0909.github.io/](https://soki0909.github.io/)
 
 ## 🛠️ 技術スタック
 
