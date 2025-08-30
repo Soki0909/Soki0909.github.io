@@ -1,9 +1,10 @@
 import SEO from '../components/SEO';
-import { getExperienceData } from '../utils/dataLoader';
+import { getExperienceData, getPageSEO } from '../utils/dataLoader';
 
 const Experience = () => {
   // データファイルから経験・活動実績情報を取得
   const experienceData = getExperienceData();
+  const pageSEO = getPageSEO('experience');
   const {
     timelineItems,
     majorActivities,
@@ -16,23 +17,11 @@ const Experience = () => {
   return (
     <>
       <SEO
-        title="活動実績・経験"
-        description="久米蒼輝の活動実績と成長ストーリー。RoboCup日本大会での成果、ハッカソン受賞、プロジェクトリーダー経験、教職課程での学びをご紹介します。"
-        keywords={[
-          '久米蒼輝',
-          '活動実績',
-          '経験',
-          'RoboCup',
-          'ハッカソン',
-          'プロジェクトリーダー',
-          '教職課程',
-          '学生ステーション',
-          '成長ストーリー',
-          'チームマネジメント',
-          'リーダーシップ',
-        ]}
-        type="website"
-        url="https://soki0909.github.io/experience"
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/experience`}
       />
       <div className="max-w-6xl mx-auto space-y-8">
         <section>

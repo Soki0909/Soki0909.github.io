@@ -1,9 +1,10 @@
 import SEO from '../components/SEO';
-import { getPersonalData } from '../utils/dataLoader';
+import { getPersonalData, getPageSEO } from '../utils/dataLoader';
 
 const About = () => {
   // データファイルから情報を取得
   const personalData = getPersonalData();
+  const pageSEO = getPageSEO('about');
   const {
     basicProfile,
     mission,
@@ -45,24 +46,13 @@ const About = () => {
   ];
 
   return (
-    <>
+    <div id="about" className="section bg-gray-50">
       <SEO
-        title="自己紹介"
-        description="久米蒼輝の自己紹介ページ。人生のミッション、価値観、強み、転換点となった体験をご紹介します。"
-        keywords={[
-          '久米蒼輝',
-          '自己紹介',
-          'プロフィール',
-          '金沢工業大学',
-          '情報工学科',
-          'RoboCup',
-          'ハッカソン',
-          'プロジェクトリーダー',
-          '価値観',
-          'ミッション',
-        ]}
-        type="profile"
-        url="https://soki0909.github.io/about"
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/about`}
       />
       <div className="max-w-4xl mx-auto space-y-8">
         <section>
@@ -300,7 +290,7 @@ const About = () => {
           </div>
         </section>
       </div>
-    </>
+    </div>
   );
 };
 

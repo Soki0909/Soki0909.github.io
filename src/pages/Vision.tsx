@@ -1,9 +1,10 @@
 import SEO from '../components/SEO';
-import { getVisionData } from '../utils/dataLoader';
+import { getVisionData, getPageSEO } from '../utils/dataLoader';
 
 const Vision = () => {
   // データファイルからビジョン・価値観情報を取得
   const visionData = getVisionData();
+  const pageSEO = getPageSEO('vision');
   const {
     mission,
     actionPrinciple,
@@ -16,22 +17,11 @@ const Vision = () => {
   return (
     <>
       <SEO
-        title="将来ビジョン・価値観"
-        description="久米蒼輝の将来ビジョンと価値観。音楽のバリアフリーへの取り組み、人生哲学、趣味特技をご紹介します。"
-        keywords={[
-          '久米蒼輝',
-          '将来ビジョン',
-          '価値観',
-          '音楽バリアフリー',
-          'アクセシビリティ',
-          '人生哲学',
-          'Beatbox',
-          '数学探究',
-          '立体パズル',
-          'PC作業効率化',
-        ]}
-        type="website"
-        url="https://soki0909.github.io/vision"
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/vision`}
       />
       <div className="max-w-4xl mx-auto space-y-8">
         <section>

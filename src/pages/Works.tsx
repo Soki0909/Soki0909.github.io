@@ -1,12 +1,14 @@
 import { Link } from 'react-router-dom';
 import { useProjects, useFilteredProjects } from '../hooks/useProjects';
+import { getPageSEO } from '../utils/dataLoader';
 import LazyImage from '../components/LazyImage';
+import SEO from '../components/SEO';
 
 const Works = () => {
   const { technologies, selectedTechnology, setSelectedTechnology, isLoading } =
     useProjects();
-
   const filteredProjects = useFilteredProjects();
+  const pageSEO = getPageSEO('works');
 
   if (isLoading) {
     return (
@@ -18,6 +20,13 @@ const Works = () => {
 
   return (
     <div className="space-y-8">
+      <SEO
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/works`}
+      />
       <section>
         <h1 className="text-3xl font-bold mb-6">Works</h1>
         <p className="text-gray-600 mb-8">

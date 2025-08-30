@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getPageSchema } from '../utils/structuredData';
+import { getSEOData } from '../utils/dataLoader';
 import type { Project } from '../types/project';
 
 interface SEOProps {
@@ -14,35 +15,41 @@ interface SEOProps {
 }
 
 const SEO: React.FC<SEOProps> = ({
-  title = '久米蒼輝 (KUME Soki) - 情報工学科3年 ポートフォリオ',
-  description = '金沢工業大学 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・機械学習、音響信号処理、Web開発の経験を持つ。テクノロジーで「できない」を「できる」に変えることを目指すエンジニア。Hackit 2025 優勝、RoboCup日本大会2位入賞。',
-  keywords = '久米蒼輝, KUME Soki, 金沢工業大学, 情報工学科, AI, 機械学習, 音響信号処理, ポートフォリオ, エンジニア, Python, JavaScript, React, TypeScript, ハッカソン, RoboCup, Web開発, 音楽バリアフリー',
+  title,
+  description,
+  keywords,
   image = '/og-image.png',
   url,
   type = 'website',
   project,
 }) => {
   const location = useLocation();
-  const currentUrl = url || `https://soki0909.github.io${location.pathname}`;
-  const currentLanguage = 'ja';
+  const seoData = getSEOData();
+
+  // デフォルト値をSEOデータから取得
+  const finalTitle = title || seoData.defaults.title;
+  const finalDescription = description || seoData.defaults.description;
+  const finalKeywords = keywords || seoData.defaults.keywords;
+  const currentUrl = url || `${seoData.site.baseUrl}${location.pathname}`;
+  const currentLanguage = seoData.site.defaultLanguage;
 
   useEffect(() => {
     // キーワードが配列の場合は文字列に変換
-    const keywordsString = Array.isArray(keywords)
-      ? keywords.join(', ')
-      : keywords;
+    const keywordsString = Array.isArray(finalKeywords)
+      ? finalKeywords.join(', ')
+      : finalKeywords;
 
     // 基本メタタグ
-    document.title = title;
+    document.title = finalTitle;
 
     // ディスクリプション
     const metaDescription = document.querySelector('meta[name="description"]');
     if (metaDescription) {
-      metaDescription.setAttribute('content', description);
+      metaDescription.setAttribute('content', finalDescription);
     } else {
       const newMetaDescription = document.createElement('meta');
       newMetaDescription.name = 'description';
-      newMetaDescription.content = description;
+      newMetaDescription.content = finalDescription;
       document.head.appendChild(newMetaDescription);
     }
 
@@ -71,15 +78,15 @@ const SEO: React.FC<SEOProps> = ({
 
     // Open Graphタグ
     const ogTags = [
-      { property: 'og:title', content: title },
-      { property: 'og:description', content: description },
+      { property: 'og:title', content: finalTitle },
+      { property: 'og:description', content: finalDescription },
       { property: 'og:image', content: image },
       { property: 'og:url', content: currentUrl },
       { property: 'og:type', content: type },
       { property: 'og:locale', content: 'ja_JP' },
       {
         property: 'og:site_name',
-        content: '久米蒼輝 (KUME Soki) ポートフォリオ',
+        content: seoData.site.name,
       },
     ];
 
@@ -100,8 +107,8 @@ const SEO: React.FC<SEOProps> = ({
     // Twitter Cardタグ
     const twitterTags = [
       { name: 'twitter:card', content: 'summary_large_image' },
-      { name: 'twitter:title', content: title },
-      { name: 'twitter:description', content: description },
+      { name: 'twitter:title', content: finalTitle },
+      { name: 'twitter:description', content: finalDescription },
       { name: 'twitter:image', content: image },
     ];
 
@@ -123,8 +130,8 @@ const SEO: React.FC<SEOProps> = ({
       {
         hreflang: 'en',
         href: currentUrl.replace(
-          /^https:\/\/soki0909\.github\.io/,
-          'https://soki0909.github.io/en'
+          new RegExp(`^${seoData.site.baseUrl}`),
+          `${seoData.site.baseUrl}/en`
         ),
       },
       { hreflang: 'x-default', href: currentUrl },
@@ -200,10 +207,10 @@ const SEO: React.FC<SEOProps> = ({
     // SEO向上のための追加メタタグ
     const additionalMetas = [
       { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: '久米蒼輝 (KUME Soki)' },
+      { name: 'author', content: seoData.site.author },
       { name: 'generator', content: 'React, TypeScript, Vite' },
-      { 'http-equiv': 'content-language', content: 'ja' },
-      { name: 'theme-color', content: '#3B82F6' },
+      { 'http-equiv': 'content-language', content: currentLanguage },
+      { name: 'theme-color', content: seoData.site.themeColor },
     ];
 
     additionalMetas.forEach((meta) => {
@@ -225,15 +232,16 @@ const SEO: React.FC<SEOProps> = ({
       }
     });
   }, [
-    title,
-    description,
-    keywords,
+    finalTitle,
+    finalDescription,
+    finalKeywords,
     image,
     currentUrl,
     type,
     project,
     location.pathname,
     currentLanguage,
+    seoData,
   ]);
 
   return null;

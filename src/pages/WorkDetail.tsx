@@ -3,15 +3,25 @@ import { useState } from 'react';
 import { useProjectById } from '../hooks/useProjects';
 import LazyImage from '../components/LazyImage';
 import DemoModal from '../components/DemoModal';
+import SEO from '../components/SEO';
+import { getSEOData } from '../utils/dataLoader';
 
 const WorkDetail = () => {
   const { id } = useParams<{ id: string }>();
   const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
   const project = useProjectById(Number(id));
+  const seoData = getSEOData();
 
   if (!project) {
     return (
       <div className="text-center py-12">
+        <SEO
+          title="プロジェクトが見つかりません"
+          description="指定されたプロジェクトは存在しません。"
+          keywords={seoData.defaults.keywords}
+          type="website"
+          url={`${seoData.site.baseUrl}/works/${id}`}
+        />
         <h1 className="text-2xl font-bold mb-4">
           プロジェクトが見つかりません
         </h1>
@@ -24,6 +34,17 @@ const WorkDetail = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
+      <SEO
+        title={`${project.title} | 作品詳細`}
+        description={project.description}
+        keywords={[
+          ...seoData.defaults.keywords,
+          ...project.technologies,
+          project.title,
+        ]}
+        type="article"
+        url={`${seoData.site.baseUrl}/works/${project.id}`}
+      />
       {/* ナビゲーション */}
       <nav className="text-sm">
         <Link to="/works" className="text-blue-500 hover:underline">

@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { trackEvent } from '../utils/analytics';
-import { getContactData } from '../utils/dataLoader';
+import { getContactData, getPageSEO } from '../utils/dataLoader';
+import SEO from '../components/SEO';
 
 const Contact = () => {
   const contactData = getContactData();
+  const pageSEO = getPageSEO('contact');
 
   const [formData, setFormData] = useState({
     name: '',
@@ -50,6 +52,13 @@ const Contact = () => {
 
   return (
     <div className="max-w-4xl mx-auto space-y-8">
+      <SEO
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/contact`}
+      />
       <section>
         <h1 className="text-3xl font-bold mb-6">Contact</h1>
         <p className="text-gray-600 mb-8">

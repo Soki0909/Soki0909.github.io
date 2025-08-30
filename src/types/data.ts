@@ -310,3 +310,25 @@ export interface ContactData {
   contacts: ContactInfo[];
   formConfig: FormConfig;
 }
+
+// SEO関連の型定義
+export interface SiteInfo {
+  baseUrl: string;
+  name: string;
+  author: string;
+  themeColor: string;
+  defaultLanguage: string;
+}
+
+export interface SEOMetadata {
+  title: string;
+  description: string;
+  keywords: string[];
+  type: 'website' | 'profile' | 'article';
+}
+
+export interface SEOData {
+  site: SiteInfo;
+  defaults: SEOMetadata;
+  pages: Record<string, SEOMetadata>;
+}

@@ -1,9 +1,10 @@
 import SEO from '../components/SEO';
-import { getSkillsData } from '../utils/dataLoader';
+import { getSkillsData, getPageSEO } from '../utils/dataLoader';
 
 const Skills = () => {
   // データファイルから技術スキル情報を取得
   const skillsData = getSkillsData();
+  const pageSEO = getPageSEO('skills');
   const {
     programmingLanguages,
     specialtyAreas,
@@ -15,25 +16,11 @@ const Skills = () => {
   return (
     <>
       <SEO
-        title="技術スキル"
-        description="久米蒼輝の技術スキル一覧。Python、JavaScript、MATLAB、AI・機械学習、音響信号処理、Web開発などの専門技術と評価実績をご紹介します。"
-        keywords={[
-          '久米蒼輝',
-          '技術スキル',
-          'プログラミング',
-          'Python',
-          'JavaScript',
-          'MATLAB',
-          'AI',
-          '機械学習',
-          '音響信号処理',
-          'Web開発',
-          'paiza',
-          'EMaT',
-          '技術評価',
-        ]}
-        type="website"
-        url="https://soki0909.github.io/skills"
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/skills`}
       />
       <div className="max-w-6xl mx-auto space-y-8">
         <section>

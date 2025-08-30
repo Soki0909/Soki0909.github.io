@@ -1,11 +1,12 @@
 import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
-import { getHomeData, getPersonalData } from '../utils/dataLoader';
+import { getHomeData, getPersonalData, getPageSEO } from '../utils/dataLoader';
 
 const Home = () => {
   // データファイルから情報を取得
   const homeData = getHomeData();
   const personalData = getPersonalData();
+  const pageSEO = getPageSEO('home');
 
   const { highlights, navigationCards, quickFacts, ctaSection } = homeData;
   const { basicProfile, mission, strengths } = personalData;
@@ -13,26 +14,11 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="ホーム"
-        description="金沢工業大学 工学部 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・音響技術・Web開発の技術スキルと実績をご紹介します。"
-        keywords={[
-          '久米蒼輝',
-          'KUME Soki',
-          'ポートフォリオ',
-          'プログラミング',
-          'AI',
-          '音響技術',
-          'Web開発',
-          '金沢工業大学',
-          '情報工学',
-          'RoboCup',
-          'ハッカソン',
-          'Python',
-          'JavaScript',
-          'MATLAB',
-        ]}
-        type="website"
-        url="https://soki0909.github.io/"
+        title={pageSEO.title}
+        description={pageSEO.description}
+        keywords={pageSEO.keywords}
+        type={pageSEO.type}
+        url={`${pageSEO.site.baseUrl}/`}
       />
       <div className="space-y-8 lg:space-y-16">
         {/* ヒーローセクション */}

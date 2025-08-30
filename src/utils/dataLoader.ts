@@ -5,6 +5,7 @@ import type {
   VisionData,
   HomeData,
   ContactData,
+  SEOData,
 } from '../types/data';
 
 import personalData from '../data/personal.json';
@@ -13,6 +14,7 @@ import experienceData from '../data/experience.json';
 import visionData from '../data/vision.json';
 import homeData from '../data/home.json';
 import contactData from '../data/contact.json';
+import seoData from '../data/seo.json';
 
 /**
  * 個人情報データを取得
@@ -55,11 +57,29 @@ export const getHomeData = (): HomeData => {
 };
 
 /**
- * コンタクト情報データを取得
- * @returns 連絡先、フォーム設定等の情報
+ * お問い合わせページのデータを取得
  */
 export const getContactData = (): ContactData => {
   return contactData as ContactData;
+};
+
+/**
+ * SEOメタデータを取得
+ */
+export const getSEOData = (): SEOData => {
+  return seoData as SEOData;
+};
+
+/**
+ * 特定ページのSEOメタデータを取得
+ */
+export const getPageSEO = (pageKey: string) => {
+  const data = getSEOData();
+  return {
+    ...data.defaults,
+    ...data.pages[pageKey],
+    site: data.site,
+  };
 };
 
 /**
