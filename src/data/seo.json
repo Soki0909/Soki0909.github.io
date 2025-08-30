@@ -4,7 +4,9 @@
     "name": "久米蒼輝 (KUME Soki) ポートフォリオ",
     "author": "久米蒼輝 (KUME Soki)",
     "themeColor": "#3B82F6",
-    "defaultLanguage": "ja"
+    "defaultLanguage": "ja",
+    "techStack": "React, TypeScript, Vite",
+    "searchTemplate": "/search?q={search_term_string}"
   },
   "defaults": {
     "title": "久米蒼輝 (KUME Soki) - 情報工学科3年 ポートフォリオ",
