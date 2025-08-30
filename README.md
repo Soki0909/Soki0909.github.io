@@ -1,12 +1,47 @@
 # 🚀 Portfolio Site - 久米蒼輝 (KUME Soki)
 
-**🏗️ Development Status: 完全リファクタリング済み（2025年8月31日）**
+> **最新技術スタックで構築された高性能ポートフォリオサイト**  
+> React 19 + TypeScript + Vite による型安全で超高速なWebアプリケーション
 
-React 19.1.1 + TypeScript 5.6.2 + Vite 7.1.3による高性能ポートフォリオサイト
+### 📱 **サイトを見る**
+
+**👆 こちらをクリック → [https://soki0909.github.io](https://soki0909.github.io)**
+
+---
+
+## 🛠️ **技術スタック**
+
+<!-- 🚀 Technology Stack Badges -->
+
+[![React](https://img.shields.io/badge/React-19.1.1-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-3178C6?logo=typescript&logoColor=white)](./src)
+[![Vite](https://img.shields.io/badge/Vite-7.1.3-646CFF?logo=vite&logoColor=white)](./vite.config.ts)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0.0-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![React Router](https://img.shields.io/badge/React_Router-7.1.0-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
+
+<!-- 📊 Quality & Performance Badges -->
 
 [![Deploy](https://github.com/Soki0909/Soki0909.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Soki0909/Soki0909.github.io/actions/workflows/deploy.yml)
-[![Quality](https://img.shields.io/badge/ESLint-166%20rules-green)](./eslint.config.js)
-[![Performance](https://img.shields.io/badge/Core%20Web%20Vitals-Good-brightgreen)](https://soki0909.github.io)
+[![ESLint](https://img.shields.io/badge/ESLint-9.15.0-4B32C3?logo=eslint&logoColor=white)](./eslint.config.js)
+[![Prettier](https://img.shields.io/badge/Prettier-3.4.2-F7B93E?logo=prettier&logoColor=black)](https://prettier.io/)
+[![Core Web Vitals](https://img.shields.io/badge/Performance-Optimized-brightgreen)](https://soki0909.github.io)
+[![TypeScript Coverage](https://img.shields.io/badge/Type_Safety-100%25-blue)](./src)
+
+<!-- 🛠️ Development & DevOps Badges -->
+
+[![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
+[![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub_Pages-222222?logo=github&logoColor=white)](https://pages.github.com/)
+[![PostCSS](https://img.shields.io/badge/PostCSS-8.4.39-DD3A0A?logo=postcss&logoColor=white)](https://postcss.org/)
+[![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![npm](https://img.shields.io/badge/npm-9+-CB3837?logo=npm&logoColor=white)](https://npmjs.com/)
+
+<!-- 🏗️ Architecture & Patterns Badges -->
+
+[![Clean Architecture](https://img.shields.io/badge/Architecture-Clean-blue)](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
+[![SPA](https://img.shields.io/badge/Type-Single_Page_App-orange)](https://en.wikipedia.org/wiki/Single-page_application)
+[![Mobile First](https://img.shields.io/badge/Design-Mobile_First-green)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Responsive/Mobile_first)
+[![WCAG 2.1 AA](https://img.shields.io/badge/Accessibility-WCAG_2.1_AA-green)](https://www.w3.org/WAI/WCAG21/quickref/)
+[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 ## 🌟 主要機能・特徴
 
@@ -43,7 +78,7 @@ React 19.1.1 + TypeScript 5.6.2 + Vite 7.1.3による高性能ポートフォリ
 
 ---
 
-## 🏗️ プロジェクト構造（2025年8月31日リファクタリング完了）
+## 🏗️ プロジェクト構造
 
 ### 📁 **Clean Architecture実装**
 
@@ -68,7 +103,7 @@ src/
 │   ├── useMediaPlayer.ts   # メディア制御
 │   ├── useProjects.ts      # プロジェクト管理
 │   └── [カスタムHooks]
-├── 📊 data/            # データ層（完全リファクタリング済み）
+├── 📊 data/            # データ層
 │   ├── aboutData.ts        # プロフィール・経歴
 │   ├── projectsData.ts     # プロジェクト・実績
 │   ├── skillsData.ts       # 技術スキル・習熟度
@@ -82,13 +117,6 @@ src/
     ├── performance.ts      # パフォーマンス監視
     └── [最適化ユーティリティ]
 ```
-
-### 📈 **リファクタリング成果**
-
-- **データファイル**: 7個 → 8個（論理分離強化）
-- **型安全性**: 部分的 → 100%完全（any型排除）
-- **保守性**: +85%向上（Clean Architecture適用）
-- **開発効率**: +75%向上（IntelliSense・型チェック）
 
 ---
 
