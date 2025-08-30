@@ -111,7 +111,7 @@ const Home = () => {
         url="https://soki0909.github.io/"
       />
       <div className="space-y-8 lg:space-y-16">
-        {/* Hero Section */}
+        {/* ヒーローセクション */}
         <section className="text-center py-8 lg:py-16">
           <div className="mb-8">
             <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
@@ -172,7 +172,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Navigation Cards */}
+        {/* ナビゲーションカード */}
         <section>
           <h2 className="text-2xl lg:text-3xl font-semibold text-center mb-8">
             ポートフォリオ ナビゲーション
@@ -201,7 +201,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Highlights Section */}
+        {/* ハイライトセクション */}
         <section>
           <h2 className="text-2xl lg:text-3xl font-semibold text-center mb-8">
             主な実績・ハイライト
@@ -230,7 +230,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* Quick Facts */}
+        {/* クイックファクト */}
         <section className="bg-gradient-to-r from-gray-50 to-blue-50 rounded-lg p-8">
           <h2 className="text-2xl font-semibold text-center mb-8">
             クイック ファクト
@@ -257,7 +257,7 @@ const Home = () => {
           </div>
         </section>
 
-        {/* CTA Section */}
+        {/* CTAセクション */}
         <section className="text-center py-8">
           <h2 className="text-2xl font-semibold mb-4">
             お気軽にお問い合わせください

@@ -5,7 +5,9 @@ import { useLocation } from 'react-router-dom';
 const GA_MEASUREMENT_ID =
   import.meta.env.VITE_GA_MEASUREMENT_ID || 'G-XXXXXXXXXX';
 
-// Google Analytics 4の初期化
+/**
+ * Google Analytics 4の初期化
+ */
 export const initGA = () => {
   // Google Analytics スクリプトの動的読み込み
   const script1 = document.createElement('script');
@@ -27,7 +29,10 @@ export const initGA = () => {
   document.head.appendChild(script2);
 };
 
-// ページビューの追跡
+/**
+ * ページビューの追跡
+ * @param path - 追跡対象のパス
+ */
 export const trackPageView = (path: string) => {
   if (typeof window.gtag !== 'undefined') {
     window.gtag('config', GA_MEASUREMENT_ID, {
@@ -38,7 +43,11 @@ export const trackPageView = (path: string) => {
   }
 };
 
-// カスタムイベントの追跡
+/**
+ * カスタムイベントの追跡
+ * @param eventName - イベント名
+ * @param parameters - イベントパラメータ
+ */
 export const trackEvent = (
   eventName: string,
   parameters?: Record<string, string | number | boolean>
@@ -48,7 +57,10 @@ export const trackEvent = (
   }
 };
 
-// React Hook for Google Analytics
+/**
+ * Google Analytics用のReact Hook
+ * ページ遷移時に自動的にページビューを追跡
+ */
 export const useGoogleAnalytics = () => {
   const location = useLocation();
 
@@ -60,7 +72,7 @@ export const useGoogleAnalytics = () => {
   }, [location]);
 };
 
-// TypeScript declaration for gtag
+// TypeScript グローバル型定義
 declare global {
   interface Window {
     gtag: (

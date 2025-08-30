@@ -1,18 +1,20 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
 
-// Import layout components (keep these as direct imports for immediate loading)
+// レイアウトコンポーネントのインポート（即座に読み込みが必要なため直接インポート）
 import Header from './components/Header';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
 
-// Import contexts
+// コンテキストのインポート
 import { ProjectProvider } from './contexts/ProjectContext';
 
-// Import analytics
+// 分析・最適化ユーティリティのインポート
 import { initGA, useGoogleAnalytics } from './utils/analytics';
+import { initializePerformanceOptimizations } from './utils/coreWebVitals';
+import { initializeSEOAnalytics } from './utils/seoAnalytics';
 
-// Dynamic imports for code splitting
+// コード分割のための動的インポート
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Skills = lazy(() => import('./pages/Skills'));
@@ -22,14 +24,14 @@ const Works = lazy(() => import('./pages/Works'));
 const WorkDetail = lazy(() => import('./pages/WorkDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
 
-// Loading component
+// ローディングコンポーネント
 const LoadingSpinner = () => (
   <div className="flex items-center justify-center py-12">
     <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-500"></div>
   </div>
 );
 
-// Layout Component
+// レイアウトコンポーネント
 const AppLayout = () => {
   // Google Analytics のページビュー追跡
   useGoogleAnalytics();
@@ -65,6 +67,12 @@ function App() {
     if (import.meta.env.PROD) {
       initGA();
     }
+
+    // パフォーマンス最適化の初期化
+    initializePerformanceOptimizations();
+
+    // SEO分析の初期化
+    initializeSEOAnalytics();
   }, []);
 
   return (

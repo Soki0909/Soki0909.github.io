@@ -39,7 +39,7 @@ export interface Project {
   /** 学習内容の配列 */
   readonly learned: readonly string[];
 
-  // Optional media fields - オプションメディアフィールド
+  // オプションメディアフィールド
   /** 動画URL配列（オプション） */
   videos?: readonly string[];
 
