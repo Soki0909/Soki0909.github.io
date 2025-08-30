@@ -41,7 +41,7 @@ const AppLayout = () => {
       <ScrollToTop />
       <div className="min-h-screen bg-gray-100 text-gray-800">
         <Header />
-        <main className="pt-16 lg:pt-20 container mx-auto px-4 sm:px-6 py-6 lg:py-8">
+        <main className="pt-header container mx-auto px-4 sm:px-6 py-6 lg:py-8">
           <Suspense fallback={<LoadingSpinner />}>
             <Routes>
               <Route path="/" element={<Home />} />

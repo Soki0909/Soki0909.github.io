@@ -1,8 +1,35 @@
 @import 'tailwindcss';
 
 /* グローバルスタイル */
+:root {
+  --header-height: 4rem; /* 64px (h-16) */
+  --header-height-lg: 5rem; /* 80px (h-20) */
+}
+
+@media (min-width: 1024px) {
+  :root {
+    --header-height: var(--header-height-lg);
+  }
+}
+
 html {
   scroll-behavior: smooth;
+  /* ページ全体にヘッダー分のスクロールオフセットを適用 */
+  scroll-padding-top: calc(var(--header-height) + 1rem);
+}
+
+/* ヘッダーの高さに基づく余白ユーティリティ */
+.pt-header {
+  padding-top: calc(var(--header-height) + 1rem);
+}
+
+.mt-header {
+  margin-top: calc(var(--header-height) + 1rem);
+}
+
+/* セクション見出し用のアンカーオフセット */
+.section-anchor {
+  scroll-margin-top: calc(var(--header-height) + 2rem);
 }
 
 /* カスタムアニメーション */
