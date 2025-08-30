@@ -9,7 +9,7 @@
  */
 
 import { createContext } from 'react';
-import type { Project } from '../types/project';
+import type { Project } from '../types/dataModels';
 
 /**
  * プロジェクトコンテキストの状態インターフェース

@@ -10,7 +10,7 @@
 
 import React, { useState, useEffect, useCallback } from 'react';
 import type { ReactNode } from 'react';
-import type { Project } from '../types/project';
+import type { Project } from '../types/dataModels';
 import { getAllProjects, getAllTechnologies } from '../utils/projects';
 import {
   ProjectContext,

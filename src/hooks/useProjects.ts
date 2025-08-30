@@ -8,7 +8,7 @@
  */
 
 import { useContext } from 'react';
-import type { Project } from '../types/project';
+import type { Project } from '../types/dataModels';
 import {
   ProjectContext,
   type ProjectContextState,
