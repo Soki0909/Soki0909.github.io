@@ -60,10 +60,10 @@ const Contact = () => {
         url={`${pageSEO.site.baseUrl}/contact`}
       />
       <section>
-        <h1 className="text-3xl font-bold mb-6">Contact</h1>
-        <p className="text-gray-600 mb-8">
-          久米蒼輝へのご質問やお仕事のご相談がございましたら、お気軽にお問い合わせください。
-        </p>
+        <h1 className="text-3xl font-bold mb-6">
+          {contactData.pageInfo.title}
+        </h1>
+        <p className="text-gray-600 mb-8">{contactData.pageInfo.description}</p>
       </section>
 
       <section className="grid lg:grid-cols-2 gap-8">
@@ -78,8 +78,7 @@ const Contact = () => {
                   >
                     {contact.icon}
                   </span>
-                  {contact.url !== '#' &&
-                  contact.url !== 'mailto:soki.kume@example.com' ? (
+                  {contact.isActive ? (
                     <a
                       href={contact.url}
                       className="text-blue-500 hover:underline"

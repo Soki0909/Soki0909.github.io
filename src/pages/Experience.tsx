@@ -1,10 +1,15 @@
 import SEO from '../components/SEO';
-import { getExperienceData, getPageSEO } from '../utils/dataLoader';
+import {
+  getExperienceData,
+  getPageSEO,
+  getTechnicalEvaluations,
+} from '../utils/dataLoader';
 
 const Experience = () => {
   // データファイルから経験・活動実績情報を取得
   const experienceData = getExperienceData();
   const pageSEO = getPageSEO('experience');
+  const technicalEvaluations = getTechnicalEvaluations();
   const {
     timelineItems,
     majorActivities,
@@ -277,12 +282,14 @@ const Experience = () => {
                   📜 教員免許取得予定
                 </h3>
                 <ul className="space-y-2 text-sm">
-                  {teachingCourse.licenses.map((license, index) => (
-                    <li key={index} className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      <span>{license}</span>
-                    </li>
-                  ))}
+                  {teachingCourse.teachingLicenses.map(
+                    (license: string, index: number) => (
+                      <li key={index} className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        <span>{license}</span>
+                      </li>
+                    )
+                  )}
                 </ul>
               </div>
 
@@ -378,19 +385,15 @@ const Experience = () => {
                 <div className="mt-6 p-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg">
                   <h4 className="text-sm font-semibold mb-2">技術評価</h4>
                   <div className="space-y-2 text-xs">
-                    <div className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                      <span>
-                        <strong>paiza Aランク:</strong>{' '}
-                        上位15%相当のコーディング能力
-                      </span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                      <span>
-                        <strong>EMaT全分野:</strong> 偏差値60以上達成
-                      </span>
-                    </div>
+                    {technicalEvaluations.map((evaluation, index) => (
+                      <div key={index} className="flex items-center space-x-2">
+                        <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                        <span>
+                          <strong>{evaluation.title}:</strong>{' '}
+                          {evaluation.description}
+                        </span>
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>

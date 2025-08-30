@@ -87,7 +87,7 @@ const Works = () => {
                 <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                 <p className="text-gray-600 mb-4">{project.description}</p>
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech) => (
+                  {project.technologies.map((tech: string) => (
                     <span
                       key={tech}
                       className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded"

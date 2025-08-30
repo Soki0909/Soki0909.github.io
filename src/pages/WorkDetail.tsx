@@ -59,7 +59,7 @@ const WorkDetail = () => {
 
         {/* 技術スタック */}
         <div className="flex flex-wrap gap-2">
-          {project.technologies.map((tech) => (
+          {project.technologies.map((tech: string) => (
             <span
               key={tech}
               className="px-3 py-1 bg-blue-100 text-blue-800 text-sm rounded-full"
@@ -113,7 +113,7 @@ const WorkDetail = () => {
       <section>
         <h2 className="text-2xl font-semibold mb-4">スクリーンショット</h2>
         <div className="grid gap-4">
-          {project.images.map((image, index) => (
+          {project.images.map((image: string, index: number) => (
             <LazyImage
               key={index}
               src={image}
@@ -129,11 +129,13 @@ const WorkDetail = () => {
         <div>
           <h2 className="text-2xl font-semibold mb-4">プロジェクト概要</h2>
           <div className="prose text-gray-600">
-            {project.longDescription.split('\n').map((paragraph, index) => (
-              <p key={index} className="mb-4">
-                {paragraph.trim()}
-              </p>
-            ))}
+            {project.longDescription
+              .split('\n')
+              .map((paragraph: string, index: number) => (
+                <p key={index} className="mb-4">
+                  {paragraph.trim()}
+                </p>
+              ))}
           </div>
         </div>
 
@@ -142,7 +144,7 @@ const WorkDetail = () => {
           <div>
             <h3 className="text-xl font-semibold mb-3">課題・工夫点</h3>
             <ul className="space-y-2">
-              {project.challenges.map((challenge, index) => (
+              {project.challenges.map((challenge: string, index: number) => (
                 <li key={index} className="flex items-start space-x-2">
                   <span className="w-2 h-2 bg-orange-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span className="text-gray-600">{challenge}</span>
@@ -155,7 +157,7 @@ const WorkDetail = () => {
           <div>
             <h3 className="text-xl font-semibold mb-3">学んだこと</h3>
             <ul className="space-y-2">
-              {project.learned.map((item, index) => (
+              {project.learned.map((item: string, index: number) => (
                 <li key={index} className="flex items-start space-x-2">
                   <span className="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></span>
                   <span className="text-gray-600">{item}</span>

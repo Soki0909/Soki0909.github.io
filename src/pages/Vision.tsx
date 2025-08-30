@@ -1,18 +1,17 @@
 import SEO from '../components/SEO';
-import { getVisionData, getPageSEO } from '../utils/dataLoader';
+import { getVisionData, getProfileData, getPageSEO } from '../utils/dataLoader';
+import type { TurningPoint, RoadmapPhase } from '../types/dataModels';
 
 const Vision = () => {
   // データファイルからビジョン・価値観情報を取得
   const visionData = getVisionData();
+  const profileData = getProfileData();
   const pageSEO = getPageSEO('vision');
-  const {
-    mission,
-    actionPrinciple,
-    turningPoints,
-    futureVision,
-    socialMessage,
-    hobbies,
-  } = visionData;
+
+  const { futureGoals, socialMessage, hobbies } = visionData;
+
+  const { mission, principles, turningPoints } = profileData;
+  const { actionPrinciple } = principles;
 
   return (
     <>
@@ -60,20 +59,25 @@ const Vision = () => {
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">転換点となった体験</h2>
             <div className="grid md:grid-cols-2 gap-6">
-              {turningPoints.map((turningPoint, index) => (
-                <div key={index} className="bg-white rounded-lg shadow-md p-6">
-                  <h3 className="text-lg font-semibold mb-3">
-                    {turningPoint.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {turningPoint.description
-                      .split('**')
-                      .map((part, i) =>
-                        i % 2 === 1 ? <strong key={i}>{part}</strong> : part
-                      )}
-                  </p>
-                </div>
-              ))}
+              {turningPoints.map(
+                (turningPoint: TurningPoint, index: number) => (
+                  <div
+                    key={index}
+                    className="bg-white rounded-lg shadow-md p-6"
+                  >
+                    <h3 className="text-lg font-semibold mb-3">
+                      {turningPoint.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm leading-relaxed">
+                      {turningPoint.description
+                        .split('**')
+                        .map((part: string, i: number) =>
+                          i % 2 === 1 ? <strong key={i}>{part}</strong> : part
+                        )}
+                    </p>
+                  </div>
+                )
+              )}
             </div>
           </div>
 
@@ -84,21 +88,21 @@ const Vision = () => {
             {/* 特に注力したい領域 */}
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-4">
-                {futureVision.specialFocus.title}
+                {futureGoals.specialFocus.title}
               </h3>
               <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-6">
                 <blockquote className="text-lg font-medium text-gray-800 mb-4">
-                  "{futureVision.specialFocus.quote}"
+                  "{futureGoals.specialFocus.quote}"
                 </blockquote>
                 <p className="text-gray-600">
-                  {futureVision.specialFocus.description}
+                  {futureGoals.specialFocus.description}
                 </p>
               </div>
             </div>
 
             {/* 実現へのアプローチ */}
             <div className="space-y-6">
-              {futureVision.roadmap.map((phase, index) => {
+              {futureGoals.roadmap.map((phase: RoadmapPhase, index: number) => {
                 const colorClasses = {
                   blue: 'bg-blue-500',
                   green: 'bg-green-500',
@@ -117,7 +121,7 @@ const Vision = () => {
                       {phase.phase}
                     </h4>
                     <ul className="space-y-2 text-gray-600">
-                      {phase.items.map((item, itemIndex) => (
+                      {phase.items.map((item: string, itemIndex: number) => (
                         <li
                           key={itemIndex}
                           className="flex items-start space-x-2"
