@@ -1,27 +1,29 @@
 import type {
-  PersonalData,
+  ProfileData,
   SkillsData,
-  ExperienceData,
+  ActivitiesData,
   VisionData,
   HomeData,
-  ContactData,
+  ContactsData,
   SEOData,
-} from '../types/data';
+  ProjectsData,
+} from '../types/dataModels';
 
-import personalData from '../data/personal.json';
+import profileData from '../data/profile.json';
 import skillsData from '../data/skills.json';
-import experienceData from '../data/experience.json';
+import activitiesData from '../data/activities.json';
 import visionData from '../data/vision.json';
 import homeData from '../data/home.json';
-import contactData from '../data/contact.json';
+import contactsData from '../data/contacts.json';
 import seoData from '../data/seo.json';
+import projectsData from '../data/projects.json';
 
 /**
- * 個人情報データを取得
- * @returns 個人プロフィール、ミッション、強み等の情報
+ * プロフィール情報データを取得
+ * @returns 個人情報、教育、ミッション、強み等の情報
  */
-export const getPersonalData = (): PersonalData => {
-  return personalData as PersonalData;
+export const getProfileData = (): ProfileData => {
+  return profileData as ProfileData;
 };
 
 /**
@@ -33,11 +35,11 @@ export const getSkillsData = (): SkillsData => {
 };
 
 /**
- * 経験・活動実績データを取得
+ * 活動・経験データを取得
  * @returns タイムライン、主要活動、成長ストーリー等の情報
  */
-export const getExperienceData = (): ExperienceData => {
-  return experienceData as ExperienceData;
+export const getActivitiesData = (): ActivitiesData => {
+  return activitiesData as ActivitiesData;
 };
 
 /**
@@ -57,21 +59,33 @@ export const getHomeData = (): HomeData => {
 };
 
 /**
- * お問い合わせページのデータを取得
+ * コンタクト情報データを取得
+ * @returns 連絡先、お問い合わせフォーム等の情報
  */
-export const getContactData = (): ContactData => {
-  return contactData as ContactData;
+export const getContactsData = (): ContactsData => {
+  return contactsData as ContactsData;
 };
 
 /**
  * SEOメタデータを取得
+ * @returns サイト情報、メタデータ等の情報
  */
 export const getSEOData = (): SEOData => {
   return seoData as SEOData;
 };
 
 /**
+ * プロジェクトデータを取得
+ * @returns プロジェクト一覧情報
+ */
+export const getProjectsData = (): ProjectsData => {
+  return projectsData as ProjectsData;
+};
+
+/**
  * 特定ページのSEOメタデータを取得
+ * @param pageKey ページキー
+ * @returns ページ固有のSEO情報
  */
 export const getPageSEO = (pageKey: string) => {
   const data = getSEOData();
@@ -82,18 +96,117 @@ export const getPageSEO = (pageKey: string) => {
   };
 };
 
+// 互換性維持のための旧API（順次移行）
+export const getPersonalData = () => {
+  const profileData = getProfileData();
+  return {
+    basicProfile: {
+      name: profileData.personal.name,
+      nameEn: profileData.personal.nameEn,
+      nameReading: profileData.personal.nameReading,
+      university: profileData.education.university,
+      universityEn: profileData.education.universityEn,
+      universityNameJa: profileData.education.universityNameJa,
+      universityLocation: profileData.education.location,
+      universityDetails: {
+        url: profileData.education.details.url,
+        departmentDescription:
+          profileData.education.details.departmentDescription,
+      },
+      educationDetails: {
+        startYear: profileData.education.details.startYear,
+        expectedGraduationYear:
+          profileData.education.details.expectedGraduationYear,
+        department: profileData.education.details.department,
+        jobTitle: profileData.education.details.jobTitle,
+      },
+      organizationExperience: profileData.organizationExperience,
+      skillAreas: profileData.skillAreas,
+      technicalSettings: profileData.technicalSettings,
+      mediaSettings: profileData.mediaSettings,
+      navigationLabels: profileData.navigationLabels,
+      birthPlace: profileData.personal.birthPlace,
+      birthPlaceEn: profileData.personal.birthPlaceEn,
+      birthday: profileData.personal.birthday,
+      birthdayEn: profileData.personal.birthdayEn,
+    },
+    mission: profileData.mission,
+    selfIntroduction: profileData.selfIntroduction,
+    actionPrinciple: profileData.principles.actionPrinciple,
+    strengths: profileData.principles.strengths,
+    personalityType: profileData.personalityType,
+    turningPoints: profileData.turningPoints,
+    contacts: contactsData.contacts.map((contact) => ({
+      platform: contact.platform,
+      handle: contact.handle,
+      url: contact.url,
+      icon: contact.icon,
+      color: contact.color,
+    })),
+    keyAchievements: profileData.achievements,
+  };
+};
+
+export const getExperienceData = () => {
+  const activitiesData = getActivitiesData();
+  return {
+    timelineItems: activitiesData.activities.timeline,
+    majorActivities: activitiesData.activities.majorProjects,
+    growthStory: activitiesData.growthStory,
+    teachingCourse: activitiesData.education,
+    qualifications: activitiesData.qualifications,
+    plannedQualifications: activitiesData.plannedQualifications,
+  };
+};
+
+export const getContactData = () => {
+  const contactsData = getContactsData();
+  return {
+    pageInfo: {
+      title: 'Contact',
+      description: contactsData.form.description,
+    },
+    contacts: contactsData.contacts.map((contact) => ({
+      platform: contact.platform,
+      handle: contact.handle,
+      url: contact.url,
+      icon: contact.icon.replace(/[🐙📧🌐]/gu, (match) => {
+        switch (match) {
+          case '🐙':
+            return 'G';
+          case '📧':
+            return '@';
+          case '🌐':
+            return 'W';
+          default:
+            return 'in';
+        }
+      }),
+      bgColor: contact.bgColor,
+      isActive: contact.isActive,
+    })),
+    formConfig: {
+      title: contactsData.form.title,
+      fields: contactsData.form.fields,
+      submitText: contactsData.form.submitText,
+      submitMessage: contactsData.form.submitMessage,
+    },
+  };
+};
+
 /**
  * 個人基本情報のみを取得（ヘッダー等で使用）
  * @returns 名前、大学、連絡先等の基本情報
  */
 export const getBasicProfile = () => {
-  const data = getPersonalData();
+  const profileData = getProfileData();
+  const contactsData = getContactsData();
   return {
-    name: data.basicProfile.name,
-    nameEn: data.basicProfile.nameEn,
-    university: data.basicProfile.university,
-    mission: data.mission.content,
-    contacts: data.contacts,
+    name: profileData.personal.name,
+    nameEn: profileData.personal.nameEn,
+    university: profileData.education.university,
+    mission: profileData.mission.content,
+    contacts: contactsData.contacts,
   };
 };
 
@@ -102,8 +215,8 @@ export const getBasicProfile = () => {
  * @returns ハッカソン、RoboCup等の主要実績
  */
 export const getKeyAchievements = () => {
-  const data = getPersonalData();
-  return data.keyAchievements;
+  const profileData = getProfileData();
+  return profileData.achievements;
 };
 
 /**
@@ -111,8 +224,8 @@ export const getKeyAchievements = () => {
  * @returns paiza、EMaT等の技術評価結果
  */
 export const getTechnicalEvaluations = () => {
-  const data = getSkillsData();
-  return data.technicalEvaluations;
+  const skillsData = getSkillsData();
+  return skillsData.technicalEvaluations;
 };
 
 /**
@@ -120,8 +233,8 @@ export const getTechnicalEvaluations = () => {
  * @returns AI、音響技術、Web開発等の専門分野
  */
 export const getSpecialtyAreas = () => {
-  const data = getSkillsData();
-  return data.specialtyAreas;
+  const skillsData = getSkillsData();
+  return skillsData.specialtyAreas;
 };
 
 /**
@@ -129,8 +242,8 @@ export const getSpecialtyAreas = () => {
  * @returns RoboCup、学生ステーション等の主要活動
  */
 export const getMajorActivities = () => {
-  const data = getExperienceData();
-  return data.majorActivities;
+  const activitiesData = getActivitiesData();
+  return activitiesData.activities.majorProjects;
 };
 
 /**
@@ -138,6 +251,9 @@ export const getMajorActivities = () => {
  * @returns 音楽バリアフリー等の将来展望
  */
 export const getFutureVision = () => {
-  const data = getVisionData();
-  return data.futureVision;
+  const visionData = getVisionData();
+  return {
+    specialFocus: visionData.futureGoals.specialFocus,
+    roadmap: visionData.futureGoals.roadmap,
+  };
 };

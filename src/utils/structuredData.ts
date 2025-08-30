@@ -8,335 +8,368 @@
  * @see https://developers.google.com/search/docs/appearance/structured-data
  */
 
-import type { Project } from '../types/project';
+import type { Project } from '../types/dataModels';
+import { getPersonalData, getSEOData, getSkillsData } from './dataLoader';
 
 // 基本的なPerson schema（ベース情報）
-export const createPersonSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'Person',
-  '@id': 'https://soki0909.github.io/#person',
-  name: '久米蒼輝',
-  alternateName: 'KUME Soki',
-  givenName: '蒼輝',
-  familyName: '久米',
-  description:
-    'プログラミング・AI・音響技術を専門とする情報工学科の学生。テクノロジーの力で誰もが可能性を発揮できる世界の実現を目指す。',
-  url: 'https://soki0909.github.io/',
-  image: 'https://soki0909.github.io/images/profile.jpg',
+export const createPersonSchema = () => {
+  const personalData = getPersonalData();
+  const seoData = getSEOData();
+  const skillsData = getSkillsData();
+  const { basicProfile, mission } = personalData;
 
-  // 職業・所属情報
-  jobTitle: '情報工学科学生',
-  worksFor: {
-    '@type': 'EducationalOrganization',
-    name: '金沢工業大学',
-    alternateName: 'Kanazawa Institute of Technology',
-    url: 'https://www.kanazawa-it.ac.jp/',
-    department: {
-      '@type': 'Organization',
-      name: '工学部 情報工学科',
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${seoData.site.baseUrl}/#person`,
+    name: basicProfile.name,
+    alternateName: basicProfile.nameEn,
+    description: mission.content,
+    url: seoData.site.baseUrl,
+    image: `${seoData.site.baseUrl}${basicProfile.mediaSettings.profileImagePath}`,
+
+    // 職業・所属情報
+    jobTitle: basicProfile.educationDetails.jobTitle,
+    worksFor: {
+      '@type': 'EducationalOrganization',
+      name: basicProfile.universityNameJa,
+      alternateName: basicProfile.universityEn,
+      url: basicProfile.universityDetails.url,
+      department: {
+        '@type': 'Organization',
+        name: basicProfile.educationDetails.department,
+      },
     },
-  },
 
-  // 教育歴
-  alumniOf: {
-    '@type': 'EducationalOrganization',
-    name: '金沢工業大学',
-    startDate: '2023',
-    expectedGraduationDate: '2026',
-  },
+    // 教育歴
+    alumniOf: {
+      '@type': 'EducationalOrganization',
+      name: basicProfile.universityNameJa,
+      startDate: basicProfile.educationDetails.startYear,
+      expectedGraduationDate:
+        basicProfile.educationDetails.expectedGraduationYear,
+    },
 
-  // 専門分野・スキル
-  knowsAbout: [
-    'プログラミング',
-    'AI・機械学習',
-    '音響信号処理',
-    'Web開発',
-    'Python',
-    'JavaScript',
-    'MATLAB',
-    'React',
-    'TypeScript',
-    'ロボティクス',
-    'RoboCup',
-    '教育技術',
-  ],
+    // 専門分野・スキル
+    knowsAbout: [
+      ...skillsData.programmingLanguages.map((lang) => lang.name),
+      ...skillsData.specialtyAreas.map((area) => area.title),
+      ...basicProfile.skillAreas,
+    ],
 
-  // 関連リンク
-  sameAs: ['https://github.com/Soki0909'],
+    // 関連リンク
+    sameAs: personalData.contacts
+      .filter((contact) => contact.platform === 'GitHub')
+      .map((contact) => contact.url),
 
-  // 連絡先情報
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'professional',
-    url: 'https://soki0909.github.io/contact',
-  },
+    // 連絡先情報
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: basicProfile.technicalSettings.contactType,
+      url: `${seoData.site.baseUrl}/contact`,
+    },
 
-  // 居住地
-  homeLocation: {
-    '@type': 'Place',
-    name: '滋賀県大津市',
-    addressRegion: '滋賀県',
-    addressCountry: 'JP',
-  },
-});
+    // 居住地
+    homeLocation: {
+      '@type': 'Place',
+      name: basicProfile.birthPlace,
+      addressRegion: basicProfile.birthPlace.split('県')[0] + '県',
+      addressCountry: basicProfile.technicalSettings.countryCode,
+    },
+  };
+};
 
 // CreativeWork schema（プロジェクト作品用）
-export const createCreativeWorkSchema = (project: Project) => ({
-  '@context': 'https://schema.org',
-  '@type': 'CreativeWork',
-  '@id': `https://soki0909.github.io/works/${project.id}#creativework`,
-  name: project.title,
-  description: project.description,
-  creator: {
-    '@type': 'Person',
-    '@id': 'https://soki0909.github.io/#person',
-    name: '久米蒼輝',
-  },
+export const createCreativeWorkSchema = (project: Project) => {
+  const personalData = getPersonalData();
+  const seoData = getSEOData();
+  const { basicProfile } = personalData;
 
-  // 作成日時（現在の日付を使用）
-  dateCreated: new Date().toISOString(),
-  dateModified: new Date().toISOString(),
-
-  // 使用技術
-  keywords: project.technologies,
-
-  // メディア・リソース
-  ...(project.images &&
-    project.images.length > 0 && {
-      image: project.images.map((img) => ({
-        '@type': 'ImageObject',
-        url: img,
-        creator: '久米蒼輝',
-      })),
-    }),
-
-  ...(project.videos &&
-    project.videos.length > 0 && {
-      video: project.videos.map((video) => ({
-        '@type': 'VideoObject',
-        contentUrl: video,
-        creator: '久米蒼輝',
-        description: `${project.title}のデモンストレーション動画`,
-      })),
-    }),
-
-  // 外部リンク
-  ...(project.github && {
-    codeRepository: project.github,
-  }),
-  ...(project.demo && {
-    url: project.demo,
-  }),
-
-  // ライセンス情報
-  license: 'https://opensource.org/licenses/MIT',
-
-  // 言語
-  inLanguage: 'ja-JP',
-});
-
-// SoftwareApplication schema（アプリケーション作品用）
-export const createSoftwareApplicationSchema = (project: Project) => ({
-  '@context': 'https://schema.org',
-  '@type': 'SoftwareApplication',
-  '@id': `https://soki0909.github.io/works/${project.id}#software`,
-  name: project.title,
-  description: project.description,
-
-  // 開発者情報
-  author: {
-    '@type': 'Person',
-    '@id': 'https://soki0909.github.io/#person',
-    name: '久米蒼輝',
-  },
-
-  // アプリケーション詳細
-  applicationCategory: 'DeveloperApplication',
-  operatingSystem: ['Windows', 'macOS', 'Linux', 'Web'],
-
-  // プログラミング言語
-  programmingLanguage: project.technologies,
-
-  // 作成・更新日時（現在の日付を使用）
-  dateCreated: new Date().toISOString(),
-  dateModified: new Date().toISOString(),
-
-  // リソース
-  ...(project.github && {
-    codeRepository: project.github,
-    downloadUrl: project.github,
-  }),
-  ...(project.demo && {
-    url: project.demo,
-    installUrl: project.demo,
-  }),
-
-  // スクリーンショット
-  ...(project.images &&
-    project.images.length > 0 && {
-      screenshot: project.images.map((img) => ({
-        '@type': 'ImageObject',
-        url: img,
-      })),
-    }),
-
-  // ライセンス
-  license: 'https://opensource.org/licenses/MIT',
-
-  // 価格
-  offers: {
-    '@type': 'Offer',
-    price: '0',
-    priceCurrency: 'JPY',
-    availability: 'https://schema.org/InStock',
-  },
-});
-
-// WebSite schema（サイト全体用）
-export const createWebSiteSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  '@id': 'https://soki0909.github.io/#website',
-  name: '久米蒼輝 - Portfolio',
-  alternateName: 'KUME Soki Portfolio',
-  description:
-    '金沢工業大学 工学部 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・音響技術・Web開発の技術スキルと実績をご紹介します。',
-  url: 'https://soki0909.github.io/',
-
-  // サイト作者
-  author: {
-    '@type': 'Person',
-    '@id': 'https://soki0909.github.io/#person',
-    name: '久米蒼輝',
-  },
-
-  // サイト発行者
-  publisher: {
-    '@type': 'Person',
-    '@id': 'https://soki0909.github.io/#person',
-    name: '久米蒼輝',
-  },
-
-  // 言語
-  inLanguage: 'ja-JP',
-
-  // 検索機能
-  potentialAction: {
-    '@type': 'SearchAction',
-    target: {
-      '@type': 'EntryPoint',
-      urlTemplate:
-        'https://soki0909.github.io/works?search={search_term_string}',
-    },
-    'query-input': 'required name=search_term_string',
-  },
-});
-
-// Portfolio/CollectionPage schema（作品集ページ用）
-export const createPortfolioSchema = (projects: Project[]) => ({
-  '@context': 'https://schema.org',
-  '@type': 'CollectionPage',
-  '@id': 'https://soki0909.github.io/works#portfolio',
-  name: '久米蒼輝 - 作品集',
-  description:
-    'プログラミング・AI・音響技術分野での技術的挑戦と創作物をご紹介します。',
-  url: 'https://soki0909.github.io/works',
-
-  // ページ作者
-  author: {
-    '@type': 'Person',
-    '@id': 'https://soki0909.github.io/#person',
-    name: '久米蒼輝',
-  },
-
-  // 含まれる作品
-  mainEntity: projects.map((project) => ({
+  return {
+    '@context': 'https://schema.org',
     '@type': 'CreativeWork',
-    '@id': `https://soki0909.github.io/works/${project.id}#creativework`,
+    '@id': `${seoData.site.baseUrl}/works/${project.id}#creativework`,
     name: project.title,
     description: project.description,
-    url: `https://soki0909.github.io/works/${project.id}`,
-    dateCreated: new Date().toISOString(),
-    keywords: project.technologies,
-  })),
+    creator: {
+      '@type': 'Person',
+      '@id': `${seoData.site.baseUrl}/#person`,
+      name: basicProfile.name,
+    },
 
-  // パンくずリスト
-  breadcrumb: {
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'ホーム',
-        item: 'https://soki0909.github.io/',
+    // 作成日時（現在の日付を使用）
+    dateCreated: new Date().toISOString(),
+    dateModified: new Date().toISOString(),
+
+    // 使用技術
+    keywords: project.technologies,
+
+    // メディア・リソース
+    ...(project.images &&
+      project.images.length > 0 && {
+        image: project.images.map((img) => ({
+          '@type': 'ImageObject',
+          url: img,
+          creator: basicProfile.name,
+        })),
+      }),
+
+    ...(project.videos &&
+      project.videos.length > 0 && {
+        video: project.videos.map((video) => ({
+          '@type': 'VideoObject',
+          contentUrl: video,
+          creator: basicProfile.name,
+          description: `${project.title}のデモンストレーション動画`,
+        })),
+      }),
+
+    // 外部リンク
+    ...(project.github && {
+      codeRepository: project.github,
+    }),
+    ...(project.demo && {
+      url: project.demo,
+    }),
+
+    // ライセンス情報
+    license: basicProfile.technicalSettings.defaultLicense,
+
+    // 言語
+    inLanguage: basicProfile.technicalSettings.defaultLanguage,
+  };
+};
+
+// SoftwareApplication schema（アプリケーション作品用）
+export const createSoftwareApplicationSchema = (project: Project) => {
+  const personalData = getPersonalData();
+  const seoData = getSEOData();
+  const { basicProfile } = personalData;
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    '@id': `${seoData.site.baseUrl}/works/${project.id}#software`,
+    name: project.title,
+    description: project.description,
+
+    // 開発者情報
+    author: {
+      '@type': 'Person',
+      '@id': `${seoData.site.baseUrl}/#person`,
+      name: basicProfile.name,
+    },
+
+    // アプリケーション詳細
+    applicationCategory: basicProfile.technicalSettings.applicationCategory,
+    operatingSystem: basicProfile.technicalSettings.supportedPlatforms,
+
+    // プログラミング言語
+    programmingLanguage: project.technologies,
+
+    // 作成・更新日時（現在の日付を使用）
+    dateCreated: new Date().toISOString(),
+    dateModified: new Date().toISOString(),
+
+    // リソース
+    ...(project.github && {
+      codeRepository: project.github,
+      downloadUrl: project.github,
+    }),
+    ...(project.demo && {
+      url: project.demo,
+      installUrl: project.demo,
+    }),
+
+    // スクリーンショット
+    ...(project.images &&
+      project.images.length > 0 && {
+        screenshot: project.images.map((img) => ({
+          '@type': 'ImageObject',
+          url: img,
+        })),
+      }),
+
+    // ライセンス
+    license: basicProfile.technicalSettings.defaultLicense,
+
+    // 価格
+    offers: {
+      '@type': 'Offer',
+      price: basicProfile.technicalSettings.offerPrice,
+      priceCurrency: basicProfile.technicalSettings.currency,
+      availability: basicProfile.technicalSettings.availability,
+    },
+  };
+};
+
+// WebSite schema（サイト全体用）
+export const createWebSiteSchema = () => {
+  const { basicProfile } = getPersonalData();
+  const seoData = getSEOData();
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${seoData.site.baseUrl}/#website`,
+    name: `${basicProfile.name} - Portfolio`,
+    alternateName: `${basicProfile.nameEn} Portfolio`,
+    description: seoData.defaults.description,
+    url: seoData.site.baseUrl,
+
+    // サイト作者
+    author: {
+      '@type': 'Person',
+      '@id': `${seoData.site.baseUrl}/#person`,
+      name: basicProfile.name,
+    },
+
+    // 公開者
+    publisher: {
+      '@type': 'Person',
+      '@id': `${seoData.site.baseUrl}/#person`,
+      name: basicProfile.name,
+    },
+
+    // サイト内検索
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: {
+        '@type': 'EntryPoint',
+        urlTemplate: `${seoData.site.baseUrl}${seoData.site.searchTemplate}`,
       },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: '作品集',
-        item: 'https://soki0909.github.io/works',
-      },
-    ],
-  },
-});
+      'query-input': 'required name=search_term_string',
+    },
+  };
+};
+
+// Portfolio/CollectionPage schema（作品集ページ用）
+export const createPortfolioSchema = (projects: Project[]) => {
+  const { basicProfile } = getPersonalData();
+  const seoData = getSEOData();
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${seoData.site.baseUrl}/works#portfolio`,
+    name: `${basicProfile.name} - ${basicProfile.navigationLabels.works}`,
+    description: seoData.pages.works.description,
+    url: `${seoData.site.baseUrl}/works`,
+
+    // ページ作者
+    author: {
+      '@type': 'Person',
+      '@id': `${seoData.site.baseUrl}/#person`,
+      name: basicProfile.name,
+    },
+
+    // 含まれる作品
+    mainEntity: projects.map((project) => ({
+      '@type': 'CreativeWork',
+      '@id': `${seoData.site.baseUrl}/works/${project.id}#creativework`,
+      name: project.title,
+      description: project.description,
+      url: `${seoData.site.baseUrl}/works/${project.id}`,
+      dateCreated: new Date().toISOString(),
+      keywords: project.technologies,
+    })),
+
+    // パンくずリスト
+    breadcrumb: {
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        {
+          '@type': 'ListItem',
+          position: 1,
+          name: basicProfile.navigationLabels.home,
+          item: seoData.site.baseUrl,
+        },
+        {
+          '@type': 'ListItem',
+          position: 2,
+          name: basicProfile.navigationLabels.works,
+          item: `${seoData.site.baseUrl}/works`,
+        },
+      ],
+    },
+  };
+};
 
 // Event schema（受賞・活動実績用）
-export const createAchievementEventSchema = () => [
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Event',
-    '@id': 'https://soki0909.github.io/experience#hackit2025',
-    name: 'Hackit 2025ハッカソン 最優秀賞受賞',
-    description:
-      'Sleep Buster - AI音声分析による睡眠改善支援アプリで最優秀賞を受賞',
-    startDate: '2025-01-01',
-    endDate: '2025-01-03',
-    eventStatus: 'https://schema.org/EventCompleted',
+export const createAchievementEventSchema = () => {
+  const { basicProfile, keyAchievements } = getPersonalData();
+  const seoData = getSEOData();
 
-    // 受賞者
-    performer: {
-      '@type': 'Person',
-      '@id': 'https://soki0909.github.io/#person',
-      name: '久米蒼輝',
-    },
+  // 主要な受賞歴をフィルタリング
+  const hackitAchievement = keyAchievements.find((achievement) =>
+    achievement.title.includes('Hackit')
+  );
+  const robocupAchievement = keyAchievements.find((achievement) =>
+    achievement.title.includes('RoboCup')
+  );
 
-    // 主催者
-    organizer: {
-      '@type': 'Organization',
-      name: 'Hackit実行委員会',
-    },
+  const events = [];
 
-    // 受賞
-    award: '最優秀賞',
-  },
-  {
-    '@context': 'https://schema.org',
-    '@type': 'Event',
-    '@id': 'https://soki0909.github.io/experience#robocup2024',
-    name: 'RoboCup日本大会2024 オープンチャレンジ 2位',
-    description: 'ロボットが家族の一員となるシステムの開発で6チーム中2位を獲得',
-    startDate: '2024-05-01',
-    endDate: '2024-05-05',
-    eventStatus: 'https://schema.org/EventCompleted',
+  if (hackitAchievement) {
+    events.push({
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      '@id': `${seoData.site.baseUrl}/experience#hackit2025`,
+      name: `${hackitAchievement.title} ${hackitAchievement.subtitle}`,
+      description: hackitAchievement.description,
+      startDate: hackitAchievement.eventDates?.startDate,
+      endDate: hackitAchievement.eventDates?.endDate,
+      eventStatus: basicProfile.technicalSettings.eventStatus,
 
-    // 参加者
-    performer: {
-      '@type': 'Person',
-      '@id': 'https://soki0909.github.io/#person',
-      name: '久米蒼輝',
-    },
+      // 受賞者
+      performer: {
+        '@type': 'Person',
+        '@id': `${seoData.site.baseUrl}/#person`,
+        name: basicProfile.name,
+      },
 
-    // 主催者
-    organizer: {
-      '@type': 'Organization',
-      name: 'RoboCup日本委員会',
-      url: 'https://www.robocup.or.jp/',
-    },
+      // 主催者
+      organizer: {
+        '@type': 'Organization',
+        name: hackitAchievement.organizer,
+      },
 
-    // 順位
-    award: '2位（6チーム中）',
-  },
-];
+      // 受賞
+      award: hackitAchievement.subtitle,
+    });
+  }
+
+  if (robocupAchievement) {
+    events.push({
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      '@id': `${seoData.site.baseUrl}/experience#robocup2024`,
+      name: `${robocupAchievement.title} ${robocupAchievement.subtitle}`,
+      description: robocupAchievement.description,
+      startDate: robocupAchievement.eventDates?.startDate,
+      endDate: robocupAchievement.eventDates?.endDate,
+      eventStatus: basicProfile.technicalSettings.eventStatus,
+
+      // 参加者
+      performer: {
+        '@type': 'Person',
+        '@id': `${seoData.site.baseUrl}/#person`,
+        name: basicProfile.name,
+      },
+
+      // 主催者
+      organizer: {
+        '@type': 'Organization',
+        name: robocupAchievement.organizer,
+      },
+
+      // 順位
+      award: robocupAchievement.subtitle,
+    });
+  }
+
+  return events;
+};
 
 // 統合スキーマ生成（複数のスキーマを組み合わせ）
 export const createIntegratedSchema = (projects?: Project[]) => {
@@ -364,73 +397,103 @@ export const createProjectDetailSchema = (project: Project) => [
 ];
 
 // FAQ schema（よくある質問用）
-export const createFAQSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  '@id': 'https://soki0909.github.io/about#faq',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: '専門分野は何ですか？',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'プログラミング、AI・機械学習、音響信号処理、Web開発を主な専門分野としています。特にPython、JavaScript、MATLABを使った技術開発に力を入れています。',
+export const createFAQSchema = () => {
+  const seoData = getSEOData();
+  const skillsData = getSkillsData();
+  const { keyAchievements, basicProfile } = getPersonalData();
+
+  // 専門分野を動的に生成
+  const specialtyAreas = skillsData.specialtyAreas
+    .map((area) => area.title)
+    .join('、');
+  const programmingLanguages = skillsData.programmingLanguages
+    .filter((lang) => ['上級', '中級'].includes(lang.level))
+    .map((lang) => `${lang.name}（${lang.level}）`)
+    .join('、');
+
+  // 主要な活動実績を動的に生成
+  const majorAchievements = keyAchievements
+    .filter(
+      (achievement) =>
+        achievement.title.includes('Hackit') ||
+        achievement.title.includes('RoboCup')
+    )
+    .map((achievement) => `${achievement.title}での${achievement.subtitle}`)
+    .join('、');
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    '@id': `${seoData.site.baseUrl}/about#faq`,
+    mainEntity: [
+      {
+        '@type': 'Question',
+        name: '専門分野は何ですか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${specialtyAreas}を主な専門分野としています。特に${programmingLanguages}を使った技術開発に力を入れています。`,
+        },
       },
-    },
-    {
-      '@type': 'Question',
-      name: 'どのような活動実績がありますか？',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Hackit 2025ハッカソンでの最優秀賞受賞、RoboCup日本大会でのオープンチャレンジ2位入賞、74名規模組織でのサブリーダー経験などがあります。',
+      {
+        '@type': 'Question',
+        name: 'どのような活動実績がありますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${majorAchievements}、${basicProfile.organizationExperience.teamSize}規模組織での${basicProfile.organizationExperience.role}経験などがあります。`,
+        },
       },
-    },
-    {
-      '@type': 'Question',
-      name: 'どのような技術スキルを持っていますか？',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Python（上級）、JavaScript（中級）、MATLAB（中級）、C（中級）などのプログラミング言語に加え、AI・機械学習、音響信号処理、Web開発、ロボティクスの技術を習得しています。',
+      {
+        '@type': 'Question',
+        name: 'どのような技術スキルを持っていますか？',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: `${programmingLanguages}などのプログラミング言語に加え、${specialtyAreas}の技術を習得しています。`,
+        },
       },
-    },
-  ],
-});
+    ],
+  };
+};
 
 // Organization schema（所属組織用）
-export const createOrganizationSchema = () => ({
-  '@context': 'https://schema.org',
-  '@type': 'EducationalOrganization',
-  '@id': 'https://soki0909.github.io/about#organization',
-  name: '金沢工業大学',
-  alternateName: 'Kanazawa Institute of Technology',
-  url: 'https://www.kanazawa-it.ac.jp/',
+export const createOrganizationSchema = () => {
+  const { basicProfile } = getPersonalData();
+  const seoData = getSEOData();
 
-  // 所在地
-  address: {
-    '@type': 'PostalAddress',
-    addressCountry: 'JP',
-    addressRegion: '石川県',
-    addressLocality: '野々市市',
-  },
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'EducationalOrganization',
+    '@id': `${seoData.site.baseUrl}/about#organization`,
+    name: basicProfile.universityNameJa,
+    alternateName: basicProfile.universityEn,
+    url: basicProfile.universityDetails.url,
 
-  // 学科
-  department: {
-    '@type': 'Organization',
-    name: '工学部 情報工学科',
-    description: '情報技術の基礎から応用まで幅広く学ぶ学科',
-  },
-
-  // 在籍者
-  member: {
-    '@type': 'Person',
-    '@id': 'https://soki0909.github.io/#person',
-    name: '久米蒼輝',
-    memberOf: {
-      '@type': 'EducationalOrganization',
-      name: '金沢工業大学 工学部 情報工学科',
+    // 所在地
+    address: {
+      '@type': 'PostalAddress',
+      addressCountry: basicProfile.technicalSettings.countryCode,
+      addressRegion: basicProfile.universityLocation.region,
+      addressLocality: basicProfile.universityLocation.locality,
     },
-  },
-});
+
+    // 学科
+    department: {
+      '@type': 'Organization',
+      name: basicProfile.educationDetails.department,
+      description: basicProfile.universityDetails.departmentDescription,
+    },
+
+    // 在籍者
+    member: {
+      '@type': 'Person',
+      '@id': `${seoData.site.baseUrl}/#person`,
+      name: basicProfile.name,
+      memberOf: {
+        '@type': 'EducationalOrganization',
+        name: basicProfile.university,
+      },
+    },
+  };
+};
 
 // ページタイプ別のスキーマ選択
 export const getPageSchema = (
@@ -478,15 +541,14 @@ export const getPageSchema = (
         {
           '@context': 'https://schema.org',
           '@type': 'ContactPage',
-          '@id': 'https://soki0909.github.io/contact#contactpage',
-          name: 'お問い合わせ - 久米蒼輝',
-          description:
-            '久米蒼輝へのお問い合わせページ。技術的なディスカッションやプロジェクトのご相談をお待ちしています。',
-          url: 'https://soki0909.github.io/contact',
+          '@id': `${getSEOData().site.baseUrl}/contact#contactpage`,
+          name: `お問い合わせ - ${getPersonalData().basicProfile.name}`,
+          description: getSEOData().pages.contact.description,
+          url: `${getSEOData().site.baseUrl}/contact`,
           author: {
             '@type': 'Person',
-            '@id': 'https://soki0909.github.io/#person',
-            name: '久米蒼輝',
+            '@id': `${getSEOData().site.baseUrl}/#person`,
+            name: getPersonalData().basicProfile.name,
           },
         },
       ];
