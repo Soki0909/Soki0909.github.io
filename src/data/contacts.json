@@ -1,0 +1,67 @@
+{
+  "contacts": [
+    {
+      "platform": "GitHub",
+      "handle": "Soki0909",
+      "url": "https://github.com/Soki0909",
+      "icon": "🐙",
+      "color": "hover:bg-gray-100",
+      "bgColor": "bg-gray-800",
+      "isActive": true
+    },
+    {
+      "platform": "Email",
+      "handle": "c1302855@st.kanazawa-it.ac.jp",
+      "url": "mailto:c1302855@st.kanazawa-it.ac.jp",
+      "icon": "📧",
+      "color": "hover:bg-blue-50",
+      "bgColor": "bg-blue-500",
+      "isActive": true
+    },
+    {
+      "platform": "LinkedIn",
+      "handle": "#",
+      "url": "#",
+      "icon": "in",
+      "color": "hover:bg-blue-50",
+      "bgColor": "bg-blue-600",
+      "isActive": false
+    },
+    {
+      "platform": "Portfolio",
+      "handle": "soki0909.github.io",
+      "url": "https://soki0909.github.io/",
+      "icon": "🌐",
+      "color": "hover:bg-purple-50",
+      "bgColor": "bg-purple-500",
+      "isActive": true
+    }
+  ],
+  "form": {
+    "title": "お問い合わせフォーム",
+    "description": "ご質問やお仕事のご相談がございましたら、お気軽にお問い合わせください。",
+    "fields": [
+      {
+        "name": "name",
+        "label": "お名前",
+        "type": "text",
+        "required": true
+      },
+      {
+        "name": "email",
+        "label": "メールアドレス",
+        "type": "email",
+        "required": true
+      },
+      {
+        "name": "message",
+        "label": "メッセージ",
+        "type": "textarea",
+        "rows": 5,
+        "required": true
+      }
+    ],
+    "submitText": "送信",
+    "submitMessage": "お問い合わせありがとうございます。（デモ版のため実際には送信されません）"
+  }
+}
