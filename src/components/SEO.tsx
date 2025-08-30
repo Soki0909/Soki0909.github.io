@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getPageSchema } from '../utils/structuredData';
 import { getSEOData } from '../utils/dataLoader';
-import type { Project } from '../types/project';
+import type { Project } from '../types/dataModels';
 
 interface SEOProps {
   title?: string;
@@ -208,7 +208,7 @@ const SEO: React.FC<SEOProps> = ({
     const additionalMetas = [
       { name: 'robots', content: 'index, follow' },
       { name: 'author', content: seoData.site.author },
-      { name: 'generator', content: 'React, TypeScript, Vite' },
+      { name: 'generator', content: seoData.site.techStack },
       { 'http-equiv': 'content-language', content: currentLanguage },
       { name: 'theme-color', content: seoData.site.themeColor },
     ];

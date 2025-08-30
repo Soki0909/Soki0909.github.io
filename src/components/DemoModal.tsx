@@ -1,4 +1,4 @@
-import type { Project } from '../types/project';
+import type { Project } from '../types/dataModels';
 import { useModal } from '../hooks/useModal';
 import TabNavigation from './TabNavigation';
 import ModalHeader from './ModalHeader';

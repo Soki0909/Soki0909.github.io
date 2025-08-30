@@ -1,10 +1,15 @@
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { getPersonalData } from '../utils/dataLoader';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  // 個人情報をデータから取得
+  const personalData = getPersonalData();
+  const { basicProfile } = personalData;
 
   // スクロール検知
   useEffect(() => {
@@ -54,7 +59,7 @@ const Header = () => {
             className="text-xl lg:text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:scale-105 transition-transform duration-200"
             onClick={closeMenu}
           >
-            KUME Soki
+            {basicProfile.nameEn}
           </Link>
 
           {/* デスクトップメニュー */}
