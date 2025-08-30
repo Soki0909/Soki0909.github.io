@@ -14,6 +14,9 @@ import { initGA, useGoogleAnalytics } from './utils/analytics';
 // Dynamic imports for code splitting
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
+const Skills = lazy(() => import('./pages/Skills'));
+const Experience = lazy(() => import('./pages/Experience'));
+const Vision = lazy(() => import('./pages/Vision'));
 const Works = lazy(() => import('./pages/Works'));
 const WorkDetail = lazy(() => import('./pages/WorkDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
@@ -39,6 +42,9 @@ const AppLayout = () => {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/about" element={<About />} />
+              <Route path="/skills" element={<Skills />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/vision" element={<Vision />} />
               <Route path="/works" element={<Works />} />
               <Route path="/works/:id" element={<WorkDetail />} />
               <Route path="/contact" element={<Contact />} />

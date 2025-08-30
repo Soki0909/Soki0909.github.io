@@ -28,6 +28,24 @@ const Header = () => {
             <Link to="/about" className="hover:text-blue-500 transition-colors">
               About
             </Link>
+            <Link
+              to="/skills"
+              className="hover:text-blue-500 transition-colors"
+            >
+              Skills
+            </Link>
+            <Link
+              to="/experience"
+              className="hover:text-blue-500 transition-colors"
+            >
+              Experience
+            </Link>
+            <Link
+              to="/vision"
+              className="hover:text-blue-500 transition-colors"
+            >
+              Vision
+            </Link>
             <Link to="/works" className="hover:text-blue-500 transition-colors">
               Works
             </Link>
@@ -59,7 +77,7 @@ const Header = () => {
 
         {/* モバイルメニュー */}
         <div
-          className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-48 opacity-100' : 'max-h-0 opacity-0'}`}
+          className={`md:hidden transition-all duration-300 overflow-hidden ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
         >
           <div className="pt-4 pb-2 space-y-3">
             <Link
@@ -75,6 +93,27 @@ const Header = () => {
               onClick={closeMenu}
             >
               About
+            </Link>
+            <Link
+              to="/skills"
+              className="block py-2 hover:text-blue-500 transition-colors"
+              onClick={closeMenu}
+            >
+              Skills
+            </Link>
+            <Link
+              to="/experience"
+              className="block py-2 hover:text-blue-500 transition-colors"
+              onClick={closeMenu}
+            >
+              Experience
+            </Link>
+            <Link
+              to="/vision"
+              className="block py-2 hover:text-blue-500 transition-colors"
+              onClick={closeMenu}
+            >
+              Vision
             </Link>
             <Link
               to="/works"

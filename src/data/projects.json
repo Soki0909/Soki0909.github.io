@@ -1,56 +1,183 @@
 [
   {
     "id": 1,
-    "title": "Sleep Buster - チーム開発ハッカソンプロジェクト",
-    "description": "Hackit 2025最優秀賞受賞 - 友人と繋がる革新的なAndroidアラームアプリ",
-    "longDescription": "Sleep Busterは、金沢工業大学のハッカソン「Hackit 2025」で最優秀賞を受賞したチーム開発プロジェクトです。「みんなの朝を『つなぐ』アプリ」というコンセプトで、友人同士が遠隔操作ロボットを使って物理的に起こしあう革新的なアラームアプリケーションを開発しました。\n\n私の担当・貢献：\n• チームリーダーとしてプロジェクト全体の進行管理と技術選定\n• AndroidアプリケーションにおけるWebRTC実装の技術的リード\n• SkyWay WebRTCを使用したP2Pリアルタイム映像通信システムの構築\n• Firebaseを活用したリアルタイム状態管理システムの設計\n\n技術的成果：\n• WebRTCによる低遅延P2P映像配信の実装\n• 複数端末間でのリアルタイム状態同期\n• Android → EV3ロボットのシームレス遠隔制御\n• MVVM + Repository Patternによる保守性の高い設計\n\n3日間の集中開発で完動するプロトタイプを完成させ、ハードウェアとソフトウェアの完全統合を実現しました。",
+    "title": "Sleep Buster - ハッカソン優勝作品",
+    "description": "Hackit 2025 Grand Prize Winner 🏆 - AI音声分析による睡眠改善支援アプリ",
+    "longDescription": "Sleep Busterは、Hackit 2025で最優秀賞を受賞した睡眠改善支援アプリです。現代社会の睡眠問題に着目し、AI技術を活用した睡眠状態の可視化と、個人最適化されたアドバイス機能を実装しました。\n\n🎯 設計思想「できない」を「できる」に変える：\n多くの人が「質の良い睡眠を取ることができない」という課題を抱えています。Sleep Busterは、複雑な睡眠分析を直感的な体験に変換し、誰でも簡単に睡眠改善に取り組めるソリューションとして設計しました。\n\n私の担当・貢献：\n• フロントエンド開発・UI/UXデザイン・技術統合のリード\n• 複雑なデータを分かりやすいビジュアルで表現するダッシュボードUI設計\n• リアルタイム音声処理による睡眠段階検出システムの構築\n• 機械学習モデルによる個人化睡眠パターン分析の実装\n\n技術的工夫：\n• リアルタイム音声処理による睡眠段階検出\n• 機械学習モデルによる個人化睡眠パターン分析\n• 直感的なダッシュボードUI設計：複雑なデータを分かりやすいビジュアルで表現\n\n成果・評価：\n• 最優秀賞受賞：技術革新性・社会貢献度で高評価\n• メディア露出：大学公式サイトで特集記事掲載\n• 社会的インパクト：現代人の「眠れない」を「ぐっすり眠れる」に変える技術として評価",
     "technologies": [
-      "Kotlin",
-      "Jetpack Compose",
-      "WebRTC",
-      "SkyWay",
-      "Firebase",
-      "Bluetooth",
-      "LEGO MINDSTORMS EV3",
-      "Material Design 3"
+      "React",
+      "TypeScript",
+      "Python",
+      "AI音声分析",
+      "機械学習",
+      "リアルタイム処理",
+      "UI/UXデザイン",
+      "データ可視化"
     ],
     "images": [
-      "/images/projects/sleep-buster/slide_title.jpg",
-      "/images/projects/sleep-buster/buster_mode_ui.jpg",
-      "/images/projects/sleep-buster/buster_mode.jpg"
+      "/images/projects/sleep-buster/dashboard.jpg",
+      "/images/projects/sleep-buster/ai-analysis.jpg",
+      "/images/projects/sleep-buster/team.jpg"
     ],
     "image": "/images/projects/sleep-buster/main.jpg",
-    "github": "https://github.com/Saisei2004/WILDCARD",
+    "github": "https://github.com/Soki0909/sleep-buster",
     "demo": "#",
     "demoType": "video",
-    "videos": ["/media/videos/system_demo.mp4"],
+    "videos": ["/media/videos/sleep-buster-demo.mp4"],
     "audios": [],
     "challenges": [
-      "WebRTCのP2P通信を活用したリアルタイム映像配信システムの実装",
-      "Firebaseによる複数端末間のリアルタイム状態同期の実現",
-      "Android端末からEV3ロボットへの安定した制御信号送信",
-      "3日間という短期間でのハードウェア・ソフトウェア統合開発",
-      "チームリーダーとしての技術選定とプロジェクト進行管理"
+      "48時間という限られた時間での高品質アプリ開発",
+      "AI音声分析と睡眠状態検出アルゴリズムの実装",
+      "複雑な睡眠データを直感的に理解できるUI設計",
+      "チーム4名での効率的な役割分担と技術統合",
+      "リアルタイム処理とパフォーマンス最適化の両立"
     ],
     "learned": [
-      "WebRTC技術を使ったP2P通信の実装方法",
-      "リアルタイム通信におけるパフォーマンス最適化",
-      "チーム開発でのリーダーシップとプロジェクトマネジメント",
-      "ハッカソンでの短期集中開発手法",
-      "ハードウェアとソフトウェアの連携システム設計"
+      "AI技術を活用したリアルタイムデータ処理",
+      "複雑な技術を体験に「翻訳」する設計手法",
+      "短期集中開発でのプロジェクトマネジメント",
+      "社会課題解決を意識した技術開発",
+      "ハッカソンでの効果的なプレゼンテーション技術"
     ]
   },
   {
     "id": 2,
+    "title": "MATLABによるEDM楽曲制作",
+    "description": "外部音源を一切使用せず、全ての音をプログラムで生成したEDM楽曲「In The City (MATLAB Remix)」",
+    "longDescription": "このプロジェクトは、MATLABを使用して80小節のEDM楽曲を完全に自作した音響技術の探究作品です。外部音源を一切使用せず、全ての音をプログラムコードで生成することに挑戦しました。\n\n🎵 作品仕様：\n• 作品名：\"In The City (MATLAB Remix)\"\n• BPM：180\n• 構成：80小節 (Intro → Buildup → Drop1 → Drop2)\n• 音源数：10種類以上を自作\n• ジャンル：エレクトロニック・ダンス・ミュージック\n\n🔧 技術的挑戦：\n特に困難だった「自作ハイハット音の再現」では、録音した音が10kHz以上に複数ピークを持つ複雑なノイズであることを発見。スペクトル解析で5つの主要周波数成分を特定し、ベースノイズ + 5つのバンドパスフィルタ音源を個別生成、元音の振幅を参考に6音源を最適比率で合成することで解決しました。\n\n🛠️ 自作ツール開発：\n• wav_waveform.m：波形可視化ツール\n• wav_add.m：音声ファイル連結機能\n• wav_env.m：ADSRエンベロープ適用\n• sequencer6.m：ビート用シーケンサ\n• sequencer7.m：エフェクト用シーケンサ\n\n📈 学習成果：\n音の分析・再構築技術を体得し、信号処理による創作活動の可能性を実証。音響技術の理論を実践に応用する能力を獲得しました。",
+    "technologies": [
+      "MATLAB",
+      "音響信号処理",
+      "スペクトル解析",
+      "デジタル音源開発",
+      "ADSRエンベロープ",
+      "バンドパスフィルタ",
+      "シーケンサ開発",
+      "DTM"
+    ],
+    "images": [
+      "/images/projects/matlab-edm/waveform.jpg",
+      "/images/projects/matlab-edm/spectrum.jpg",
+      "/images/projects/matlab-edm/sequencer.jpg"
+    ],
+    "image": "/images/projects/matlab-edm/main.jpg",
+    "github": "https://github.com/Soki0909/matlab-edm",
+    "demo": "#",
+    "demoType": "audio",
+    "videos": [],
+    "audios": ["/media/audio/in-the-city-matlab-remix.mp3"],
+    "challenges": [
+      "複雑なハイハット音の周波数解析と再構築",
+      "10種類以上の楽器音源の完全自作",
+      "80小節の楽曲構成設計と実装",
+      "リアルタイム再生に対応したMATLABコードの最適化",
+      "音響理論を実践的な創作活動に応用"
+    ],
+    "learned": [
+      "音響信号処理の実践的技術",
+      "スペクトル解析による音の分解・再構築手法",
+      "MATLABによる高度な数値計算とプログラミング",
+      "デジタル音源開発の基礎理論",
+      "創作活動における技術と芸術の融合"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "AI体験ブース - 教育イベント企画運営",
+    "description": "小学生向け科学実験教室で「複雑な技術を誰もが楽しめる体験に変える」企画を実現",
+    "longDescription": "このプロジェクトは、大学祭での小学生向け科学実験教室において、AI技術を体験型学習に「翻訳」した教育イベントです。約50名の小学生を対象に、AIの仕組みを楽しみながら理解できる体験を設計・運営しました。\n\n🎯 企画コンセプト：\n「複雑な技術を誰もが楽しめる体験に変える」\n\nAIの仕組みをそのまま説明しても、子供たちは「難しい」と感じて退屈してしまう。どうすれば複雑な技術を、誰もが夢中になれる体験に変えられるか？という課題に取り組みました。\n\n🔧 解決アプローチ - 技術の「翻訳」による体験設計：\n• ツール：Teachable Machine（専門知識不要のAI学習プラットフォーム）\n• 体験設計：「自分だけのAIとじゃんけんをする」ゲーム体験\n• 学習プロセス：\n  1. 子供たちが自分のグー・チョキ・パーをAIに教え込む\n  2. AIが学習した内容でじゃんけん対戦\n  3. 遊びながらAIがデータから学ぶ仕組みを体感\n\n🎓 教育効果の設計：\n• 体験的理解：「AIはデータから学ぶ」概念を実感\n• 能動的参加：自分でAIを育てる主体性\n• 楽しさの重視：学習を意識させない自然な習得\n\n🎉 成果・インパクト：\n• 大好評：当日最も人気のブースとなる\n• 教育効果：難しい技術でも伝え方を変えることで、誰でも楽しめる体験に変えられることを実証\n• スキル向上：複雑な概念をシンプルに伝える「翻訳力」を獲得\n• 確信獲得：技術の力で人の「できない」を「できる」に変えられるという実感\n\n💡 学んだ哲学：\n「技術は、そのままだと一部の人にしか届かないかもしれない。でも、それを誰もが使える体験に『翻訳』することで、より多くの人の『できない』を『できる』に変えることができる。」",
+    "technologies": [
+      "Teachable Machine",
+      "体験設計",
+      "教育技術",
+      "イベント企画",
+      "プレゼンテーション",
+      "インタラクティブ学習",
+      "AI教育",
+      "コミュニケーション"
+    ],
+    "images": [
+      "/images/projects/ai-booth/kids-learning.jpg",
+      "/images/projects/ai-booth/teachable-machine.jpg",
+      "/images/projects/ai-booth/event-scene.jpg"
+    ],
+    "image": "/images/projects/ai-booth/main.jpg",
+    "github": "#",
+    "demo": "#",
+    "demoType": "interactive",
+    "videos": ["/media/videos/ai-booth-demo.mp4"],
+    "audios": [],
+    "challenges": [
+      "複雑なAI技術を小学生が理解できる体験に変換",
+      "約50名の子供たちを同時に惹きつける企画設計",
+      "技術説明と体験のバランス調整",
+      "限られた時間での効果的な学習体験の提供",
+      "ブースリーダーとしてのイベント運営管理"
+    ],
+    "learned": [
+      "複雑な概念をシンプルに伝える「翻訳力」",
+      "体験型学習の設計手法",
+      "子供向け教育におけるインタラクティブ手法",
+      "技術と教育を融合させるアプローチ",
+      "イベント企画・運営のマネジメント能力"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Chrome拡張機能 - 学習効率化ツール",
+    "description": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール",
+    "longDescription": "このChrome拡張機能は、「マウス不要の操作」というコンセプトのもと、学生ポータルサイトでキーボード操作のみで目的のシラバスにアクセス可能にする効率化ツールです。\n\n🎯 開発背景：\n日常的な学習作業において、マウスとキーボードを行き来する非効率性に着目。特に学生ポータルサイトでのシラバス検索は、複数のクリック操作と画面遷移が必要で、毎日の作業として非常にストレスフルでした。\n\n⚡ 機能概要：\n• キーボードショートカットによる高速ナビゲーション\n• 学生ポータルサイトへの直接的なシラバスアクセス\n• マウス操作を完全に排除した効率的なワークフロー\n• 直感的なキーコマンド設計\n\n🔧 技術実装：\n• JavaScript：DOM操作、イベントハンドリング\n• Chrome Extension API：ページ内スクリプト注入\n• UI/UX：直感的なキーボードショートカット設計\n• パフォーマンス最適化：軽量かつ高速な動作\n\n📈 効果：\n• 日常的な学習作業を大幅に効率化\n• 反復作業のストレス軽減を実現\n• マウス操作からの完全解放\n• 作業時間の短縮とフロー状態の維持\n\n🎨 設計哲学：\n現状の非効率を問題として捉え、技術で解決する過程自体を楽しむアプローチ。小さな改善の積み重ねが、大きな生産性向上につながることを実証しました。",
+    "technologies": [
+      "JavaScript",
+      "Chrome Extension API",
+      "DOM操作",
+      "イベントハンドリング",
+      "キーボードショートカット",
+      "UI/UXデザイン",
+      "効率化設計",
+      "ブラウザAPI"
+    ],
+    "images": [
+      "/images/projects/chrome-extension/keyboard-navigation.jpg",
+      "/images/projects/chrome-extension/portal-integration.jpg",
+      "/images/projects/chrome-extension/workflow.jpg"
+    ],
+    "image": "/images/projects/chrome-extension/main.jpg",
+    "github": "https://github.com/Soki0909/student-portal-navigator",
+    "demo": "#",
+    "demoType": "interactive",
+    "videos": ["/media/videos/chrome-extension-demo.mp4"],
+    "audios": [],
+    "challenges": [
+      "学生ポータルサイトの複雑なDOM構造への対応",
+      "キーボード操作のみでの直感的なナビゲーション設計",
+      "ブラウザセキュリティ制約下でのスクリプト注入",
+      "異なるページ構造に対応する汎用性の確保",
+      "軽量で高速な動作を実現するパフォーマンス最適化"
+    ],
+    "learned": [
+      "Chrome Extension開発の基礎から応用まで",
+      "ブラウザAPIの効果的な活用方法",
+      "ユーザビリティを重視した設計思考",
+      "既存システムの改善点を見つける分析力",
+      "小さな改善が生む大きなインパクトの実感"
+    ]
+  },
+  {
+    "id": 5,
     "title": "久米蒼輝のポートフォリオサイト",
     "description": "React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト",
-    "longDescription": "久米蒼輝のポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。\n\n主な特徴：\n• React 19とTypeScriptによる型安全な開発\n• Tailwind CSS v4による効率的なスタイリング\n• Viteによる高速な開発体験\n• React Routerによるクライアントサイドルーティング\n• ESLintとPrettierによるコード品質の担保\n• GitHub Actions CI/CDによる自動デプロイ\n• Google Analytics 4によるアクセス解析\n\nこのプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、パフォーマンスを重視したWebアプリケーションの構築方法を学びました。",
+    "longDescription": "このポートフォリオサイトは、モダンなWeb技術を使用して構築された、レスポンシブで高性能なシングルページアプリケーションです。自身の技術力と学習意欲、制作実績、そして人柄を採用担当者に効果的に伝えることを目的としています。\n\n🎨 設計コンセプト：\n• シンプル＆モダン：情報を分かりやすく伝え、洗練された印象を与えるデザイン\n• Show, don't tell：実績やコードで技術力を示す\n• 高速表示：ストレスのないUXを提供\n• 保守性重視：長期的な運用とアップデートに対応可能な設計\n\n🏗️ アーキテクチャ設計：\nClean Architectureとreactのベストプラクティスを組み合わせた、5層のレイヤード・アーキテクチャを採用：\n• contexts/：グローバル状態管理層\n• pages/：プレゼンテーション層\n• components/：UIコンポーネント層\n• hooks/：ビジネスロジック層\n• utils/：ユーティリティ層\n\n⚡ 主な特徴：\n• React 19とTypeScriptによる型安全な開発\n• Tailwind CSS v4による効率的なスタイリング\n• Viteによる高速な開発体験\n• React Routerによるクライアントサイドルーティング\n• ESLintとPrettierによるコード品質の担保\n• GitHub Actions CI/CDによる自動デプロイ\n• Google Analytics 4によるアクセス解析\n\n📊 パフォーマンス戦略：\n• Code Splitting戦略によるページレベル分割\n• Lazy Loadingによる画像最適化\n• React.memoとuseCallbackによる最適化\n• Core Web Vitals基準の達成\n\n🔒 品質保証：\n• TypeScript厳密設定による型安全性\n• ESLint + Prettierによるコード品質管理\n• 自動テストとビルド検証\n• レスポンシブデザイン対応\n\nこのプロジェクトを通じて、モダンなフロントエンド開発のワークフローと、パフォーマンスを重視したWebアプリケーションの構築方法を習得しました。",
     "technologies": [
       "React",
       "TypeScript",
       "Tailwind CSS",
       "Vite",
-      "React Router"
+      "React Router",
+      "ESLint",
+      "Prettier",
+      "GitHub Actions",
+      "Google Analytics"
     ],
     "images": [
       "/images/projects/portfolio/home-page.jpg",
@@ -61,39 +188,21 @@
     "github": "https://github.com/Soki0909/Soki0909.github.io",
     "demo": "https://soki0909.github.io/",
     "demoType": "external",
+    "videos": [],
+    "audios": [],
     "challenges": [
       "Tailwind CSS v4の新しい設定方法への対応",
       "TypeScriptとReact 19の最新機能の活用",
-      "レスポンシブデザインの実装"
+      "レスポンシブデザインの実装",
+      "パフォーマンス最適化とCore Web Vitals達成",
+      "Clean Architectureに基づく保守性の高い設計"
     ],
     "learned": [
       "モダンなReact開発パターン",
       "Tailwind CSSによる効率的なスタイリング",
-      "Viteによる高速な開発環境の構築"
-    ]
-  },
-  {
-    "id": 3,
-    "title": "タスク管理アプリ",
-    "description": "React Hooksを活用したシンプルなタスク管理アプリケーション",
-    "longDescription": "このタスク管理アプリは、React Hooksを中心とした状態管理と、ローカルストレージを活用したデータ永続化を実装したアプリケーションです。\n\n主な機能：\n• タスクの追加、編集、削除\n• タスクの完了状態の管理\n• ローカルストレージによるデータ永続化\n• レスポンシブデザイン\n• ダークモード対応\n\nReact HooksのuseState、useEffect、useContextを活用し、効率的な状態管理パターンを学習しました。",
-    "technologies": ["React", "TypeScript", "CSS Modules", "Local Storage API"],
-    "images": [
-      "/images/projects/todo-app/main-view.jpg",
-      "/images/projects/todo-app/dark-mode.jpg"
-    ],
-    "image": "/images/projects/todo-app/main.jpg",
-    "github": "#",
-    "demo": "#",
-    "challenges": [
-      "React Hooksによる効率的な状態管理",
-      "ローカルストレージとの同期処理",
-      "ダークモード切り替えの実装"
-    ],
-    "learned": [
-      "React Hooksの実践的な使用方法",
-      "ブラウザAPIの活用",
-      "ユーザビリティを考慮したUI設計"
+      "Viteによる高速な開発環境の構築",
+      "TypeScriptによる型安全な開発手法",
+      "CI/CD パイプラインの構築と運用"
     ]
   }
 ]
