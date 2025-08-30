@@ -4,6 +4,7 @@ import { useEffect, Suspense, lazy } from 'react';
 // Import layout components (keep these as direct imports for immediate loading)
 import Header from './components/Header';
 import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 // Import contexts
 import { ProjectProvider } from './contexts/ProjectContext';
@@ -35,6 +36,7 @@ const AppLayout = () => {
 
   return (
     <ProjectProvider>
+      <ScrollToTop />
       <div className="min-h-screen bg-gray-100 text-gray-800">
         <Header />
         <main className="container mx-auto px-4 sm:px-6 py-6 lg:py-8">

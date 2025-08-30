@@ -23,7 +23,7 @@
     "github": "https://github.com/Soki0909/sleep-buster",
     "demo": "#",
     "demoType": "video",
-    "videos": ["/media/videos/sleep-buster-demo.mp4"],
+    "videos": ["/media/videos/system_demo.mp4"],
     "audios": [],
     "challenges": [
       "48時間という限られた時間での高品質アプリ開発",
