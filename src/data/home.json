@@ -1,0 +1,123 @@
+{
+  "highlights": [
+    {
+      "icon": "🏆",
+      "title": "Hackit 2025",
+      "subtitle": "ハッカソン最優秀賞受賞",
+      "description": "Sleep Buster - AI音声分析による睡眠改善支援アプリ",
+      "color": "from-yellow-400 to-orange-500",
+      "link": "/works"
+    },
+    {
+      "icon": "🥈",
+      "title": "RoboCup日本大会",
+      "subtitle": "オープンチャレンジ 6チーム中2位",
+      "description": "ロボットが家族の一員となるシステムの開発",
+      "color": "from-blue-500 to-purple-600",
+      "link": "/experience"
+    },
+    {
+      "icon": "💼",
+      "title": "プロジェクト運営",
+      "subtitle": "74名組織のサブリーダー",
+      "description": "技術開発とチームマネジメントの両立",
+      "color": "from-green-500 to-teal-600",
+      "link": "/experience"
+    }
+  ],
+  "navigationCards": [
+    {
+      "title": "About Me",
+      "description": "人生のミッション・行動理念・強みをご紹介",
+      "icon": "👤",
+      "color": "text-blue-600",
+      "hoverColor": "hover:bg-blue-50",
+      "link": "/about",
+      "details": "自己紹介・価値観・転換点となった体験"
+    },
+    {
+      "title": "Technical Skills",
+      "description": "プログラミング言語・専門技術・評価実績",
+      "icon": "💻",
+      "color": "text-green-600",
+      "hoverColor": "hover:bg-green-50",
+      "link": "/skills",
+      "details": "Python・JavaScript・MATLAB・AI・音響技術"
+    },
+    {
+      "title": "Experience",
+      "description": "活動実績・成長ストーリー・資格検定",
+      "icon": "📈",
+      "color": "text-purple-600",
+      "hoverColor": "hover:bg-purple-50",
+      "link": "/experience",
+      "details": "RoboCup・学生ステーション・教職課程"
+    },
+    {
+      "title": "Vision & Values",
+      "description": "将来ビジョン・価値観・趣味特技",
+      "icon": "🎯",
+      "color": "text-orange-600",
+      "hoverColor": "hover:bg-orange-50",
+      "link": "/vision",
+      "details": "音楽バリアフリー・技術哲学・Beatbox"
+    },
+    {
+      "title": "Works",
+      "description": "主要プロジェクト・作品・技術的挑戦",
+      "icon": "🚀",
+      "color": "text-red-600",
+      "hoverColor": "hover:bg-red-50",
+      "link": "/works",
+      "details": "Sleep Buster・MATLAB楽曲・AI体験ブース"
+    },
+    {
+      "title": "Contact",
+      "description": "お問い合わせ・SNSリンク",
+      "icon": "📧",
+      "color": "text-teal-600",
+      "hoverColor": "hover:bg-teal-50",
+      "link": "/contact",
+      "details": "GitHub・Email・ポートフォリオサイト"
+    }
+  ],
+  "quickFacts": [
+    {
+      "value": "3",
+      "label": "年間の大学生活",
+      "color": "blue"
+    },
+    {
+      "value": "6+",
+      "label": "プログラミング言語",
+      "color": "green"
+    },
+    {
+      "value": "74",
+      "label": "名規模組織でのリーダー経験",
+      "color": "purple"
+    },
+    {
+      "value": "4",
+      "label": "教員免許取得予定数",
+      "color": "orange"
+    }
+  ],
+  "ctaSection": {
+    "title": "お気軽にお問い合わせください",
+    "description": "技術的なディスカッション、プロジェクトのご相談、採用に関するお話など、どのようなことでもお気軽にご連絡ください。",
+    "buttons": [
+      {
+        "text": "📧 お問い合わせ",
+        "link": "/contact",
+        "style": "bg-blue-600 text-white hover:bg-blue-700"
+      },
+      {
+        "text": "🐙 GitHub で見る",
+        "link": "https://github.com/Soki0909",
+        "style": "bg-gray-800 text-white hover:bg-gray-900",
+        "external": true
+      }
+    ]
+  }
+}

@@ -1,7 +1,10 @@
 import { useState } from 'react';
 import { trackEvent } from '../utils/analytics';
+import { getContactData } from '../utils/dataLoader';
 
 const Contact = () => {
+  const contactData = getContactData();
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,9 +31,7 @@ const Contact = () => {
     });
 
     // 実際のフォーム送信処理（今回は仮実装）
-    alert(
-      'お問い合わせありがとうございます。（デモ版のため実際には送信されません）'
-    );
+    alert(contactData.formConfig.submitMessage);
 
     // フォームをリセット
     setFormData({
@@ -61,95 +62,76 @@ const Contact = () => {
           <div>
             <h2 className="text-xl font-semibold mb-4">連絡先</h2>
             <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0">
-                  @
-                </span>
-                <span className="break-all">soki.kume@example.com</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 bg-gray-800 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0">
-                  G
-                </span>
-                <a
-                  href="https://github.com/Soki0909"
-                  className="text-blue-500 hover:underline"
-                  onClick={() => handleLinkClick('github')}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  GitHub
-                </a>
-              </div>
-              <div className="flex items-center space-x-3">
-                <span className="w-8 h-8 bg-blue-600 rounded-full flex items-center justify-center text-white text-sm flex-shrink-0">
-                  in
-                </span>
-                <a
-                  href="#"
-                  className="text-blue-500 hover:underline"
-                  onClick={() => handleLinkClick('linkedin')}
-                >
-                  LinkedIn
-                </a>
-              </div>
+              {contactData.contacts.map((contact, index) => (
+                <div key={index} className="flex items-center space-x-3">
+                  <span
+                    className={`w-8 h-8 ${contact.bgColor} rounded-full flex items-center justify-center text-white text-sm flex-shrink-0`}
+                  >
+                    {contact.icon}
+                  </span>
+                  {contact.url !== '#' &&
+                  contact.url !== 'mailto:soki.kume@example.com' ? (
+                    <a
+                      href={contact.url}
+                      className="text-blue-500 hover:underline"
+                      onClick={() =>
+                        handleLinkClick(contact.platform.toLowerCase())
+                      }
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      {contact.platform}
+                    </a>
+                  ) : (
+                    <span className="break-all">{contact.handle}</span>
+                  )}
+                </div>
+              ))}
             </div>
           </div>
         </div>
 
         <div>
-          <h2 className="text-xl font-semibold mb-4">お問い合わせフォーム</h2>
+          <h2 className="text-xl font-semibold mb-4">
+            {contactData.formConfig.title}
+          </h2>
           <form onSubmit={handleSubmit} className="space-y-4">
-            <div>
-              <label htmlFor="name" className="block text-sm font-medium mb-1">
-                お名前
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleInputChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label htmlFor="email" className="block text-sm font-medium mb-1">
-                メールアドレス
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-            <div>
-              <label
-                htmlFor="message"
-                className="block text-sm font-medium mb-1"
-              >
-                メッセージ
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleInputChange}
-                rows={5}
-                required
-                className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-y"
-              ></textarea>
-            </div>
+            {contactData.formConfig.fields.map((field) => (
+              <div key={field.name}>
+                <label
+                  htmlFor={field.name}
+                  className="block text-sm font-medium mb-1"
+                >
+                  {field.label}
+                </label>
+                {field.type === 'textarea' ? (
+                  <textarea
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name as keyof typeof formData]}
+                    onChange={handleInputChange}
+                    rows={field.rows}
+                    required={field.required}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-y"
+                  ></textarea>
+                ) : (
+                  <input
+                    type={field.type}
+                    id={field.name}
+                    name={field.name}
+                    value={formData[field.name as keyof typeof formData]}
+                    onChange={handleInputChange}
+                    required={field.required}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  />
+                )}
+              </div>
+            ))}
             <button
               type="submit"
               className="w-full bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium"
             >
-              送信
+              {contactData.formConfig.submitText}
             </button>
           </form>
         </div>

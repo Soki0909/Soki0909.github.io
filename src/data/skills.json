@@ -1,0 +1,112 @@
+{
+  "programmingLanguages": [
+    {
+      "name": "Python",
+      "level": "上級",
+      "experience": "画像処理, データ分析, ディープラーニング, Webアプリ開発",
+      "color": "from-yellow-400 to-yellow-600"
+    },
+    {
+      "name": "JavaScript",
+      "level": "中級",
+      "experience": "フロントエンド開発, Chrome拡張機能, 非同期通信・API連携",
+      "color": "from-yellow-300 to-orange-500"
+    },
+    {
+      "name": "C",
+      "level": "中級",
+      "experience": "組み込みシステム開発",
+      "color": "from-blue-400 to-blue-600"
+    },
+    {
+      "name": "Java",
+      "level": "中級",
+      "experience": "オブジェクト指向設計, 組み込み開発",
+      "color": "from-red-400 to-red-600"
+    },
+    {
+      "name": "Dart",
+      "level": "初級",
+      "experience": "Flutterアプリ開発",
+      "color": "from-cyan-400 to-cyan-600"
+    },
+    {
+      "name": "MATLAB",
+      "level": "中級",
+      "experience": "音響処理, 信号処理, 数値解析, DTM",
+      "color": "from-orange-400 to-orange-600"
+    }
+  ],
+  "specialtyAreas": [
+    {
+      "title": "AI・機械学習",
+      "frameworks": "TensorFlow, Keras",
+      "methods": "CNN実装, 画像分類",
+      "achievement": "Fashion-MNIST分類で92.7%の正解率達成",
+      "icon": "🤖",
+      "color": "from-purple-500 to-blue-600"
+    },
+    {
+      "title": "信号処理・音響技術",
+      "frameworks": "MATLAB",
+      "methods": "音響信号処理, DTM制作",
+      "achievement": "80小節のEDM楽曲を全て自作音源で制作",
+      "icon": "🎵",
+      "color": "from-green-500 to-teal-600"
+    },
+    {
+      "title": "Web・アプリ開発",
+      "frameworks": "HTML/CSS, JavaScript, Django, Flutter",
+      "methods": "フロントエンド, バックエンド, モバイル",
+      "achievement": "音声アシスタントWebアプリ開発",
+      "icon": "💻",
+      "color": "from-blue-500 to-purple-600"
+    },
+    {
+      "title": "その他技術",
+      "frameworks": "SQL, VBA, Unity, R",
+      "methods": "データベース, Excel自動化, ゲーム開発, 統計解析",
+      "achievement": "多様な技術領域での実践経験",
+      "icon": "🛠️",
+      "color": "from-orange-500 to-red-600"
+    }
+  ],
+  "technicalEvaluations": [
+    {
+      "title": "paiza Aランク取得",
+      "description": "上位15%相当のコーディング能力",
+      "detail": "実践的なプログラミング力と問題解決能力が認められています",
+      "color": "from-blue-500 to-purple-600",
+      "icon": "🏅"
+    },
+    {
+      "title": "EMaT全分野",
+      "description": "偏差値60以上達成",
+      "detail": "情報数学の幅広い分野で高い理解度を示しています",
+      "color": "from-green-500 to-teal-600",
+      "icon": "📊"
+    }
+  ],
+  "learningPhilosophy": {
+    "title": "技術に対する考え方",
+    "quote": "専門分野とは、問題解決のための「道具」だと考えています",
+    "description": "AI、プログラミング、教育、デザイン。私の道具箱には多様なツールが揃っています。状況に応じて最適な道具を選び、組み合わせることで、誰も真似できない独自の解決策を提示できる。そこに私の価値があると信じています。"
+  },
+  "continuousLearning": [
+    {
+      "title": "理論学習",
+      "icon": "📚",
+      "description": "大学での授業に加え、機械学習関連書籍の独学で理論的基盤を構築"
+    },
+    {
+      "title": "実践応用",
+      "icon": "💡",
+      "description": "ハッカソンやプロジェクト活動を通じて実践的なスキルを磨く"
+    },
+    {
+      "title": "技術共有",
+      "icon": "🔄",
+      "description": "新入生教育や学習指導を通じて知識を深化させる"
+    }
+  ]
+}

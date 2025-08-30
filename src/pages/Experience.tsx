@@ -1,102 +1,17 @@
 import SEO from '../components/SEO';
+import { getExperienceData } from '../utils/dataLoader';
 
 const Experience = () => {
-  const timelineItems = [
-    {
-      year: '1年生',
-      title: '基礎学習期',
-      description: '技術的基盤の構築と、様々な活動への挑戦を開始',
-      details: [
-        '週2回の講習会参加 + 自主学習',
-        '機械学習関連書籍の独学',
-        '夢考房RoboCup@Homeプロジェクト参加開始',
-      ],
-      color: 'bg-blue-500',
-    },
-    {
-      year: '2年生',
-      title: '運営参画期',
-      description: 'マネジメント・コミュニケーション能力の向上と教育活動開始',
-      details: [
-        '新入生教育担当として指導経験を積む',
-        'プロジェクト会計業務を担当',
-        '学生ステーション運営スタッフとして活動開始',
-        'AI体験ブース企画・運営（科学実験教室）',
-      ],
-      color: 'bg-green-500',
-    },
-    {
-      year: '3年生',
-      title: 'リーダーシップ期',
-      description: 'プロジェクトリーダーとして組織運営と技術開発を両立',
-      details: [
-        'プロジェクトサブリーダー就任（74名組織）',
-        '安全活動リーダーとして安全基準策定・運用',
-        'RoboCup日本大会オープンチャレンジ 6チーム中2位',
-        'Hackit 2025ハッカソン最優秀賞受賞',
-      ],
-      color: 'bg-purple-500',
-    },
-  ];
-
-  const majorActivities = [
-    {
-      title: '夢考房RoboCup@Homeプロジェクト',
-      period: '1年前期〜現在 (2.5年)',
-      scale: '74名',
-      position: 'サブリーダー・安全活動リーダー',
-      achievement: 'RoboCup日本大会 6チーム中2位 🥈',
-      description: '「ロボットが家族の一員となるシステム」の開発',
-      technologies: ['スマートフォンアプリ', 'サーバー連携', 'ロボット制御'],
-      myRole: [
-        'UI開発',
-        'プレゼンストーリー作成・発表',
-        'チーム全体マネジメント',
-        '安全管理',
-      ],
-      icon: '🤖',
-      color: 'from-blue-500 to-purple-600',
-    },
-    {
-      title: '学生ステーション運営スタッフ',
-      period: '2年間',
-      scale: '学内インターンシップ',
-      position: '運営スタッフ → メンター',
-      achievement: '人前での大勢プレゼンテーションが可能に',
-      description: '相談窓口対応, 落とし物管理, イベント企画運営',
-      technologies: ['イベント企画', 'プレゼンテーション', 'デザイン制作'],
-      myRole: ['カウンター対応', 'イベント責任者', '新人サポート'],
-      icon: '🏢',
-      color: 'from-green-500 to-blue-500',
-    },
-    {
-      title: 'AI体験ブース - 教育イベント企画運営',
-      period: '単発イベント',
-      scale: '小学生約50名対象',
-      position: 'ブースリーダー・企画設計・運営',
-      achievement: '当日最も人気のブースとなる',
-      description: '「複雑な技術を誰もが楽しめる体験に変える」企画',
-      technologies: ['Teachable Machine', '体験設計', '教育技術'],
-      myRole: ['企画設計', '運営リーダー', '技術説明'],
-      icon: '🎯',
-      color: 'from-orange-500 to-red-500',
-    },
-  ];
-
-  const qualifications = [
-    { name: '実用数学技能検定準1級', date: '2022年10月', level: '上級' },
-    { name: '第二種電気工事士', date: '2021年8月', level: '中級' },
-    { name: '情報技術検定1級', date: '2022年2月', level: '上級' },
-    { name: '3級電子機器組立て技能士', date: '2022年3月', level: '中級' },
-    { name: '危険物取扱者乙種四類', date: '2023年3月', level: '中級' },
-    { name: 'ITパスポート試験', date: '高校時代', level: '初級' },
-  ];
-
-  const plannedQualifications = [
-    { name: '数学技能検定1級', status: '現在挑戦中', color: 'orange' },
-    { name: '基本情報技術者試験', status: '挑戦予定', color: 'blue' },
-    { name: '応用情報技術者試験', status: '挑戦予定', color: 'purple' },
-  ];
+  // データファイルから経験・活動実績情報を取得
+  const experienceData = getExperienceData();
+  const {
+    timelineItems,
+    majorActivities,
+    growthStory,
+    teachingCourse,
+    qualifications,
+    plannedQualifications,
+  } = experienceData;
 
   return (
     <>
@@ -275,108 +190,79 @@ const Experience = () => {
 
           {/* 成長ストーリー */}
           <div className="mb-12">
-            <h2 className="text-2xl font-semibold mb-6">
-              成長ストーリー: 苦手克服への挑戦
-            </h2>
+            <h2 className="text-2xl font-semibold mb-6">{growthStory.title}</h2>
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-8">
               <div className="mb-6">
-                <h3 className="text-lg font-semibold mb-3">🎯 挑戦動機</h3>
+                <h3 className="text-lg font-semibold mb-3">
+                  🎯 {growthStory.motivation.title}
+                </h3>
                 <p className="text-gray-700 leading-relaxed">
-                  人前で話すことへの強い苦手意識を克服するため、あえて人との対話が中心となる学生ステーション活動に飛び込みました。
+                  {growthStory.motivation.description}
                 </p>
               </div>
 
               <div className="mb-6">
                 <h4 className="font-semibold mb-3">当初の課題</h4>
                 <div className="grid md:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
+                  {growthStory.initialChallenges.map((challenge, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-2 text-sm text-gray-600"
+                    >
                       <span className="w-2 h-2 bg-red-400 rounded-full"></span>
-                      <span>思考力低下・頭が真っ白になる</span>
+                      <span>{challenge}</span>
                     </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <span className="w-2 h-2 bg-red-400 rounded-full"></span>
-                      <span>心臓のドキドキ・動悸</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <span className="w-2 h-2 bg-red-400 rounded-full"></span>
-                      <span>手足の震え・体の硬直</span>
-                    </div>
-                  </div>
-                  <div className="space-y-2">
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <span className="w-2 h-2 bg-red-400 rounded-full"></span>
-                      <span>発汗・声の震え</span>
-                    </div>
-                    <div className="flex items-center space-x-2 text-sm text-gray-600">
-                      <span className="w-2 h-2 bg-red-400 rounded-full"></span>
-                      <span>吃音・言葉詰まり</span>
-                    </div>
-                  </div>
+                  ))}
                 </div>
               </div>
 
               <div className="mb-6">
                 <h4 className="font-semibold mb-3">段階的アプローチ</h4>
                 <div className="space-y-4">
-                  <div className="flex items-start space-x-4">
-                    <span className="w-8 h-8 bg-red-100 text-red-600 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0">
-                      1
-                    </span>
-                    <div>
-                      <span className="font-medium">一対一対応:</span>
-                      <span className="text-gray-600 ml-2">
-                        カウンター業務から開始
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <span className="w-8 h-8 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0">
-                      2
-                    </span>
-                    <div>
-                      <span className="font-medium">小集団:</span>
-                      <span className="text-gray-600 ml-2">
-                        キャンパス案内で外部訪問者対応
-                      </span>
-                    </div>
-                  </div>
-                  <div className="flex items-start space-x-4">
-                    <span className="w-8 h-8 bg-green-100 text-green-600 rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0">
-                      3
-                    </span>
-                    <div>
-                      <span className="font-medium">大勢:</span>
-                      <span className="text-gray-600 ml-2">
-                        イベントでの大学生向けプレゼンテーション
-                      </span>
-                    </div>
-                  </div>
+                  {growthStory.approach.map((step, index) => {
+                    const colorClasses = {
+                      red: 'bg-red-100 text-red-600',
+                      yellow: 'bg-yellow-100 text-yellow-600',
+                      green: 'bg-green-100 text-green-600',
+                    };
+                    const colorClass =
+                      colorClasses[step.color as keyof typeof colorClasses] ||
+                      colorClasses.red;
+
+                    return (
+                      <div key={index} className="flex items-start space-x-4">
+                        <span
+                          className={`w-8 h-8 ${colorClass} rounded-full flex items-center justify-center text-sm font-semibold flex-shrink-0`}
+                        >
+                          {step.step}
+                        </span>
+                        <div>
+                          <span className="font-medium">{step.title}:</span>
+                          <span className="text-gray-600 ml-2">
+                            {step.description}
+                          </span>
+                        </div>
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
 
               <div className="mb-6">
                 <h4 className="font-semibold mb-3">克服戦略</h4>
                 <ul className="space-y-2">
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                    <span className="text-gray-700">
-                      <strong>視点転換:</strong>{' '}
-                      「自分が上手く話すか」→「相手が何を知りたいか」
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                    <span className="text-gray-700">
-                      <strong>事前準備:</strong> 「何を伝えたいか」の明確化
-                    </span>
-                  </li>
-                  <li className="flex items-start space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                    <span className="text-gray-700">
-                      <strong>経験積み重ね:</strong> 段階的な難易度アップ
-                    </span>
-                  </li>
+                  {growthStory.strategies.map((strategy, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                      <span className="text-gray-700">
+                        {strategy
+                          .split(': ')
+                          .map((part, i) =>
+                            i === 0 ? <strong key={i}>{part}: </strong> : part
+                          )}
+                      </span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -385,7 +271,7 @@ const Experience = () => {
                   🎉 最終的変化
                 </h4>
                 <p className="text-gray-700 font-medium">
-                  人前での大勢プレゼンテーションを自信を持って実行可能
+                  {growthStory.result}
                 </p>
               </div>
             </div>
@@ -402,22 +288,12 @@ const Experience = () => {
                   📜 教員免許取得予定
                 </h3>
                 <ul className="space-y-2 text-sm">
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span>中学校教諭一種免許状（数学）</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span>高等学校教諭一種免許状（数学）</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span>高等学校教諭一種免許状（工業）</span>
-                  </li>
-                  <li className="flex items-center space-x-2">
-                    <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
-                    <span>高等学校教諭一種免許状（情報）</span>
-                  </li>
+                  {teachingCourse.licenses.map((license, index) => (
+                    <li key={index} className="flex items-center space-x-2">
+                      <span className="w-2 h-2 bg-blue-500 rounded-full"></span>
+                      <span>{license}</span>
+                    </li>
+                  ))}
                 </ul>
               </div>
 
@@ -426,16 +302,20 @@ const Experience = () => {
                 <div className="space-y-3 text-sm">
                   <div>
                     <span className="font-medium">児童福祉施設:</span>
-                    <span className="text-gray-600 ml-2">5日間</span>
+                    <span className="text-gray-600 ml-2">
+                      {teachingCourse.caregivingExperience.childWelfare}
+                    </span>
                   </div>
                   <div>
                     <span className="font-medium">特別支援学校:</span>
-                    <span className="text-gray-600 ml-2">2日間</span>
+                    <span className="text-gray-600 ml-2">
+                      {teachingCourse.caregivingExperience.specialEducation}
+                    </span>
                   </div>
                   <div className="mt-4 p-3 bg-blue-50 rounded">
                     <p className="text-gray-700 text-xs leading-relaxed">
                       <strong>価値観の転換:</strong>{' '}
-                      障がいとは「できないこと」ではなく「『できる』に至るまでのプロセスが、私たちと少し違うだけ、少し長いだけ」という理解を獲得
+                      {teachingCourse.caregivingExperience.insight}
                     </p>
                   </div>
                 </div>
