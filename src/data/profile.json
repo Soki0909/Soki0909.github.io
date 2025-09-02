@@ -125,41 +125,42 @@
       }
     },
     {
-      "icon": "🥈",
-      "title": "RoboCup日本大会",
-      "subtitle": "オープンチャレンジ 6チーム中2位",
-      "description": "ロボットが家族の一員となるシステムの開発。スマートフォンアプリとサーバー連携を担当",
-      "color": "bg-gray-400",
-      "organizer": "RoboCup日本委員会",
+      "icon": "🏆",
+      "title": "RoboCup世界大会",
+      "subtitle": "準優勝・日本大会3連覇達成",
+      "description": "生活支援ロボット開発プロジェクト。AI・画像認識技術とチームマネジメントを担当",
+      "color": "bg-yellow-500",
+      "organizer": "RoboCup国際委員会",
       "eventDates": {
-        "startDate": "2024-05-01",
-        "endDate": "2024-05-05"
+        "startDate": "2024-07-17",
+        "endDate": "2024-07-22"
       },
       "details": {
-        "competition": "RoboCup@Home",
-        "teamSize": "74名（プロジェクト全体）",
-        "myRole": "UI開発・プレゼンストーリー作成・発表",
+        "competition": "RoboCup@Home（世界最大規模ロボット競技）",
+        "teamSize": "68名（ソフト班37名・回路班18名・機構班13名）",
+        "myRole": "ソフト班・AI技術開発・プロジェクト統括",
         "technologies": [
-          "スマートフォンアプリ開発",
-          "サーバー連携",
-          "ロボット制御"
+          "AI・機械学習（物体検出・顔認識）",
+          "自然言語処理・音声認識",
+          "経路計画・地図生成",
+          "ロボット自律制御"
         ],
-        "achievement": "全国6チーム中2位の優秀な成績"
+        "achievement": "世界45カ国参加の国際大会で準優勝・日本大会3連覇（2022-2024）"
       }
     },
     {
       "icon": "💼",
       "title": "プロジェクトサブリーダー",
-      "subtitle": "74名規模組織での安全活動リーダー兼務",
-      "description": "技術開発とチームマネジメントの両立。安全基準策定・運用も担当",
+      "subtitle": "68名規模組織での安全活動リーダー兼務",
+      "description": "AI技術開発とチームマネジメントの両立。安全基準策定・運用も担当",
       "color": "bg-blue-500",
       "details": {
-        "organizationSize": "74名",
+        "organizationSize": "68名",
         "responsibilities": [
           "プロジェクト全体の進行管理",
           "安全活動の基準策定・運用",
           "新入生教育・指導",
-          "対外発表・プレゼンテーション"
+          "国際大会での発表・プレゼンテーション"
         ],
         "period": "2年間継続中",
         "achievements": [
@@ -196,7 +197,7 @@
     }
   ],
   "organizationExperience": {
-    "teamSize": "74名",
+    "teamSize": "68名",
     "role": "サブリーダー"
   },
   "skillAreas": [

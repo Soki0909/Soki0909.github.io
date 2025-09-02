@@ -19,18 +19,18 @@
       "link": "/works"
     },
     {
-      "icon": "🥈",
-      "title": "RoboCup日本大会",
-      "subtitle": "オープンチャレンジ 6チーム中2位",
-      "description": "ロボットが家族の一員となるシステムの開発",
+      "icon": "🏆",
+      "title": "RoboCup世界大会",
+      "subtitle": "準優勝・日本大会3連覇達成",
+      "description": "生活支援ロボット開発・AI技術とチーム統括",
       "color": "from-blue-500 to-purple-600",
       "link": "/experience"
     },
     {
       "icon": "💼",
       "title": "プロジェクト運営",
-      "subtitle": "74名組織のサブリーダー",
-      "description": "技術開発とチームマネジメントの両立",
+      "subtitle": "68名組織のサブリーダー",
+      "description": "AI技術開発とチームマネジメントの両立",
       "color": "from-green-500 to-teal-600",
       "link": "/experience"
     }
@@ -120,7 +120,7 @@
       "value": "2",
       "label": "全国大会での受賞実績",
       "color": "red",
-      "detail": "Hackit 2025 最優秀賞・RoboCup日本大会 2位入賞"
+      "detail": "Hackit 2025 最優秀賞・RoboCup世界大会準優勝・日本大会3連覇"
     }
   ],
   "ctaSection": {

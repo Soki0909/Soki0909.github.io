@@ -737,7 +737,7 @@ export const projectSummary = {
     eslintErrors: 0, // ESLintエラー数
     typeErrors: 0, // TypeScriptエラー数
     buildStatus: 'Success', // ビルド状況
-    bundleSize: '82.65KB', // gzip圧縮後バンドルサイズ（最新）
+    bundleSize: '83.52KB', // gzip圧縮後バンドルサイズ（最新）
   },
 
   dataEnhancements: {
@@ -745,10 +745,13 @@ export const projectSummary = {
     skillsExpansion: '7言語詳細、経験年数・フレームワーク情報',
     projectDepth:
       'Sleep Buster（WebRTC・ハードウェア連携）・MATLAB楽曲の技術詳細拡充',
-    activitiesUpdate: 'リーダーシップ経験・成果の具体化',
+    activitiesUpdate:
+      'リーダーシップ経験・成果の具体化（RoboCup世界大会準優勝・日本大会3連覇、68名組織運営）',
     contactImprovement: 'LinkedIn追加、お問い合わせ種別分類',
     visionClarification: '具体的ロードマップ、趣味の技術的関連性',
     seoOptimization: 'キーワード強化、メタデータ最適化',
+    robocupCorrections:
+      'RoboCup@Home情報の正確性向上（68名体制、世界大会準優勝・日本大会3連覇実績）',
   },
 
   projects: {
@@ -763,7 +766,7 @@ export const projectSummary = {
   },
 
   performance: {
-    bundleSize: '82.65KB', // gzip圧縮後総バンドルサイズ
+    bundleSize: '83.52KB', // gzip圧縮後総バンドルサイズ
     firstLoad: '<2s', // 初回読み込み時間
     coreWebVitals: 'Good', // Core Web Vitals総合評価
     buildTime: '1.63s', // ビルド時間
