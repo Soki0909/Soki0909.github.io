@@ -403,10 +403,7 @@
           "/images/projects/robocup/system-architecture.svg",
           "/images/projects/robocup/rcj2025-demo.svg"
         ],
-        "videos": [
-          "/media/videos/robocup-demo.mp4",
-          "/media/videos/mimi-connect-demo.mp4"
-        ]
+        "videos": ["/media/videos/system_demo.mp4"]
       },
       "keywords": [
         "RoboCup@Home",

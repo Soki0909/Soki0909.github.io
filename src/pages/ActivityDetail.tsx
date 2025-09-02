@@ -77,23 +77,25 @@ const ActivityDetail = () => {
               </div>
             )}
 
-            {overviewContent.backgroundChallenges && (
-              <div>
-                <h3 className="text-xl font-semibold mb-3 text-purple-600">
-                  社会的背景・課題
-                </h3>
-                <ul className="space-y-2">
-                  {overviewContent.backgroundChallenges.map(
-                    (challenge: string, index: number) => (
-                      <li key={index} className="flex items-start space-x-2">
-                        <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
-                        <span className="text-gray-700">{challenge}</span>
-                      </li>
-                    )
-                  )}
-                </ul>
-              </div>
-            )}
+            {overviewContent.backgroundChallenges &&
+              Array.isArray(overviewContent.backgroundChallenges) &&
+              overviewContent.backgroundChallenges.length > 0 && (
+                <div>
+                  <h3 className="text-xl font-semibold mb-3 text-purple-600">
+                    社会的背景・課題
+                  </h3>
+                  <ul className="space-y-2">
+                    {overviewContent.backgroundChallenges.map(
+                      (challenge: string, index: number) => (
+                        <li key={index} className="flex items-start space-x-2">
+                          <span className="w-2 h-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></span>
+                          <span className="text-gray-700">{challenge}</span>
+                        </li>
+                      )
+                    )}
+                  </ul>
+                </div>
+              )}
 
             {overviewContent.innovation && (
               <div>
@@ -150,42 +152,49 @@ const ActivityDetail = () => {
                 {typedContent.description}
               </p>
 
-              {typedContent.characteristics && (
-                <>
-                  <h4 className="text-lg font-semibold mb-3">競技の特徴</h4>
-                  <ul className="space-y-2">
-                    {typedContent.characteristics.map(
-                      (characteristic: string, index: number) => (
-                        <li key={index} className="flex items-start space-x-2">
-                          <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
-                          <span className="text-gray-700">
-                            {characteristic}
-                          </span>
-                        </li>
-                      )
-                    )}
-                  </ul>
-                </>
-              )}
+              {typedContent.characteristics &&
+                Array.isArray(typedContent.characteristics) &&
+                typedContent.characteristics.length > 0 && (
+                  <>
+                    <h4 className="text-lg font-semibold mb-3">競技の特徴</h4>
+                    <ul className="space-y-2">
+                      {typedContent.characteristics.map(
+                        (characteristic: string, index: number) => (
+                          <li
+                            key={index}
+                            className="flex items-start space-x-2"
+                          >
+                            <span className="w-2 h-2 bg-blue-500 rounded-full mt-2 flex-shrink-0"></span>
+                            <span className="text-gray-700">
+                              {characteristic}
+                            </span>
+                          </li>
+                        )
+                      )}
+                    </ul>
+                  </>
+                )}
             </div>
 
-            {typedContent.tasks && (
-              <div>
-                <h4 className="text-lg font-semibold mb-3">
-                  実現可能なタスク例
-                </h4>
-                <div className="grid md:grid-cols-2 gap-4">
-                  {typedContent.tasks.map((task: string, index: number) => (
-                    <div
-                      key={index}
-                      className="bg-white p-4 rounded-lg shadow-sm"
-                    >
-                      <span className="text-gray-700">{task}</span>
-                    </div>
-                  ))}
+            {typedContent.tasks &&
+              Array.isArray(typedContent.tasks) &&
+              typedContent.tasks.length > 0 && (
+                <div>
+                  <h4 className="text-lg font-semibold mb-3">
+                    実現可能なタスク例
+                  </h4>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    {typedContent.tasks.map((task: string, index: number) => (
+                      <div
+                        key={index}
+                        className="bg-white p-4 rounded-lg shadow-sm"
+                      >
+                        <span className="text-gray-700">{task}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
           </div>
         </div>
       );
@@ -204,33 +213,39 @@ const ActivityDetail = () => {
               <p className="text-gray-600">{teamContent.membersSummary}</p>
             </div>
 
-            {teamContent.divisions && (
-              <div className="grid md:grid-cols-3 gap-6">
-                {teamContent.divisions.map((division, index: number) => (
-                  <div
-                    key={index}
-                    className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg"
-                  >
-                    <h3 className="text-xl font-semibold mb-2 text-blue-600">
-                      {division.name}
-                    </h3>
-                    <div className="text-2xl font-bold text-purple-600 mb-2">
-                      {division.members}名
+            {teamContent.divisions &&
+              Array.isArray(teamContent.divisions) &&
+              teamContent.divisions.length > 0 && (
+                <div className="grid md:grid-cols-3 gap-6">
+                  {teamContent.divisions.map((division, index: number) => (
+                    <div
+                      key={index}
+                      className="bg-gradient-to-br from-blue-50 to-purple-50 p-6 rounded-lg"
+                    >
+                      <h3 className="text-xl font-semibold mb-2 text-blue-600">
+                        {division.name}
+                      </h3>
+                      <div className="text-2xl font-bold text-purple-600 mb-2">
+                        {division.members}名
+                      </div>
+                      <p className="text-gray-700 mb-3">{division.role}</p>
+                      {division.responsibilities &&
+                        Array.isArray(division.responsibilities) &&
+                        division.responsibilities.length > 0 && (
+                          <ul className="space-y-1">
+                            {division.responsibilities.map(
+                              (responsibility: string, idx: number) => (
+                                <li key={idx} className="text-sm text-gray-600">
+                                  • {responsibility}
+                                </li>
+                              )
+                            )}
+                          </ul>
+                        )}
                     </div>
-                    <p className="text-gray-700 mb-3">{division.role}</p>
-                    <ul className="space-y-1">
-                      {division.responsibilities.map(
-                        (responsibility: string, idx: number) => (
-                          <li key={idx} className="text-sm text-gray-600">
-                            • {responsibility}
-                          </li>
-                        )
-                      )}
-                    </ul>
-                  </div>
-                ))}
-              </div>
-            )}
+                  ))}
+                </div>
+              )}
 
             {teamContent.schedule && (
               <div className="bg-gray-50 p-6 rounded-lg">
