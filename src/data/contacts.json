@@ -7,7 +7,9 @@
       "icon": "🐙",
       "color": "hover:bg-gray-100",
       "bgColor": "bg-gray-800",
-      "isActive": true
+      "isActive": true,
+      "description": "ソースコード・プロジェクト・技術活動",
+      "priority": 1
     },
     {
       "platform": "Email",
@@ -16,16 +18,20 @@
       "icon": "📧",
       "color": "hover:bg-blue-50",
       "bgColor": "bg-blue-500",
-      "isActive": true
+      "isActive": true,
+      "description": "お仕事のご相談・技術的なディスカッション",
+      "priority": 1
     },
     {
       "platform": "LinkedIn",
-      "handle": "#",
-      "url": "#",
+      "handle": "久米蒼輝",
+      "url": "https://www.linkedin.com/in/kume-soki-profile/",
       "icon": "in",
       "color": "hover:bg-blue-50",
       "bgColor": "bg-blue-600",
-      "isActive": false
+      "isActive": true,
+      "description": "プロフェッショナルなネットワーキング",
+      "priority": 2
     },
     {
       "platform": "Portfolio",
@@ -34,12 +40,53 @@
       "icon": "🌐",
       "color": "hover:bg-purple-50",
       "bgColor": "bg-purple-500",
-      "isActive": true
+      "isActive": true,
+      "description": "技術スキル・プロジェクト・実績紹介",
+      "priority": 3
+    },
+    {
+      "platform": "X (Twitter)",
+      "handle": "@soki0909_tech",
+      "url": "https://x.com/soki0909_tech",
+      "icon": "🐦",
+      "color": "hover:bg-blue-50",
+      "bgColor": "bg-blue-400",
+      "isActive": false,
+      "description": "技術情報・学習記録の発信",
+      "priority": 4,
+      "note": "準備中：技術ブログ・学習記録を発信予定"
     }
   ],
   "form": {
     "title": "お問い合わせフォーム",
-    "description": "ご質問やお仕事のご相談がございましたら、お気軽にお問い合わせください。",
+    "description": "技術的なディスカッション、プロジェクトのご相談、採用に関するお話、インターンシップのご案内など、どのようなことでもお気軽にお問い合わせください。24時間以内にお返事いたします。",
+    "contactTypes": [
+      {
+        "type": "job",
+        "title": "📋 採用・就職相談",
+        "description": "新卒採用、インターンシップ、アルバイトのご相談"
+      },
+      {
+        "type": "project",
+        "title": "🚀 プロジェクト相談",
+        "description": "技術開発、共同研究、技術顧問のご相談"
+      },
+      {
+        "type": "technical",
+        "title": "💻 技術ディスカッション",
+        "description": "AI、音響技術、Web開発に関する技術的な質問・相談"
+      },
+      {
+        "type": "education",
+        "title": "📚 教育・指導相談",
+        "description": "プログラミング教育、技術講習会の企画・講師依頼"
+      },
+      {
+        "type": "other",
+        "title": "💬 その他",
+        "description": "上記以外のご質問・ご相談"
+      }
+    ],
     "fields": [
       {
         "name": "name",

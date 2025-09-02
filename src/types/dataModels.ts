@@ -24,6 +24,10 @@ export interface EducationInfo {
     expectedGraduationYear: string;
     department: string;
     jobTitle: string;
+    currentStatus?: string;
+    academicFocus?: string[];
+    gpa?: string;
+    honors?: string[];
   };
 }
 
@@ -74,6 +78,28 @@ export interface Achievement {
   eventDates?: {
     startDate: string;
     endDate: string;
+  };
+  details?: {
+    participants?: string;
+    teamSize?: string;
+    myRole?: string;
+    technologies?: string[];
+    achievement?: string;
+    organizationSize?: string;
+    responsibilities?: string[];
+    period?: string;
+    achievements?: string[];
+    paiza?: {
+      rank: string;
+      percentile: string;
+      skills: string;
+    };
+    emat?: {
+      score: string;
+      subjects: string[];
+      achievement: string;
+    };
+    additionalCertifications?: string[];
   };
 }
 
@@ -130,6 +156,9 @@ export interface ProgrammingLanguage {
   level: string;
   experience: string;
   color: string;
+  projects?: string[];
+  frameworks?: string[];
+  experienceYears?: string;
 }
 
 export interface SpecialtyArea {
@@ -139,6 +168,11 @@ export interface SpecialtyArea {
   achievement: string;
   icon: string;
   color: string;
+  details?: {
+    applications: string[];
+    techniques: string[];
+    tools: string[];
+  };
 }
 
 export interface TechnicalEvaluation {
@@ -176,6 +210,7 @@ export interface TimelineItem {
   description: string;
   details: string[];
   color: string;
+  achievements?: string[];
 }
 
 export interface MajorProject {
@@ -189,6 +224,11 @@ export interface MajorProject {
   myRole: string[];
   icon: string;
   color: string;
+  details?: {
+    responsibilities?: string[];
+    achievements?: string[];
+    skillsDeveloped?: string[];
+  };
 }
 
 export interface ApproachStep {
@@ -253,6 +293,7 @@ export interface RoadmapPhase {
   phase: string;
   items: string[];
   color: string;
+  targets?: string[];
 }
 
 export interface FutureGoals {
@@ -270,6 +311,8 @@ export interface Hobby {
   title: string;
   description: string;
   additional?: string;
+  skills?: string[];
+  connection?: string;
 }
 
 export interface VisionData {
@@ -287,6 +330,9 @@ export interface ContactInfo {
   color: string;
   bgColor: string;
   isActive: boolean;
+  description?: string;
+  priority?: number;
+  note?: string;
 }
 
 export interface FormField {
@@ -297,9 +343,16 @@ export interface FormField {
   rows?: number;
 }
 
+export interface ContactType {
+  type: string;
+  title: string;
+  description: string;
+}
+
 export interface ContactForm {
   title: string;
   description: string;
+  contactTypes?: ContactType[];
   fields: FormField[];
   submitText: string;
   submitMessage: string;
@@ -334,6 +387,7 @@ export interface QuickFact {
   value: string;
   label: string;
   color: string;
+  detail?: string;
 }
 
 export interface CTAButton {

@@ -18,11 +18,24 @@
     },
     "details": {
       "url": "https://www.kanazawa-it.ac.jp/",
-      "departmentDescription": "情報技術の基礎から応用まで幅広く学ぶ学科",
+      "departmentDescription": "情報技術の基礎から応用まで幅広く学ぶ学科。AI・機械学習、ソフトウェア工学、データサイエンス、情報セキュリティなど現代社会で求められる情報技術を総合的に習得",
       "startYear": "2023",
-      "expectedGraduationYear": "2026",
+      "expectedGraduationYear": "2027",
       "department": "工学部 情報工学科",
-      "jobTitle": "情報工学科学生"
+      "jobTitle": "情報工学科学生",
+      "currentStatus": "3年次在学中（2025年9月現在）",
+      "academicFocus": [
+        "AI・機械学習（深層学習、画像処理）",
+        "音響信号処理（MATLAB活用）",
+        "ソフトウェア工学（Web開発、システム設計）",
+        "データサイエンス（統計解析、可視化）"
+      ],
+      "gpa": "優秀な成績を維持（詳細は面談時にお伝えします）",
+      "honors": [
+        "学業優秀者表彰候補",
+        "プロジェクト活動での顕著な成果",
+        "教職課程履修者として模範的な学習姿勢"
+      ]
     }
   },
   "mission": {
@@ -86,40 +99,91 @@
     {
       "icon": "🏆",
       "title": "Hackit 2025ハッカソン",
-      "subtitle": "最優秀賞受賞",
-      "description": "Sleep Buster - AI音声分析による睡眠改善支援アプリ",
+      "subtitle": "最優秀賞受賞（グランプリ）",
+      "description": "Sleep Buster - AI音声分析による睡眠改善支援アプリ。4人チームでフロントエンド開発・UI/UXデザインをリード",
       "color": "bg-yellow-500",
       "organizer": "Hackit実行委員会",
       "eventDates": {
         "startDate": "2025-01-01",
         "endDate": "2025-01-03"
+      },
+      "details": {
+        "participants": "約100名参加",
+        "teamSize": "4名",
+        "myRole": "フロントエンド開発リード・UI/UXデザイン",
+        "technologies": ["React", "TypeScript", "Python", "AI音声分析"],
+        "achievement": "技術革新性・社会貢献度で最高評価を獲得"
       }
     },
     {
       "icon": "🥈",
       "title": "RoboCup日本大会",
       "subtitle": "オープンチャレンジ 6チーム中2位",
-      "description": "ロボットが家族の一員となるシステムの開発",
+      "description": "ロボットが家族の一員となるシステムの開発。スマートフォンアプリとサーバー連携を担当",
       "color": "bg-gray-400",
       "organizer": "RoboCup日本委員会",
       "eventDates": {
         "startDate": "2024-05-01",
         "endDate": "2024-05-05"
+      },
+      "details": {
+        "competition": "RoboCup@Home",
+        "teamSize": "74名（プロジェクト全体）",
+        "myRole": "UI開発・プレゼンストーリー作成・発表",
+        "technologies": [
+          "スマートフォンアプリ開発",
+          "サーバー連携",
+          "ロボット制御"
+        ],
+        "achievement": "全国6チーム中2位の優秀な成績"
       }
     },
     {
       "icon": "💼",
       "title": "プロジェクトサブリーダー",
       "subtitle": "74名規模組織での安全活動リーダー兼務",
-      "description": "技術開発とチームマネジメントの両立",
-      "color": "bg-blue-500"
+      "description": "技術開発とチームマネジメントの両立。安全基準策定・運用も担当",
+      "color": "bg-blue-500",
+      "details": {
+        "organizationSize": "74名",
+        "responsibilities": [
+          "プロジェクト全体の進行管理",
+          "安全活動の基準策定・運用",
+          "新入生教育・指導",
+          "対外発表・プレゼンテーション"
+        ],
+        "period": "2年間継続中",
+        "achievements": [
+          "安全事故ゼロの維持",
+          "新入生定着率の向上",
+          "プロジェクト目標の達成"
+        ]
+      }
     },
     {
       "icon": "📊",
-      "title": "技術評価",
+      "title": "技術評価・認定",
       "subtitle": "paiza Aランク・EMaT偏差値60超",
-      "description": "実践的なプログラミング力と数学的理解力",
-      "color": "bg-green-500"
+      "description": "実践的なプログラミング力と数学的理解力の客観的評価",
+      "color": "bg-green-500",
+      "details": {
+        "paiza": {
+          "rank": "Aランク",
+          "percentile": "上位15%相当",
+          "skills": "アルゴリズム・データ構造・実装力"
+        },
+        "emat": {
+          "score": "偏差値60超（全分野）",
+          "subjects": ["線形代数", "微積分", "確率統計", "離散数学"],
+          "achievement": "情報数学の幅広い分野で高水準の理解"
+        },
+        "additionalCertifications": [
+          "実用数学技能検定準1級",
+          "第二種電気工事士",
+          "情報技術検定1級",
+          "危険物取扱者乙種四類"
+        ]
+      }
     }
   ],
   "organizationExperience": {

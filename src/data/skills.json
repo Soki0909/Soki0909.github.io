@@ -3,72 +3,196 @@
     {
       "name": "Python",
       "level": "上級",
-      "experience": "画像処理, データ分析, ディープラーニング, Webアプリ開発",
-      "color": "from-yellow-400 to-yellow-600"
+      "experience": "画像処理, データ分析, ディープラーニング, Webアプリ開発, Flaskバックエンド",
+      "color": "from-yellow-400 to-yellow-600",
+      "projects": [
+        "Sleep Buster (AI音声分析)",
+        "Fashion-MNIST分類",
+        "データ分析プロジェクト"
+      ],
+      "frameworks": [
+        "TensorFlow",
+        "Keras",
+        "NumPy",
+        "Pandas",
+        "OpenCV",
+        "Flask"
+      ],
+      "experienceYears": "3年"
     },
     {
       "name": "JavaScript",
-      "level": "中級",
-      "experience": "フロントエンド開発, Chrome拡張機能, 非同期通信・API連携",
-      "color": "from-yellow-300 to-orange-500"
+      "level": "中級〜上級",
+      "experience": "React/TypeScript開発, Chrome拡張機能, 非同期通信・API連携, モダンES6+",
+      "color": "from-yellow-300 to-orange-500",
+      "projects": [
+        "ポートフォリオサイト",
+        "Chrome拡張機能",
+        "学習効率化ツール"
+      ],
+      "frameworks": [
+        "React",
+        "TypeScript",
+        "Vite",
+        "Tailwind CSS",
+        "Chrome Extension API"
+      ],
+      "experienceYears": "2年"
+    },
+    {
+      "name": "TypeScript",
+      "level": "中級〜上級",
+      "experience": "型安全なReact開発, 大規模アプリケーション設計, Clean Architecture実装",
+      "color": "from-blue-400 to-blue-600",
+      "projects": ["ポートフォリオサイト", "Sleep Buster フロントエンド"],
+      "frameworks": ["React", "Vite", "ESLint", "Prettier"],
+      "experienceYears": "1.5年"
     },
     {
       "name": "C",
       "level": "中級",
-      "experience": "組み込みシステム開発",
-      "color": "from-blue-400 to-blue-600"
+      "experience": "組み込みシステム開発, ポインタ操作, メモリ管理",
+      "color": "from-blue-400 to-blue-600",
+      "projects": ["組み込みシステム課題", "ロボット制御プログラム"],
+      "frameworks": ["標準ライブラリ", "組み込み開発環境"],
+      "experienceYears": "2年"
     },
     {
       "name": "Java",
       "level": "中級",
-      "experience": "オブジェクト指向設計, 組み込み開発",
-      "color": "from-red-400 to-red-600"
+      "experience": "オブジェクト指向設計, 組み込み開発, アルゴリズム実装",
+      "color": "from-red-400 to-red-600",
+      "projects": ["オブジェクト指向設計課題", "アルゴリズム演習"],
+      "frameworks": ["Spring Framework基礎", "JUnit"],
+      "experienceYears": "2年"
     },
     {
       "name": "Dart",
-      "level": "初級",
-      "experience": "Flutterアプリ開発",
-      "color": "from-cyan-400 to-cyan-600"
+      "level": "初級〜中級",
+      "experience": "Flutterクロスプラットフォームアプリ開発, モバイルUI設計",
+      "color": "from-cyan-400 to-cyan-600",
+      "projects": ["モバイルアプリプロトタイプ"],
+      "frameworks": ["Flutter", "Material Design"],
+      "experienceYears": "1年"
     },
     {
       "name": "MATLAB",
-      "level": "中級",
-      "experience": "音響処理, 信号処理, 数値解析, DTM",
-      "color": "from-orange-400 to-orange-600"
+      "level": "中級〜上級",
+      "experience": "音響処理, 信号処理, 数値解析, DTM, スペクトル解析",
+      "color": "from-orange-400 to-orange-600",
+      "projects": ["EDM楽曲制作", "音響信号処理研究", "ハイハット音再現"],
+      "frameworks": ["Signal Processing Toolbox", "Audio Toolbox"],
+      "experienceYears": "2年"
     }
   ],
   "specialtyAreas": [
     {
       "title": "AI・機械学習",
-      "frameworks": "TensorFlow, Keras",
-      "methods": "CNN実装, 画像分類",
-      "achievement": "Fashion-MNIST分類で92.7%の正解率達成",
+      "frameworks": "TensorFlow, Keras, scikit-learn, OpenCV",
+      "methods": "CNN実装, 画像分類, 音声分析, データ前処理, モデル評価",
+      "achievement": "Fashion-MNIST分類で92.7%の正解率達成。Sleep BusterでAI音声分析システム構築",
       "icon": "🤖",
-      "color": "from-purple-500 to-blue-600"
+      "color": "from-purple-500 to-blue-600",
+      "details": {
+        "applications": [
+          "画像認識・分類システム",
+          "音声データ解析・睡眠状態検出",
+          "リアルタイム予測システム",
+          "データパイプライン構築"
+        ],
+        "techniques": [
+          "深層学習（CNN, RNN基礎）",
+          "特徴量エンジニアリング",
+          "モデル最適化・チューニング",
+          "交差検証・評価指標分析"
+        ],
+        "tools": [
+          "Jupyter Notebook",
+          "Google Colab",
+          "TensorBoard",
+          "MLflow基礎"
+        ]
+      }
     },
     {
       "title": "信号処理・音響技術",
-      "frameworks": "MATLAB",
-      "methods": "音響信号処理, DTM制作",
-      "achievement": "80小節のEDM楽曲を全て自作音源で制作",
+      "frameworks": "MATLAB, Audacity, 自作音響ツール群",
+      "methods": "音響信号処理, DTM制作, スペクトル解析, フィルタ設計",
+      "achievement": "80小節のEDM楽曲を全て自作音源で制作。複雑なハイハット音の完全再現に成功",
       "icon": "🎵",
-      "color": "from-green-500 to-teal-600"
+      "color": "from-green-500 to-teal-600",
+      "details": {
+        "applications": [
+          "楽曲制作・音源開発",
+          "音響分析・可視化",
+          "リアルタイム音声処理",
+          "音響効果・エフェクト開発"
+        ],
+        "techniques": [
+          "FFT・スペクトル解析",
+          "デジタルフィルタ設計",
+          "ADSRエンベロープ実装",
+          "音響合成・ミキシング"
+        ],
+        "tools": [
+          "MATLAB Audio Toolbox",
+          "波形解析ツール",
+          "自作シーケンサ",
+          "DTMソフト"
+        ]
+      }
     },
     {
       "title": "Web・アプリ開発",
-      "frameworks": "HTML/CSS, JavaScript, Django, Flutter",
-      "methods": "フロントエンド, バックエンド, モバイル",
-      "achievement": "音声アシスタントWebアプリ開発",
+      "frameworks": "React, TypeScript, Tailwind CSS, Vite, Flutter",
+      "methods": "フロントエンド, バックエンド, モバイル, レスポンシブデザイン",
+      "achievement": "Clean Architecture準拠のポートフォリオサイト構築。Chrome拡張機能開発",
       "icon": "💻",
-      "color": "from-blue-500 to-purple-600"
+      "color": "from-blue-500 to-purple-600",
+      "details": {
+        "applications": [
+          "SPA（シングルページアプリケーション）",
+          "レスポンシブWebサイト",
+          "Chrome拡張機能",
+          "モバイルアプリプロトタイプ"
+        ],
+        "techniques": [
+          "Clean Architecture設計",
+          "TypeScript型安全開発",
+          "コンポーネント設計",
+          "パフォーマンス最適化"
+        ],
+        "tools": ["Vite", "ESLint", "Prettier", "GitHub Actions", "Lighthouse"]
+      }
     },
     {
-      "title": "その他技術",
-      "frameworks": "SQL, VBA, Unity, R",
-      "methods": "データベース, Excel自動化, ゲーム開発, 統計解析",
-      "achievement": "多様な技術領域での実践経験",
-      "icon": "🛠️",
-      "color": "from-orange-500 to-red-600"
+      "title": "データ分析・可視化",
+      "frameworks": "Python (Pandas, NumPy, Matplotlib), R, SQL, Excel VBA",
+      "methods": "統計解析, データクリーニング, 可視化, レポート作成",
+      "achievement": "多様なデータセットの解析経験。睡眠データの可視化ダッシュボード構築",
+      "icon": "�",
+      "color": "from-orange-500 to-red-600",
+      "details": {
+        "applications": [
+          "データクリーニング・前処理",
+          "統計分析・仮説検証",
+          "インタラクティブ可視化",
+          "レポート・ダッシュボード作成"
+        ],
+        "techniques": [
+          "記述統計・推測統計",
+          "相関分析・回帰分析",
+          "データマイニング基礎",
+          "時系列データ解析"
+        ],
+        "tools": [
+          "Jupyter Notebook",
+          "Plotly",
+          "Seaborn",
+          "Excel高度関数",
+          "SQL基礎"
+        ]
+      }
     }
   ],
   "technicalEvaluations": [

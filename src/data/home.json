@@ -94,23 +94,33 @@
   "quickFacts": [
     {
       "value": "3",
-      "label": "年間の大学生活",
-      "color": "blue"
+      "label": "年間の大学生活（2025年9月現在）",
+      "color": "blue",
+      "detail": "金沢工業大学 情報工学科 3年次在学中"
     },
     {
-      "value": "6+",
-      "label": "プログラミング言語",
-      "color": "green"
+      "value": "7+",
+      "label": "習得プログラミング言語",
+      "color": "green",
+      "detail": "Python, JavaScript, TypeScript, C, Java, Dart, MATLAB"
     },
     {
       "value": "74",
       "label": "名規模組織でのリーダー経験",
-      "color": "purple"
+      "color": "purple",
+      "detail": "RoboCup@Homeプロジェクト サブリーダー・安全活動リーダー"
     },
     {
       "value": "4",
       "label": "教員免許取得予定数",
-      "color": "orange"
+      "color": "orange",
+      "detail": "中学数学・高校数学・高校工業・高校情報の教員免許取得予定"
+    },
+    {
+      "value": "2",
+      "label": "全国大会での受賞実績",
+      "color": "red",
+      "detail": "Hackit 2025 最優秀賞・RoboCup日本大会 2位入賞"
     }
   ],
   "ctaSection": {
