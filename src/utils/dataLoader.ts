@@ -151,11 +151,9 @@ export const getExperienceData = () => {
   const activitiesData = getActivitiesData();
   return {
     timelineItems: activitiesData.activities.timeline,
-    majorActivities: activitiesData.activities.majorProjects,
-    growthStory: activitiesData.growthStory,
-    teachingCourse: activitiesData.education,
-    qualifications: activitiesData.qualifications,
-    plannedQualifications: activitiesData.plannedQualifications,
+    majorActivities: activitiesData.activities.featured,
+    categories: activitiesData.activities.categories,
+    stats: activitiesData.activities.stats,
   };
 };
 
@@ -238,12 +236,12 @@ export const getSpecialtyAreas = () => {
 };
 
 /**
- * 主要活動実績のみを取得（経験概要で使用）
+ * 主要活動データを取得
  * @returns RoboCup、学生ステーション等の主要活動
  */
 export const getMajorActivities = () => {
   const activitiesData = getActivitiesData();
-  return activitiesData.activities.majorProjects;
+  return activitiesData.activities.featured;
 };
 
 /**

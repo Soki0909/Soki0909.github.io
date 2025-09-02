@@ -273,15 +273,47 @@ export interface PlannedQualification {
   color: string;
 }
 
+export interface FeaturedActivity {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  period: string;
+  role: string;
+  achievement: string;
+  tags: string[];
+  image: string;
+  type: string;
+  difficulty: string;
+  teamSize: string;
+  impact: string;
+}
+
+export interface ActivityCategory {
+  id: string;
+  name: string;
+  description: string;
+  color: string;
+  count: number;
+}
+
+export interface ActivityStats {
+  totalActivities: number;
+  totalYears: number;
+  currentActive: number;
+  majorAchievements: number;
+  teamLeadership: number;
+  technicalSkills: string[];
+  impactAreas: string[];
+}
+
 export interface ActivitiesData {
   activities: {
     timeline: TimelineItem[];
-    majorProjects: MajorProject[];
+    featured: FeaturedActivity[];
+    categories: ActivityCategory[];
+    stats: ActivityStats;
   };
-  growthStory: GrowthStory;
-  education: EducationProgram;
-  qualifications: Qualification[];
-  plannedQualifications: PlannedQualification[];
 }
 
 // ビジョン関連の型定義

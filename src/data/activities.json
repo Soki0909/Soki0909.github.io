@@ -6,20 +6,22 @@
         "title": "基礎学習期",
         "description": "技術的基盤の構築と、様々な活動への挑戦を開始",
         "details": [
+          "夢考房RoboCup@Homeプロジェクト参加開始",
           "週2回の講習会参加 + 自主学習",
           "機械学習関連書籍の独学",
-          "夢考房RoboCup@Homeプロジェクト参加開始"
+          "教職課程履修開始"
         ],
         "color": "bg-blue-500"
       },
       {
         "year": "2年生",
         "title": "運営参画期",
-        "description": "マネジメント・コミュニケーション能力の向上と教育活動開始",
+        "description": "マネジメント・コミュニケーション能力の向上と教育活動本格化",
         "details": [
-          "新入生教育担当として指導経験を積む",
-          "プロジェクト会計業務を担当",
-          "学生ステーション運営スタッフとして活動開始",
+          "RoboCup@Home新入生教育担当・会計業務",
+          "学生ステーション運営スタッフとして活動",
+          "介護等体験で価値観転換（児童福祉施設・特別支援学校）",
+          "メディア情報学習開始（サブメジャー履修）",
           "AI体験ブース企画・運営（科学実験教室）"
         ],
         "color": "bg-green-500"
@@ -29,160 +31,152 @@
         "title": "リーダーシップ・成果創出期",
         "description": "プロジェクトリーダーとして組織運営と技術開発を両立。大きな成果を創出",
         "details": [
-          "プロジェクトサブリーダー就任（68名組織の中核メンバー）",
-          "安全活動リーダーとして安全基準策定・運用（事故ゼロ継続中）",
-          "RCJ2025 Open Challenge 初出場・Mobile Cloud AI開発",
-          "Hackit 2025ハッカソン最優秀賞受賞（全8チーム参加、賞金5万円）",
-          "新入生教育専念（世界大会期間中の重要な役割）",
-          "研究開発・プレゼンテーション能力の習得"
+          "RoboCup@Homeサブリーダー・安全活動リーダー就任",
+          "RCJ2025 Open Challenge上位リーグ3位獲得",
+          "Mobile Cloud AI「mimi Connect」アプリ開発",
+          "MATLABによる80小節EDM楽曲制作完成",
+          "学生ステーション運営でプレゼンテーション能力確立"
         ],
-        "color": "bg-purple-500",
-        "achievements": [
-          "RCJ2025 Open Challenge・Mobile Cloud AI開発",
-          "ハッカソンでの最高賞受賞（賞金5万円）",
-          "大規模組織でのリーダーシップ発揮",
-          "新入生教育・後輩育成への貢献"
-        ]
+        "color": "bg-purple-500"
       }
     ],
-    "majorProjects": [
+    "featured": [
       {
+        "id": "robocup-home",
         "title": "夢考房RoboCup@Homeプロジェクト",
+        "subtitle": "「家族の一員として一緒に暮らす」生活支援ロボットの開発",
+        "description": "世界最大規模のロボット競技大会で、Mobile Cloud AI技術による「先回りするロボットシステム」を開発。68名の大規模チームでサブリーダー・安全活動リーダーとして活動。",
         "period": "1年前期〜現在 (2.5年継続)",
-        "scale": "68名（学内最大規模のプロジェクト）",
-        "position": "サブリーダー・安全活動リーダー（現職）",
-        "achievement": "RCJ2025 Open Challenge出場・Mobile Cloud AI開発 🤖",
-        "description": "「家族の一員として一緒に暮らす」生活支援ロボットの開発。先回りするロボットシステム研究",
-        "technologies": [
-          "Mobile Cloud AI・Firebase連携システム",
-          "Flutter・React Native スマホアプリ開発",
-          "Cloud Run・Firestore クラウドインフラ",
-          "AI予測・ランダムフォレスト機械学習",
-          "ROS・ロボット制御・音声認識技術"
+        "role": "サブリーダー・安全活動リーダー",
+        "achievement": "RCJ2025 Open Challenge上位リーグ3位",
+        "tags": [
+          "ロボット工学",
+          "AI・機械学習",
+          "Flutter",
+          "Firebase",
+          "リーダーシップ"
         ],
-        "myRole": [
-          "「mimi Connect」アプリ開発・UI/UX設計",
-          "Mobile Cloud AI システム設計・実装",
-          "RCJ2025 Open Challenge プレゼンテーション担当",
-          "新入生教育専念（世界大会期間中）",
-          "チーム全体のマネジメント・安全管理運用"
-        ],
-        "icon": "🤖",
-        "color": "from-blue-500 to-purple-600",
-        "detailPageId": "robocup-home",
-        "details": {
-          "responsibilities": [
-            "68名（ソフト班37名・回路班18名・機構班13名）の統括業務",
-            "Mobile Cloud AI・Firebase システム開発",
-            "RCJ2025 Open Challenge（研究開発部門）出場",
-            "新入生教育・技術指導（世界大会期間専念）"
-          ],
-          "achievements": [
-            "RCJ2025 Open Challenge 初出場",
-            "「mimi Connect」アプリ・先回りロボットシステム開発",
-            "Mobile Cloud AI・Firebase・Cloud Run 実装",
-            "安全事故ゼロの継続（2年間）",
-            "新入生定着率90%以上維持"
-          ],
-          "skillsDeveloped": [
-            "大規模チームマネジメント（68名体制）",
-            "Mobile Cloud AI・クラウド技術開発力",
-            "研究開発・プレゼンテーション能力",
-            "教育指導・後輩育成力"
-          ]
-        }
+        "image": "/images/activities/robocup-home/main.jpg",
+        "type": "technical-project",
+        "difficulty": "高",
+        "teamSize": "68名",
+        "impact": "高"
       },
       {
+        "id": "student-station",
         "title": "学生ステーション運営スタッフ",
-        "period": "2年間",
-        "scale": "学内インターンシップ",
-        "position": "運営スタッフ → メンター",
-        "achievement": "人前での大勢プレゼンテーションが可能に",
-        "description": "相談窓口対応, 落とし物管理, イベント企画運営",
-        "technologies": ["イベント企画", "プレゼンテーション", "デザイン制作"],
-        "myRole": ["カウンター対応", "イベント責任者", "新人サポート"],
-        "icon": "🏢",
-        "color": "from-green-500 to-blue-500",
-        "detailPageId": "student-station"
+        "subtitle": "学内インターンシップ：相談窓口対応・イベント企画運営",
+        "description": "人前で話すことへの強い苦手意識を克服するため、2年間の学内インターンシップとして活動。段階的なアプローチで大勢へのプレゼンテーション能力を獲得。",
+        "period": "2年間（1年後期〜3年前期）",
+        "role": "運営スタッフ・イベント企画責任者",
+        "achievement": "人前でのプレゼンテーション克服",
+        "tags": [
+          "コミュニケーション",
+          "プレゼンテーション",
+          "イベント企画",
+          "成長克服"
+        ],
+        "image": "/images/activities/student-station/event_poster.jpg",
+        "type": "education-internship",
+        "difficulty": "中",
+        "teamSize": "約10名",
+        "impact": "中"
       },
       {
-        "title": "AI体験ブース - 教育イベント企画運営",
-        "period": "単発イベント",
-        "scale": "小学生約50名対象",
-        "position": "ブースリーダー・企画設計・運営",
-        "achievement": "当日最も人気のブースとなる",
-        "description": "「複雑な技術を誰もが楽しめる体験に変える」企画",
-        "technologies": ["Teachable Machine", "体験設計", "教育技術"],
-        "myRole": ["企画設計", "運営リーダー", "技術説明"],
-        "icon": "🎯",
-        "color": "from-orange-500 to-red-500"
+        "id": "teaching-practice",
+        "title": "教師としての実践力向上プログラム",
+        "subtitle": "教職課程・科学実験教室ブースリーダー",
+        "description": "4つの教員免許取得を目指しながら、介護等体験を通じて価値観が大きく変化。「音楽のバリアフリー実現」という生涯の夢の原点を形成。",
+        "period": "1年後期〜現在（教職課程継続中）",
+        "role": "教職課程履修生・科学実験教室ブースリーダー",
+        "achievement": "価値観転換と将来ビジョン形成",
+        "tags": [
+          "教職課程",
+          "介護等体験",
+          "価値観転換",
+          "バリアフリー",
+          "多様性理解"
+        ],
+        "image": "/images/activities/teaching-practice/science_experiment.jpg",
+        "type": "education-activity",
+        "difficulty": "中",
+        "teamSize": "個別〜5名チーム",
+        "impact": "高"
+      },
+      {
+        "id": "media-information-learning",
+        "title": "メディア情報学習・研究室体験活動",
+        "subtitle": "サブメジャー履修・音響信号処理・感性表現研究",
+        "description": "メディア情報学科のサブメジャー履修で音響信号処理を学習。MATLABを用いて80小節のEDM楽曲を全て自作音源で制作し、音響技術への深い理解を獲得。",
+        "period": "2年前期〜現在（サブメジャー履修継続中）",
+        "role": "サブメジャー履修生・独立研究者",
+        "achievement": "MATLABによる80小節EDM楽曲制作",
+        "tags": [
+          "音響信号処理",
+          "MATLAB",
+          "音楽制作",
+          "EDM",
+          "感性表現",
+          "創作活動"
+        ],
+        "image": "/images/activities/media-information-learning/matlab_waveform.jpg",
+        "type": "academic-research",
+        "difficulty": "高",
+        "teamSize": "個人研究",
+        "impact": "中"
       }
-    ]
-  },
-  "growthStory": {
-    "title": "成長ストーリー: 苦手克服への挑戦",
-    "motivation": {
-      "title": "挑戦動機",
-      "description": "人前で話すことへの強い苦手意識を克服するため、あえて人との対話が中心となる学生ステーション活動に飛び込みました。"
-    },
-    "initialChallenges": [
-      "思考力低下・頭が真っ白になる",
-      "心臓のドキドキ・動悸",
-      "手足の震え・体の硬直",
-      "発汗・声の震え",
-      "吃音・言葉詰まり"
     ],
-    "approach": [
+    "categories": [
       {
-        "step": 1,
-        "title": "一対一対応",
-        "description": "カウンター業務から開始",
-        "color": "red"
+        "id": "technical-project",
+        "name": "技術プロジェクト",
+        "description": "ロボット工学・AI・アプリ開発等の技術的な挑戦",
+        "color": "blue",
+        "count": 1
       },
       {
-        "step": 2,
-        "title": "小集団",
-        "description": "キャンパス案内で外部訪問者対応",
-        "color": "yellow"
+        "id": "education-internship",
+        "name": "教育・インターンシップ",
+        "description": "学内インターンシップ・教育活動・コミュニケーション能力向上",
+        "color": "green",
+        "count": 1
       },
       {
-        "step": 3,
-        "title": "大勢",
-        "description": "イベントでの大学生向けプレゼンテーション",
-        "color": "green"
+        "id": "education-activity",
+        "name": "教育関連活動",
+        "description": "教職課程・介護等体験・価値観形成",
+        "color": "purple",
+        "count": 1
+      },
+      {
+        "id": "academic-research",
+        "name": "学術研究・創作",
+        "description": "メディア情報学習・音響技術・創作活動",
+        "color": "orange",
+        "count": 1
       }
     ],
-    "strategies": [
-      "視点転換: 「自分が上手く話すか」→「相手が何を知りたいか」",
-      "事前準備: 「何を伝えたいか」の明確化",
-      "経験積み重ね: 段階的な難易度アップ"
-    ],
-    "result": "人前での大勢プレゼンテーションを自信を持って実行可能"
-  },
-  "education": {
-    "teachingLicenses": [
-      "中学校教諭一種免許状（数学）",
-      "高等学校教諭一種免許状（数学）",
-      "高等学校教諭一種免許状（工業）",
-      "高等学校教諭一種免許状（情報）"
-    ],
-    "caregivingExperience": {
-      "childWelfare": "5日間",
-      "specialEducation": "2日間",
-      "insight": "障がいとは「できないこと」ではなく「『できる』に至るまでのプロセスが、私たちと少し違うだけ、少し長いだけ」という理解を獲得"
+    "stats": {
+      "totalActivities": 4,
+      "totalYears": 2.5,
+      "currentActive": 3,
+      "majorAchievements": 4,
+      "teamLeadership": 2,
+      "technicalSkills": [
+        "AI・機械学習",
+        "Flutter・Firebase",
+        "音響信号処理",
+        "MATLAB",
+        "プレゼンテーション",
+        "リーダーシップ"
+      ],
+      "impactAreas": [
+        "ロボット工学",
+        "教育",
+        "音響技術",
+        "バリアフリー",
+        "コミュニケーション"
+      ]
     }
-  },
-  "qualifications": [
-    { "name": "実用数学技能検定準1級", "date": "2022年10月", "level": "上級" },
-    { "name": "第二種電気工事士", "date": "2021年8月", "level": "中級" },
-    { "name": "情報技術検定1級", "date": "2022年2月", "level": "上級" },
-    { "name": "3級電子機器組立て技能士", "date": "2022年3月", "level": "中級" },
-    { "name": "危険物取扱者乙種四類", "date": "2023年3月", "level": "中級" },
-    { "name": "ITパスポート試験", "date": "高校時代", "level": "初級" }
-  ],
-  "plannedQualifications": [
-    { "name": "数学技能検定1級", "status": "現在挑戦中", "color": "orange" },
-    { "name": "基本情報技術者試験", "status": "挑戦予定", "color": "blue" },
-    { "name": "応用情報技術者試験", "status": "挑戦予定", "color": "purple" }
-  ]
+  }
 }
