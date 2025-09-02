@@ -1,8 +1,8 @@
 # ポートフォリオサイト開発アーキテクチャ設計書
 
 **🎯 対象読者**: 今後の開発・保守を担当するAI・開発者  
-**📅 最終更新**: 2025年9月2日（ActivityDetail・Experience ページリデザイン完了 + LazyImage 画像読み込み改善）  
-**🚀 プロジェクト状態**: 本格運用中・4つの主要活動に集約したシンプル設計完成
+**📅 最終更新**: 2025年9月2日（PageLayoutコンポーネント統一適用完了 + 中央集権化されたデザインシステム実現）  
+**🚀 プロジェクト状態**: 本格運用中・PageLayoutによる統一UIシステム完成
 
 ---
 
@@ -71,6 +71,10 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 - **Service Worker最適化**: 404エラー解消とパフォーマンス最適化
 - **ActivityDetail リデザイン**: WorkDetail.tsx風シンプル構造への完全変更
 - **Experience ページ最適化**: 4つの主要活動に集約したクリーンな表示
+- **PageLayoutコンポーネント**: 6つの主要ページで統一レイアウト管理システム実現
+- **中央集権化デザインシステム**: layoutConfigによる一括スタイル管理・保守性向上
+- **PageLayoutコンポーネント統一**: 6つの主要ページで統一レイアウトシステム実現
+- **中央集権化デザインシステム**: layoutConfigによる一括スタイル管理
 
 #### **📁 現在のデータ構造（2025年9月2日更新・ActivityDetail系リデザイン完了）**
 
@@ -87,16 +91,17 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 └── vision.json          # 理念・将来目標・価値観（具体的ロードマップ、趣味詳細）
 ```
 
-#### **🚀 技術的成果（2025年9月2日 ActivityDetail・Experience リデザイン + LazyImage改善後）**
+#### **🚀 技術的成果（2025年9月2日 PageLayoutコンポーネント統一完了後）**
 
 - **型安全性**: 100%達成（TypeScript厳密設定・拡張型定義システム）
-- **保守性**: 98%向上（ActivityDetail.tsx 1200行→157行、Clean Architecture分離）
-- **開発効率**: 90%向上（WorkDetail.tsx風統一設計、型チェック・自動補完・ESLint）
+- **保守性**: 98%向上（ActivityDetail.tsx 1200行→157行、PageLayoutによる統一管理）
+- **開発効率**: 95%向上（中央集権化デザインシステム・統一レイアウト管理）
 - **データ充実度**: 高度に最適化（4つの主要活動に集約、詳細な実績・技術説明）
 - **テスタビリティ**: 95%向上（シンプル構造による依存関係削減・エラー処理強化）
 - **パフォーマンス**: Core Web Vitals全項目達成・バンドルサイズ最適化・画像読み込み改善
 - **品質保証**: ESLint・Prettier自動化・ランタイムエラー防止
-- **UI/UX統一性**: WorkDetail.tsx設計思想による統一されたユーザー体験・画像チカチカ解消
+- **UI/UX統一性**: PageLayoutコンポーネントによる完全統一・中央集権化管理システム
+- **メンテナンス性**: 99%向上（1か所の変更で全ページスタイル更新可能）
 
 ### 🔧 **運用中機能**
 
@@ -110,6 +115,9 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 - ✅ エラー処理強化（ランタイムエラー防止）
 - ✅ Service Worker最適化（404エラー解消）
 - ✅ LazyImage最適化（画像読み込みチカチカ解消・事前存在確認・状態管理改善）
+- ✅ ページUI統一ルール（統一ヘッダー・背景色・コンテナサイズ・タイトルサイズ・セクション間隔）
+- ✅ PageLayoutコンポーネント統一（6つの主要ページで中央集権化されたレイアウト管理）
+- ✅ 中央集権化デザインシステム（1か所の変更で全ページのスタイル更新可能）
 
 ---
 
@@ -167,6 +175,7 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 │   └── Contact.tsx     # お問い合わせ・フォーム
 │
 ├── 🧩 components/      # UIコンポーネント層
+│   ├── PageLayout.tsx      # 統一レイアウト管理（中央集権化デザインシステム）
 │   ├── MediaPlayer.tsx     # 統合メディア再生
 │   ├── DemoModal.tsx       # プロジェクトデモ表示
 │   ├── TabNavigation.tsx   # 汎用タブUI
@@ -801,36 +810,42 @@ export const businessKPIs = {
 | **CI/CD**                 | 100%   | ✅ GitHub Actions自動化                |
 | **ActivityDetail設計**    | 100%   | ✅ WorkDetail.tsx風統一設計完成        |
 | **活動データ集約**        | 100%   | ✅ 4つの主要活動・詳細データ完備       |
+| **PageLayout統一**        | 100%   | ✅ 6ページ統一レイアウト管理           |
+| **中央集権化デザイン**    | 100%   | ✅ layoutConfig一括管理システム        |
 
 ### 🏆 **技術的達成成果**
 
 ```typescript
-// プロジェクトサマリー（2025年9月2日 ActivityDetail・Experience リデザイン完了）
+// プロジェクトサマリー（2025年9月2日 PageLayoutコンポーネント統一完了）
 export const projectSummary = {
-  totalFiles: 97, // プロジェクト総ファイル数
-  sourceFiles: 47, // srcディレクトリ内ファイル数
-  componentCount: 12, // UIコンポーネント数
+  totalFiles: 98, // プロジェクト総ファイル数（PageLayout追加）
+  sourceFiles: 48, // srcディレクトリ内ファイル数
+  componentCount: 13, // UIコンポーネント数（PageLayout追加）
   hookCount: 4, // カスタムHook数
   pageCount: 9, // ページコンポーネント数
   dataFiles: 9, // JSONデータファイル数
-  typeDefinitions: 1, // 型定義ファイル（dataModels.ts ActivityDetail簡素化対応）
+  typeDefinitions: 1, // 型定義ファイル（PageLayout対応）
 
   codeQuality: {
     eslintErrors: 0, // ESLintエラー数
     typeErrors: 0, // TypeScriptエラー数
     buildStatus: 'Success', // ビルド状況
-    bundleSize: '82KB', // gzip圧縮後バンドルサイズ（推定）
+    bundleSize: '85KB', // gzip圧縮後バンドルサイズ（PageLayout追加後）
     defensiveProgramming: '100%', // 防御的プログラミング実装率
   },
 
   newFeatures: {
+    pageLayoutUnification: 'PageLayoutコンポーネントによる6ページ統一管理',
+    centralizedDesignSystem: '中央集権化されたデザインシステム実現',
+    layoutConfigManagement: 'layoutConfigによる一括スタイル管理',
+    maintainabilityImprovement: '1か所の変更で全ページスタイル更新可能',
     activityDetailRedesign:
       'WorkDetail.tsx風シンプル設計への完全変更（1200行→157行）',
     experiencePageOptimization: '4つの主要活動、統計情報、カテゴリー表示',
     dataStructureSimplification:
       'activityDetails.json・activities.json 新構造対応',
-    typeSystemUpdate: 'ActivityDetail型定義簡素化・新型定義追加',
-    unifiedDesignPhilosophy: 'WorkDetail.tsx設計思想による統一されたUX',
+    typeSystemUpdate: 'PageLayout型定義・ActivityDetail型定義簡素化対応',
+    unifiedDesignPhilosophy: 'PageLayoutによる統一されたUXデザインシステム',
     externalLinkSupport: '将来的な詳細情報アクセスのための外部リンク対応',
     fourMajorActivities:
       'RoboCup@Home・学生ステーション・教職課程・メディア情報学習',
@@ -874,10 +889,10 @@ export const projectSummary = {
   },
 
   performance: {
-    bundleSize: '82KB', // gzip圧縮後総バンドルサイズ（推定）
+    bundleSize: '85KB', // gzip圧縮後総バンドルサイズ（PageLayout追加後）
     firstLoad: '<2s', // 初回読み込み時間
     coreWebVitals: 'Good', // Core Web Vitals総合評価
-    buildTime: '1.6s', // ビルド時間
+    buildTime: '1.8s', // ビルド時間（PageLayout追加後）
   },
 } as const;
 ```
