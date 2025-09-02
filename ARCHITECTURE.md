@@ -743,7 +743,8 @@ export const projectSummary = {
   dataEnhancements: {
     profileDetails: '学歴・実績の定量化、技術的詳細追加',
     skillsExpansion: '7言語詳細、経験年数・フレームワーク情報',
-    projectDepth: 'Sleep Buster・MATLAB楽曲の技術詳細拡充',
+    projectDepth:
+      'Sleep Buster（WebRTC・ハードウェア連携）・MATLAB楽曲の技術詳細拡充',
     activitiesUpdate: 'リーダーシップ経験・成果の具体化',
     contactImprovement: 'LinkedIn追加、お問い合わせ種別分類',
     visionClarification: '具体的ロードマップ、趣味の技術的関連性',
@@ -753,7 +754,7 @@ export const projectSummary = {
   projects: {
     totalProjects: 5, // 掲載プロジェクト数
     featuredWorks: [
-      'Sleep Buster - ハッカソン優勝作品（技術詳細・開発背景拡充）',
+      'Sleep Buster - ハッカソン最優秀賞作品（WebRTC・ハードウェア連携技術詳細）',
       'MATLABによるEDM楽曲制作（音響技術・開発ツール詳細）',
       'AI体験ブース - 教育イベント企画運営（体験設計手法詳細）',
       'Chrome拡張機能 - 学習効率化ツール（効率化思考詳細）',

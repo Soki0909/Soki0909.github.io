@@ -85,6 +85,7 @@ export interface Achievement {
     myRole?: string;
     technologies?: string[];
     achievement?: string;
+    teamExperience?: string;
     organizationSize?: string;
     responsibilities?: string[];
     period?: string;

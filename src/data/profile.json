@@ -99,20 +99,29 @@
     {
       "icon": "🏆",
       "title": "Hackit 2025ハッカソン",
-      "subtitle": "最優秀賞受賞（グランプリ）",
-      "description": "Sleep Buster - AI音声分析による睡眠改善支援アプリ。4人チームでフロントエンド開発・UI/UXデザインをリード",
+      "subtitle": "最優秀賞受賞（賞金5万円）",
+      "description": "Sleep Buster - みんなの朝を『つなぐ』アラームアプリ。5人チーム（3年生3名、1年生2名）でWebRTC通信とルーム機能開発を担当",
       "color": "bg-yellow-500",
       "organizer": "Hackit実行委員会",
       "eventDates": {
-        "startDate": "2025-01-01",
-        "endDate": "2025-01-03"
+        "startDate": "2025-08-02",
+        "endDate": "2025-08-04"
       },
       "details": {
-        "participants": "約100名参加",
-        "teamSize": "4名",
-        "myRole": "フロントエンド開発リード・UI/UXデザイン",
-        "technologies": ["React", "TypeScript", "Python", "AI音声分析"],
-        "achievement": "技術革新性・社会貢献度で最高評価を獲得"
+        "participants": "全8チーム参加",
+        "teamSize": "5名（3年生3名、1年生2名）",
+        "myRole": "WebRTC映像通信システム開発、1年生とのペアプログラミングによるルーム機能実装",
+        "technologies": [
+          "Android",
+          "Kotlin",
+          "Jetpack Compose",
+          "WebRTC",
+          "SkyWay",
+          "Firebase",
+          "EV3"
+        ],
+        "achievement": "ハードウェア・ソフトウェア連携の革新性で最高評価を獲得",
+        "teamExperience": "5名中3名がAndroidアプリ初開発、残り2名も授業でJavaを触った程度。全員がハッカソン初参加"
       }
     },
     {
