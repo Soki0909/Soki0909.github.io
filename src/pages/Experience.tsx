@@ -103,7 +103,7 @@ const Experience = () => {
             {majorActivities.map((activity) => (
               <Link
                 key={activity.id}
-                to={`/experience/${activity.id}`}
+                to={`/activity/${activity.id}`}
                 className="bg-white rounded-lg shadow-sm overflow-hidden hover:shadow-md transition-shadow"
               >
                 <div className="aspect-video overflow-hidden">
