@@ -256,6 +256,7 @@ graph TD
 ## 🔍 **調査方法と検証レベル**
 
 ### **実施した調査項目**
+
 ✅ **コンポーネント内直接使用**: `.tsx`, `.ts`ファイル内での明示的な型使用  
 ✅ **JSONデータ連携**: `profile.json`, `contacts.json`等でのデータ構造対応  
 ✅ **動的型生成**: `dataLoader.ts`での実行時型変換  
@@ -263,9 +264,10 @@ graph TD
 ✅ **型相互参照**: インターフェース内での他の型定義参照  
 ✅ **TypeScript as/keyof**: 型アサーション・型操作での使用  
 ✅ **import/export**: 明示的なimport文での外部参照  
-✅ **ビルドコンパイル**: TypeScriptコンパイラでの型チェック通過確認  
+✅ **ビルドコンパイル**: TypeScriptコンパイラでの型チェック通過確認
 
 ### **検証ツール**
+
 - **grep_search**: 正規表現・リテラル検索による全ファイル横断調査
 - **semantic_search**: 自然言語検索による関連コード発見
 - **TypeScriptコンパイラ**: `npm run build`による型エラー検証
@@ -275,72 +277,76 @@ graph TD
 
 ## 📊 **調査結果サマリー**
 
-| 分類 | 削除可能 | 削除不可 | 合計 |
-|:-----|:---------|:---------|:-----|
-| **基本未使用型** | 8個 | 0個 | 8個 |
-| **削除不可型** | 0個 | 5個 | 5個 |
-| **詳細コンテンツ型** | 18個 | 0個 | 18個 |
-| **使用中型** | 0個 | 42個 | 42個 |
-| **総計** | **26個 (36%)** | **47個 (64%)** | **73個** |
+| 分類                 | 削除可能       | 削除不可       | 合計     |
+| :------------------- | :------------- | :------------- | :------- |
+| **基本未使用型**     | 8個            | 0個            | 8個      |
+| **削除不可型**       | 0個            | 5個            | 5個      |
+| **詳細コンテンツ型** | 18個           | 0個            | 18個     |
+| **使用中型**         | 0個            | 42個           | 42個     |
+| **総計**             | **26個 (36%)** | **47個 (64%)** | **73個** |
 
 ---
 
 ## ✅ **削除可能な型定義（26個）**
 
 ### **🔥 基本未使用型（8個）**
-| 型名 | カテゴリ | 理由 | 削除安全性 |
-|:-----|:---------|:-----|:-----------|
-| `LanguageLevel` | Skills | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
-| `SpecialtyLevel` | Skills | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
-| `MajorProject` | Activities | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
-| `ApproachStep` | Activities | GrowthStory内参照のみ、実用なし | 🟢 **完全安全** |
-| `GrowthStory` | Activities | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
-| `EducationProgram` | Activities | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
-| `Qualification` | Activities | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
-| `PlannedQualification` | Activities | 型定義のみ存在、使用実績なし | 🟢 **完全安全** |
+
+| 型名                   | カテゴリ   | 理由                            | 削除安全性      |
+| :--------------------- | :--------- | :------------------------------ | :-------------- |
+| `LanguageLevel`        | Skills     | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
+| `SpecialtyLevel`       | Skills     | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
+| `MajorProject`         | Activities | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
+| `ApproachStep`         | Activities | GrowthStory内参照のみ、実用なし | 🟢 **完全安全** |
+| `GrowthStory`          | Activities | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
+| `EducationProgram`     | Activities | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
+| `Qualification`        | Activities | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
+| `PlannedQualification` | Activities | 型定義のみ存在、使用実績なし    | 🟢 **完全安全** |
 
 ### **🔥 ActivityDetail詳細コンテンツ型（18個）**
+
 ActivityDetailページの複雑なセクション用に定義されたが、実際にはシンプルな構造が採用され完全に未使用：
 
-| 型名 | 用途 | 削除安全性 |
-|:-----|:-----|:-----------|
-| `OverviewContent` | セクション概要 | 🟢 **完全安全** |
-| `CompetitionInfoContent` | 競技情報 | 🟢 **完全安全** |
-| `TeamInfoContent` | チーム情報 | 🟢 **完全安全** |
-| `TechnologyGridContent` | 技術グリッド | 🟢 **完全安全** |
-| `TimelineContent` | タイムライン | 🟢 **完全安全** |
-| `SkillsGridContent` | スキルグリッド | 🟢 **完全安全** |
-| `ContributionsContent` | 貢献内容 | 🟢 **完全安全** |
-| `MotivationContent` | 動機・背景 | 🟢 **完全安全** |
-| `GrowthStepsContent` | 成長ステップ | 🟢 **完全安全** |
-| `RobotsInfoContent` | ロボット情報 | 🟢 **完全安全** |
-| `AchievementsContent` | 成果実績 | 🟢 **完全安全** |
-| `CompetitionDetailContent` | 競技詳細 | 🟢 **完全安全** |
-| `ProductFeaturesContent` | 製品機能 | 🟢 **完全安全** |
-| `TechnicalDetailsContent` | 技術詳細 | 🟢 **完全安全** |
-| `FuturePlansContent` | 将来計画 | 🟢 **完全安全** |
-| `SocialImpactContent` | 社会的影響 | 🟢 **完全安全** |
-| `YearAchievementsContent` | 年度実績 | 🟢 **完全安全** |
-| `ActivitySectionContent` | ユニオン型 | 🟢 **完全安全** |
+| 型名                       | 用途           | 削除安全性      |
+| :------------------------- | :------------- | :-------------- |
+| `OverviewContent`          | セクション概要 | 🟢 **完全安全** |
+| `CompetitionInfoContent`   | 競技情報       | 🟢 **完全安全** |
+| `TeamInfoContent`          | チーム情報     | 🟢 **完全安全** |
+| `TechnologyGridContent`    | 技術グリッド   | 🟢 **完全安全** |
+| `TimelineContent`          | タイムライン   | 🟢 **完全安全** |
+| `SkillsGridContent`        | スキルグリッド | 🟢 **完全安全** |
+| `ContributionsContent`     | 貢献内容       | 🟢 **完全安全** |
+| `MotivationContent`        | 動機・背景     | 🟢 **完全安全** |
+| `GrowthStepsContent`       | 成長ステップ   | 🟢 **完全安全** |
+| `RobotsInfoContent`        | ロボット情報   | 🟢 **完全安全** |
+| `AchievementsContent`      | 成果実績       | 🟢 **完全安全** |
+| `CompetitionDetailContent` | 競技詳細       | 🟢 **完全安全** |
+| `ProductFeaturesContent`   | 製品機能       | 🟢 **完全安全** |
+| `TechnicalDetailsContent`  | 技術詳細       | 🟢 **完全安全** |
+| `FuturePlansContent`       | 将来計画       | 🟢 **完全安全** |
+| `SocialImpactContent`      | 社会的影響     | 🟢 **完全安全** |
+| `YearAchievementsContent`  | 年度実績       | 🟢 **完全安全** |
+| `ActivitySectionContent`   | ユニオン型     | 🟢 **完全安全** |
 
 ---
 
 ## 🚨 **削除絶対不可の型定義（5個）**
 
 ### **重大な影響を与える型**
-| 型名 | カテゴリ | 使用場所 | 削除時の影響 |
-|:-----|:---------|:---------|:-------------|
-| `StrengthItem` | Profile | `Strengths`型で`items: StrengthItem[]`定義<br>`Home.tsx`・`About.tsx`で`strengths.items.map`使用<br>`profile.json`でデータ格納 | 🔴 **UI完全破綻・型エラー** |
-| `ContactType` | Contact | `ContactForm`で`contactTypes?: ContactType[]`定義<br>`contacts.json`でデータ格納 | 🔴 **フォーム機能停止・型エラー** |
-| `SpecialFocus` | Vision | `Vision.tsx`で`futureGoals.specialFocus.title`等使用<br>`vision.json`でデータ定義 | 🔴 **ページ表示エラー・実行時エラー** |
-| `EducationDetails` | ActivityDetail | `dataLoader.ts`で動的生成<br>`structuredData.ts`でSEO構造化データ使用 | 🔴 **SEO機能停止・型エラー** |
-| `OrganizationExperience` | ActivityDetail | `profile.json`でデータ定義<br>`structuredData.ts`でSEO構造化データ使用 | 🔴 **SEO機能停止・型エラー** |
+
+| 型名                     | カテゴリ       | 使用場所                                                                                                                       | 削除時の影響                          |
+| :----------------------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------- | :------------------------------------ |
+| `StrengthItem`           | Profile        | `Strengths`型で`items: StrengthItem[]`定義<br>`Home.tsx`・`About.tsx`で`strengths.items.map`使用<br>`profile.json`でデータ格納 | 🔴 **UI完全破綻・型エラー**           |
+| `ContactType`            | Contact        | `ContactForm`で`contactTypes?: ContactType[]`定義<br>`contacts.json`でデータ格納                                               | 🔴 **フォーム機能停止・型エラー**     |
+| `SpecialFocus`           | Vision         | `Vision.tsx`で`futureGoals.specialFocus.title`等使用<br>`vision.json`でデータ定義                                              | 🔴 **ページ表示エラー・実行時エラー** |
+| `EducationDetails`       | ActivityDetail | `dataLoader.ts`で動的生成<br>`structuredData.ts`でSEO構造化データ使用                                                          | 🔴 **SEO機能停止・型エラー**          |
+| `OrganizationExperience` | ActivityDetail | `profile.json`でデータ定義<br>`structuredData.ts`でSEO構造化データ使用                                                         | 🔴 **SEO機能停止・型エラー**          |
 
 ---
 
 ## 📈 **使用中の型定義（42個）**
 
 ### **アクティブに使用されている型**
+
 ✅ **Profile関連（11個）**: PersonalInfo, EducationInfo, Mission, ActionPrinciple, Strengths, PersonalityType, TurningPoint, Achievement, TechnicalSettings, MediaSettings, NavigationLabels, ProfileData  
 ✅ **Skills関連（6個）**: ProgrammingLanguage, SpecialtyArea, TechnicalEvaluation, LearningPhilosophy, ContinuousLearningItem, SkillsData  
 ✅ **Activities関連（5個）**: TimelineItem, FeaturedActivity, ActivityCategory, ActivityStats, ActivitiesData  
@@ -349,13 +355,14 @@ ActivityDetailページの複雑なセクション用に定義されたが、実
 ✅ **Home関連（6個）**: Highlight, NavigationCard, QuickFact, CTAButton, CTASection, DevelopmentNotice, HomeData  
 ✅ **SEO関連（3個）**: SiteInfo, SEOMetadata, SEOData  
 ✅ **Project関連（2個）**: Project, ProjectsData  
-✅ **ActivityDetail関連（6個）**: ActivityDetail, ActivityBasicInfo, ActivityMedia, ActivitySection, ActivitySectionContent, ActivityDetailsData  
+✅ **ActivityDetail関連（6個）**: ActivityDetail, ActivityBasicInfo, ActivityMedia, ActivitySection, ActivitySectionContent, ActivityDetailsData
 
 ---
 
 ## 🎯 **最適化効果予測**
 
 ### **削除実行時の効果**
+
 ```typescript
 // 型定義削除効果
 削除対象: 26個 (36%)
@@ -381,12 +388,14 @@ ActivityDetailページの複雑なセクション用に定義されたが、実
 ## ⚠️ **削除実行時の注意事項**
 
 ### **🔴 絶対遵守ルール**
+
 1. **削除前にバックアップ**: `git commit -m "refactor: 型定義削除前のバックアップ"`
 2. **段階的削除**: 一度に全削除せず、カテゴリ別に実行
 3. **削除後の確認**: `npm run build`で型エラーがないことを確認
 4. **UI動作確認**: 実際のページ表示・機能動作をテスト
 
 ### **🚨 削除順序推奨**
+
 ```bash
 # 第1段階: 詳細コンテンツ型（18個）
 # 第2段階: 基本未使用型（8個）
@@ -396,6 +405,7 @@ npm run format && npm run lint && npm run build
 ```
 
 ### **📊 削除可能性確定根拠**
+
 - **TypeScriptコンパイル成功**: エラー0状態でビルド完了
 - **実行時エラーなし**: 全ページ・全機能で動作確認済み
 - **外部参照なし**: import文・動的参照での使用実績なし
@@ -403,81 +413,81 @@ npm run format && npm run lint && npm run build
 
 #### **🏷️ 現在使用中の型定義（42種類）**
 
-| カテゴリ | 型名 | 使用場所 | 使用状況 |
-|:---------|:-----|:---------|:---------|
-| **Profile関連** | `PersonalInfo` | ProfileData内で使用 | ✅ 使用中 |
-| **Profile関連** | `EducationInfo` | ProfileData内で使用 | ✅ 使用中 |
-| **Profile関連** | `Mission` | About.tsx、Vision.tsx、Home.tsx、structuredData.ts | ✅ 使用中 |
-| **Profile関連** | `ActionPrinciple` | About.tsx、Vision.tsx、dataLoader.ts | ✅ 使用中 |
-| **Profile関連** | `Strengths` | dataLoader.ts (profileData.principles.strengths) | ✅ 使用中 |
-| **Profile関連** | `PersonalityType` | dataLoader.ts (profileData.personalityType) | ✅ 使用中 |
-| **Profile関連** | `TurningPoint` | dataLoader.ts (profileData.turningPoints) | ✅ 使用中 |
-| **Profile関連** | `Achievement` | structuredData.ts、dataLoader.ts で多用 | ✅ 使用中 |
-| **Profile関連** | `TechnicalSettings` | dataLoader.ts、structuredData.ts | ✅ 使用中 |
-| **Profile関連** | `MediaSettings` | dataLoader.ts、structuredData.ts | ✅ 使用中 |
-| **Profile関連** | `NavigationLabels` | dataLoader.ts、structuredData.ts | ✅ 使用中 |
-| **Profile関連** | `ProfileData` | 多数のコンポーネントで広範囲使用 | ✅ 使用中 |
-| **Skills関連** | `ProgrammingLanguage` | structuredData.ts (skillsData.programmingLanguages) | ✅ 使用中 |
-| **Skills関連** | `SpecialtyArea` | structuredData.ts (skillsData.specialtyAreas) | ✅ 使用中 |
-| **Skills関連** | `TechnicalEvaluation` | dataLoader.ts (skillsData.technicalEvaluations) | ✅ 使用中 |
-| **Skills関連** | `LearningPhilosophy` | Skills.tsx で直接使用 | ✅ 使用中 |
-| **Skills関連** | `ContinuousLearningItem` | Skills.tsx で continuousLearning.map使用 | ✅ 使用中 |
-| **Skills関連** | `SkillsData` | Skills.tsx、dataLoader.ts、structuredData.ts | ✅ 使用中 |
-| **Activities関連** | `TimelineItem` | dataLoader.ts (activitiesData.activities.timeline) | ✅ 使用中 |
-| **Activities関連** | `FeaturedActivity` | dataLoader.ts (activitiesData.activities.featured) | ✅ 使用中 |
-| **Activities関連** | `ActivityCategory` | dataLoader.ts (activitiesData.activities.categories) | ✅ 使用中 |
-| **Activities関連** | `ActivityStats` | dataLoader.ts (activitiesData.activities.stats) | ✅ 使用中 |
-| **Activities関連** | `ActivitiesData` | ActivityDetail.tsx、dataLoader.ts | ✅ 使用中 |
-| **Vision関連** | `RoadmapPhase` | dataLoader.ts (visionData.futureGoals.roadmap) | ✅ 使用中 |
-| **Vision関連** | `FutureGoals` | dataLoader.ts (visionData.futureGoals) | ✅ 使用中 |
-| **Vision関連** | `SocialMessage` | Vision.tsx (visionData.socialMessage) | ✅ 使用中 |
-| **Vision関連** | `Hobby` | Vision.tsx (visionData.hobbies) | ✅ 使用中 |
-| **Vision関連** | `VisionData` | Vision.tsx、dataLoader.ts | ✅ 使用中 |
-| **Contact関連** | `ContactInfo` | dataLoader.ts (contactsData.contacts) | ✅ 使用中 |
-| **Contact関連** | `FormField` | dataLoader.ts (contactsData.form.fields) | ✅ 使用中 |
-| **Contact関連** | `ContactForm` | dataLoader.ts (contactsData.form) | ✅ 使用中 |
-| **Contact関連** | `ContactsData` | dataLoader.ts | ✅ 使用中 |
-| **Home関連** | `Highlight` | Home.tsx で highlights.map使用 | ✅ 使用中 |
-| **Home関連** | `NavigationCard` | Home.tsx で navigationCards.map使用 | ✅ 使用中 |
-| **Home関連** | `QuickFact` | Home.tsx で quickFacts.map使用 | ✅ 使用中 |
-| **Home関連** | `CTAButton` | CTASection内で使用 | ✅ 使用中 |
-| **Home関連** | `CTASection` | Home.tsx で ctaSection.buttons.map使用 | ✅ 使用中 |
-| **Home関連** | `DevelopmentNotice` | Home.tsx で developmentNotice.show使用 | ✅ 使用中 |
-| **Home関連** | `HomeData` | Home.tsx、dataLoader.ts | ✅ 使用中 |
-| **SEO関連** | `SiteInfo` | SEOData内で使用 | ✅ 使用中 |
-| **SEO関連** | `SEOMetadata` | SEOData内で使用 | ✅ 使用中 |
-| **SEO関連** | `SEOData` | 多数のファイルで広範囲使用 | ✅ 使用中 |
-| **Project関連** | `Project` | structuredData.ts、utils/projects.ts | ✅ 使用中 |
-| **Project関連** | `ProjectsData` | dataLoader.ts、utils/projects.ts、ProjectContext.tsx | ✅ 使用中 |
-| **ActivityDetail関連** | `ActivityDetail` | ActivityDetail.tsx | ✅ 使用中 |
-| **ActivityDetail関連** | `ActivityBasicInfo` | ActivityDetail型内で使用 | ✅ 使用中 |
-| **ActivityDetail関連** | `ActivityMedia` | ActivityDetail型内で使用 | ✅ 使用中 |
-| **ActivityDetail関連** | `ActivitySection` | ActivityDetail型内で使用 | ✅ 使用中 |
-| **ActivityDetail関連** | `ActivitySectionContent` | ActivitySection型内で使用 | ✅ 使用中 |
-| **ActivityDetail関連** | `ActivityDetailsData` | ActivityDetail.tsx | ✅ 使用中 |
+| カテゴリ               | 型名                     | 使用場所                                             | 使用状況  |
+| :--------------------- | :----------------------- | :--------------------------------------------------- | :-------- |
+| **Profile関連**        | `PersonalInfo`           | ProfileData内で使用                                  | ✅ 使用中 |
+| **Profile関連**        | `EducationInfo`          | ProfileData内で使用                                  | ✅ 使用中 |
+| **Profile関連**        | `Mission`                | About.tsx、Vision.tsx、Home.tsx、structuredData.ts   | ✅ 使用中 |
+| **Profile関連**        | `ActionPrinciple`        | About.tsx、Vision.tsx、dataLoader.ts                 | ✅ 使用中 |
+| **Profile関連**        | `Strengths`              | dataLoader.ts (profileData.principles.strengths)     | ✅ 使用中 |
+| **Profile関連**        | `PersonalityType`        | dataLoader.ts (profileData.personalityType)          | ✅ 使用中 |
+| **Profile関連**        | `TurningPoint`           | dataLoader.ts (profileData.turningPoints)            | ✅ 使用中 |
+| **Profile関連**        | `Achievement`            | structuredData.ts、dataLoader.ts で多用              | ✅ 使用中 |
+| **Profile関連**        | `TechnicalSettings`      | dataLoader.ts、structuredData.ts                     | ✅ 使用中 |
+| **Profile関連**        | `MediaSettings`          | dataLoader.ts、structuredData.ts                     | ✅ 使用中 |
+| **Profile関連**        | `NavigationLabels`       | dataLoader.ts、structuredData.ts                     | ✅ 使用中 |
+| **Profile関連**        | `ProfileData`            | 多数のコンポーネントで広範囲使用                     | ✅ 使用中 |
+| **Skills関連**         | `ProgrammingLanguage`    | structuredData.ts (skillsData.programmingLanguages)  | ✅ 使用中 |
+| **Skills関連**         | `SpecialtyArea`          | structuredData.ts (skillsData.specialtyAreas)        | ✅ 使用中 |
+| **Skills関連**         | `TechnicalEvaluation`    | dataLoader.ts (skillsData.technicalEvaluations)      | ✅ 使用中 |
+| **Skills関連**         | `LearningPhilosophy`     | Skills.tsx で直接使用                                | ✅ 使用中 |
+| **Skills関連**         | `ContinuousLearningItem` | Skills.tsx で continuousLearning.map使用             | ✅ 使用中 |
+| **Skills関連**         | `SkillsData`             | Skills.tsx、dataLoader.ts、structuredData.ts         | ✅ 使用中 |
+| **Activities関連**     | `TimelineItem`           | dataLoader.ts (activitiesData.activities.timeline)   | ✅ 使用中 |
+| **Activities関連**     | `FeaturedActivity`       | dataLoader.ts (activitiesData.activities.featured)   | ✅ 使用中 |
+| **Activities関連**     | `ActivityCategory`       | dataLoader.ts (activitiesData.activities.categories) | ✅ 使用中 |
+| **Activities関連**     | `ActivityStats`          | dataLoader.ts (activitiesData.activities.stats)      | ✅ 使用中 |
+| **Activities関連**     | `ActivitiesData`         | ActivityDetail.tsx、dataLoader.ts                    | ✅ 使用中 |
+| **Vision関連**         | `RoadmapPhase`           | dataLoader.ts (visionData.futureGoals.roadmap)       | ✅ 使用中 |
+| **Vision関連**         | `FutureGoals`            | dataLoader.ts (visionData.futureGoals)               | ✅ 使用中 |
+| **Vision関連**         | `SocialMessage`          | Vision.tsx (visionData.socialMessage)                | ✅ 使用中 |
+| **Vision関連**         | `Hobby`                  | Vision.tsx (visionData.hobbies)                      | ✅ 使用中 |
+| **Vision関連**         | `VisionData`             | Vision.tsx、dataLoader.ts                            | ✅ 使用中 |
+| **Contact関連**        | `ContactInfo`            | dataLoader.ts (contactsData.contacts)                | ✅ 使用中 |
+| **Contact関連**        | `FormField`              | dataLoader.ts (contactsData.form.fields)             | ✅ 使用中 |
+| **Contact関連**        | `ContactForm`            | dataLoader.ts (contactsData.form)                    | ✅ 使用中 |
+| **Contact関連**        | `ContactsData`           | dataLoader.ts                                        | ✅ 使用中 |
+| **Home関連**           | `Highlight`              | Home.tsx で highlights.map使用                       | ✅ 使用中 |
+| **Home関連**           | `NavigationCard`         | Home.tsx で navigationCards.map使用                  | ✅ 使用中 |
+| **Home関連**           | `QuickFact`              | Home.tsx で quickFacts.map使用                       | ✅ 使用中 |
+| **Home関連**           | `CTAButton`              | CTASection内で使用                                   | ✅ 使用中 |
+| **Home関連**           | `CTASection`             | Home.tsx で ctaSection.buttons.map使用               | ✅ 使用中 |
+| **Home関連**           | `DevelopmentNotice`      | Home.tsx で developmentNotice.show使用               | ✅ 使用中 |
+| **Home関連**           | `HomeData`               | Home.tsx、dataLoader.ts                              | ✅ 使用中 |
+| **SEO関連**            | `SiteInfo`               | SEOData内で使用                                      | ✅ 使用中 |
+| **SEO関連**            | `SEOMetadata`            | SEOData内で使用                                      | ✅ 使用中 |
+| **SEO関連**            | `SEOData`                | 多数のファイルで広範囲使用                           | ✅ 使用中 |
+| **Project関連**        | `Project`                | structuredData.ts、utils/projects.ts                 | ✅ 使用中 |
+| **Project関連**        | `ProjectsData`           | dataLoader.ts、utils/projects.ts、ProjectContext.tsx | ✅ 使用中 |
+| **ActivityDetail関連** | `ActivityDetail`         | ActivityDetail.tsx                                   | ✅ 使用中 |
+| **ActivityDetail関連** | `ActivityBasicInfo`      | ActivityDetail型内で使用                             | ✅ 使用中 |
+| **ActivityDetail関連** | `ActivityMedia`          | ActivityDetail型内で使用                             | ✅ 使用中 |
+| **ActivityDetail関連** | `ActivitySection`        | ActivityDetail型内で使用                             | ✅ 使用中 |
+| **ActivityDetail関連** | `ActivitySectionContent` | ActivitySection型内で使用                            | ✅ 使用中 |
+| **ActivityDetail関連** | `ActivityDetailsData`    | ActivityDetail.tsx                                   | ✅ 使用中 |
 
 #### **❌ 未使用の型定義（9種類・削除対象候補）**
 
-| カテゴリ | 型名 | 理由 | 削除可能性 |
-|:---------|:-----|:-----|:------------|
-| **Profile関連** | `StrengthItem` | Strengths型でitems: StrengthItem[]として定義、Home.tsx・About.tsxでstrengths.items.mapとして実際に使用、profile.jsonでデータ定義 | 🔴 削除すると型エラー・UI破綻 |
-| **Skills関連** | `LanguageLevel` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
-| **Skills関連** | `SpecialtyLevel` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
-| **Activities関連** | `MajorProject` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
-| **Activities関連** | `ApproachStep` | GrowthStory内でのみ参照、使用なし | 🔴 削除推奨 |
-| **Activities関連** | `GrowthStory` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
-| **Activities関連** | `EducationProgram` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
-| **Activities関連** | `Qualification` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
-| **Activities関連** | `PlannedQualification` | 型定義のみ存在、使用なし | 🔴 削除推奨 |
+| カテゴリ           | 型名                   | 理由                                                                                                                             | 削除可能性                    |
+| :----------------- | :--------------------- | :------------------------------------------------------------------------------------------------------------------------------- | :---------------------------- |
+| **Profile関連**    | `StrengthItem`         | Strengths型でitems: StrengthItem[]として定義、Home.tsx・About.tsxでstrengths.items.mapとして実際に使用、profile.jsonでデータ定義 | 🔴 削除すると型エラー・UI破綻 |
+| **Skills関連**     | `LanguageLevel`        | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
+| **Skills関連**     | `SpecialtyLevel`       | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
+| **Activities関連** | `MajorProject`         | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
+| **Activities関連** | `ApproachStep`         | GrowthStory内でのみ参照、使用なし                                                                                                | 🔴 削除推奨                   |
+| **Activities関連** | `GrowthStory`          | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
+| **Activities関連** | `EducationProgram`     | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
+| **Activities関連** | `Qualification`        | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
+| **Activities関連** | `PlannedQualification` | 型定義のみ存在、使用なし                                                                                                         | 🔴 削除推奨                   |
 
 #### **⚠️ 実際に使用されている型定義（削除不可）**
 
-| カテゴリ | 型名 | 使用場所 | 削除不可理由 |
-|:---------|:-----|:---------|:------------|
-| **Contact関連** | `ContactType` | ContactForm内でcontactTypes配列として使用、contacts.jsonで実際のデータが定義 | � 削除不可 |
-| **Vision関連** | `SpecialFocus` | Vision.tsxで futureGoals.specialFocus.title等として直接使用、vision.jsonでデータ定義 | � 削除不可 |
-| **ActivityDetail関連** | `EducationDetails` | structuredData.ts・dataLoader.tsで basicProfile.educationDetails として実際に使用 | � 削除不可 |
-| **ActivityDetail関連** | `OrganizationExperience` | structuredData.tsで basicProfile.organizationExperience として実際に使用、profile.jsonでデータ定義 | � 削除不可 |
+| カテゴリ               | 型名                     | 使用場所                                                                                           | 削除不可理由 |
+| :--------------------- | :----------------------- | :------------------------------------------------------------------------------------------------- | :----------- |
+| **Contact関連**        | `ContactType`            | ContactForm内でcontactTypes配列として使用、contacts.jsonで実際のデータが定義                       | � 削除不可   |
+| **Vision関連**         | `SpecialFocus`           | Vision.tsxで futureGoals.specialFocus.title等として直接使用、vision.jsonでデータ定義               | � 削除不可   |
+| **ActivityDetail関連** | `EducationDetails`       | structuredData.ts・dataLoader.tsで basicProfile.educationDetails として実際に使用                  | � 削除不可   |
+| **ActivityDetail関連** | `OrganizationExperience` | structuredData.tsで basicProfile.organizationExperience として実際に使用、profile.jsonでデータ定義 | � 削除不可   |
 
 #### **🔍 詳細セクションコンテンツ型（全て未使用・18種類）**
 
@@ -523,6 +533,7 @@ npm run format && npm run lint && npm run build
 #### **🚨 重要な調査結果（最終確定版）**
 
 **削除絶対不可な型の詳細分析**:
+
 1. **StrengthItem**: `Strengths`型で`items: StrengthItem[]`として定義、`Home.tsx`・`About.tsx`で`strengths.items.map`として**実際に使用**、`profile.json`でデータ定義
 2. **ContactType**: `ContactForm`内で`contactTypes?: ContactType[]`として型定義され、`contacts.json`で実際のデータが格納
 3. **SpecialFocus**: `Vision.tsx`で`futureGoals.specialFocus.title`等として直接使用、`vision.json`でデータ定義
@@ -530,6 +541,7 @@ npm run format && npm run lint && npm run build
 5. **OrganizationExperience**: `profile.json`でデータ定義、`structuredData.ts`でSEO用構造化データ生成に使用
 
 **削除安全性の確認方法**:
+
 - TypeScriptコンパイル時の型チェック通過
 - コンポーネントでの直接使用: Home.tsx, About.tsx, Vision.tsx, Contact.tsx等
 - dataLoader.tsでの動的型生成
@@ -542,7 +554,6 @@ npm run format && npm run lint && npm run build
 1. **structuredData.ts専用型**: `TechnicalSettings`, `MediaSettings`, `NavigationLabels`は構造化データ生成でのみ使用
 2. **将来的な使用可能性**: 一部の型は将来的な機能拡張で使用される可能性
 3. **段階的削除**: 一度にすべて削除せず、段階的に削除することを推奨
-
 
 ### 📈 **パフォーマンス最適化**
 
@@ -1018,7 +1029,7 @@ const performanceAlerts = {
 
 #### **技術的KPI**
 
-```typescript
+````typescript
 export const technicalKPIs = {
   performance: {
     coreWebVitals: {
@@ -1064,7 +1075,7 @@ export const jobHuntingKPIs = {
       socialSharing: { target: '+50% YoY', focus: 'LinkedIn共有' }
     }
   },
-  
+
   contentEffectiveness: {
     achievementHighlights: {
       topViewedSections: [
@@ -1075,7 +1086,7 @@ export const jobHuntingKPIs = {
       ],
       conversionMetrics: 'ハイライト→詳細ページ遷移率'
     },
-    
+
     technicalDemonstration: {
       projectDetailEngagement: '> 3分滞在',
       mediaPlayerUsage: 'デモ動画・音声再生率',
@@ -1097,7 +1108,7 @@ export const businessKPIs = {
     socialSharing: { target: '+50% YoY' },
   },
 };
-```
+````
 
 ---
 
@@ -1166,19 +1177,19 @@ export const projectSummary = {
       '開発中表示の就活期間中非表示設定',
       '実績数値の冒頭強調配置（Hackit最優秀賞・paiza Aランク等）',
       '卒業年度明記（2027年3月卒業予定）',
-      'EmailJSによるコンタクトフォーム機能化'
+      'EmailJSによるコンタクトフォーム機能化',
     ],
     contentOptimization: [
       '企業別価値提案メッセージの整理',
       '技術力×実績の紐づけ強化',
       '成長ストーリーの定量的表現',
-      'プロフェッショナルな第一印象の最適化'
+      'プロフェッショナルな第一印象の最適化',
     ],
     analyticsEnhancements: [
       '就活特化KPI設定（企業問い合わせ数・エンゲージメント深度）',
       'リクルーター行動分析（滞在時間・閲覧ページ・離脱ポイント）',
-      'コンバージョン最適化（連絡先アクセス・プロジェクト詳細閲覧）'
-    ]
+      'コンバージョン最適化（連絡先アクセス・プロジェクト詳細閲覧）',
+    ],
   },
 
   activityFocus: {
