@@ -8,7 +8,13 @@ const Home = () => {
   const personalData = getPersonalData();
   const pageSEO = getPageSEO('home');
 
-  const { highlights, navigationCards, quickFacts, ctaSection } = homeData;
+  const {
+    developmentNotice,
+    highlights,
+    navigationCards,
+    quickFacts,
+    ctaSection,
+  } = homeData;
   const { basicProfile, mission, strengths } = personalData;
 
   return (
@@ -30,6 +36,21 @@ const Home = () => {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
               {basicProfile.name} ({basicProfile.nameEn})
             </h1>
+
+            {/* 作成途中の注釈 - データ駆動型 */}
+            {developmentNotice.show && (
+              <div className="mb-4 mx-auto max-w-md">
+                <div
+                  className={`${developmentNotice.style.backgroundColor} border ${developmentNotice.style.borderColor} rounded-lg px-4 py-2 inline-flex items-center text-sm ${developmentNotice.style.textColor}`}
+                >
+                  <span className="mr-2">{developmentNotice.icon}</span>
+                  <span className="font-medium">
+                    {developmentNotice.message}
+                  </span>
+                </div>
+              </div>
+            )}
+
             <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto px-4 mb-2">
               {basicProfile.university}
             </p>

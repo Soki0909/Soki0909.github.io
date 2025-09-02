@@ -349,7 +349,19 @@ export interface CTASection {
   buttons: CTAButton[];
 }
 
+export interface DevelopmentNotice {
+  show: boolean;
+  message: string;
+  icon: string;
+  style: {
+    backgroundColor: string;
+    borderColor: string;
+    textColor: string;
+  };
+}
+
 export interface HomeData {
+  developmentNotice: DevelopmentNotice;
   highlights: Highlight[];
   navigationCards: NavigationCard[];
   quickFacts: QuickFact[];

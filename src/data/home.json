@@ -1,4 +1,14 @@
 {
+  "developmentNotice": {
+    "show": true,
+    "message": "このポートフォリオサイトは現在作成途中です",
+    "icon": "🚧",
+    "style": {
+      "backgroundColor": "bg-yellow-50",
+      "borderColor": "border-yellow-200",
+      "textColor": "text-yellow-800"
+    }
+  },
   "highlights": [
     {
       "icon": "🏆",
