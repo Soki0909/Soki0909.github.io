@@ -125,34 +125,34 @@
       }
     },
     {
-      "icon": "🏆",
-      "title": "RoboCup世界大会",
-      "subtitle": "準優勝・日本大会3連覇達成",
-      "description": "生活支援ロボット開発プロジェクト。AI・画像認識技術とチームマネジメントを担当",
-      "color": "bg-yellow-500",
-      "organizer": "RoboCup国際委員会",
+      "icon": "🤖",
+      "title": "RCJ2025 Open Challenge",
+      "subtitle": "研究開発部門・Mobile Cloud AI開発",
+      "description": "「mimi Connect」アプリと先回りロボットシステム開発。新入生教育にも専念",
+      "color": "bg-blue-500",
+      "organizer": "RoboCup日本委員会",
       "eventDates": {
-        "startDate": "2024-07-17",
-        "endDate": "2024-07-22"
+        "startDate": "2025-05-03",
+        "endDate": "2025-05-05"
       },
       "details": {
-        "competition": "RoboCup@Home（世界最大規模ロボット競技）",
+        "competition": "RoboCup Japan Open 2025 Open Challenge（研究開発部門）",
         "teamSize": "68名（ソフト班37名・回路班18名・機構班13名）",
-        "myRole": "ソフト班・AI技術開発・プロジェクト統括",
+        "myRole": "Mobile Cloud AI開発・プレゼンテーション・新入生教育",
         "technologies": [
-          "AI・機械学習（物体検出・顔認識）",
-          "自然言語処理・音声認識",
-          "経路計画・地図生成",
-          "ロボット自律制御"
+          "Flutter・React Native アプリ開発",
+          "Firebase・Cloud Run・Firestore",
+          "AI予測・ランダムフォレスト機械学習",
+          "ROS・音声認識・ロボット制御"
         ],
-        "achievement": "世界45カ国参加の国際大会で準優勝・日本大会3連覇（2022-2024）"
+        "achievement": "初の大会出場・「家族の一員として一緒に暮らす」先回りロボット発表"
       }
     },
     {
       "icon": "💼",
       "title": "プロジェクトサブリーダー",
       "subtitle": "68名規模組織での安全活動リーダー兼務",
-      "description": "AI技術開発とチームマネジメントの両立。安全基準策定・運用も担当",
+      "description": "Mobile Cloud AI技術開発とチームマネジメントの両立。新入生教育にも注力",
       "color": "bg-blue-500",
       "details": {
         "organizationSize": "68名",

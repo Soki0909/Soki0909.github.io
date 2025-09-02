@@ -1,9 +1,11 @@
+import { Link } from 'react-router-dom';
 import SEO from '../components/SEO';
 import {
   getExperienceData,
   getPageSEO,
   getTechnicalEvaluations,
 } from '../utils/dataLoader';
+import activityDetailsData from '../data/activityDetails.json';
 
 const Experience = () => {
   // データファイルから経験・活動実績情報を取得
@@ -176,6 +178,35 @@ const Experience = () => {
                         </div>
                       </div>
                     </div>
+
+                    {/* 詳細ページが利用可能な活動には詳細ページへのリンクを追加 */}
+                    {'detailPageId' in activity &&
+                      activity.detailPageId &&
+                      activityDetailsData.activities[
+                        activity.detailPageId as keyof typeof activityDetailsData.activities
+                      ] && (
+                        <div className="mt-6 text-center">
+                          <Link
+                            to={`/activity/${activity.detailPageId}`}
+                            className="inline-flex items-center px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                          >
+                            📖 活動詳細を見る
+                            <svg
+                              className="ml-2 w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth={2}
+                                d="M9 5l7 7-7 7"
+                              />
+                            </svg>
+                          </Link>
+                        </div>
+                      )}
                   </div>
                 </div>
               ))}

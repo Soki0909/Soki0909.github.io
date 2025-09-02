@@ -22,6 +22,7 @@ const Experience = lazy(() => import('./pages/Experience'));
 const Vision = lazy(() => import('./pages/Vision'));
 const Works = lazy(() => import('./pages/Works'));
 const WorkDetail = lazy(() => import('./pages/WorkDetail'));
+const ActivityDetail = lazy(() => import('./pages/ActivityDetail'));
 const Contact = lazy(() => import('./pages/Contact'));
 
 // ローディングコンポーネント
@@ -51,6 +52,7 @@ const AppLayout = () => {
               <Route path="/vision" element={<Vision />} />
               <Route path="/works" element={<Works />} />
               <Route path="/works/:id" element={<WorkDetail />} />
+              <Route path="/activity/:id" element={<ActivityDetail />} />
               <Route path="/contact" element={<Contact />} />
             </Routes>
           </Suspense>

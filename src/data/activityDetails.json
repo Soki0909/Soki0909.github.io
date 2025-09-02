@@ -1,0 +1,569 @@
+{
+  "activities": {
+    "robocup-home": {
+      "id": "robocup-home",
+      "type": "technical-project",
+      "title": "夢考房RoboCup@Homeプロジェクト",
+      "subtitle": "「家族の一員として一緒に暮らす」生活支援ロボットの開発",
+      "description": "世界最大規模のロボット競技大会RoboCup@Homeにて、人々の生活を幸せにする生活支援ロボットを開発。Mobile Cloud AI技術で「先回りするロボットシステム」を実現。",
+      "period": "1年前期〜現在 (2.5年継続)",
+      "teamSize": "68名（学内最大規模のプロジェクト）",
+      "myPosition": "サブリーダー・安全活動リーダー",
+      "firstCompetition": "RCJ2025 Open Challenge",
+      "category": "技術開発・競技参加",
+      "status": "継続中",
+      "basicInfo": [
+        {
+          "label": "参加期間",
+          "value": "1年前期〜現在 (2.5年継続)",
+          "color": "blue"
+        },
+        {
+          "label": "チーム規模",
+          "value": "68名（学内最大規模のプロジェクト）",
+          "color": "purple"
+        },
+        {
+          "label": "現職位",
+          "value": "サブリーダー・安全活動リーダー",
+          "color": "green"
+        },
+        {
+          "label": "初出場大会",
+          "value": "RCJ2025 Open Challenge",
+          "color": "orange"
+        }
+      ],
+      "sections": [
+        {
+          "id": "overview",
+          "title": "🎯 プロジェクト概要",
+          "type": "overview",
+          "content": {
+            "concept": "「家族の一員として一緒に暮らす存在」となる生活支援ロボット",
+            "backgroundChallenges": [
+              "少子高齢化・ライフスタイルの変化",
+              "核家族化・高齢者一人暮らしの増加",
+              "共働き世帯増加による家の留守時間延長"
+            ],
+            "innovation": {
+              "traditional": "人間からの「指示を受けて動く」",
+              "proposed": "ユーザーが帰宅する前に「先回りして家の準備をする」"
+            },
+            "vision": "「家族のように、待っていてくれる存在」であるロボットとの暮らしの実現"
+          }
+        },
+        {
+          "id": "competition",
+          "title": "🏆 RoboCup@Home競技について",
+          "type": "competition-info",
+          "backgroundColor": "bg-blue-50",
+          "content": {
+            "name": "RoboCup@Home",
+            "description": "「人々の生活を幸せにする生活支援ロボット」を開発することを目的とした、世界最大規模のロボット競技大会",
+            "characteristics": [
+              "国際規模: 世界45カ国以上から数千人が参加",
+              "自律性重視: コントローラーを使わず、ロボットが自律的に判断・行動",
+              "実用性: 「ペットボトルを持ってきて」「〇〇さんを探して」等の実生活タスク"
+            ],
+            "tasks": [
+              "特定の服装やポーズの人物発見",
+              "人間との自然な対話",
+              "人の後をついて移動",
+              "音声コマンドの理解・実行",
+              "朝食の準備・配膳"
+            ]
+          }
+        },
+        {
+          "id": "team-structure",
+          "title": "👥 チーム体制・組織構成",
+          "type": "team-info",
+          "content": {
+            "totalMembers": 68,
+            "membersSummary": "学内最大規模プロジェクト",
+            "divisions": [
+              {
+                "name": "ソフト班",
+                "members": 37,
+                "role": "ロボットに「考える力」を与える頭脳役",
+                "responsibilities": ["AI", "画像認識", "ロボット制御"]
+              },
+              {
+                "name": "回路班",
+                "members": 18,
+                "role": "電気的な仕組みを担う神経役",
+                "responsibilities": ["回路設計", "マイコンのプログラミング"]
+              },
+              {
+                "name": "機構班",
+                "members": 13,
+                "role": "ロボットの「形」を作る身体役",
+                "responsibilities": ["アームや脚などの設計", "加工", "組み立て"]
+              }
+            ],
+            "schedule": {
+              "frequency": "最低週3回（月・水・木）",
+              "weekdayHours": "17:30～20:00",
+              "weekendHours": "10:00～13:00"
+            },
+            "departments": [
+              "ロボティクス学科",
+              "情報工学科",
+              "機械工学",
+              "電気電子工学"
+            ]
+          }
+        },
+        {
+          "id": "robots",
+          "title": "🤖 使用ロボット",
+          "type": "robots-info",
+          "backgroundColor": "bg-green-50",
+          "content": {
+            "current": [
+              {
+                "name": "MIMI（ミミ）",
+                "features": ["親しみやすいデザインを重視"]
+              },
+              {
+                "name": "MOOI（モーイ）",
+                "features": ["かわいらしい外観で家族の一員として設計"]
+              }
+            ],
+            "philosophy": "多くのロボットが機械的なデザインである中、このプロジェクトでは親しみやすさを大切にしており、かわいらしいデザインのロボットを開発"
+          }
+        },
+        {
+          "id": "achievements",
+          "title": "🏅 チームの輝かしい実績",
+          "type": "achievements",
+          "content": {
+            "international": [
+              {
+                "title": "世界大会準優勝",
+                "event": "RoboCup 2024 EINDHOVEN",
+                "year": "2024"
+              },
+              {
+                "title": "Technical Award受賞",
+                "event": "RoboCup Asia-Pacific 2021",
+                "year": "2021"
+              }
+            ],
+            "domestic": [
+              {
+                "title": "日本大会3連覇",
+                "years": ["2022", "2023", "2024"],
+                "description": "連続優勝"
+              },
+              {
+                "title": "日本大会上位リーグ3位",
+                "event": "RoboCup 2025 Japan OPL",
+                "year": "2025"
+              }
+            ]
+          }
+        },
+        {
+          "id": "ai-technology",
+          "title": "🧠 搭載AI技術",
+          "type": "technology-grid",
+          "backgroundColor": "bg-purple-50",
+          "content": {
+            "domains": [
+              {
+                "name": "物体検出",
+                "description": "特定の物体を認識・追跡"
+              },
+              {
+                "name": "顔認識",
+                "description": "人物を識別・記憶"
+              },
+              {
+                "name": "音声認識",
+                "description": "自然な会話の理解"
+              },
+              {
+                "name": "自然言語処理",
+                "description": "人間との対話"
+              },
+              {
+                "name": "経路計画",
+                "description": "最適なルート計算"
+              },
+              {
+                "name": "地図生成",
+                "description": "環境のマッピング"
+              }
+            ]
+          }
+        },
+        {
+          "id": "my-journey",
+          "title": "📈 個人の参加経緯と役割変遷",
+          "type": "timeline",
+          "content": {
+            "phases": [
+              {
+                "period": "1年前期",
+                "title": "プロジェクト参加開始",
+                "description": "基礎学習・技術習得期",
+                "activities": [
+                  "週2回の講習会参加 + 自主学習",
+                  "機械学習関連書籍の独学",
+                  "技術的基盤の構築"
+                ]
+              },
+              {
+                "period": "2年生",
+                "title": "運営参画・会計担当",
+                "description": "組織運営スキル向上期",
+                "activities": [
+                  "新入生教育担当",
+                  "会計業務",
+                  "マネジメント・コミュニケーション能力向上"
+                ]
+              },
+              {
+                "period": "3年生",
+                "title": "リーダーシップ期",
+                "description": "68名組織の中核メンバーとして活動",
+                "activities": [
+                  "サブリーダー就任",
+                  "安全活動リーダー",
+                  "新入生教育専念（世界大会期間中）",
+                  "初の大会出場: RCJ2025 Open Challenge"
+                ]
+              }
+            ],
+            "worldChampionshipNote": {
+              "title": "世界大会への参加について",
+              "explanation": "世界大会期間中は新入生教育に専念",
+              "reasoning": "組織継続性への貢献として、後輩育成を最優先に選択",
+              "significance": "68名という大規模組織において、新入生の定着と技術継承は極めて重要な役割"
+            }
+          }
+        },
+        {
+          "id": "rcj2025",
+          "title": "🎯 RCJ2025での取り組み",
+          "type": "competition-detail",
+          "backgroundColor": "bg-gradient-to-r from-blue-50 to-purple-50",
+          "content": {
+            "competition": {
+              "name": "ロボカップジャパンオープン2025（RCJ2025）",
+              "category": "Open Challenge（研究開発部門）",
+              "format": "10分間プレゼンテーション・デモ",
+              "personalAchievement": "初の大会出場"
+            },
+            "theme": "Mobile Cloud AIで実現する次世代生活支援"
+          }
+        },
+        {
+          "id": "mimi-connect",
+          "title": "📱 スマートフォンアプリ「mimi Connect」",
+          "type": "product-features",
+          "content": {
+            "title": "スマートフォンアプリ「mimi Connect」",
+            "subtitle": "人とロボットをリアルタイムでつなぐ独自開発アプリ",
+            "features": [
+              {
+                "name": "現在地共有（Share your location）",
+                "description": "ユーザーのスマートフォンの現在地情報を定期的にロボットへ送信。ロボットは位置情報の変化からユーザーの帰宅を予測し、照明をつけるなどの準備を自動で開始"
+              },
+              {
+                "name": "ナビゲーション（Navigation）",
+                "description": "ユーザーが外出中でも、アプリを使って家の中にいるロボットをリビングなど任意の場所へ移動させることが可能"
+              },
+              {
+                "name": "音声コマンド（Voice Commands）",
+                "description": "アプリのマイクを通じて「照明をつけて」「リビングへ行って」といった音声コマンドを送信。ロボットがその指示を理解して実行"
+              }
+            ]
+          }
+        },
+        {
+          "id": "technical-architecture",
+          "title": "⚙️ システム技術基盤",
+          "type": "technical-details",
+          "backgroundColor": "bg-gray-50",
+          "content": {
+            "dataFlow": [
+              "スマートフォンアプリ（Flutterで開発）から音声や位置情報を取得",
+              "データはFirebaseのCloud Firestoreに送信・保存",
+              "Cloud Run上で、ユーザーの位置情報やロボットの過去の行動データがAI（ランダムフォレスト）によって分析され、次に行うべき行動が予測",
+              "予測結果はロボット本体の制御システム（ROS）に送られ、ロボットが行動を実行"
+            ],
+            "technologies": [
+              {
+                "category": "アプリ開発",
+                "tech": "Flutterによるクロスプラットフォーム開発"
+              },
+              {
+                "category": "クラウドインフラ",
+                "tech": "Firebase Cloud Firestore、Cloud Run"
+              },
+              {
+                "category": "AI・機械学習",
+                "tech": "ランダムフォレスト、ChatGPT、Text-to-Speech AI"
+              },
+              {
+                "category": "ロボット制御",
+                "tech": "ROS（Robot Operating System）"
+              }
+            ]
+          }
+        },
+        {
+          "id": "future-features",
+          "title": "🚀 今後の展望・実装予定機能",
+          "type": "future-plans",
+          "backgroundColor": "bg-green-50",
+          "content": {
+            "safetyAndConvenience": [
+              {
+                "name": "ロボット視点映像確認",
+                "description": "外出先からスマホで家の様子をリアルタイム映像で確認"
+              },
+              {
+                "name": "スマート家電連携",
+                "description": "ロボットが照明、エアコン、カーテンなどを操作"
+              },
+              {
+                "name": "緊急停止ボタン",
+                "description": "異常時に遠隔でロボットを停止させる安全機能"
+              }
+            ],
+            "learningAndEvolution": [
+              {
+                "name": "行動履歴活用",
+                "description": "ロボットの行動データをデータベースに蓄積・分析"
+              },
+              {
+                "name": "進化システム",
+                "description": "より賢く、より安全なロボットへの進化"
+              }
+            ]
+          }
+        },
+        {
+          "id": "my-contributions",
+          "title": "💪 個人の担当領域・貢献",
+          "type": "contributions",
+          "content": {
+            "technicalDevelopment": [
+              "「mimi Connect」アプリ開発: UI/UX設計・実装",
+              "Mobile Cloud AIシステム設計・実装: Firebase・Cloud Run連携システム構築",
+              "プレゼンテーション担当: 研究発表・技術説明・ストーリー構築"
+            ],
+            "organizationalManagement": [
+              "新入生教育専念: 世界大会期間中は後輩指導に集中（重要な組織継続性への貢献）",
+              "チーム統括・安全管理: 68名組織の運営・安全基準策定・事故ゼロ継続"
+            ]
+          }
+        },
+        {
+          "id": "social-significance",
+          "title": "🌍 プロジェクトの社会的意義・目指す未来",
+          "type": "social-impact",
+          "backgroundColor": "bg-yellow-50",
+          "content": {
+            "goals": [
+              "高齢化社会における生活支援",
+              "一人暮らし高齢者の見守り",
+              "共働き世帯の家事負担軽減",
+              "現代社会の課題解決への技術的貢献"
+            ],
+            "technicalChallenge": "単なる機械ではなく、人間の感情や生活パターンを理解し、先回りして支援できる「家族の一員」となるロボットの開発"
+          }
+        },
+        {
+          "id": "skills-acquired",
+          "title": "🎓 獲得スキル",
+          "type": "skills-grid",
+          "content": {
+            "skills": [
+              "大規模チームマネジメント（68名体制）",
+              "Mobile Cloud AI・クラウド技術開発力",
+              "研究開発・プレゼンテーション能力",
+              "教育指導・後輩育成力",
+              "AI・機械学習技術（ランダムフォレスト・自然言語処理）",
+              "システム設計・API連携・リアルタイム通信"
+            ]
+          }
+        }
+      ],
+      "media": {
+        "images": [
+          "/images/projects/robocup/team-photo.svg",
+          "/images/projects/robocup/mimi-robot.svg",
+          "/images/projects/robocup/mimi-connect-app.svg",
+          "/images/projects/robocup/presentation.svg",
+          "/images/projects/robocup/system-architecture.svg",
+          "/images/projects/robocup/rcj2025-demo.svg"
+        ],
+        "videos": [
+          "/media/videos/robocup-demo.mp4",
+          "/media/videos/mimi-connect-demo.mp4"
+        ]
+      },
+      "keywords": [
+        "RoboCup@Home",
+        "Mobile Cloud AI",
+        "Firebase",
+        "Flutter",
+        "ロボット開発",
+        "生活支援ロボット",
+        "68名組織",
+        "チームマネジメント"
+      ],
+      "note": "この記録は2025年9月2日時点の実際の活動内容・体験に基づく正確な情報です"
+    },
+    "student-station": {
+      "id": "student-station",
+      "type": "soft-skills-development",
+      "title": "学生ステーション運営スタッフ",
+      "subtitle": "人前での大勢プレゼンテーションを可能にした成長体験",
+      "description": "人前で話すことへの強い苦手意識を克服するため、あえて人との対話が中心となる学生ステーション活動に挑戦。段階的アプローチにより最終的に大勢の前でのプレゼンテーションが可能に。",
+      "period": "2年間",
+      "teamSize": "学内インターンシップ",
+      "myPosition": "運営スタッフ → メンター",
+      "achievement": "人前での大勢プレゼンテーションが可能に",
+      "category": "個人成長・コミュニケーション",
+      "status": "完了",
+      "basicInfo": [
+        { "label": "参加期間", "value": "2年間", "color": "blue" },
+        {
+          "label": "活動形態",
+          "value": "学内インターンシップ",
+          "color": "purple"
+        },
+        {
+          "label": "役割変遷",
+          "value": "運営スタッフ → メンター",
+          "color": "green"
+        },
+        {
+          "label": "最終成果",
+          "value": "人前での大勢プレゼンテーションが可能に",
+          "color": "orange"
+        }
+      ],
+      "sections": [
+        {
+          "id": "challenge-motivation",
+          "title": "🎯 挑戦動機",
+          "type": "motivation",
+          "content": {
+            "motivation": "人前で話すことへの強い苦手意識を克服するため、あえて人との対話が中心となる学生ステーション活動に飛び込みました。",
+            "initialChallenges": [
+              "思考力低下・頭が真っ白になる",
+              "心臓のドキドキ・動悸",
+              "手足の震え・体の硬直",
+              "発汗・声の震え",
+              "吃音・言葉詰まり"
+            ]
+          }
+        },
+        {
+          "id": "step-by-step-approach",
+          "title": "📈 段階的アプローチ",
+          "type": "growth-steps",
+          "content": {
+            "approach": [
+              {
+                "step": 1,
+                "title": "一対一対応",
+                "description": "カウンター業務から開始",
+                "color": "red"
+              },
+              {
+                "step": 2,
+                "title": "小集団",
+                "description": "キャンパス案内で外部訪問者対応",
+                "color": "yellow"
+              },
+              {
+                "step": 3,
+                "title": "大勢",
+                "description": "イベントでの大学生向けプレゼンテーション",
+                "color": "green"
+              }
+            ],
+            "strategies": [
+              "視点転換: 「自分が上手く話すか」→「相手が何を知りたいか」",
+              "事前準備: 「何を伝えたいか」の明確化",
+              "経験積み重ね: 段階的な難易度アップ"
+            ]
+          }
+        },
+        {
+          "id": "achievements-timeline",
+          "title": "🏆 年次別実績",
+          "type": "year-achievements",
+          "content": {
+            "years": [
+              {
+                "year": "1年生実績",
+                "achievements": [
+                  "豆知識マスター: 大学システム・施設に詳しくなる",
+                  "見学対応: 外部訪問者への説明で基礎プレゼン力向上",
+                  "イベント企画: 「落とし物市」の企画・運営"
+                ]
+              },
+              {
+                "year": "2年生実績",
+                "achievements": [
+                  "主要イベント責任者: 「学外散歩〜先輩との大学周辺巡り〜」",
+                  "BGM募集企画: 「学生ステーションBGM募集」",
+                  "デザインスキル: 高品質なポスター制作能力獲得",
+                  "説明会登壇: 学内インターンシップ合同説明会で発表"
+                ]
+              },
+              {
+                "year": "3年生実績",
+                "achievements": [
+                  "メンター: 新運営責任者のサポート",
+                  "ノウハウ継承: 経験を活かした組織運営支援"
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "id": "skills-acquired",
+          "title": "🎓 獲得スキル",
+          "type": "skills-grid",
+          "content": {
+            "skills": [
+              "複雑な概念をシンプルに伝える「翻訳力」",
+              "体験型学習の設計手法",
+              "子供向け教育におけるインタラクティブ手法",
+              "技術と教育を融合させるアプローチ",
+              "イベント企画・運営のマネジメント能力",
+              "大勢プレゼンテーションの実行力"
+            ]
+          }
+        }
+      ],
+      "media": {
+        "images": [
+          "/images/projects/student-station/counter-work.svg",
+          "/images/projects/student-station/event-planning.svg",
+          "/images/projects/student-station/presentation.svg"
+        ],
+        "videos": []
+      },
+      "keywords": [
+        "学生ステーション",
+        "プレゼンテーション",
+        "コミュニケーション",
+        "成長体験",
+        "イベント企画",
+        "メンタリング"
+      ],
+      "note": "この記録は実際の成長体験に基づく正確な情報です"
+    }
+  }
+}

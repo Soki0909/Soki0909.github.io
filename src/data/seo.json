@@ -10,7 +10,7 @@
   },
   "defaults": {
     "title": "久米蒼輝 (KUME Soki) - 情報工学科3年 ポートフォリオ",
-    "description": "金沢工業大学 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・機械学習、音響信号処理、Web開発の経験を持つ。テクノロジーで「できない」を「できる」に変えることを目指すエンジニア。Hackit 2025 最優秀賞、RoboCup世界大会準優勝・日本大会3連覇。Python, JavaScript, TypeScript, MATLAB等習得。68名組織でのリーダー経験。音楽バリアフリー技術開発に情熱。",
+    "description": "金沢工業大学 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・機械学習、音響信号処理、Web開発の経験を持つ。テクノロジーで「できない」を「できる」に変えることを目指すエンジニア。Hackit 2025 最優秀賞、RCJ2025 Open Challenge Mobile Cloud AI開発。Python, JavaScript, TypeScript, MATLAB等習得。68名組織でのリーダー経験。音楽バリアフリー技術開発に情熱。",
     "keywords": [
       "久米蒼輝",
       "KUME Soki",
@@ -49,7 +49,7 @@
   "pages": {
     "home": {
       "title": "ホーム",
-      "description": "金沢工業大学 工学部 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・音響技術・Web開発の技術スキルと実績、Hackit 2025最優秀賞・RoboCup世界大会準優勝・日本大会3連覇の成果をご紹介します。",
+      "description": "金沢工業大学 工学部 情報工学科3年 久米蒼輝のポートフォリオサイト。AI・音響技術・Web開発の技術スキルと実績、Hackit 2025最優秀賞・RCJ2025 Open Challenge Mobile Cloud AI開発の成果をご紹介します。",
       "keywords": [
         "久米蒼輝",
         "KUME Soki",
@@ -112,7 +112,7 @@
     },
     "experience": {
       "title": "活動実績・経験",
-      "description": "久米蒼輝の活動実績と成長ストーリー。RoboCup世界大会準優勝・日本大会3連覇での成果、ハッカソン受賞、プロジェクトリーダー経験、教職課程での学びをご紹介します。",
+      "description": "久米蒼輝の活動実績と成長ストーリー。RCJ2025 Open Challenge Mobile Cloud AI開発、ハッカソン受賞、プロジェクトリーダー経験、新入生教育での学びをご紹介します。",
       "keywords": [
         "久米蒼輝",
         "活動実績",

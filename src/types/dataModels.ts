@@ -225,6 +225,7 @@ export interface MajorProject {
   myRole: string[];
   icon: string;
   color: string;
+  detailPageId?: string; // 新しいフィールドを追加
   details?: {
     responsibilities?: string[];
     achievements?: string[];
@@ -466,3 +467,235 @@ export interface Project {
 }
 
 export type ProjectsData = Project[];
+
+// 課外活動詳細ページ関連の型定義
+export interface ActivityBasicInfo {
+  value: string;
+  label: string;
+  color: string;
+}
+
+export interface ActivityMedia {
+  images: string[];
+  videos: string[];
+  audios?: string[];
+}
+
+// セクションコンテンツの具体的な型定義
+export interface OverviewContent {
+  concept: string;
+  backgroundChallenges: string[];
+  innovation: {
+    traditional: string;
+    proposed: string;
+  };
+  vision: string;
+}
+
+export interface CompetitionInfoContent {
+  name: string;
+  description: string;
+  characteristics: string[];
+  tasks: string[];
+}
+
+export interface TeamInfoContent {
+  totalMembers: string | number;
+  membersSummary: string;
+  divisions: Array<{
+    name: string;
+    members: string | number;
+    role: string;
+    responsibilities: string[];
+  }>;
+  schedule: {
+    frequency: string;
+    weekdayHours: string;
+    weekendHours: string;
+  };
+  departments: string[];
+}
+
+export interface TechnologyGridContent {
+  domains: Array<{
+    name: string;
+    description: string;
+  }>;
+}
+
+export interface TimelineContent {
+  phases: Array<{
+    period: string;
+    title: string;
+    description: string;
+    activities: string[];
+  }>;
+  worldChampionshipNote?: {
+    title: string;
+    explanation: string;
+    reasoning: string;
+    significance: string;
+  };
+}
+
+export interface SkillsGridContent {
+  skills: string[];
+}
+
+export interface ContributionsContent {
+  technicalDevelopment: string[];
+  organizationalManagement: string[];
+}
+
+export interface MotivationContent {
+  motivation: string;
+  initialChallenges: string[];
+}
+
+export interface GrowthStepsContent {
+  approach: Array<{
+    step: number;
+    title: string;
+    description: string;
+    color: 'red' | 'yellow' | 'green';
+  }>;
+  strategies: string[];
+}
+
+export interface RobotsInfoContent {
+  current: Array<{
+    name: string;
+    features: string[];
+  }>;
+  philosophy: string;
+}
+
+export interface AchievementsContent {
+  international: Array<{
+    title: string;
+    event: string;
+    year: string;
+  }>;
+  domestic: Array<{
+    title: string;
+    event: string;
+    year: string;
+  }>;
+}
+
+export interface CompetitionDetailContent {
+  competition: {
+    name: string;
+    category: string;
+    format: string;
+    personalAchievement: string;
+  };
+  theme: string;
+}
+
+export interface ProductFeaturesContent {
+  title: string;
+  subtitle: string;
+  features: Array<{
+    name: string;
+    description: string;
+  }>;
+}
+
+export interface TechnicalDetailsContent {
+  dataFlow: string[];
+  technologies: Array<{
+    category: string;
+    tech: string;
+  }>;
+}
+
+export interface FuturePlansContent {
+  safetyAndConvenience: Array<{
+    name: string;
+    description: string;
+  }>;
+}
+
+export interface SocialImpactContent {
+  mission: string;
+  impact: string[];
+}
+
+export interface YearAchievementsContent {
+  achievements: Array<{
+    period: string;
+    title: string;
+    description: string;
+    outcome: string;
+  }>;
+}
+
+// セクションコンテンツのユニオン型
+export type ActivitySectionContent =
+  | OverviewContent
+  | CompetitionInfoContent
+  | TeamInfoContent
+  | TechnologyGridContent
+  | TimelineContent
+  | SkillsGridContent
+  | ContributionsContent
+  | MotivationContent
+  | GrowthStepsContent
+  | RobotsInfoContent
+  | AchievementsContent
+  | CompetitionDetailContent
+  | ProductFeaturesContent
+  | TechnicalDetailsContent
+  | FuturePlansContent
+  | SocialImpactContent
+  | YearAchievementsContent;
+
+export interface ActivitySection {
+  id: string;
+  title: string;
+  type:
+    | 'overview'
+    | 'competition-info'
+    | 'team-info'
+    | 'technology-grid'
+    | 'timeline'
+    | 'skills-grid'
+    | 'contributions'
+    | 'motivation'
+    | 'growth-steps'
+    | 'robots-info'
+    | 'achievements'
+    | 'competition-detail'
+    | 'product-features'
+    | 'technical-details'
+    | 'future-plans'
+    | 'social-impact'
+    | 'year-achievements';
+  backgroundColor?: string;
+  content: ActivitySectionContent;
+}
+
+export interface ActivityDetail {
+  id: string;
+  type: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  period: string;
+  teamSize: string;
+  myPosition: string;
+  firstCompetition?: string;
+  achievement?: string;
+  category: string;
+  status?: string;
+  basicInfo: ActivityBasicInfo[];
+  keywords: string[];
+  media: ActivityMedia;
+  sections: ActivitySection[];
+  note?: string;
+}
+
+export interface ActivityDetailsData {
+  activities: Record<string, ActivityDetail>;
+}

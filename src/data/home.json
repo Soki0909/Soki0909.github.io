@@ -19,10 +19,10 @@
       "link": "/works"
     },
     {
-      "icon": "🏆",
-      "title": "RoboCup世界大会",
-      "subtitle": "準優勝・日本大会3連覇達成",
-      "description": "生活支援ロボット開発・AI技術とチーム統括",
+      "icon": "🤖",
+      "title": "RCJ2025 Open Challenge",
+      "subtitle": "Mobile Cloud AI・先回りロボット開発",
+      "description": "研究開発部門・新入生教育にも専念",
       "color": "from-blue-500 to-purple-600",
       "link": "/experience"
     },
@@ -30,7 +30,7 @@
       "icon": "💼",
       "title": "プロジェクト運営",
       "subtitle": "68名組織のサブリーダー",
-      "description": "AI技術開発とチームマネジメントの両立",
+      "description": "Mobile Cloud AI開発とチームマネジメント",
       "color": "from-green-500 to-teal-600",
       "link": "/experience"
     }
@@ -120,7 +120,7 @@
       "value": "2",
       "label": "全国大会での受賞実績",
       "color": "red",
-      "detail": "Hackit 2025 最優秀賞・RoboCup世界大会準優勝・日本大会3連覇"
+      "detail": "Hackit 2025 最優秀賞・RCJ2025 Open Challenge 出場"
     }
   ],
   "ctaSection": {
