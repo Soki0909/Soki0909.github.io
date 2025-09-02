@@ -51,7 +51,7 @@ const Contact = () => {
   };
 
   return (
-    <div className="max-w-4xl mx-auto space-y-8">
+    <div className="min-h-screen bg-gray-50">
       <SEO
         title={pageSEO.title}
         description={pageSEO.description}
@@ -59,91 +59,99 @@ const Contact = () => {
         type={pageSEO.type}
         url={`${pageSEO.site.baseUrl}/contact`}
       />
-      <section>
-        <h1 className="text-3xl font-bold mb-6">
-          {contactData.pageInfo.title}
-        </h1>
-        <p className="text-gray-600 mb-8">{contactData.pageInfo.description}</p>
-      </section>
 
-      <section className="grid lg:grid-cols-2 gap-8">
-        <div className="space-y-6">
-          <div>
-            <h2 className="text-xl font-semibold mb-4">連絡先</h2>
-            <div className="space-y-4">
-              {contactData.contacts.map((contact, index) => (
-                <div key={index} className="flex items-center space-x-3">
-                  <span
-                    className={`w-8 h-8 ${contact.bgColor} rounded-full flex items-center justify-center text-white text-sm flex-shrink-0`}
-                  >
-                    {contact.icon}
-                  </span>
-                  {contact.isActive ? (
-                    <a
-                      href={contact.url}
-                      className="text-blue-500 hover:underline"
-                      onClick={() =>
-                        handleLinkClick(contact.platform.toLowerCase())
-                      }
-                      target="_blank"
-                      rel="noopener noreferrer"
+      {/* ページヘッダー */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            {contactData.pageInfo.title}
+          </h1>
+          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+            {contactData.pageInfo.description}
+          </p>
+        </div>
+      </header>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <div className="grid lg:grid-cols-2 gap-8">
+          <div className="space-y-6">
+            <div>
+              <h2 className="text-xl font-semibold mb-4">連絡先</h2>
+              <div className="space-y-4">
+                {contactData.contacts.map((contact, index) => (
+                  <div key={index} className="flex items-center space-x-3">
+                    <span
+                      className={`w-8 h-8 ${contact.bgColor} rounded-full flex items-center justify-center text-white text-sm flex-shrink-0`}
                     >
-                      {contact.platform}
-                    </a>
+                      {contact.icon}
+                    </span>
+                    {contact.isActive ? (
+                      <a
+                        href={contact.url}
+                        className="text-blue-500 hover:underline"
+                        onClick={() =>
+                          handleLinkClick(contact.platform.toLowerCase())
+                        }
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {contact.platform}
+                      </a>
+                    ) : (
+                      <span className="break-all">{contact.handle}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <h2 className="text-xl font-semibold mb-4">
+              {contactData.formConfig.title}
+            </h2>
+            <form onSubmit={handleSubmit} className="space-y-4">
+              {contactData.formConfig.fields.map((field) => (
+                <div key={field.name}>
+                  <label
+                    htmlFor={field.name}
+                    className="block text-sm font-medium mb-1"
+                  >
+                    {field.label}
+                  </label>
+                  {field.type === 'textarea' ? (
+                    <textarea
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={handleInputChange}
+                      rows={field.rows}
+                      required={field.required}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-y"
+                    ></textarea>
                   ) : (
-                    <span className="break-all">{contact.handle}</span>
+                    <input
+                      type={field.type}
+                      id={field.name}
+                      name={field.name}
+                      value={formData[field.name as keyof typeof formData]}
+                      onChange={handleInputChange}
+                      required={field.required}
+                      className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    />
                   )}
                 </div>
               ))}
-            </div>
+              <button
+                type="submit"
+                className="w-full bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium"
+              >
+                {contactData.formConfig.submitText}
+              </button>
+            </form>
           </div>
         </div>
-
-        <div>
-          <h2 className="text-xl font-semibold mb-4">
-            {contactData.formConfig.title}
-          </h2>
-          <form onSubmit={handleSubmit} className="space-y-4">
-            {contactData.formConfig.fields.map((field) => (
-              <div key={field.name}>
-                <label
-                  htmlFor={field.name}
-                  className="block text-sm font-medium mb-1"
-                >
-                  {field.label}
-                </label>
-                {field.type === 'textarea' ? (
-                  <textarea
-                    id={field.name}
-                    name={field.name}
-                    value={formData[field.name as keyof typeof formData]}
-                    onChange={handleInputChange}
-                    rows={field.rows}
-                    required={field.required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-y"
-                  ></textarea>
-                ) : (
-                  <input
-                    type={field.type}
-                    id={field.name}
-                    name={field.name}
-                    value={formData[field.name as keyof typeof formData]}
-                    onChange={handleInputChange}
-                    required={field.required}
-                    className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                  />
-                )}
-              </div>
-            ))}
-            <button
-              type="submit"
-              className="w-full bg-blue-500 text-white py-3 px-4 rounded-md hover:bg-blue-600 transition-colors font-medium"
-            >
-              {contactData.formConfig.submitText}
-            </button>
-          </form>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };

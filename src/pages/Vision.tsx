@@ -22,13 +22,20 @@ const Vision = () => {
         type={pageSEO.type}
         url={`${pageSEO.site.baseUrl}/vision`}
       />
-      <div className="max-w-4xl mx-auto space-y-8">
-        <section>
-          <h1 className="text-3xl font-bold mb-6">Vision & Values</h1>
-          <p className="text-lg text-gray-600 mb-8">
-            私の価値観、人生哲学、そして目指す未来についてお話しします。
-          </p>
+      <div className="min-h-screen bg-gray-50">
+        {/* ページヘッダー */}
+        <header className="bg-white shadow-sm">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">
+              Vision & Values
+            </h1>
+            <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+              私の価値観、人生哲学、そして目指す未来についてお話しします。
+            </p>
+          </div>
+        </header>
 
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
           {/* 人生のミッション */}
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">{mission.title}</h2>
@@ -169,7 +176,7 @@ const Vision = () => {
               ))}
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

@@ -22,13 +22,20 @@ const Skills = () => {
         type={pageSEO.type}
         url={`${pageSEO.site.baseUrl}/skills`}
       />
-      <div className="max-w-6xl mx-auto space-y-8">
-        <section>
-          <h1 className="text-3xl font-bold mb-6">Technical Skills</h1>
-          <p className="text-lg text-gray-600 mb-8">
-            問題解決のための「道具箱」として、多様な技術領域での実践経験と継続的な学習により培った技術スキルをご紹介します。
-          </p>
+      <div className="min-h-screen bg-gray-50">
+        {/* ページヘッダー */}
+        <header className="bg-white shadow-sm">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">
+              Technical Skills
+            </h1>
+            <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+              問題解決のための「道具箱」として、多様な技術領域での実践経験と継続的な学習により培った技術スキルをご紹介します。
+            </p>
+          </div>
+        </header>
 
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
           {/* プログラミング言語セクション */}
           <div className="mb-12">
             <h2 className="text-2xl font-semibold mb-6">プログラミング言語</h2>
@@ -162,7 +169,7 @@ const Skills = () => {
               ))}
             </div>
           </div>
-        </section>
+        </div>
       </div>
     </>
   );

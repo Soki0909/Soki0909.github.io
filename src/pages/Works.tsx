@@ -19,7 +19,7 @@ const Works = () => {
   }
 
   return (
-    <div className="space-y-8">
+    <div className="min-h-screen bg-gray-50">
       <SEO
         title={pageSEO.title}
         description={pageSEO.description}
@@ -27,14 +27,22 @@ const Works = () => {
         type={pageSEO.type}
         url={`${pageSEO.site.baseUrl}/works`}
       />
-      <section>
-        <h1 className="text-3xl font-bold mb-6">Works</h1>
-        <p className="text-gray-600 mb-8">
-          これまでに取り組んだプロジェクトの一覧です。
-        </p>
 
+      {/* ページヘッダー */}
+      <header className="bg-white shadow-sm">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+          <h1 className="text-3xl font-bold text-gray-900 text-center mb-4">
+            Works
+          </h1>
+          <p className="text-lg text-gray-600 text-center max-w-3xl mx-auto">
+            これまでに取り組んだプロジェクトの一覧です。
+          </p>
+        </div>
+      </header>
+
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
         {/* フィルタリング機能 */}
-        <div className="mb-8">
+        <div>
           <h2 className="text-lg font-semibold mb-3">技術スタックで絞り込み</h2>
           <div className="flex flex-wrap gap-2">
             <button
@@ -62,73 +70,75 @@ const Works = () => {
             ))}
           </div>
         </div>
-      </section>
 
-      {/* プロジェクト一覧 */}
-      <section>
-        <div className="flex justify-between items-center mb-6">
-          <h2 className="text-xl font-semibold">
-            プロジェクト一覧 ({filteredProjects.length}件)
-          </h2>
-        </div>
+        {/* プロジェクト一覧 */}
+        <div>
+          <div className="flex justify-between items-center mb-6">
+            <h2 className="text-xl font-semibold">
+              プロジェクト一覧 ({filteredProjects.length}件)
+            </h2>
+          </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredProjects.map((project) => (
-            <div
-              key={project.id}
-              className="bg-white rounded-lg shadow-md overflow-hidden"
-            >
-              <LazyImage
-                src={project.image}
-                alt={project.title}
-                className="w-full h-48"
-              />
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
-                <p className="text-gray-600 mb-4">{project.description}</p>
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded"
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {filteredProjects.map((project) => (
+              <div
+                key={project.id}
+                className="bg-white rounded-lg shadow-md overflow-hidden"
+              >
+                <LazyImage
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-gray-600 mb-4">{project.description}</p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.map((tech: string) => (
+                      <span
+                        key={tech}
+                        className="px-2 py-1 bg-blue-100 text-blue-800 text-sm rounded"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex space-x-4">
+                    <Link
+                      to={`/works/${project.id}`}
+                      className="text-blue-500 hover:underline"
                     >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <div className="flex space-x-4">
-                  <Link
-                    to={`/works/${project.id}`}
-                    className="text-blue-500 hover:underline"
-                  >
-                    詳細を見る
-                  </Link>
-                  <a
-                    href={project.github}
-                    className="text-blue-500 hover:underline"
-                  >
-                    GitHub
-                  </a>
-                  <a
-                    href={project.demo}
-                    className="text-blue-500 hover:underline"
-                  >
-                    Demo
-                  </a>
+                      詳細を見る
+                    </Link>
+                    <a
+                      href={project.github}
+                      className="text-blue-500 hover:underline"
+                    >
+                      GitHub
+                    </a>
+                    <a
+                      href={project.demo}
+                      className="text-blue-500 hover:underline"
+                    >
+                      Demo
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
-        </div>
-
-        {filteredProjects.length === 0 && (
-          <div className="text-center py-12">
-            <p className="text-gray-500">
-              選択した技術スタックのプロジェクトが見つかりません。
-            </p>
+            ))}
           </div>
-        )}
-      </section>
+
+          {filteredProjects.length === 0 && (
+            <div className="text-center py-12">
+              <p className="text-gray-500">
+                選択した技術スタックのプロジェクトが見つかりません。
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
