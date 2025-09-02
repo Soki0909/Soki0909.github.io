@@ -214,53 +214,6 @@ export interface TimelineItem {
   achievements?: string[];
 }
 
-export interface MajorProject {
-  title: string;
-  period: string;
-  scale: string;
-  position: string;
-  achievement: string;
-  description: string;
-  technologies: string[];
-  myRole: string[];
-  icon: string;
-  color: string;
-  detailPageId?: string; // 新しいフィールドを追加
-  details?: {
-    responsibilities?: string[];
-    achievements?: string[];
-    skillsDeveloped?: string[];
-  };
-}
-
-export interface ApproachStep {
-  step: number;
-  title: string;
-  description: string;
-  color: string;
-}
-
-export interface GrowthStory {
-  title: string;
-  motivation: {
-    title: string;
-    description: string;
-  };
-  initialChallenges: string[];
-  approach: ApproachStep[];
-  strategies: string[];
-  result: string;
-}
-
-export interface EducationProgram {
-  teachingLicenses: string[];
-  caregivingExperience: {
-    childWelfare: string;
-    specialEducation: string;
-    insight: string;
-  };
-}
-
 export interface Qualification {
   name: string;
   date: string;
