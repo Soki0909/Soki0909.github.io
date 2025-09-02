@@ -261,13 +261,16 @@ const ActivityDetail = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold mb-2">参加学科</h4>
-                    <ul className="space-y-1 text-gray-700">
-                      {teamContent.departments.map(
-                        (dept: string, index: number) => (
-                          <li key={index}>• {dept}</li>
-                        )
-                      )}
-                    </ul>
+                    {teamContent.departments && Array.isArray(teamContent.departments) && 
+                     teamContent.departments.length > 0 && (
+                      <ul className="space-y-1 text-gray-700">
+                        {teamContent.departments.map(
+                          (dept: string, index: number) => (
+                            <li key={index}>• {dept}</li>
+                          )
+                        )}
+                      </ul>
+                    )}
                   </div>
                 </div>
               </div>
@@ -282,19 +285,22 @@ const ActivityDetail = () => {
       return (
         <div className={`${backgroundColor} p-8 rounded-lg`}>
           <h2 className="text-3xl font-semibold mb-6">{section.title}</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {techContent.domains.map((domain, index: number) => (
-              <div
-                key={index}
-                className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
-              >
-                <h3 className="text-lg font-semibold mb-2 text-blue-600">
-                  {domain.name}
-                </h3>
-                <p className="text-gray-700">{domain.description}</p>
-              </div>
-            ))}
-          </div>
+          {techContent.domains && Array.isArray(techContent.domains) && 
+           techContent.domains.length > 0 && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {techContent.domains.map((domain, index: number) => (
+                <div
+                  key={index}
+                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                >
+                  <h3 className="text-lg font-semibold mb-2 text-blue-600">
+                    {domain.name}
+                  </h3>
+                  <p className="text-gray-700">{domain.description}</p>
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       );
     };
@@ -304,8 +310,10 @@ const ActivityDetail = () => {
       return (
         <div className={`${backgroundColor} p-8 rounded-lg shadow-sm`}>
           <h2 className="text-3xl font-semibold mb-6">{section.title}</h2>
-          <div className="space-y-6">
-            {timelineContent.phases.map((phase, index: number) => (
+          {timelineContent.phases && Array.isArray(timelineContent.phases) && 
+           timelineContent.phases.length > 0 && (
+            <div className="space-y-6">
+              {timelineContent.phases.map((phase, index: number) => (
               <div key={index} className="border-l-4 border-blue-500 pl-6 pb-6">
                 <div className="bg-white p-6 rounded-lg shadow-sm">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
@@ -350,7 +358,8 @@ const ActivityDetail = () => {
                 </p>
               </div>
             )}
-          </div>
+            </div>
+          )}
         </div>
       );
     };
@@ -360,21 +369,22 @@ const ActivityDetail = () => {
       return (
         <div className={`${backgroundColor} p-8 rounded-lg`}>
           <h2 className="text-3xl font-semibold mb-6">{section.title}</h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {skillsContent.skills.map((skill: string, index: number) => (
-              <div
-                key={index}
-                className="bg-gradient-to-r from-blue-50 to-green-50 p-4 rounded-lg shadow-sm"
-              >
+          {skillsContent.skills && Array.isArray(skillsContent.skills) && 
+           skillsContent.skills.length > 0 && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {skillsContent.skills.map((skill: string, index: number) => (
+                <div
+                  key={index}
+                  className="bg-gradient-to-r from-blue-50 to-green-50 p-4 rounded-lg shadow-sm"
+                >
                 <span className="text-gray-700 font-medium">{skill}</span>
               </div>
             ))}
-          </div>
+            </div>
+          )}
         </div>
       );
-    };
-
-    const renderContributions = () => {
+    };    const renderContributions = () => {
       const contributionsContent = content as ContributionsContent;
       return (
         <div className={`${backgroundColor} p-8 rounded-lg`}>
@@ -892,32 +902,39 @@ const ActivityDetail = () => {
           </div>
 
           {/* Basic Info Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-            {activity.basicInfo.map((info, index) => (
-              <div
-                key={index}
-                className="text-center p-4 bg-gray-50 rounded-lg"
-              >
-                <dt className="text-sm font-medium text-gray-500 mb-1">
-                  {info.label}
-                </dt>
-                <dd className={`text-lg font-semibold text-${info.color}-600`}>
-                  {info.value}
-                </dd>
-              </div>
-            ))}
-          </div>
+          {activity.basicInfo && 
+           Array.isArray(activity.basicInfo) && 
+           activity.basicInfo.length > 0 && (
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+              {activity.basicInfo.map((info, index) => (
+                <div
+                  key={index}
+                  className="text-center p-4 bg-gray-50 rounded-lg"
+                >
+                  <dt className="text-sm font-medium text-gray-500 mb-1">
+                    {info.label}
+                  </dt>
+                  <dd className={`text-lg font-semibold text-${info.color}-600`}>
+                    {info.value}
+                  </dd>
+                </div>
+              ))}
+            </div>
+          )}
 
           {/* Media Gallery */}
-          {(activity.media.images.length > 0 ||
-            activity.media.videos.length > 0 ||
-            (activity.media.audios && activity.media.audios.length > 0)) && (
+          {activity.media && (
+            (activity.media.images && Array.isArray(activity.media.images) && activity.media.images.length > 0) ||
+            (activity.media.videos && Array.isArray(activity.media.videos) && activity.media.videos.length > 0) ||
+            (activity.media.audios && Array.isArray(activity.media.audios) && activity.media.audios.length > 0)
+          ) && (
             <div className="mb-8">
               <h3 className="text-2xl font-semibold mb-4 text-gray-900">
                 メディア
               </h3>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {activity.media.images.map((image, index) => (
+                {activity.media.images && Array.isArray(activity.media.images) && 
+                 activity.media.images.map((image, index) => (
                   <div
                     key={`img-${index}`}
                     className="cursor-pointer"
@@ -932,7 +949,8 @@ const ActivityDetail = () => {
                     />
                   </div>
                 ))}
-                {activity.media.videos.map((video, index) => (
+                {activity.media.videos && Array.isArray(activity.media.videos) && 
+                 activity.media.videos.map((video, index) => (
                   <div
                     key={`vid-${index}`}
                     className="cursor-pointer"
@@ -945,7 +963,7 @@ const ActivityDetail = () => {
                     </video>
                   </div>
                 ))}
-                {activity.media.audios &&
+                {activity.media.audios && Array.isArray(activity.media.audios) &&
                   activity.media.audios.map((audio, index) => (
                     <div
                       key={`aud-${index}`}
@@ -975,11 +993,13 @@ const ActivityDetail = () => {
         </div>
 
         {/* Sections */}
-        <div className="space-y-8">
-          {activity.sections.map((section, index) => (
-            <SectionContent key={section.id || index} section={section} />
-          ))}
-        </div>
+        {activity.sections && Array.isArray(activity.sections) && activity.sections.length > 0 && (
+          <div className="space-y-8">
+            {activity.sections.map((section, index) => (
+              <SectionContent key={section.id || index} section={section} />
+            ))}
+          </div>
+        )}
 
         {/* Note */}
         {activity.note && (
