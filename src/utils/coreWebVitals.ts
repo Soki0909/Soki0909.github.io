@@ -426,9 +426,14 @@ export const optimizeFontLoading = () => {
 };
 
 /**
- * Service Worker の登録（PWA化）
+ * Service Worker の登録（PWA化） - 現在無効化
  */
 export const registerServiceWorker = async () => {
+  // Service Worker機能は現在無効化
+  // PWA化が必要な場合は、sw.jsファイルを作成してから有効化
+  console.log('Service Worker registration is currently disabled');
+  return;
+
   if ('serviceWorker' in navigator && import.meta.env.PROD) {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js');
@@ -512,8 +517,8 @@ export const initializePerformanceOptimizations = () => {
     monitorResources();
   }
 
-  // Service Worker は非同期で登録
-  registerServiceWorker();
+  // Service Worker登録は現在無効化（PWA機能不要のため）
+  // registerServiceWorker();
 };
 
 /**

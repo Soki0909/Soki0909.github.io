@@ -749,7 +749,7 @@ export const projectSummary = {
     eslintErrors: 0, // ESLintエラー数
     typeErrors: 0, // TypeScriptエラー数
     buildStatus: 'Success', // ビルド状況
-    bundleSize: '83.65KB', // gzip圧縮後バンドルサイズ（最新）
+    bundleSize: '83.47KB', // gzip圧縮後バンドルサイズ（Service Worker無効化後）
   },
 
   newFeatures: {
@@ -785,10 +785,10 @@ export const projectSummary = {
   },
 
   performance: {
-    bundleSize: '83.65KB', // gzip圧縮後総バンドルサイズ
+    bundleSize: '83.47KB', // gzip圧縮後総バンドルサイズ（Service Worker無効化後）
     firstLoad: '<2s', // 初回読み込み時間
     coreWebVitals: 'Good', // Core Web Vitals総合評価
-    buildTime: '1.53s', // ビルド時間
+    buildTime: '1.32s', // ビルド時間
   },
 } as const;
 ```
