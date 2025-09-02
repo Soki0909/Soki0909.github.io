@@ -214,18 +214,6 @@ export interface TimelineItem {
   achievements?: string[];
 }
 
-export interface Qualification {
-  name: string;
-  date: string;
-  level: string;
-}
-
-export interface PlannedQualification {
-  name: string;
-  status: string;
-  color: string;
-}
-
 export interface FeaturedActivity {
   id: string;
   title: string;
