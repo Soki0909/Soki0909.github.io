@@ -29,6 +29,14 @@
       "link": "/works"
     },
     {
+      "icon": "🎹",
+      "title": "3D電子ピアノアプリケーション",
+      "subtitle": "OpenGL + リアルタイム音響合成",
+      "description": "C言語によるプロシージャルオーディオ・3Dグラフィックス統合システム",
+      "color": "from-purple-500 to-pink-600",
+      "link": "/works"
+    },
+    {
       "icon": "💻",
       "title": "paiza Aランク取得",
       "subtitle": "プログラミングスキル上位15%認定",

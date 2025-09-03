@@ -1,0 +1,10 @@
+# Piano App Images Placeholder
+
+このディレクトリには3D電子ピアノアプリケーションの画像ファイルを配置してください：
+
+- piano_overview.jpg - アプリケーション全体画面
+- manual_play.jpg - 手動演奏画面
+- timbre_change.jpg - 音色変更画面
+- auto_play.jpg - 自動演奏画面
+
+各画像は16:9のアスペクト比で、1920x1080px推奨です。
