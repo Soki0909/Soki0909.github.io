@@ -389,8 +389,20 @@ export interface DevelopmentNotice {
   };
 }
 
+export interface AIDevelopmentBadge {
+  show: boolean;
+  message: string;
+  icon: string;
+  style: {
+    backgroundColor: string;
+    borderColor: string;
+    textColor: string;
+  };
+}
+
 export interface HomeData {
   developmentNotice: DevelopmentNotice;
+  aiDevelopmentBadge: AIDevelopmentBadge;
   highlights: Highlight[];
   navigationCards: NavigationCard[];
   quickFacts: QuickFact[];

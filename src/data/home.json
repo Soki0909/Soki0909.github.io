@@ -9,6 +9,16 @@
       "textColor": "text-yellow-800"
     }
   },
+  "aiDevelopmentBadge": {
+    "show": true,
+    "message": "※ このポートフォリオサイトはAI（GitHub Copilot・Gemini）を活用して開発されています",
+    "icon": "🤖",
+    "style": {
+      "backgroundColor": "bg-gradient-to-r from-purple-100 to-blue-100",
+      "borderColor": "border-purple-300",
+      "textColor": "text-purple-800"
+    }
+  },
   "highlights": [
     {
       "icon": "🏆",

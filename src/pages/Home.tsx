@@ -10,6 +10,7 @@ const Home = () => {
 
   const {
     developmentNotice,
+    aiDevelopmentBadge,
     highlights,
     navigationCards,
     quickFacts,
@@ -27,6 +28,18 @@ const Home = () => {
         url={`${pageSEO.site.baseUrl}/`}
       />
       <div className="space-y-8 lg:space-y-16">
+        {/* AI活用バッジ - ページ最上部 */}
+        {aiDevelopmentBadge.show && (
+          <div className="text-center pt-4 pb-2">
+            <div
+              className={`${aiDevelopmentBadge.style.backgroundColor} border ${aiDevelopmentBadge.style.borderColor} rounded-lg px-4 py-2 inline-flex items-center text-xs ${aiDevelopmentBadge.style.textColor} shadow-sm mx-auto`}
+            >
+              <span className="mr-2">{aiDevelopmentBadge.icon}</span>
+              <span className="font-medium">{aiDevelopmentBadge.message}</span>
+            </div>
+          </div>
+        )}
+
         {/* ヒーローセクション */}
         <section className="text-center py-8 lg:py-16">
           <div className="mb-8">
