@@ -12,26 +12,26 @@
   "highlights": [
     {
       "icon": "🏆",
-      "title": "Hackit 2025",
-      "subtitle": "ハッカソン最優秀賞受賞",
-      "description": "Sleep Buster - AI音声分析による睡眠改善支援アプリ",
+      "title": "Hackit 2025 最優秀賞受賞",
+      "subtitle": "ハッカソン全8チーム中1位・賞金5万円",
+      "description": "Sleep Buster - WebRTC・ハードウェア連携による革新的アラームアプリ",
       "color": "from-yellow-400 to-orange-500",
       "link": "/works"
     },
     {
-      "icon": "🤖",
-      "title": "RCJ2025 Open Challenge",
-      "subtitle": "Mobile Cloud AI・先回りロボット開発",
-      "description": "研究開発部門・新入生教育にも専念",
-      "color": "from-blue-500 to-purple-600",
-      "link": "/experience"
+      "icon": "💻",
+      "title": "paiza Aランク取得",
+      "subtitle": "プログラミングスキル上位15%認定",
+      "description": "アルゴリズム・データ構造・実装力で高水準評価を獲得",
+      "color": "from-green-500 to-blue-600",
+      "link": "/skills"
     },
     {
-      "icon": "💼",
-      "title": "プロジェクト運営",
-      "subtitle": "68名組織のサブリーダー",
-      "description": "Mobile Cloud AI開発とチームマネジメント",
-      "color": "from-green-500 to-teal-600",
+      "icon": "�",
+      "title": "68名組織サブリーダー",
+      "subtitle": "2年間継続・安全活動リーダー兼務",
+      "description": "Mobile Cloud AI開発・新入生教育・プロジェクト管理を統括",
+      "color": "from-blue-500 to-purple-600",
       "link": "/experience"
     }
   ],
@@ -93,10 +93,10 @@
   ],
   "quickFacts": [
     {
-      "value": "3",
-      "label": "年間の大学生活（2025年9月現在）",
+      "value": "2027年3月",
+      "label": "卒業予定（情報工学科）",
       "color": "blue",
-      "detail": "金沢工業大学 情報工学科 3年次在学中"
+      "detail": "金沢工業大学 情報工学科 3年次在学中（新卒採用対象）"
     },
     {
       "value": "7+",
@@ -105,10 +105,10 @@
       "detail": "Python, JavaScript, TypeScript, C, Java, Dart, MATLAB"
     },
     {
-      "value": "74",
-      "label": "名規模組織でのリーダー経験",
+      "value": "68",
+      "label": "名組織でのリーダー実績",
       "color": "purple",
-      "detail": "RoboCup@Homeプロジェクト サブリーダー・安全活動リーダー"
+      "detail": "RoboCup@Home サブリーダー・安全活動リーダー・新入生教育担当（2年間継続）"
     },
     {
       "value": "4",
@@ -117,10 +117,10 @@
       "detail": "中学数学・高校数学・高校工業・高校情報の教員免許取得予定"
     },
     {
-      "value": "2",
-      "label": "全国大会での受賞実績",
+      "value": "A",
+      "label": "paizaランク（上位15%）",
       "color": "red",
-      "detail": "Hackit 2025 最優秀賞・RCJ2025 Open Challenge 出場"
+      "detail": "プログラミング力客観評価・アルゴリズム・データ構造・実装力認定"
     }
   ],
   "ctaSection": {
