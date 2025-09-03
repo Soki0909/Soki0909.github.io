@@ -68,19 +68,19 @@ const Home = () => {
               {basicProfile.university}
             </p>
             <p className="text-xl sm:text-2xl font-semibold text-blue-600 max-w-3xl mx-auto px-4 mb-8">
-              「できない」を「できる」に変えるテクノロジスト
+              実績と技術力で価値創造する次世代エンジニア
             </p>
           </div>
 
-          <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 max-w-5xl mx-auto mb-8">
+          <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg p-8 max-w-5xl mx-auto mb-8">
             <div className="mb-4">
-              <span className="text-3xl">🌟</span>
+              <span className="text-3xl">💼</span>
             </div>
             <h2 className="text-lg font-semibold mb-4">{mission.title}</h2>
             <blockquote className="text-lg sm:text-xl font-medium mb-4">
               "{mission.content}"
             </blockquote>
-            <p className="text-blue-100">{mission.description}</p>
+            <p className="text-green-100">{mission.description}</p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">

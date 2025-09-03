@@ -628,9 +628,14 @@ interface JobHuntingImprovements {
   // 5. 冒頭インパクトの最適化 (✅ 完了)
   heroSection: {
     before: 'ミッション重視（テクノロジーの力で...）',
-    after: 'Hackit 2025最優秀賞・paiza Aランク上位15%・68名組織サブリーダー',
-    implementation: 'home.json highlights構造変更・数値実績前面配置',
-    impact: '採用担当者の関心を即座に引く実績重視アピール',
+    after: 'Hackit 2025最優秀賞・paiza Aランク上位15%・68名組織サブリーダー + 就活向けミッション刷新',
+    implementation: 'home.json highlights構造変更・数値実績前面配置・profile.json mission/strengths就活最適化',
+    impact: '採用担当者の関心を即座に引く実績重視アピール + 即戦力としての価値提案明確化',
+    details: {
+      missionUpdate: '「エンジニアとしての価値提案」で即戦力性強調',
+      catchphraseUpdate: '「実績と技術力で価値創造する次世代エンジニア」',
+      strengthsUpdate: '「即戦力としての強み」で具体的実績・リーダーシップ・技術力を3軸アピール'
+    },
     status: 'implemented'
   };
 
