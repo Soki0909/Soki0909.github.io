@@ -1,7 +1,13 @@
 # 🚀 Portfolio Site - 久米蒼輝 (KUME Soki)
 
-> **最新技術スタックで構築された高性能ポートフォリオサイト**  
-> React 19 + TypeScript + Vite による型安全で超高速なWebアプリケーション
+> **最新技術スタックで構築した高性能ポートフォリオサイト**  
+> React 19 + TypeScript + Vite による型安全で高速なWebアプリケーション
+
+---
+
+**※ このポートフォリオサイトはAIを活用して作られています**
+
+このプロジェクトの開発では、GitHub CopilotやGemini等のAIアシスタントを積極的に活用して効率的な開発を実現しています。コード生成、バグ修正、ドキュメント作成、アーキテクチャ設計など、様々な場面でAIとの協働により高品質なソフトウェア開発を行っています。
 
 ### 📱 **サイトを見る**
 
@@ -14,16 +20,16 @@
 <!-- 🚀 Technology Stack Badges -->
 
 [![React](https://img.shields.io/badge/React-19.1.1-61DAFB?logo=react&logoColor=white)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.6.2-3178C6?logo=typescript&logoColor=white)](./src)
-[![Vite](https://img.shields.io/badge/Vite-7.1.3-646CFF?logo=vite&logoColor=white)](./vite.config.ts)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.0.0-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![React Router](https://img.shields.io/badge/React_Router-7.1.0-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.8.3-3178C6?logo=typescript&logoColor=white)](./src)
+[![Vite](https://img.shields.io/badge/Vite-7.1.2-646CFF?logo=vite&logoColor=white)](./vite.config.ts)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-4.1.12-38B2AC?logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
+[![React Router](https://img.shields.io/badge/React_Router-7.8.2-CA4245?logo=react-router&logoColor=white)](https://reactrouter.com/)
 
 <!-- 📊 Quality & Performance Badges -->
 
 [![Deploy](https://github.com/Soki0909/Soki0909.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/Soki0909/Soki0909.github.io/actions/workflows/deploy.yml)
-[![ESLint](https://img.shields.io/badge/ESLint-9.15.0-4B32C3?logo=eslint&logoColor=white)](./eslint.config.js)
-[![Prettier](https://img.shields.io/badge/Prettier-3.4.2-F7B93E?logo=prettier&logoColor=black)](https://prettier.io/)
+[![ESLint](https://img.shields.io/badge/ESLint-9.33.0-4B32C3?logo=eslint&logoColor=white)](./eslint.config.js)
+[![Prettier](https://img.shields.io/badge/Prettier-3.6.2-F7B93E?logo=prettier&logoColor=black)](https://prettier.io/)
 [![Core Web Vitals](https://img.shields.io/badge/Performance-Optimized-brightgreen)](https://soki0909.github.io)
 [![TypeScript Coverage](https://img.shields.io/badge/Type_Safety-100%25-blue)](./src)
 
@@ -31,7 +37,7 @@
 
 [![GitHub Actions](https://img.shields.io/badge/CI/CD-GitHub_Actions-2088FF?logo=github-actions&logoColor=white)](https://github.com/features/actions)
 [![GitHub Pages](https://img.shields.io/badge/Hosting-GitHub_Pages-222222?logo=github&logoColor=white)](https://pages.github.com/)
-[![PostCSS](https://img.shields.io/badge/PostCSS-8.4.39-DD3A0A?logo=postcss&logoColor=white)](https://postcss.org/)
+[![PostCSS](https://img.shields.io/badge/PostCSS-8.5.6-DD3A0A?logo=postcss&logoColor=white)](https://postcss.org/)
 [![Node.js](https://img.shields.io/badge/Node.js-18+-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 [![npm](https://img.shields.io/badge/npm-9+-CB3837?logo=npm&logoColor=white)](https://npmjs.com/)
 
@@ -45,19 +51,20 @@
 
 ## 🌟 主要機能・特徴
 
-### 🎯 **技術的ハイライト**
+### 🎯 **技術的特徴**
 
-- **⚡ 超高速表示**: Core Web Vitals 全項目グリーン（LCP<2.5s, FID<100ms, CLS<0.1）
-- **🛡️ 完全型安全**: TypeScript 100%型定義・any型完全排除
-- **🏗️ Clean Architecture**: レイヤー分離・依存関係最適化
-- **📱 完全レスポンシブ**: モバイルファースト・全デバイス最適化
+- **⚡ 高速表示**: Core Web Vitals全項目達成（LCP<2.5s, FID<100ms, CLS<0.1）
+- **🛡️ 型安全**: TypeScript完全型定義・47個の型定義で効率的管理
+- **🏗️ Clean Architecture**: 5層レイヤード・アーキテクチャで保守性を重視
+- **📱 レスポンシブ**: モバイルファースト設計・全デバイス対応
 - **♿ アクセシビリティ**: WCAG 2.1 AA準拠・キーボードナビゲーション対応
+- **🎨 統一デザイン**: PageLayoutコンポーネントで効率的なレイアウト管理
 
 ### 🔧 **実装機能**
 
 - **🎬 統合メディアプレイヤー**: プロジェクトデモ動画・音声再生
-- **🖼️ 最適化画像表示**: 遅延読み込み・WebP対応・60%高速化
-- **🔍 SEO完全対応**: 構造化データ・リッチスニペット・動的メタタグ
+- **🖼️ 画像最適化**: 遅延読み込み・WebP対応・60%高速化
+- **🔍 SEO対応**: 構造化データ・リッチスニペット・動的メタタグ
 - **📊 Analytics統合**: Google Analytics 4・Core Web Vitals追跡
 - **⚡ パフォーマンス最適化**: Code Splitting・Bundle最適化・CDN活用
 
@@ -67,12 +74,12 @@
 
 | カテゴリ         | 技術              | バージョン     | 採用理由                            |
 | ---------------- | ----------------- | -------------- | ----------------------------------- |
-| **言語**         | TypeScript        | 5.6.2          | 型安全性・開発効率向上              |
+| **言語**         | TypeScript        | 5.8.3          | 型安全性・開発効率向上              |
 | **UIライブラリ** | React             | 19.1.1         | 最新並行機能・Server Components対応 |
-| **ビルドツール** | Vite              | 7.1.3          | 超高速HMR・最適化バンドル           |
-| **スタイリング** | Tailwind CSS      | 4.0.0          | ユーティリティファースト            |
-| **ルーティング** | React Router      | 7.1.0          | SPA・Code splitting                 |
-| **品質保証**     | ESLint + Prettier | 9.15.0 + 3.4.2 | 166ルール・統一品質                 |
+| **ビルドツール** | Vite              | 7.1.2          | 高速HMR・バンドル最適化             |
+| **スタイリング** | Tailwind CSS      | 4.1.12         | ユーティリティファースト設計        |
+| **ルーティング** | React Router      | 7.8.2          | SPA・Code Splitting対応             |
+| **品質保証**     | ESLint + Prettier | 9.33.0 + 3.6.2 | 厳格品質管理・統一フォーマット      |
 | **CI/CD**        | GitHub Actions    | -              | 自動テスト・デプロイ                |
 | **ホスティング** | GitHub Pages      | -              | 高速CDN・無料SSL                    |
 
@@ -87,31 +94,36 @@ src/
 ├── 📄 pages/           # ページコンポーネント（SPA）
 │   ├── Home.tsx            # ランディングページ
 │   ├── About.tsx           # プロフィール・自己紹介
-│   ├── Experience.tsx      # 職歴・経験
+│   ├── Experience.tsx      # 活動実績・経験
 │   ├── Skills.tsx          # 技術スキル・認定
 │   ├── Vision.tsx          # ビジョン・目標
 │   ├── Works.tsx           # 作品一覧
 │   ├── WorkDetail.tsx      # 作品詳細・デモ
+│   ├── ActivityDetail.tsx  # 活動詳細
 │   └── Contact.tsx         # お問い合わせ
 ├── 🧩 components/      # 再利用可能UIコンポーネント
+│   ├── PageLayout.tsx      # 統一レイアウト管理
 │   ├── MediaPlayer.tsx     # 統合メディア再生
 │   ├── DemoModal.tsx       # プロジェクトデモ表示
 │   ├── LazyImage.tsx       # 最適化画像表示
 │   ├── SEO.tsx             # SEO・構造化データ
-│   └── [9個の高品質コンポーネント]
+│   └── [13個の高品質コンポーネント]
 ├── 🎣 hooks/           # ビジネスロジック・状態管理
 │   ├── useMediaPlayer.ts   # メディア制御
 │   ├── useProjects.ts      # プロジェクト管理
 │   └── [カスタムHooks]
-├── 📊 data/            # データ層
-│   ├── aboutData.ts        # プロフィール・経歴
-│   ├── projectsData.ts     # プロジェクト・実績
-│   ├── skillsData.ts       # 技術スキル・習熟度
-│   ├── experienceData.ts   # 職歴・実務経験
-│   ├── visionData.ts       # 理念・将来目標
-│   ├── contactData.ts      # 連絡先・SNS
-│   ├── index.ts            # 統一エクスポート
-│   └── types.ts            # TypeScript型定義
+├── 📊 data/            # データ層（JSON形式管理）
+│   ├── activities.json     # 活動・経験
+│   ├── activityDetails.json # 活動詳細
+│   ├── contacts.json       # 連絡先・SNS
+│   ├── home.json           # ホームページ設定
+│   ├── profile.json        # プロフィール・経歴
+│   ├── projects.json       # プロジェクト・実績
+│   ├── skills.json         # 技術スキル・習熟度
+│   ├── vision.json         # 理念・将来目標
+│   └── seo.json            # SEO・構造化データ
+├── 🏷️ types/           # 型定義層
+│   └── dataModels.ts       # TypeScript型定義システム
 └── 🛠️ utils/           # ユーティリティ・ヘルパー
     ├── analytics.ts        # GA4統合・追跡
     ├── performance.ts      # パフォーマンス監視
@@ -146,9 +158,9 @@ npm run dev
 
 ```bash
 # 必須品質チェック（コミット前必須）
-npm run format    # Prettier: コード整形
-npm run lint      # ESLint: 166ルール適用
-npm run build     # TypeScript: 型チェック
+npm run format    # Prettier: 統一コードフォーマット
+npm run lint      # ESLint: 厳格品質チェック
+npm run build     # TypeScript: 型チェック・ビルド確認
 
 # 開発・ビルド
 npm run dev       # 開発サーバー起動
@@ -165,7 +177,7 @@ npm run preview   # ビルド結果プレビュー
 **コミット前必須チェック**:
 
 ```bash
-✅ ESLint: 166個のルール完全準拠
+✅ ESLint: 厳格品質チェック準拠
 ✅ TypeScript: 型エラーゼロ
 ✅ Prettier: 統一コードフォーマット
 ✅ Build: エラーなし完了
@@ -256,7 +268,7 @@ git commit -m "refactor: リファクタリング"
 
 - **GitHub**: [Soki0909](https://github.com/Soki0909)
 - **Portfolio**: [https://soki0909.github.io](https://soki0909.github.io)
-- **専門**: React・TypeScript・フロントエンド開発
+- **専門**: AI・機械学習・Web開発・音響信号処理・教育技術
 
 ---
 
@@ -276,4 +288,4 @@ MIT License - 自由に利用・改変・配布可能
 
 ---
 
-**🎯 このポートフォリオサイトは、最新のWeb技術とベストプラクティスを駆使し、採用担当者に技術力・品質意識・継続的改善姿勢を効果的にアピールする目的で設計・実装されています。**
+**🎯 このポートフォリオサイトは、React 19 + TypeScript 5.8.3 + Vite 7.1.2の最新技術スタックとClean Architectureによる5層設計を採用している。型安全性100%、Core Web Vitals全項目達成、統一デザインシステムによる高い保守性を実現した高性能Webアプリケーション。**
