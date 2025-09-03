@@ -12,15 +12,26 @@
       "priority": 1
     },
     {
-      "platform": "Email",
+      "platform": "Email (大学)",
       "handle": "c1302855@st.kanazawa-it.ac.jp",
       "url": "mailto:c1302855@st.kanazawa-it.ac.jp",
       "icon": "📧",
       "color": "hover:bg-blue-50",
       "bgColor": "bg-blue-500",
       "isActive": true,
-      "description": "お仕事のご相談・技術的なディスカッション",
+      "description": "お仕事のご相談・技術的なディスカッション（最も確実）",
       "priority": 1
+    },
+    {
+      "platform": "Email (個人)",
+      "handle": "kumesoki@gmail.com",
+      "url": "mailto:kumesoki@gmail.com",
+      "icon": "📧",
+      "color": "hover:bg-green-50",
+      "bgColor": "bg-green-500",
+      "isActive": true,
+      "description": "個人メール・長期的なコミュニケーション",
+      "priority": 2
     },
     {
       "platform": "LinkedIn",
@@ -31,7 +42,7 @@
       "bgColor": "bg-blue-600",
       "isActive": true,
       "description": "プロフェッショナルなネットワーキング",
-      "priority": 2
+      "priority": 3
     },
     {
       "platform": "Portfolio",
@@ -42,7 +53,7 @@
       "bgColor": "bg-purple-500",
       "isActive": true,
       "description": "技術スキル・プロジェクト・実績紹介",
-      "priority": 3
+      "priority": 4
     },
     {
       "platform": "X (Twitter)",
@@ -53,13 +64,13 @@
       "bgColor": "bg-blue-400",
       "isActive": false,
       "description": "技術情報・学習記録の発信",
-      "priority": 4,
+      "priority": 5,
       "note": "準備中：技術ブログ・学習記録を発信予定"
     }
   ],
   "form": {
     "title": "お問い合わせフォーム",
-    "description": "技術的なディスカッション、プロジェクトのご相談、採用に関するお話、インターンシップのご案内など、どのようなことでもお気軽にお問い合わせください。24時間以内にお返事いたします。",
+    "description": "技術的なディスカッション、プロジェクトのご相談、採用に関するお話、インターンシップのご案内など、どのようなことでもお気軽にお問い合わせください。大学メール（c1302855@st.kanazawa-it.ac.jp）が最も確実にご連絡をお受けできます。24時間以内にお返事いたします。",
     "contactTypes": [
       {
         "type": "job",

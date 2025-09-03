@@ -609,12 +609,13 @@ interface JobHuntingImprovements {
     status: 'implemented'
   };
 
-  // 3. 連絡手段の改善 (🔥 最優先)
-  contactSystem: {
-    currentIssue: '大学メールアドレス（c1302855@st.kanazawa-it.ac.jp）のみ',
-    solution: '個人Gmail等の継続使用可能なメールアドレス併記',
-    urgency: 'immediate',
-    impact: '企業からの連絡受信確実性向上'
+  // 3. 連絡手段の改善 (✅ 完了)
+  contactSystemImprovement: {
+    before: '大学メールアドレス（c1302855@st.kanazawa-it.ac.jp）のみ',
+    after: '大学メール最優先 + 個人Gmail併記（実際の確認頻度に基づく最適化）',
+    implementation: 'contacts.json更新・大学メール優先度1・個人メール優先度2・説明文改善',
+    impact: '確実な連絡受信・企業からのアクセス向上・継続的コミュニケーション確保',
+    status: 'implemented'
   };
 
   // 4. 開発中表示の調整 (🔥 最優先)
@@ -625,7 +626,7 @@ interface JobHuntingImprovements {
     impact: '企業に未完成印象を与えるリスク回避'
   };
 
-  // 5. 冒頭インパクトの最適化
+  // 5. 冒頭インパクトの最適化 (🔥 最優先)
   heroSection: {
     currentStyle: 'ミッション重視（テクノロジーの力で...）',
     proposedStyle: 'Hackit 2025最優秀賞受賞 | 68名組織サブリーダー | paiza Aランク',
@@ -936,12 +937,14 @@ export const projectSummary = {
       '✅ AI活用開発の明示（GitHub Copilot・Gemini等協働開発表記）',
       '✅ 専門分野の正確化（AI・機械学習・Web開発・音響信号処理・教育技術）',
       '✅ データ駆動型専門領域表示（profile.json・skills.json基準）',
+      '✅ 連絡手段改善（大学メール最優先・個人Gmail併記・実際の確認頻度に基づく最適化）'
     ],
     priorityImprovements: [
-      '個人メールアドレス併記（Gmail等継続使用可能）',
       '開発中表示の就活期間中非表示設定',
       '実績数値の冒頭強調配置（Hackit最優秀賞・paiza Aランク等）',
       '卒業年度明記（2027年3月卒業予定）',
+      'EmailJSによるコンタクトフォーム機能化',
+    ],
       'EmailJSによるコンタクトフォーム機能化',
     ],
     contentOptimization: [
