@@ -1,8 +1,8 @@
 # ポートフォリオサイト開発アーキテクチャ設計書
 
 **🎯 対象読者**: 今後の開発・保守を担当するAI・開発者  
-**📅 最終更新**: 2025年9月4日（絵文字幾何学的デザイン対応 + UI一貫性向上完了）  
-**🚀 プロジェクト状態**: 本格運用中・型定義システム最適化完了・PageLayoutによる統一UIシステム完成・AI活用開発の明確化
+**📅 最終更新**: 2025年9月4日（絵文字幾何学的デザイン対応 + UI一貫性向上 + SPAルーティング完全対応完了）  
+**🚀 プロジェクト状態**: 本格運用中・型定義システム最適化完了・PageLayoutによる統一UIシステム完成・AI活用開発の明確化・直接URL対応完了
 
 ---
 
@@ -71,6 +71,7 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 - **型定義システム最適化**: 26個の未使用型削除による38%ファイルサイズ削減達成
 - **文字化け絵文字修正**: 全5箇所の「�」を適切な絵文字に修正完了
 - **絵文字幾何学的デザイン**: 立体感から幾何学的なUI要素に統一
+- **SPAルーティング完全対応**: GitHub Pages環境での直接URL対応・404.htmlリダイレクト実装
 
 #### **📊 コンテンツ充実**
 
@@ -115,6 +116,7 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 - ✅ LazyImage最適化（画像読み込み改善）
 - ✅ PageLayoutコンポーネント統一（中央集権化管理）
 - ✅ 絵文字幾何学的デザイン（一貫したビジュアル体験）
+- ✅ SPAルーティング完全対応（直接URL・404リダイレクト・GitHub Pages最適化）
 
 ---
 
@@ -140,11 +142,11 @@ git commit -m "chore: メンテナンス"   # 設定・依存関係更新
 
 ### 🌐 **インフラ・運用**
 
-| サービス               | 用途         | 特徴・設定                                       |
-| :--------------------- | :----------- | :----------------------------------------------- |
-| **GitHub Pages**       | ホスティング | 無料・高速CDN・自動SSL・カスタムドメイン対応     |
-| **GitHub Actions**     | CI/CD        | 自動テスト・品質チェック・デプロイ・依存関係更新 |
-| **Google Analytics 4** | 解析         | Core Web Vitals・UX測定・コンバージョン追跡      |
+| サービス               | 用途         | 特徴・設定                                            |
+| :--------------------- | :----------- | :---------------------------------------------------- |
+| **GitHub Pages**       | ホスティング | 無料・高速CDN・自動SSL・カスタムドメイン対応・SPA対応 |
+| **GitHub Actions**     | CI/CD        | 自動テスト・品質チェック・デプロイ・依存関係更新      |
+| **Google Analytics 4** | 解析         | Core Web Vitals・UX測定・コンバージョン追跡           |
 
 ---
 
@@ -232,6 +234,75 @@ graph TD
 - ⬇️ **下向き依存のみ許可**（Clean Architecture準拠）
 - ❌ **逆向き依存禁止**（上位層から下位層への依存のみ）
 - ✅ **型インターフェースを通じた疎結合**
+
+### 🌐 **SPAルーティング実装（GitHub Pages対応）**
+
+GitHub Pages環境でのSingle Page Application完全対応のための実装：
+
+```html
+<!-- public/404.html - GitHub Pages SPA redirect -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>久米蒼輝 Portfolio - Loading...</title>
+    <script type="text/javascript">
+      // GitHub Pages SPA redirect solution
+      var l = window.location;
+      l.replace(
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 2).join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(1)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
+      );
+    </script>
+  </head>
+</html>
+```
+
+```html
+<!-- index.html - SPA routing support script -->
+<script type="text/javascript">
+  (function (l) {
+    if (l.search[1] === '/') {
+      var decoded = l.search
+        .slice(1)
+        .split('&')
+        .map(function (s) {
+          return s.replace(/~and~/g, '&');
+        })
+        .join('?');
+      window.history.replaceState(
+        null,
+        null,
+        l.pathname.slice(0, -1) + decoded + l.hash
+      );
+    }
+  })(window.location);
+</script>
+```
+
+**実装内容**:
+
+- 🔄 **404.htmlリダイレクト**: 存在しないURLへの直接アクセスを自動的にSPAに転送
+- 🌐 **URLパラメータ保持**: 検索パラメータとハッシュを適切に維持
+- ⚡ **高速リダイレクト**: JavaScript による即座のクライアント側リダイレクト
+- 📱 **全デバイス対応**: モバイル・デスクトップ環境での確実な動作
+
+**解決する問題**:
+
+- ❌ `https://soki0909.github.io/activity/robocup-home` → 404エラー
+- ✅ `https://soki0909.github.io/activity/robocup-home` → 正常表示
 
 ---
 

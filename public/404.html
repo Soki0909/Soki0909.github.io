@@ -1,25 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>久米蒼輝 Portfolio - Loading...</title>
     <script type="text/javascript">
       // GitHub Pages SPA redirect solution
       // このスクリプトは直接URLアクセス時の404エラーを解決します
       var l = window.location;
       l.replace(
-        l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-        l.pathname.split('/').slice(0, 2).join('/') + 
-        '/?/' + 
-        l.pathname.slice(1).split('/').slice(1).join('/').replace(/&/g, '~and~') +
-        (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-        l.hash
+        l.protocol +
+          '//' +
+          l.hostname +
+          (l.port ? ':' + l.port : '') +
+          l.pathname.split('/').slice(0, 2).join('/') +
+          '/?/' +
+          l.pathname
+            .slice(1)
+            .split('/')
+            .slice(1)
+            .join('/')
+            .replace(/&/g, '~and~') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
+          l.hash
       );
     </script>
   </head>
   <body>
     <!-- GitHub Pages SPA routing fallback -->
-    <div style="text-align: center; padding: 50px; font-family: Arial, sans-serif;">
+    <div
+      style="text-align: center; padding: 50px; font-family: Arial, sans-serif"
+    >
       <h2>🔄 ページを読み込み中...</h2>
       <p>少々お待ちください。自動的にリダイレクトされます。</p>
     </div>
