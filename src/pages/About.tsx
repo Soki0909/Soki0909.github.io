@@ -41,7 +41,7 @@ const About = () => {
       title: '誕生日',
       content: basicProfile.birthday,
       subContent: basicProfile.birthdayEn,
-      icon: '�',
+      icon: '🎂',
     },
   ];
 

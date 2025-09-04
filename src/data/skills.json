@@ -170,7 +170,7 @@
       "frameworks": "Python (Pandas, NumPy, Matplotlib), R, SQL, Excel VBA",
       "methods": "統計解析, データクリーニング, 可視化, レポート作成",
       "achievement": "多様なデータセットの解析経験。睡眠データの可視化ダッシュボード構築",
-      "icon": "�",
+      "icon": "📊",
       "color": "from-orange-500 to-red-600",
       "details": {
         "applications": [
