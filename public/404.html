@@ -14,14 +14,9 @@
           return; // 既にリダイレクト済みの場合は何もしない
         }
 
-        // パス部分を取得（最初のセグメントを除く）
-        var pathSegments = l.pathname.split('/').filter(function (segment) {
-          return segment.length > 0;
-        });
-
-        // リポジトリ名を除いたパスを構築
-        var redirectPath =
-          pathSegments.length > 1 ? pathSegments.slice(1).join('/') : '';
+        // GitHub Pagesの場合、リポジトリ名はURLパスに含まれない
+        // パス全体をSPAルーティング用パラメータとして使用
+        var redirectPath = l.pathname.slice(1); // 先頭の'/'を除去
 
         // 安全なリダイレクトURL構築
         var newUrl =
@@ -29,11 +24,9 @@
           '//' +
           l.hostname +
           (l.port ? ':' + l.port : '') +
-          '/' +
-          (pathSegments[0] || '') +
           '/?/' +
           redirectPath +
-          (l.search ? l.search.replace(/&/g, '~and~') : '') +
+          (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
           l.hash;
 
         // リダイレクト実行
