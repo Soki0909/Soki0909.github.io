@@ -58,7 +58,9 @@ const Skills = () => {
               className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow duration-300"
             >
               <div className="flex items-center mb-4">
-                <span className="text-2xl mr-3">{area.icon}</span>
+                <span className="text-2xl mr-3 emoji-geometric">
+                  {area.icon}
+                </span>
                 <h3
                   className={`text-xl font-semibold bg-gradient-to-r ${area.color} bg-clip-text text-transparent`}
                 >
@@ -100,7 +102,9 @@ const Skills = () => {
               className={`bg-gradient-to-r ${evaluation.color} text-white rounded-lg p-8 hover:shadow-lg transition-shadow duration-300`}
             >
               <div className="flex items-center mb-4">
-                <span className="text-3xl mr-3">{evaluation.icon}</span>
+                <span className="text-3xl mr-3 emoji-geometric">
+                  {evaluation.icon}
+                </span>
                 <h3 className="text-xl font-semibold">{evaluation.title}</h3>
               </div>
               <p className="text-blue-100 mb-2">{evaluation.description}</p>
@@ -117,7 +121,7 @@ const Skills = () => {
         </h2>
         <div className="bg-gradient-to-r from-orange-50 to-yellow-50 rounded-lg p-8">
           <div className="text-center mb-6">
-            <span className="text-4xl">🛠️</span>
+            <span className="text-4xl emoji-geometric">🛠️</span>
           </div>
           <blockquote className="text-lg font-medium text-gray-800 mb-4 text-center">
             "{learningPhilosophy.quote}"
@@ -137,7 +141,9 @@ const Skills = () => {
               key={index}
               className="bg-white rounded-lg shadow-md p-6 text-center"
             >
-              <span className="text-3xl mb-3 block">{learning.icon}</span>
+              <span className="text-3xl mb-3 block emoji-geometric">
+                {learning.icon}
+              </span>
               <h3 className="text-lg font-semibold mb-2">{learning.title}</h3>
               <p className="text-gray-600 text-sm">{learning.description}</p>
             </div>

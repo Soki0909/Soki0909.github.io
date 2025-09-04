@@ -34,7 +34,9 @@ const Home = () => {
             <div
               className={`${aiDevelopmentBadge.style.backgroundColor} border ${aiDevelopmentBadge.style.borderColor} rounded-lg px-4 py-2 inline-flex items-center text-xs ${aiDevelopmentBadge.style.textColor} shadow-sm mx-auto`}
             >
-              <span className="mr-2">{aiDevelopmentBadge.icon}</span>
+              <span className="mr-2 emoji-geometric">
+                {aiDevelopmentBadge.icon}
+              </span>
               <span className="font-medium">{aiDevelopmentBadge.message}</span>
             </div>
           </div>
@@ -44,7 +46,7 @@ const Home = () => {
         <section className="text-center py-8 lg:py-16">
           <div className="mb-8">
             <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
-              <span className="text-4xl text-white">👋</span>
+              <span className="text-4xl text-white emoji-geometric">👋</span>
             </div>
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
               {basicProfile.name} ({basicProfile.nameEn})
@@ -56,7 +58,9 @@ const Home = () => {
                 <div
                   className={`${developmentNotice.style.backgroundColor} border ${developmentNotice.style.borderColor} rounded-lg px-4 py-2 inline-flex items-center text-sm ${developmentNotice.style.textColor}`}
                 >
-                  <span className="mr-2">{developmentNotice.icon}</span>
+                  <span className="mr-2 emoji-geometric">
+                    {developmentNotice.icon}
+                  </span>
                   <span className="font-medium">
                     {developmentNotice.message}
                   </span>
@@ -74,7 +78,7 @@ const Home = () => {
 
           <div className="bg-gradient-to-r from-green-600 to-blue-600 text-white rounded-lg p-8 max-w-5xl mx-auto mb-8">
             <div className="mb-4">
-              <span className="text-3xl">💼</span>
+              <span className="text-3xl emoji-geometric">💼</span>
             </div>
             <h2 className="text-lg font-semibold mb-4">{mission.title}</h2>
             <blockquote className="text-lg sm:text-xl font-medium mb-4">
@@ -102,7 +106,9 @@ const Home = () => {
                   key={index}
                   className={`bg-gradient-to-br ${bgClass} rounded-lg p-6`}
                 >
-                  <span className="text-3xl mb-3 block">{strength.icon}</span>
+                  <span className="text-3xl mb-3 block emoji-geometric">
+                    {strength.icon}
+                  </span>
                   <h3 className={`text-lg font-semibold mb-2 ${titleClass}`}>
                     {strength.title}
                   </h3>
@@ -128,7 +134,9 @@ const Home = () => {
                 className={`bg-white p-6 lg:p-8 rounded-lg shadow-md hover:shadow-xl transition-all hover:scale-105 ${card.hoverColor} block group`}
               >
                 <div className="flex items-center mb-4">
-                  <span className="text-3xl mr-3">{card.icon}</span>
+                  <span className="text-3xl mr-3 emoji-geometric">
+                    {card.icon}
+                  </span>
                   <h3
                     className={`text-xl font-semibold ${card.color} group-hover:underline`}
                   >
@@ -157,7 +165,9 @@ const Home = () => {
                 className={`bg-gradient-to-r ${highlight.color} text-white rounded-lg p-6 lg:p-8 hover:shadow-xl transition-all hover:scale-105 block group`}
               >
                 <div className="text-center">
-                  <span className="text-4xl mb-4 block">{highlight.icon}</span>
+                  <span className="text-4xl mb-4 block emoji-geometric">
+                    {highlight.icon}
+                  </span>
                   <h3 className="text-lg lg:text-xl font-semibold mb-2 group-hover:underline">
                     {highlight.title}
                   </h3>

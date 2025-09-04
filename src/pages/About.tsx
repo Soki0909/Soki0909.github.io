@@ -60,7 +60,7 @@ const About = () => {
         <div className="mb-12">
           <div className="bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg p-8 text-center">
             <div className="mb-4">
-              <span className="text-4xl">🌟</span>
+              <span className="text-4xl emoji-geometric">🌟</span>
             </div>
             <h2 className="text-2xl font-semibold mb-4">{mission.title}</h2>
             <blockquote className="text-xl font-medium mb-4">
@@ -74,7 +74,7 @@ const About = () => {
         <div className="mb-12">
           <div className="bg-white rounded-lg shadow-md p-8">
             <h3 className="text-xl font-semibold mb-4 flex items-center">
-              <span className="text-2xl mr-3">💬</span>
+              <span className="text-2xl mr-3 emoji-geometric">💬</span>
               {selfIntroduction.title}
             </h3>
             <p className="text-gray-700 leading-relaxed text-lg">
@@ -95,7 +95,9 @@ const About = () => {
               {personalProfile.map((item, index) => (
                 <div key={index} className="bg-white rounded-lg shadow-md p-6">
                   <div className="flex items-center mb-2">
-                    <span className="text-2xl mr-3">{item.icon}</span>
+                    <span className="text-2xl mr-3 emoji-geometric">
+                      {item.icon}
+                    </span>
                     <h3 className="text-lg font-medium">{item.title}</h3>
                   </div>
                   <p className="text-gray-800 font-medium">{item.content}</p>
@@ -151,7 +153,9 @@ const About = () => {
                 className={`bg-white rounded-lg shadow-md p-4 transition-colors duration-200 ${contact.color} block`}
               >
                 <div className="flex items-center space-x-3">
-                  <span className="text-2xl">{contact.icon}</span>
+                  <span className="text-2xl emoji-geometric">
+                    {contact.icon}
+                  </span>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-gray-800">
                       {contact.platform}
@@ -173,7 +177,7 @@ const About = () => {
           </h2>
           <div className="bg-gradient-to-r from-orange-50 to-red-50 rounded-lg p-8">
             <div className="text-center mb-4">
-              <span className="text-4xl">⚡</span>
+              <span className="text-4xl emoji-geometric">⚡</span>
             </div>
             <blockquote className="text-lg font-medium text-gray-800 mb-4 text-center">
               "{actionPrinciple.quote}"
@@ -195,7 +199,9 @@ const About = () => {
             {turningPoints.map((turningPoint, index) => (
               <div key={index} className="bg-white rounded-lg shadow-md p-6">
                 <div className="flex items-center mb-3">
-                  <span className="text-2xl mr-3">{turningPoint.icon}</span>
+                  <span className="text-2xl mr-3 emoji-geometric">
+                    {turningPoint.icon}
+                  </span>
                   <h3 className="text-lg font-semibold">
                     {turningPoint.title}
                   </h3>
@@ -221,7 +227,7 @@ const About = () => {
           <h2 className="text-2xl font-semibold mb-6">{strengths.title}</h2>
           <div className="bg-white rounded-lg shadow-md p-8">
             <div className="text-center mb-4">
-              <span className="text-4xl">🛠️</span>
+              <span className="text-4xl emoji-geometric">🛠️</span>
             </div>
             <blockquote className="text-lg font-medium text-gray-800 mb-4 text-center">
               "{strengths.quote}"
@@ -254,7 +260,9 @@ const About = () => {
                   key={index}
                   className={`bg-gradient-to-br ${bgClass} rounded-lg p-6 text-center`}
                 >
-                  <span className="text-3xl mb-3 block">{strength.icon}</span>
+                  <span className="text-3xl mb-3 block emoji-geometric">
+                    {strength.icon}
+                  </span>
                   <h3 className={`text-lg font-semibold mb-2 ${titleClass}`}>
                     {strength.title}
                   </h3>
@@ -271,7 +279,7 @@ const About = () => {
         <div className="mb-12">
           <h2 className="text-2xl font-semibold mb-6">性格診断結果</h2>
           <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-lg p-8 text-center">
-            <span className="text-4xl mb-4 block">🎭</span>
+            <span className="text-4xl mb-4 block emoji-geometric">🎭</span>
             <h3 className="text-lg font-semibold text-gray-800 mb-2">
               「{personalityType.result}」
             </h3>

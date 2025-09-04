@@ -18,6 +18,54 @@ html {
   scroll-padding-top: calc(var(--header-height) + 1rem);
 }
 
+/* グローバル絵文字スタイリング - 幾何学的デザイン */
+* {
+  /* 絵文字を含むテキストに幾何学的フォントを適用 */
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Helvetica Neue',
+    Arial,
+    sans-serif,
+    /* 絵文字フォント - 幾何学的順序 */ 'Segoe UI Emoji',
+    'Noto Color Emoji',
+    'Twemoji Mozilla',
+    'Apple Color Emoji',
+    'EmojiOne Color',
+    'Android Emoji';
+}
+
+/* より具体的な絵文字スタイリング */
+:is(h1, h2, h3, h4, h5, h6, p, span, div, li, td, th):has-emoji,
+*[class*='icon']:not(.icon-skip),
+*[data-emoji],
+.emoji-text {
+  font-family:
+    'Inter',
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    sans-serif,
+    /* 幾何学的絵文字フォント */ 'Segoe UI Emoji',
+    'Noto Color Emoji',
+    'Twemoji Mozilla',
+    'Apple Color Emoji',
+    'EmojiOne Color',
+    'Android Emoji';
+  filter: contrast(1.05) saturate(0.95) brightness(1.02);
+}
+
 /* ヘッダーの高さに基づく余白ユーティリティ */
 .pt-header {
   padding-top: calc(var(--header-height) + 1rem);
@@ -79,6 +127,30 @@ html {
   animation: slideInRight 0.6s ease-out;
 }
 
+/* 絵文字専用ユーティリティクラス */
+.emoji-geometric {
+  font-family:
+    'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji Mozilla',
+    'Apple Color Emoji', 'EmojiOne Color', 'Android Emoji', sans-serif !important;
+  filter: contrast(1.05) saturate(0.95) brightness(1.02);
+  text-rendering: optimizeQuality;
+  -webkit-font-smoothing: antialiased;
+}
+
+.emoji-flat {
+  font-family:
+    'Noto Color Emoji', 'Twemoji Mozilla', 'Segoe UI Emoji',
+    'Apple Color Emoji', 'EmojiOne Color', 'Android Emoji', sans-serif !important;
+  filter: contrast(1.1) saturate(0.9) brightness(1.05);
+}
+
+.emoji-minimal {
+  font-family:
+    'Twemoji Mozilla', 'Noto Color Emoji', 'Segoe UI Emoji',
+    'Apple Color Emoji', 'EmojiOne Color', 'Android Emoji', sans-serif !important;
+  filter: contrast(1.15) saturate(0.85) brightness(1.1);
+}
+
 /* ヘッダーのぼかし効果をサポート */
 .backdrop-blur-md {
   backdrop-filter: blur(12px);
@@ -94,6 +166,45 @@ html {
 .bg-clip-text {
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+/* 絵文字スタイリング - 幾何学的なデザイン */
+.emoji,
+[class*='emoji']:not(.emoji-skip) {
+  font-family:
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Noto Color Emoji',
+    'Twemoji Mozilla', 'EmojiOne Color', 'Android Emoji', 'Symbols Nerd Font',
+    sans-serif;
+  font-variation-settings: 'wght' 400;
+  font-feature-settings:
+    'liga' 1,
+    'kern' 1;
+  text-rendering: optimizeQuality;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 幾何学的絵文字の共通スタイル */
+.geometric-emoji {
+  font-family:
+    'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji Mozilla',
+    'Apple Color Emoji', 'EmojiOne Color', 'Android Emoji', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  text-shadow: none;
+  filter: contrast(1.1) saturate(0.9);
+}
+
+/* 特定の絵文字要素のターゲティング */
+span:has-emoji,
+.highlight-icon,
+.skill-icon,
+.project-icon,
+.nav-icon {
+  font-family:
+    'Segoe UI Emoji', 'Noto Color Emoji', 'Twemoji Mozilla',
+    'Apple Color Emoji', 'EmojiOne Color', 'Android Emoji', sans-serif;
+  filter: contrast(1.1) saturate(0.9);
 }
 
 /* フォーカス時のアウトライン改善 */
