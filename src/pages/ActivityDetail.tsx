@@ -82,11 +82,11 @@ export default function ActivityDetail() {
             </div>
 
             {activity.media.images && activity.media.images.length > 0 && (
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full lg:w-80 bg-gray-50 rounded-lg shadow-md overflow-hidden">
                 <LazyImage
                   src={`/images/activities/${activity.id}/${activity.media.images[0]}`}
                   alt={activity.title}
-                  className="w-full lg:w-80 h-48 lg:h-56 rounded-lg shadow-md object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             )}
@@ -155,12 +155,16 @@ export default function ActivityDetail() {
                   {activity.media.images
                     .slice(1)
                     .map((image: string, index: number) => (
-                      <LazyImage
+                      <div
                         key={index}
-                        src={`/images/activities/${activity.id}/${image}`}
-                        alt={`${activity.title} - 画像${index + 2}`}
-                        className="w-full h-48 rounded-lg object-cover"
-                      />
+                        className="w-full bg-gray-50 rounded-lg shadow-md overflow-hidden"
+                      >
+                        <LazyImage
+                          src={`/images/activities/${activity.id}/${image}`}
+                          alt={`${activity.title} - 画像${index + 2}`}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
                     ))}
                 </div>
               </div>
