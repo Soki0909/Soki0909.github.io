@@ -121,11 +121,11 @@ const WorkDetail = () => {
 
             {/* メイン画像 */}
             {project.images && project.images.length > 0 && (
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 w-full lg:w-80 bg-gray-50 rounded-lg shadow-md overflow-hidden">
                 <LazyImage
                   src={project.images[0]}
                   alt={project.title}
-                  className="w-full lg:w-80 h-48 lg:h-56 rounded-lg shadow-md object-cover"
+                  className="w-full h-auto object-contain"
                 />
               </div>
             )}
@@ -159,27 +159,6 @@ const WorkDetail = () => {
 
           {/* サイドバー情報 */}
           <div className="lg:col-span-1 space-y-6">
-            {/* スクリーンショット */}
-            {project.images && project.images.length > 1 && (
-              <div className="bg-white rounded-lg shadow-sm p-6">
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">
-                  スクリーンショット
-                </h3>
-                <div className="grid grid-cols-1 gap-4">
-                  {project.images
-                    .slice(1)
-                    .map((image: string, index: number) => (
-                      <LazyImage
-                        key={index}
-                        src={image}
-                        alt={`${project.title} screenshot ${index + 2}`}
-                        className="w-full h-48 rounded-lg shadow-md object-cover"
-                      />
-                    ))}
-                </div>
-              </div>
-            )}
-
             {/* 課題・工夫点 */}
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
@@ -209,6 +188,31 @@ const WorkDetail = () => {
                 ))}
               </ul>
             </div>
+
+            {/* スクリーンショット */}
+            {project.images && project.images.length > 1 && (
+              <div className="bg-white rounded-lg shadow-sm p-6">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
+                  スクリーンショット
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
+                  {project.images
+                    .slice(1)
+                    .map((image: string, index: number) => (
+                      <div
+                        key={index}
+                        className="w-full bg-gray-50 rounded-lg shadow-md overflow-hidden"
+                      >
+                        <LazyImage
+                          src={image}
+                          alt={`${project.title} screenshot ${index + 2}`}
+                          className="w-full h-auto object-contain"
+                        />
+                      </div>
+                    ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </main>
