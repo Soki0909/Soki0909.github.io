@@ -11,7 +11,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import type { ReactNode } from 'react';
 import type { Project } from '../types/dataModels';
-import { getAllProjects, getAllTechnologies } from '../utils/projects';
+import { getAllProjects } from '../utils/projects';
 import {
   ProjectContext,
   type ProjectContextState,
@@ -58,10 +58,21 @@ export const ProjectProvider: React.FC<ProjectProviderProps> = ({
         setIsLoading(true);
 
         // 将来的なAPI統合のための非同期読み込みシミュレーション
-        const projectsData = getAllProjects();
-        const technologiesData = getAllTechnologies();
+        const allProjectsData = getAllProjects();
 
-        setProjects(projectsData);
+        // 公開されているプロジェクトのみをフィルタリング
+        const publishedProjects = allProjectsData.filter(
+          (project) => project.published
+        );
+
+        // 公開されているプロジェクトから技術データを抽出
+        const technologiesData = [
+          ...new Set(
+            publishedProjects.flatMap((project) => project.technologies)
+          ),
+        ].sort();
+
+        setProjects(publishedProjects);
         setTechnologies(technologiesData);
       } catch (error) {
         console.error('Failed to load project data:', error);

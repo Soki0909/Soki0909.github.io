@@ -449,6 +449,7 @@ export interface Project {
   audios: string[];
   challenges: string[];
   learned: string[];
+  published: boolean;
 }
 
 export type ProjectsData = Project[];
