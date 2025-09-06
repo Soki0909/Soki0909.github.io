@@ -138,7 +138,7 @@ const WorkDetail = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* プロジェクト概要 */}
           <div className="lg:col-span-2">
-            <div className="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <div className="bg-white rounded-lg shadow-sm p-6">
               <h2 className="text-xl font-semibold text-gray-900 mb-4">
                 プロジェクト概要
               </h2>
@@ -155,14 +155,17 @@ const WorkDetail = () => {
                   ))}
               </div>
             </div>
+          </div>
 
-            {/* 追加画像 */}
+          {/* サイドバー情報 */}
+          <div className="lg:col-span-1 space-y-6">
+            {/* スクリーンショット */}
             {project.images && project.images.length > 1 && (
               <div className="bg-white rounded-lg shadow-sm p-6">
-                <h2 className="text-xl font-semibold text-gray-900 mb-4">
+                <h3 className="text-xl font-semibold text-gray-900 mb-4">
                   スクリーンショット
-                </h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                </h3>
+                <div className="grid grid-cols-1 gap-4">
                   {project.images
                     .slice(1)
                     .map((image: string, index: number) => (
@@ -176,10 +179,7 @@ const WorkDetail = () => {
                 </div>
               </div>
             )}
-          </div>
 
-          {/* サイドバー情報 */}
-          <div className="lg:col-span-1 space-y-6">
             {/* 課題・工夫点 */}
             <div className="bg-white rounded-lg shadow-sm p-6">
               <h3 className="text-xl font-semibold text-gray-900 mb-4">
