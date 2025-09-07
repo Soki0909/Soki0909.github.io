@@ -240,12 +240,15 @@
       "Visual Studio"
     ],
     "images": [
-      "/images/projects/piano-app/piano_overview.jpg",
-      "/images/projects/piano-app/manual_play.jpg",
-      "/images/projects/piano-app/timbre_change.jpg",
-      "/images/projects/piano-app/auto_play.jpg"
+      "/images/projects/piano-app/piano_overview.png",
+      "/images/projects/piano-app/manual_play.png",
+      "/images/projects/piano-app/timbre_change_before.png",
+      "/images/projects/piano-app/timbre_change_after.png",
+      "/images/projects/piano-app/octave_change.png",
+      "/images/projects/piano-app/auto_play_menu.png",
+      "/images/projects/piano-app/auto_play_active.png"
     ],
-    "image": "/images/projects/piano-app/piano_overview.jpg",
+    "image": "/images/projects/piano-app/piano_overview.png",
     "github": "https://github.com/Soki0909/PianoApp",
     "demo": "#",
     "demoType": "video",
