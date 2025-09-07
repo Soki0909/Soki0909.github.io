@@ -253,7 +253,7 @@
     "demo": "#",
     "demoType": "video",
     "videos": ["/media/videos/piano-app/demo.mp4"],
-    "audios": ["/media/audios/piano-app/piano-demo-sound.mp3"],
+    "audios": [],
     "challenges": [
       "リアルタイム音響合成による自然な音色生成の実現",
       "OpenGL/GLUTでの複雑な3Dモデル描画とアニメーション",
