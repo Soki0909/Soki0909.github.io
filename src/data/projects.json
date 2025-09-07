@@ -27,7 +27,7 @@
     "github": "https://github.com/Saisei2004/WILDCARD",
     "demo": "#",
     "demoType": "video",
-    "videos": ["/media/videos/system_demo.mp4"],
+    "videos": ["/media/videos/sleep-buster/demo.mp4"],
     "audios": [],
     "challenges": [
       "Android開発初心者チームでの3日間集中開発",
@@ -115,7 +115,7 @@
     "github": "#",
     "demo": "#",
     "demoType": "interactive",
-    "videos": ["/media/videos/ai-booth-demo.mp4"],
+    "videos": ["/media/videos/ai-booth/demo.mp4"],
     "audios": [],
     "challenges": [
       "複雑なAI技術を小学生が理解できる体験に変換",
@@ -157,7 +157,7 @@
     "github": "https://github.com/Soki0909/student-portal-navigator",
     "demo": "#",
     "demoType": "interactive",
-    "videos": ["/media/videos/chrome-extension-demo.mp4"],
+    "videos": ["/media/videos/chrome-extension/demo.mp4"],
     "audios": [],
     "challenges": [
       "学生ポータルサイトの複雑なDOM構造への対応",
@@ -252,8 +252,8 @@
     "github": "https://github.com/Soki0909/PianoApp",
     "demo": "#",
     "demoType": "video",
-    "videos": ["/media/videos/piano-app-demo.mp4"],
-    "audios": ["/media/audios/piano-demo-sound.mp3"],
+    "videos": ["/media/videos/piano-app/demo.mp4"],
+    "audios": ["/media/audios/piano-app/piano-demo-sound.mp3"],
     "challenges": [
       "リアルタイム音響合成による自然な音色生成の実現",
       "OpenGL/GLUTでの複雑な3Dモデル描画とアニメーション",
