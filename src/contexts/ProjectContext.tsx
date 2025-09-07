@@ -60,10 +60,10 @@ export const ProjectProvider: React.FC<ProjectProviderProps> = ({
         // 将来的なAPI統合のための非同期読み込みシミュレーション
         const allProjectsData = getAllProjects();
 
-        // 公開されているプロジェクトのみをフィルタリング
-        const publishedProjects = allProjectsData.filter(
-          (project) => project.published
-        );
+        // 公開されているプロジェクトのみをフィルタリングし、ID順にソート
+        const publishedProjects = allProjectsData
+          .filter((project) => project.published)
+          .sort((a, b) => a.id - b.id);
 
         // 公開されているプロジェクトから技術データを抽出
         const technologiesData = [
