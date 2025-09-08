@@ -68,11 +68,22 @@
       "プロシージャルオーディオ"
     ],
     "images": [
-      "/images/projects/matlab-edm/waveform.jpg",
-      "/images/projects/matlab-edm/spectrum.jpg",
-      "/images/projects/matlab-edm/sequencer.jpg"
+      "/images/projects/matlab-edm/kick_source_waveform.png",
+      "/images/projects/matlab-edm/kick_final_waveform.png",
+      "/images/projects/matlab-edm/hihat_real_spectrum.png",
+      "/images/projects/matlab-edm/hihat_final_spectrum.png",
+      "/images/projects/matlab-edm/snare_hiss_waveform.png",
+      "/images/projects/matlab-edm/snare_noise_waveform.png",
+      "/images/projects/matlab-edm/snare_puretone_waveform.png",
+      "/images/projects/matlab-edm/snare_final_waveform.png",
+      "/images/projects/matlab-edm/distortion_spectrum.png",
+      "/images/projects/matlab-edm/overall_timetable.png",
+      "/images/projects/matlab-edm/intro_timetable.png",
+      "/images/projects/matlab-edm/buildup_timetable.png",
+      "/images/projects/matlab-edm/drop1_timetable.png",
+      "/images/projects/matlab-edm/drop2_timetable.png"
     ],
-    "image": "/images/projects/matlab-edm/main.jpg",
+    "image": "/images/projects/matlab-edm/kick_source_waveform.png",
     "github": "https://github.com/Soki0909/matlab-edm",
     "demo": "#",
     "demoType": "audio",
