@@ -95,7 +95,7 @@ Notionのシンプルさに、数学・音響のスパイスを加える。**読
 - **Hover Effects**:
   - カードやリンクに触れると、周囲に矩形波のような枠線が表示される、または微細なグリッチ（ノイズ）が走る。
 
-- **Loading** *(将来実装)*:
+- **Loading** _(将来実装)_:
   - 回転する円ではなく、「リサージュ図形」が描画されるアニメーション。
 
 ---
@@ -106,8 +106,9 @@ Notionのシンプルさに、数学・音響のスパイスを加える。**読
 
 - **Identity**: 左上に眼鏡アイコン（ロゴ）を固定。
 - **Navigation**: コードの定数定義のようにリンクを配置。
+
   ```typescript
-  const AUTHOR = "KUME Soki";
+  const AUTHOR = 'KUME Soki';
   import { GitHub, X, Note } from 'socials';
   ```
 
@@ -174,21 +175,21 @@ src/data/
 type Category = 'project' | 'activity' | 'writing';
 
 interface TimelineItem {
-  id: string;           // 一意のID (例: "sleep-buster")
-  date: string;         // "2025-12-10" (ソート用)
-  category: Category;   // アイコン出し分け用
-  title: string;        // プロジェクト名
-  summary: string;      // 短い概要（1-2行）
-  tags: string[];       // ["React", "Python", "AI"]
-  hasDetail: boolean;   // 詳細ページ(/docs/id)を持つか
-  externalLink?: string;// Zenn等の外部リンク用
+  id: string; // 一意のID (例: "sleep-buster")
+  date: string; // "2025-12-10" (ソート用)
+  category: Category; // アイコン出し分け用
+  title: string; // プロジェクト名
+  summary: string; // 短い概要（1-2行）
+  tags: string[]; // ["React", "Python", "AI"]
+  hasDetail: boolean; // 詳細ページ(/docs/id)を持つか
+  externalLink?: string; // Zenn等の外部リンク用
 }
 
 interface WritingItem {
   id: string;
   date: string;
   title: string;
-  platform: string;     // "Zenn", "Note" 等
+  platform: string; // "Zenn", "Note" 等
   url: string;
   summary?: string;
 }
@@ -214,10 +215,12 @@ interface WritingItem {
 ## 8. 実装ロードマップ
 
 ### Phase 0: アーカイブ作成
+
 1. 既存ページ・コンポーネントの内容を `docs/archive/` に保存。
 2. 既存データ構造のスナップショットを作成。
 
 ### Phase 1: Data Migration & Assets
+
 1. 既存の `projects.json`, `activities.json` 等から `timeline.json` を作成。
 2. 詳細情報を `details/` ディレクトリの個別ファイルに移行。
 3. `writings.json` を空配列で作成。
@@ -225,17 +228,20 @@ interface WritingItem {
 5. 眼鏡アイコンを `public/assets/icons/logo.png` に配置（ユーザー作業）。
 
 ### Phase 2: Component Implementation (Atomic)
+
 1. Tailwind CSS 4 の設定（フォントファミリ、カスタムカラー）。
 2. `WaveCard` コンポーネントの実装（Hoverエフェクト）。
 3. `SignalNode` コンポーネントの実装。
 4. `TimelineView` コンポーネントの実装。
 
 ### Phase 3: Hub Page Construction
+
 1. `src/pages/Hub.tsx` を作成し、タイムラインレイアウトを組む。
 2. Header (Input) を実装。
 3. Footer (Terminal) を実装。
 
 ### Phase 4: Document Page & Routing
+
 1. `src/pages/Document.tsx` を実装。
 2. ルーティングを `Hub` と `Document` に再設定。
 3. 旧ページのルートを削除または Hub にリダイレクト。
@@ -244,14 +250,14 @@ interface WritingItem {
 
 ## 9. 決定事項まとめ
 
-| 項目 | 決定内容 |
-|------|----------|
-| 既存ページ | アーカイブ保存後、削除 |
-| データ構造 | `timeline.json`（インデックス）+ `details/`（詳細）の分離構成 |
-| MDXレンダラー | 不採用（シンプルなMarkdown/コンポーネントで十分） |
-| 眼鏡アイコン | PNG形式、`public/assets/icons/logo.png` に配置（ユーザー提供） |
-| SVGアセット | 新規作成 |
-| KaTeX | 不採用（読みやすさ優先、太字・サイズ強調で代替） |
-| amplitude | 不採用 |
-| Writing機能 | 空配列で開始、更新しやすい構造 |
-| ターミナルフォーム | UIのみ（送信機能は将来実装） |
+| 項目               | 決定内容                                                       |
+| ------------------ | -------------------------------------------------------------- |
+| 既存ページ         | アーカイブ保存後、削除                                         |
+| データ構造         | `timeline.json`（インデックス）+ `details/`（詳細）の分離構成  |
+| MDXレンダラー      | 不採用（シンプルなMarkdown/コンポーネントで十分）              |
+| 眼鏡アイコン       | PNG形式、`public/assets/icons/logo.png` に配置（ユーザー提供） |
+| SVGアセット        | 新規作成                                                       |
+| KaTeX              | 不採用（読みやすさ優先、太字・サイズ強調で代替）               |
+| amplitude          | 不採用                                                         |
+| Writing機能        | 空配列で開始、更新しやすい構造                                 |
+| ターミナルフォーム | UIのみ（送信機能は将来実装）                                   |
