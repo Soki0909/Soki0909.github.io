@@ -1,0 +1,22 @@
+{
+  "id": "piano-app",
+  "category": "project",
+  "title": "3D電子ピアノアプリケーション",
+  "date": "2025-01",
+  "summary": "OpenGL/GLUTとリアルタイム音響合成技術を組み合わせたインタラクティブな仮想電子ピアノ。",
+  "tags": ["C言語", "OpenGL", "音響合成", "3Dグラフィックス"],
+  "content": {
+    "overview": "キーボード操作で鍵盤を弾ける3D仮想ピアノ。",
+    "features": [
+      "61鍵の仮想ピアノ",
+      "リアルタイム音響合成によるサウンド生成",
+      "視点移動・ズーム機能",
+      "鍵盤アニメーション"
+    ],
+    "technologies": {
+      "graphics": ["OpenGL", "GLUT"],
+      "audio": ["PortAudio", "サイン波合成"],
+      "language": ["C言語"]
+    }
+  }
+}

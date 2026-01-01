@@ -1,0 +1,34 @@
+{
+  "id": "sleep-buster",
+  "category": "project",
+  "title": "Sleep Buster - ハッカソン最優秀賞作品",
+  "date": "2025-08",
+  "summary": "Hackit 2025で最優秀賞（賞金5万円）を受賞。48時間でWebRTC映像通信とロボット制御を統合したアラームアプリを開発。",
+  "tags": ["Android", "Kotlin", "WebRTC", "Firebase", "LEGO EV3"],
+  "content": {
+    "overview": "起床の課題をテクノロジーで解決する革新的なアラームアプリ。",
+    "highlights": [
+      "48時間のハッカソンで開発",
+      "最優秀賞（賞金5万円）獲得",
+      "4人チームのリーダーとして参加"
+    ],
+    "technologies": {
+      "mobile": ["Android Studio", "Kotlin", "Jetpack Compose"],
+      "communication": ["WebRTC", "Firebase Realtime Database"],
+      "hardware": ["LEGO Mindstorms EV3", "Bluetooth"]
+    },
+    "challenges": [
+      "WebRTCのシグナリング処理",
+      "EV3とのBluetooth通信の安定化",
+      "48時間という短い開発期間"
+    ],
+    "learned": [
+      "限られた時間での優先順位付け",
+      "チームワークとリーダーシップ",
+      "プレゼンテーションスキル"
+    ]
+  },
+  "links": {
+    "github": "https://github.com/Soki0909/SleepBuster"
+  }
+}

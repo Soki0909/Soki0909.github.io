@@ -1,0 +1,26 @@
+{
+  "id": "matlab-edm",
+  "category": "project",
+  "title": "MATLABによるEDM楽曲制作",
+  "date": "2025-06",
+  "summary": "外部音源を一切使用せず、全ての音をプログラムで生成した80小節のEDM楽曲。",
+  "tags": ["MATLAB", "音響信号処理", "FFT", "デジタルフィルタ"],
+  "content": {
+    "overview": "音響信号処理技術を創作活動に応用した実験的プロジェクト。",
+    "highlights": [
+      "80小節（約3分）のオリジナル楽曲",
+      "全ての音をプログラムで生成",
+      "フーリエ変換・デジタルフィルタを活用"
+    ],
+    "technologies": {
+      "core": ["MATLAB", "Signal Processing Toolbox"],
+      "techniques": ["FFT", "IIR/FIRフィルタ", "ADSR エンベロープ", "波形合成"]
+    },
+    "structure": {
+      "intro": "16小節 - シンセサイザーによる導入",
+      "buildup": "16小節 - リズム・ベースの追加",
+      "drop": "32小節 - 主旋律とベースドロップ",
+      "outro": "16小節 - フェードアウト"
+    }
+  }
+}

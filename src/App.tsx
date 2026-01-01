@@ -14,16 +14,16 @@ import ScrollToTop from './components/ScrollToTop';
 const Hub = lazy(() => import('./pages/Hub'));
 const Document = lazy(() => import('./pages/Document'));
 
-// ===== 旧ページ（互換性維持、後日削除予定） =====
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Skills = lazy(() => import('./pages/Skills'));
-const Experience = lazy(() => import('./pages/Experience'));
-const Vision = lazy(() => import('./pages/Vision'));
-const Works = lazy(() => import('./pages/Works'));
-const WorkDetail = lazy(() => import('./pages/WorkDetail'));
-const ActivityDetail = lazy(() => import('./pages/ActivityDetail'));
-const Contact = lazy(() => import('./pages/Contact'));
+// ===== 旧ページ（アーカイブ） =====
+const Home = lazy(() => import('./pages/archive/Home'));
+const About = lazy(() => import('./pages/archive/About'));
+const Skills = lazy(() => import('./pages/archive/Skills'));
+const Experience = lazy(() => import('./pages/archive/Experience'));
+const Vision = lazy(() => import('./pages/archive/Vision'));
+const Works = lazy(() => import('./pages/archive/Works'));
+const WorkDetail = lazy(() => import('./pages/archive/WorkDetail'));
+const ActivityDetail = lazy(() => import('./pages/archive/ActivityDetail'));
+const Contact = lazy(() => import('./pages/archive/Contact'));
 
 // ローディングコンポーネント
 const LoadingSpinner = () => (

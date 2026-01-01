@@ -1,0 +1,20 @@
+{
+  "id": "chrome-extension",
+  "category": "project",
+  "title": "Chrome拡張機能 - 学習効率化ツール",
+  "date": "2024-10",
+  "summary": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール。",
+  "tags": ["JavaScript", "Chrome Extension API", "DOM操作"],
+  "content": {
+    "overview": "キーボード操作だけで学生ポータルを快適に利用できる拡張機能。",
+    "features": [
+      "ショートカットキーによるナビゲーション",
+      "頻繁に使う機能へのクイックアクセス",
+      "ページレイアウトの最適化"
+    ],
+    "technologies": {
+      "core": ["JavaScript (ES6+)", "Chrome Extension Manifest V3"],
+      "techniques": ["DOM操作", "イベントリスナー", "ローカルストレージ"]
+    }
+  }
+}
