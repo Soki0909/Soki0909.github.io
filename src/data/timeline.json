@@ -1,0 +1,100 @@
+{
+  "items": [
+    {
+      "id": "sleep-buster",
+      "date": "2025-08",
+      "category": "project",
+      "title": "Sleep Buster - ハッカソン最優秀賞作品",
+      "summary": "Hackit 2025で最優秀賞（賞金5万円）を受賞。48時間でWebRTC映像通信とロボット制御を統合したアラームアプリを開発。",
+      "tags": ["Android", "Kotlin", "WebRTC", "Firebase", "LEGO EV3"],
+      "hasDetail": true
+    },
+    {
+      "id": "matlab-edm",
+      "date": "2025-06",
+      "category": "project",
+      "title": "MATLABによるEDM楽曲制作",
+      "summary": "外部音源を一切使用せず、全ての音をプログラムで生成した80小節のEDM楽曲。音響信号処理技術の創作応用。",
+      "tags": ["MATLAB", "音響信号処理", "FFT", "デジタルフィルタ"],
+      "hasDetail": true
+    },
+    {
+      "id": "piano-app",
+      "date": "2025-01",
+      "category": "project",
+      "title": "3D電子ピアノアプリケーション",
+      "summary": "OpenGL/GLUTとリアルタイム音響合成技術を組み合わせたインタラクティブな仮想電子ピアノ。",
+      "tags": ["C言語", "OpenGL", "音響合成", "3Dグラフィックス"],
+      "hasDetail": true
+    },
+    {
+      "id": "ai-booth",
+      "date": "2024-11",
+      "category": "project",
+      "title": "AI体験ブース - 教育イベント企画運営",
+      "summary": "小学生向け科学実験教室で「複雑な技術を誰もが楽しめる体験に変える」企画を実現。約50名参加。",
+      "tags": ["Teachable Machine", "教育技術", "イベント企画"],
+      "hasDetail": true
+    },
+    {
+      "id": "chrome-extension",
+      "date": "2024-10",
+      "category": "project",
+      "title": "Chrome拡張機能 - 学習効率化ツール",
+      "summary": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール。",
+      "tags": ["JavaScript", "Chrome Extension API", "DOM操作"],
+      "hasDetail": true
+    },
+    {
+      "id": "portfolio",
+      "date": "2024-09",
+      "category": "project",
+      "title": "ポートフォリオサイト",
+      "summary": "React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト。Clean Architecture採用。",
+      "tags": ["React", "TypeScript", "Tailwind CSS", "Vite"],
+      "hasDetail": true
+    },
+    {
+      "id": "robocup-home",
+      "date": "2023-04",
+      "category": "activity",
+      "title": "夢考房RoboCup@Homeプロジェクト",
+      "summary": "68名規模の大規模プロジェクトでサブリーダー・安全活動リーダーを担当。RCJ2025 Open Challenge上位リーグ3位。",
+      "tags": [
+        "ロボット工学",
+        "AI・機械学習",
+        "Flutter",
+        "Firebase",
+        "リーダーシップ"
+      ],
+      "hasDetail": true
+    },
+    {
+      "id": "student-station",
+      "date": "2023-10",
+      "category": "activity",
+      "title": "学生ステーション運営スタッフ",
+      "summary": "2年間の学内インターンシップで人前で話すことへの苦手意識を克服。プレゼンテーション能力を獲得。",
+      "tags": ["コミュニケーション", "プレゼンテーション", "イベント企画"],
+      "hasDetail": true
+    },
+    {
+      "id": "teaching-practice",
+      "date": "2023-10",
+      "category": "activity",
+      "title": "教師としての実践力向上プログラム",
+      "summary": "教職課程履修中。介護等体験を通じて「音楽のバリアフリー実現」という生涯の夢の原点を形成。",
+      "tags": ["教職課程", "介護等体験", "バリアフリー"],
+      "hasDetail": true
+    },
+    {
+      "id": "media-learning",
+      "date": "2024-04",
+      "category": "activity",
+      "title": "メディア情報学習・研究室体験活動",
+      "summary": "メディア情報学科のサブメジャー履修で音響信号処理を学習。MATLABでEDM楽曲を制作。",
+      "tags": ["音響信号処理", "MATLAB", "音楽制作", "感性表現"],
+      "hasDetail": true
+    }
+  ]
+}

@@ -520,3 +520,42 @@ export interface ActivityDetail {
 export interface ActivityDetailsData {
   activities: Record<string, ActivityDetail>;
 }
+
+// ====================================
+// リニューアル用型定義 (Hub Page)
+// ====================================
+
+/** タイムラインカテゴリ */
+export type HubCategory = 'project' | 'activity' | 'writing';
+
+/** タイムラインアイテム（Hub Page用） */
+export interface HubTimelineItem {
+  id: string;
+  date: string;
+  category: HubCategory;
+  title: string;
+  summary: string;
+  tags: string[];
+  hasDetail: boolean;
+  externalLink?: string;
+}
+
+/** 執筆記事アイテム */
+export interface WritingItem {
+  id: string;
+  date: string;
+  title: string;
+  platform: string;
+  url: string;
+  summary?: string;
+}
+
+/** タイムラインデータ */
+export interface TimelineData {
+  items: HubTimelineItem[];
+}
+
+/** 執筆記事データ */
+export interface WritingsData {
+  items: WritingItem[];
+}
