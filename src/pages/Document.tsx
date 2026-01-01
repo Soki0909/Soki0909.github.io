@@ -1,5 +1,6 @@
 import { useParams, Link } from 'react-router-dom';
 import { getTimelineItem } from '../hooks/useTimeline';
+import { useDetail } from '../hooks/useDetail';
 import SEO from '../components/SEO';
 
 /**
@@ -11,6 +12,9 @@ const Document = () => {
 
   // タイムラインからアイテムを取得
   const item = id ? getTimelineItem(id) : undefined;
+
+  // 詳細データを動的に読み込み
+  const { detail, loading } = useDetail(id);
 
   // アイテムが見つからない場合
   if (!item) {
@@ -111,18 +115,247 @@ const Document = () => {
           </header>
 
           {/* Content Area */}
-          <main className="prose prose-gray max-w-none">
-            <div className="bg-gray-50 rounded-lg p-8 text-center">
-              <p className="text-gray-500 font-mono text-sm">
-                {'// '}詳細コンテンツは details/{id}.json から読み込み予定
-              </p>
-              <p className="text-gray-400 text-sm mt-2">
-                現在は基本情報のみ表示しています。
-              </p>
-            </div>
+          <main className="space-y-8">
+            {loading ? (
+              <div className="bg-gray-50 rounded-lg p-8 text-center">
+                <p className="text-gray-500">読み込み中...</p>
+              </div>
+            ) : detail ? (
+              <>
+                {/* Overview */}
+                {detail.content.overview && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      概要
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      {detail.content.overview}
+                    </p>
+                  </section>
+                )}
+
+                {/* Highlights */}
+                {detail.content.highlights &&
+                  detail.content.highlights.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        ハイライト
+                      </h2>
+                      <ul className="space-y-2">
+                        {detail.content.highlights.map((highlight, index) => (
+                          <li
+                            key={index}
+                            className="flex items-start gap-3 text-gray-700"
+                          >
+                            <span className="text-blue-500 mt-1">▸</span>
+                            {highlight}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                {/* Technologies */}
+                {detail.content.technologies && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      使用技術
+                    </h2>
+                    <div className="space-y-4">
+                      {Object.entries(detail.content.technologies).map(
+                        ([category, techs]) => (
+                          <div key={category}>
+                            <h3 className="text-sm font-medium text-gray-500 uppercase mb-2">
+                              {category}
+                            </h3>
+                            <div className="flex flex-wrap gap-2">
+                              {techs.map((tech, index) => (
+                                <span
+                                  key={index}
+                                  className="px-3 py-1 text-sm bg-blue-50 text-blue-700 rounded-full"
+                                >
+                                  {tech}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        )
+                      )}
+                    </div>
+                  </section>
+                )}
+
+                {/* Media - Images */}
+                {detail.media?.images && detail.media.images.length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      スクリーンショット
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                      {detail.media.images.map((image, index) => (
+                        <img
+                          key={index}
+                          src={image}
+                          alt={`Screenshot ${index + 1}`}
+                          className="rounded-lg shadow-md w-full h-auto"
+                          loading="lazy"
+                        />
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                {/* Media - Videos */}
+                {detail.media?.videos && detail.media.videos.length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      デモ動画
+                    </h2>
+                    <div className="space-y-4">
+                      {detail.media.videos.map((video, index) => (
+                        <video
+                          key={index}
+                          src={video}
+                          controls
+                          className="rounded-lg shadow-md w-full"
+                        >
+                          お使いのブラウザは動画再生に対応していません。
+                        </video>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                {/* Media - YouTube */}
+                {detail.media?.youtube && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      動画
+                    </h2>
+                    <div className="aspect-video">
+                      <iframe
+                        src={detail.media.youtube}
+                        title="YouTube video"
+                        className="w-full h-full rounded-lg shadow-md"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                      />
+                    </div>
+                  </section>
+                )}
+
+                {/* Challenges */}
+                {detail.content.challenges &&
+                  detail.content.challenges.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        技術的な課題
+                      </h2>
+                      <ul className="space-y-2">
+                        {detail.content.challenges.map((challenge, index) => (
+                          <li
+                            key={index}
+                            className="flex items-start gap-3 text-gray-700"
+                          >
+                            <span className="text-orange-500 mt-1">⚠</span>
+                            {challenge}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                {/* Learned */}
+                {detail.content.learned &&
+                  detail.content.learned.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        学んだこと
+                      </h2>
+                      <ul className="space-y-2">
+                        {detail.content.learned.map((learn, index) => (
+                          <li
+                            key={index}
+                            className="flex items-start gap-3 text-gray-700"
+                          >
+                            <span className="text-green-500 mt-1">✓</span>
+                            {learn}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                {/* Links */}
+                {detail.links && Object.keys(detail.links).length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      リンク
+                    </h2>
+                    <div className="flex flex-wrap gap-3">
+                      {detail.links.github && (
+                        <a
+                          href={detail.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                        >
+                          GitHub ↗
+                        </a>
+                      )}
+                      {detail.links.demo && (
+                        <a
+                          href={detail.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        >
+                          Demo ↗
+                        </a>
+                      )}
+                      {detail.links.slides && (
+                        <a
+                          href={detail.links.slides}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                        >
+                          Slides ↗
+                        </a>
+                      )}
+                      {detail.links.article && (
+                        <a
+                          href={detail.links.article}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        >
+                          Article ↗
+                        </a>
+                      )}
+                    </div>
+                  </section>
+                )}
+              </>
+            ) : (
+              <div className="bg-gray-50 rounded-lg p-8 text-center">
+                <p className="text-gray-500 font-mono text-sm">
+                  {'// '}詳細データは準備中です
+                </p>
+              </div>
+            )}
           </main>
 
-          {/* External Link */}
+          {/* External Link (from timeline.json) */}
           {item.externalLink && (
             <div className="mt-8">
               <a

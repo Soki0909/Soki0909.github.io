@@ -6,17 +6,53 @@
   "summary": "OpenGL/GLUTとリアルタイム音響合成技術を組み合わせたインタラクティブな仮想電子ピアノ。",
   "tags": ["C言語", "OpenGL", "音響合成", "3Dグラフィックス"],
   "content": {
-    "overview": "キーボード操作で鍵盤を弾ける3D仮想ピアノ。",
-    "features": [
-      "61鍵の仮想ピアノ",
-      "リアルタイム音響合成によるサウンド生成",
-      "視点移動・ズーム機能",
-      "鍵盤アニメーション"
+    "overview": "この3D電子ピアノアプリケーションは、コンピュータグラフィックス技術とデジタル音響処理技術を融合させた学術作品です。C言語とOpenGL/GLUTを使用して3D空間に仮想ピアノを構築し、リアルタイム音響合成によって自然な演奏体験を実現しました。",
+    "highlights": [
+      "金沢工業大学「コンピュータグラフィックス」科目作品",
+      "外部音源ファイルを一切使用しないプロシージャルオーディオ",
+      "Blender製高品質3Dモデル（100以上のオブジェクト）",
+      "7オクターブ（C1〜C8）の演奏可能音域",
+      "6日間（計15時間）での集中開発",
+      "1,226行の高品質Cコード"
     ],
     "technologies": {
-      "graphics": ["OpenGL", "GLUT"],
-      "audio": ["PortAudio", "サイン波合成"],
-      "language": ["C言語"]
-    }
+      "graphics": ["OpenGL", "GLUT", "Blender"],
+      "audio": [
+        "miniaudio",
+        "プロシージャルオーディオ",
+        "加算合成",
+        "ADSRエンベロープ"
+      ],
+      "development": ["C言語", "Visual Studio"]
+    },
+    "challenges": [
+      "リアルタイム音響合成による自然な音色生成の実現",
+      "OpenGL/GLUTでの複雑な3Dモデル描画とアニメーション",
+      "88鍵ピアノの正確な配置と当たり判定システム",
+      "プロシージャルオーディオとグラフィックスの同期処理",
+      "データ駆動型設計による拡張性の高いシステム構築"
+    ],
+    "learned": [
+      "3Dグラフィックスプログラミングの基礎から応用まで",
+      "リアルタイム音響合成とデジタル信号処理技術",
+      "C言語による大規模システム開発手法（1,226行）",
+      "Blenderを使った3Dモデル制作とOpenGL連携",
+      "ユーザーインターフェースとインタラクション設計"
+    ]
+  },
+  "media": {
+    "images": [
+      "/images/projects/piano-app/piano_overview.png",
+      "/images/projects/piano-app/manual_play.png",
+      "/images/projects/piano-app/timbre_change_before.png",
+      "/images/projects/piano-app/timbre_change_after.png",
+      "/images/projects/piano-app/octave_change.png",
+      "/images/projects/piano-app/auto_play_menu.png",
+      "/images/projects/piano-app/auto_play_active.png"
+    ],
+    "videos": ["/media/videos/piano-app/demo.mp4"]
+  },
+  "links": {
+    "github": "https://github.com/Soki0909/PianoApp"
   }
 }

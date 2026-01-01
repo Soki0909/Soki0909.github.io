@@ -559,3 +559,45 @@ export interface TimelineData {
 export interface WritingsData {
   items: WritingItem[];
 }
+
+// ====================================
+// 詳細ページ用型定義 (Document Page)
+// ====================================
+
+/** 詳細ページのメディア情報 */
+export interface DetailMedia {
+  images?: string[];
+  videos?: string[];
+  youtube?: string;
+  audios?: string[];
+}
+
+/** 詳細ページのリンク情報 */
+export interface DetailLinks {
+  github?: string;
+  demo?: string;
+  slides?: string;
+  article?: string;
+}
+
+/** 詳細ページのコンテンツ */
+export interface DetailContent {
+  overview?: string;
+  highlights?: string[];
+  technologies?: Record<string, string[]>;
+  challenges?: string[];
+  learned?: string[];
+}
+
+/** 詳細データ */
+export interface DetailData {
+  id: string;
+  category?: string;
+  title?: string;
+  date?: string;
+  summary?: string;
+  tags?: string[];
+  content: DetailContent;
+  media?: DetailMedia;
+  links?: DetailLinks;
+}
