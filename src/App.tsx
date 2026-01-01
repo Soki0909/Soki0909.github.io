@@ -1,20 +1,20 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { useEffect, Suspense, lazy } from 'react';
-
-// レイアウトコンポーネントのインポート（即座に読み込みが必要なため直接インポート）
-import Header from './components/Header';
-import Footer from './components/Footer';
-import ScrollToTop from './components/ScrollToTop';
-
-// コンテキストのインポート
-import { ProjectProvider } from './contexts/ProjectContext';
 
 // 分析・最適化ユーティリティのインポート
 import { initGA, useGoogleAnalytics } from './utils/analytics';
 import { initializePerformanceOptimizations } from './utils/coreWebVitals';
 import { initializeSEOAnalytics } from './utils/seoAnalytics';
 
-// コード分割のための動的インポート
+// コンテキストのインポート
+import { ProjectProvider } from './contexts/ProjectContext';
+import ScrollToTop from './components/ScrollToTop';
+
+// ===== 新しいページ（リニューアル後） =====
+const Hub = lazy(() => import('./pages/Hub'));
+const Document = lazy(() => import('./pages/Document'));
+
+// ===== 旧ページ（互換性維持、後日削除予定） =====
 const Home = lazy(() => import('./pages/Home'));
 const About = lazy(() => import('./pages/About'));
 const Skills = lazy(() => import('./pages/Skills'));
@@ -32,33 +32,49 @@ const LoadingSpinner = () => (
   </div>
 );
 
-// レイアウトコンポーネント
-const AppLayout = () => {
-  // Google Analytics のページビュー追跡
+// Hub用レイアウト（ヘッダー・フッターなし）
+const HubLayout = () => {
   useGoogleAnalytics();
 
   return (
     <ProjectProvider>
       <ScrollToTop />
-      <div className="min-h-screen bg-gray-100 text-gray-800">
-        <Header />
-        <main className="pt-header container mx-auto px-4 sm:px-6 py-6 lg:py-8">
-          <Suspense fallback={<LoadingSpinner />}>
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/skills" element={<Skills />} />
-              <Route path="/experience" element={<Experience />} />
-              <Route path="/vision" element={<Vision />} />
-              <Route path="/works" element={<Works />} />
-              <Route path="/works/:id" element={<WorkDetail />} />
-              <Route path="/activity/:id" element={<ActivityDetail />} />
-              <Route path="/contact" element={<Contact />} />
-            </Routes>
-          </Suspense>
-        </main>
-        <Footer />
-      </div>
+      <Suspense fallback={<LoadingSpinner />}>
+        <Routes>
+          {/* ===== 新しいルート ===== */}
+          <Route path="/" element={<Hub />} />
+          <Route path="/docs/:id" element={<Document />} />
+
+          {/* ===== 旧ルート（リダイレクト） ===== */}
+          <Route path="/about" element={<Navigate to="/" replace />} />
+          <Route path="/skills" element={<Navigate to="/" replace />} />
+          <Route path="/experience" element={<Navigate to="/" replace />} />
+          <Route path="/vision" element={<Navigate to="/" replace />} />
+          <Route path="/works" element={<Navigate to="/" replace />} />
+          <Route path="/contact" element={<Navigate to="/" replace />} />
+
+          {/* 旧詳細ルート → 新ルートにリダイレクト */}
+          <Route
+            path="/works/:id"
+            element={<Navigate to="/docs/sleep-buster" replace />}
+          />
+          <Route
+            path="/activity/:id"
+            element={<Navigate to="/docs/robocup-home" replace />}
+          />
+
+          {/* ===== 開発用: 旧ページへの直接アクセス ===== */}
+          <Route path="/_old" element={<Home />} />
+          <Route path="/_old/about" element={<About />} />
+          <Route path="/_old/skills" element={<Skills />} />
+          <Route path="/_old/experience" element={<Experience />} />
+          <Route path="/_old/vision" element={<Vision />} />
+          <Route path="/_old/works" element={<Works />} />
+          <Route path="/_old/works/:id" element={<WorkDetail />} />
+          <Route path="/_old/activity/:id" element={<ActivityDetail />} />
+          <Route path="/_old/contact" element={<Contact />} />
+        </Routes>
+      </Suspense>
     </ProjectProvider>
   );
 };
@@ -79,7 +95,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <AppLayout />
+      <HubLayout />
     </BrowserRouter>
   );
 }
