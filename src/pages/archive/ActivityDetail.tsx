@@ -4,7 +4,7 @@ import LazyImage from '../../components/LazyImage';
 import type { ActivityDetail } from '../../types/dataModels';
 
 // ActivityDetailsData を手動でインポート（実際のJSONファイルから）
-import activityDetailsData from '../../data/activityDetails.json';
+import activityDetailsData from '../../data/archive/activityDetails.json';
 
 interface ActivityDetailsJSON {
   activities: { [key: string]: ActivityDetail };

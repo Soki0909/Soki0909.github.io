@@ -28,5 +28,11 @@ dist-ssr
 *.sln
 *.sw?
 
-# Gemini AI configuration
-GEMINI.md
+# OS generated files
+Thumbs.db
+ehthumbs.db
+
+# Temporary files
+*.tmp
+*.bak
+*.cache

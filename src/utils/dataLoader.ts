@@ -11,10 +11,10 @@ import type {
 
 import profileData from '../data/profile.json';
 import skillsData from '../data/skills.json';
-import activitiesData from '../data/activities.json';
-import visionData from '../data/vision.json';
-import homeData from '../data/home.json';
-import contactsData from '../data/contacts.json';
+import activitiesData from '../data/archive/activities.json';
+import visionData from '../data/archive/vision.json';
+import homeData from '../data/archive/home.json';
+import contactsData from '../data/archive/contacts.json';
 import seoData from '../data/seo.json';
 import projectsData from '../data/projects.json';
 
