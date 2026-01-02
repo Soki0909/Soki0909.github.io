@@ -67,6 +67,14 @@ const Hub = () => {
               誰もが自分の可能性を最大限に発揮できる世界をつくる。
             </p>
 
+            {/* Profile Link */}
+            <a
+              href="/profile"
+              className="inline-block mt-4 px-4 py-2 bg-gray-900 text-white text-sm font-medium rounded-lg hover:bg-gray-700 transition-colors"
+            >
+              プロフィールを見る →
+            </a>
+
             {/* Social Links */}
             <div className="flex flex-wrap gap-4 mt-6 font-mono text-sm">
               <a

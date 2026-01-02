@@ -12,6 +12,7 @@ import ScrollToTop from './components/ScrollToTop';
 
 // ===== 新しいページ（リニューアル後） =====
 const Hub = lazy(() => import('./pages/Hub'));
+const Profile = lazy(() => import('./pages/Profile'));
 const Document = lazy(() => import('./pages/Document'));
 
 // ===== 旧ページ（アーカイブ） =====
@@ -43,6 +44,7 @@ const HubLayout = () => {
         <Routes>
           {/* ===== 新しいルート ===== */}
           <Route path="/" element={<Hub />} />
+          <Route path="/profile" element={<Profile />} />
           <Route path="/docs/:id" element={<Document />} />
 
           {/* ===== 旧ルート（リダイレクト） ===== */}
