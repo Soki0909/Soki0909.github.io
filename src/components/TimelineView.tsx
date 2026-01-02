@@ -44,11 +44,18 @@ const TimelineView = () => {
 
       {/* タイムライン */}
       <div className="relative">
-        {/* 左側の縦線（タイムライン軸） */}
-        <div className="absolute left-4 top-0 bottom-0 w-px bg-gray-200 hidden md:block" />
+        {/* 左側の縦線（タイムライン軸）- SVG使用 */}
+        <div className="absolute left-6 top-0 bottom-0 w-0.5 hidden md:block">
+          <img
+            src="/assets/svg/timeline-axis.svg"
+            alt=""
+            className="w-full h-full object-cover"
+            aria-hidden="true"
+          />
+        </div>
 
-        {/* アイテムリスト */}
-        <div className="space-y-4">
+        {/* アイテムリスト - 右に寄せる */}
+        <div className="space-y-4 md:pl-16">
           {items.length === 0 ? (
             <div className="text-center py-8 text-gray-500">
               該当するアイテムがありません
@@ -57,7 +64,7 @@ const TimelineView = () => {
             items.map((item) => (
               <div key={item.id} className="flex gap-4 md:gap-6">
                 {/* 左側: 日付ノード（デスクトップのみ） */}
-                <div className="hidden md:flex flex-shrink-0 w-16 justify-center">
+                <div className="hidden md:flex flex-shrink-0 w-20 justify-start">
                   <SignalNode date={item.date} category={item.category} />
                 </div>
 

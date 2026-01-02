@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <style>
+      .math-symbol { 
+        fill: #e5e7eb; 
+        font-family: 'Times New Roman', serif;
+        font-style: italic;
+      }
+    </style>
+  </defs>
+  
+  <!-- Mathematical symbols scattered across the background -->
+  <text class="math-symbol" x="30" y="40" font-size="24">∫</text>
+  <text class="math-symbol" x="120" y="80" font-size="18">∑</text>
+  <text class="math-symbol" x="250" y="35" font-size="20">π</text>
+  <text class="math-symbol" x="350" y="60" font-size="16">∞</text>
+  
+  <text class="math-symbol" x="60" y="120" font-size="14">dx</text>
+  <text class="math-symbol" x="180" y="140" font-size="22">Δ</text>
+  <text class="math-symbol" x="300" y="110" font-size="18">∂</text>
+  <text class="math-symbol" x="380" y="150" font-size="16">θ</text>
+  
+  <text class="math-symbol" x="20" y="200" font-size="20">λ</text>
+  <text class="math-symbol" x="100" y="230" font-size="16">ω</text>
+  <text class="math-symbol" x="200" y="195" font-size="28">∮</text>
+  <text class="math-symbol" x="320" y="220" font-size="18">∏</text>
+  
+  <text class="math-symbol" x="50" y="290" font-size="18">∇</text>
+  <text class="math-symbol" x="150" y="320" font-size="14">lim</text>
+  <text class="math-symbol" x="260" y="280" font-size="20">∈</text>
+  <text class="math-symbol" x="360" y="310" font-size="16">∀</text>
+  
+  <text class="math-symbol" x="80" y="370" font-size="16">≈</text>
+  <text class="math-symbol" x="180" y="390" font-size="18">σ</text>
+  <text class="math-symbol" x="290" y="360" font-size="22">Φ</text>
+  <text class="math-symbol" x="370" y="385" font-size="14">ε</text>
+</svg>

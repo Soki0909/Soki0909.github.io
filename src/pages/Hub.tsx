@@ -27,9 +27,20 @@ const Hub = () => {
         url="https://soki0909.github.io"
       />
 
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white relative">
+        {/* 数学記号の背景装飾 */}
+        <div
+          className="absolute inset-0 opacity-30 pointer-events-none"
+          style={{
+            backgroundImage: "url('/assets/svg/math-scatter.svg')",
+            backgroundRepeat: 'repeat',
+            backgroundSize: '400px 400px',
+          }}
+          aria-hidden="true"
+        />
+
         {/* ===== Header Area: Signal Input ===== */}
-        <header className="border-b border-gray-100 py-12 px-4">
+        <header className="border-b border-gray-100 py-12 px-4 relative">
           <div className="max-w-4xl mx-auto">
             {/* Logo + Author Definition */}
             <div className="flex items-center gap-4 mb-6">

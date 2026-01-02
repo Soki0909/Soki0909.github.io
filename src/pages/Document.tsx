@@ -223,6 +223,7 @@ const Document = () => {
                           src={video}
                           controls
                           className="rounded-lg shadow-md w-full"
+                          style={{ maxHeight: '70vh', objectFit: 'contain' }}
                         >
                           お使いのブラウザは動画再生に対応していません。
                         </video>
