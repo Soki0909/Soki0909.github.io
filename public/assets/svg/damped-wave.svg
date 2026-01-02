@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 40" preserveAspectRatio="xMidYMid meet">
+  <defs>
+    <linearGradient id="waveGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e5e7eb;stop-opacity:0" />
+      <stop offset="10%" style="stop-color:#9ca3af;stop-opacity:1" />
+      <stop offset="90%" style="stop-color:#9ca3af;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e5e7eb;stop-opacity:0" />
+    </linearGradient>
+  </defs>
+  <!-- Damped Sine Wave: y = A * e^(-λx) * sin(ωx) -->
+  <path 
+    d="M 0 20 
+       Q 25 5, 50 20 Q 75 35, 100 20
+       Q 120 8, 140 20 Q 160 32, 180 20
+       Q 195 10, 210 20 Q 225 30, 240 20
+       Q 252 12, 264 20 Q 276 28, 288 20
+       Q 297 14, 306 20 Q 315 26, 324 20
+       Q 331 15, 338 20 Q 345 25, 352 20
+       Q 358 16, 364 20 Q 370 24, 376 20
+       Q 381 17, 386 20 Q 391 23, 396 20
+       Q 400 18, 404 20 Q 408 22, 412 20
+       L 800 20"
+    fill="none" 
+    stroke="url(#waveGradient)" 
+    stroke-width="2"
+    stroke-linecap="round"
+  />
+</svg>

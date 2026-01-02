@@ -1,4 +1,5 @@
 import TimelineView from '../components/TimelineView';
+import WaveDivider from '../components/WaveDivider';
 import { useWritings } from '../hooks/useWritings';
 import SEO from '../components/SEO';
 
@@ -95,8 +96,11 @@ const Hub = () => {
             <TimelineView />
           </section>
 
+          {/* Wave Divider */}
+          <WaveDivider />
+
           {/* ===== Writing Area ===== */}
-          <section className="mt-16">
+          <section className="mt-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <span className="font-mono text-gray-400">{'// '}</span>
               Writings
@@ -140,8 +144,11 @@ const Hub = () => {
             )}
           </section>
 
+          {/* Wave Divider */}
+          <WaveDivider />
+
           {/* ===== Personal Area (Toggle) ===== */}
-          <section className="mt-16">
+          <section className="mt-8">
             <details className="group">
               <summary className="cursor-pointer list-none">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
