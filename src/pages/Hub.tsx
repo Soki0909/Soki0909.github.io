@@ -34,7 +34,7 @@ const Hub = () => {
           style={{
             backgroundImage: "url('/assets/svg/math-scatter.svg')",
             backgroundRepeat: 'repeat',
-            backgroundSize: '400px 400px',
+            backgroundSize: '600px 600px',
           }}
           aria-hidden="true"
         />
