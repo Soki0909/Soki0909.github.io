@@ -30,10 +30,18 @@ const Hub = () => {
         {/* ===== Header Area: Signal Input ===== */}
         <header className="border-b border-gray-100 py-12 px-4">
           <div className="max-w-4xl mx-auto">
-            {/* Author Definition */}
-            <div className="font-mono text-sm text-gray-500 mb-4">
-              <span className="text-blue-600">const</span> AUTHOR ={' '}
-              <span className="text-green-600">"KUME Soki"</span>;
+            {/* Logo + Author Definition */}
+            <div className="flex items-center gap-4 mb-6">
+              {/* 眼鏡ロゴ */}
+              <img
+                src="/assets/icons/logo.png"
+                alt="KUME Soki Logo"
+                className="w-12 h-12 rounded-lg"
+              />
+              <div className="font-mono text-sm text-gray-500">
+                <span className="text-blue-600">const</span> AUTHOR ={' '}
+                <span className="text-green-600">"KUME Soki"</span>;
+              </div>
             </div>
 
             {/* Title */}
@@ -48,7 +56,7 @@ const Hub = () => {
             </p>
 
             {/* Social Links */}
-            <div className="flex gap-4 mt-6 font-mono text-sm">
+            <div className="flex flex-wrap gap-4 mt-6 font-mono text-sm">
               <a
                 href="https://github.com/Soki0909"
                 target="_blank"
@@ -56,6 +64,22 @@ const Hub = () => {
                 className="text-gray-500 hover:text-gray-900 transition-colors"
               >
                 GitHub
+              </a>
+              <a
+                href="https://x.com/Soki_dev"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                X (Twitter)
+              </a>
+              <a
+                href="https://zenn.dev/soki0909"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                Zenn
               </a>
             </div>
           </div>
