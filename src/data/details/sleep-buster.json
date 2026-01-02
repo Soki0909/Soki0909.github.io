@@ -6,29 +6,42 @@
   "summary": "Hackit 2025で最優秀賞（賞金5万円）を受賞。48時間でWebRTC映像通信とロボット制御を統合したアラームアプリを開発。",
   "tags": ["Android", "Kotlin", "WebRTC", "Firebase", "LEGO EV3"],
   "content": {
-    "overview": "起床の課題をテクノロジーで解決する革新的なアラームアプリ。",
+    "overview": "Sleep Busterは、Hackit 2025で最優秀賞（賞金5万円）を受賞した革新的なアラームアプリです。「みんなの朝を『つなぐ』アプリ」をコンセプトに、友人同士で起床を支援し合う新しい体験を提供。設定時間に起きられない人を、友達が遠隔操作でロボット「バスタ君」を動かして物理的に起こすという、ユニークで確実な起床システムです。",
     "highlights": [
-      "48時間のハッカソンで開発",
-      "最優秀賞（賞金5万円）獲得",
-      "4人チームのリーダーとして参加"
+      "Hackit 2025 最優秀賞（賞金5万円）",
+      "3日間（48時間）の集中開発",
+      "5名チーム（3年生3名、1年生2名）のリーダー",
+      "WebRTC P2P映像通信システムの設計・実装",
+      "LEGO MINDSTORMS EV3ロボットとの連携"
     ],
     "technologies": {
-      "mobile": ["Android Studio", "Kotlin", "Jetpack Compose"],
-      "communication": ["WebRTC", "Firebase Realtime Database"],
-      "hardware": ["LEGO Mindstorms EV3", "Bluetooth"]
+      "mobile": ["Android", "Kotlin", "Jetpack Compose", "Material Design 3"],
+      "communication": ["WebRTC", "SkyWay SDK", "Firebase Firestore"],
+      "hardware": ["LEGO MINDSTORMS EV3", "Bluetooth"]
     },
     "challenges": [
-      "WebRTCのシグナリング処理",
-      "EV3とのBluetooth通信の安定化",
-      "48時間という短い開発期間"
+      "Android開発初心者チームでの3日間集中開発",
+      "WebRTC P2P映像通信とロボット制御の完全統合",
+      "Firebase Firestoreによるマルチデバイス状態同期",
+      "LEGO EV3との効率的な通信プロトコル設計"
     ],
     "learned": [
-      "限られた時間での優先順位付け",
-      "チームワークとリーダーシップ",
-      "プレゼンテーションスキル"
+      "WebRTC技術による実用的なP2P映像通信システム開発",
+      "ハードウェア・ソフトウェア連携システムの設計・実装",
+      "短期集中開発でのプロジェクトマネジメント",
+      "初心者チーム技術指導とペアプログラミング手法"
     ]
   },
+  "media": {
+    "images": [
+      "/images/projects/sleep-buster/slide_title.jpg",
+      "/images/projects/sleep-buster/main.jpg",
+      "/images/projects/sleep-buster/buster_mode_ui.jpg",
+      "/images/projects/sleep-buster/buster_mode.jpg"
+    ],
+    "videos": ["/media/videos/sleep-buster/demo.mp4"]
+  },
   "links": {
-    "github": "https://github.com/Soki0909/SleepBuster"
+    "github": "https://github.com/Saisei2004/WILDCARD"
   }
 }

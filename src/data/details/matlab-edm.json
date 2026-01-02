@@ -3,24 +3,58 @@
   "category": "project",
   "title": "MATLABによるEDM楽曲制作",
   "date": "2025-06",
-  "summary": "外部音源を一切使用せず、全ての音をプログラムで生成した80小節のEDM楽曲。",
+  "summary": "外部音源を一切使用せず、全ての音をプログラムで生成した80小節のEDM楽曲。Basstripper「In The City」のリミックス。",
   "tags": ["MATLAB", "音響信号処理", "FFT", "デジタルフィルタ"],
   "content": {
-    "overview": "音響信号処理技術を創作活動に応用した実験的プロジェクト。",
+    "overview": "韓国のBeatboxer「Hiss」やBasstripperの楽曲に触発され、外部音源を完全に排除してMATLABのみでEDM楽曲を制作した音響信号処理の実践作品です。「音の本質を理解し、それをコードで再現する」という音響工学の根本的挑戦に取り組みました。",
     "highlights": [
-      "80小節（約3分）のオリジナル楽曲",
-      "全ての音をプログラムで生成",
-      "フーリエ変換・デジタルフィルタを活用"
+      "原曲: Basstripper - In The City (BPM 180)",
+      "80小節完全構成（約3分30秒）",
+      "6種類の音源を完全自作（Kick, Hihat, Snare等）",
+      "スペクトル解析による実音の科学的再現",
+      "7つの専用MATLABツールを開発"
     ],
     "technologies": {
       "core": ["MATLAB", "Signal Processing Toolbox"],
-      "techniques": ["FFT", "IIR/FIRフィルタ", "ADSR エンベロープ", "波形合成"]
+      "techniques": [
+        "FFT変換",
+        "バンドパスフィルタ",
+        "ADSRエンベロープ",
+        "スペクトル解析",
+        "倍音解析"
+      ],
+      "tools": [
+        "wav_waveform.m",
+        "wav_add.m",
+        "wav_env.m",
+        "sequencer6.m",
+        "sequencer7.m"
+      ]
     },
-    "structure": {
-      "intro": "16小節 - シンセサイザーによる導入",
-      "buildup": "16小節 - リズム・ベースの追加",
-      "drop": "32小節 - 主旋律とベースドロップ",
-      "outro": "16小節 - フェードアウト"
-    }
-  }
+    "challenges": [
+      "ハイハット音の科学的再現（10kHz以上のノイズ構造）",
+      "スネア音の波形分析と複合音再現",
+      "Distortion Effectの倍音解析と周波数遷移処理"
+    ],
+    "learned": [
+      "フーリエ解析の実践応用",
+      "デジタルフィルタ設計の最適化",
+      "音響合成理論（加算合成・減算合成・振幅変調）",
+      "アルゴリズムと感性の融合による音楽制作手法"
+    ]
+  },
+  "media": {
+    "images": [
+      "/images/projects/matlab-edm/kick_source_waveform.png",
+      "/images/projects/matlab-edm/kick_final_waveform.png",
+      "/images/projects/matlab-edm/hihat_real_spectrum.png",
+      "/images/projects/matlab-edm/hihat_final_spectrum.png",
+      "/images/projects/matlab-edm/snare_hiss_waveform.png",
+      "/images/projects/matlab-edm/snare_final_waveform.png",
+      "/images/projects/matlab-edm/distortion_spectrum.png",
+      "/images/projects/matlab-edm/overall_timetable.png"
+    ],
+    "audios": ["/media/audios/matlab-edm/final_track.wav"]
+  },
+  "links": {}
 }
