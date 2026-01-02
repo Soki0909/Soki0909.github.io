@@ -2,7 +2,7 @@
   <defs>
     <style>
       .math-symbol { 
-        fill: #e5e7eb; 
+        fill: #9ca3af; 
         font-family: 'Times New Roman', serif;
         font-style: italic;
       }

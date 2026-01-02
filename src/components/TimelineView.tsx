@@ -44,15 +44,8 @@ const TimelineView = () => {
 
       {/* タイムライン */}
       <div className="relative">
-        {/* 左側の縦線（タイムライン軸）- SVG使用 */}
-        <div className="absolute left-6 top-0 bottom-0 w-0.5 hidden md:block">
-          <img
-            src="/assets/svg/timeline-axis.svg"
-            alt=""
-            className="w-full h-full object-cover"
-            aria-hidden="true"
-          />
-        </div>
+        {/* 左側の縦線（タイムライン軸）- シンプルなCSS線 */}
+        <div className="absolute left-6 top-0 bottom-0 w-px bg-gray-300 hidden md:block" />
 
         {/* アイテムリスト - 右に寄せる */}
         <div className="space-y-4 md:pl-16">
