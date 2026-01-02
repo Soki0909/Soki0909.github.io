@@ -21,7 +21,7 @@ export const useDetail = (id: string | undefined) => {
         // 動的インポートで詳細データを読み込む
         const module = await import(`../data/details/${id}.json`);
         setDetail(module.default as DetailData);
-      } catch (_) {
+      } catch {
         console.warn(`Detail data not found for: ${id}`);
         setDetail(null);
       } finally {
@@ -36,4 +36,3 @@ export const useDetail = (id: string | undefined) => {
 };
 
 export default useDetail;
-
