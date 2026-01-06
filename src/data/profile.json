@@ -184,12 +184,7 @@
         },
         "emat": {
           "score": "偏差値60超（全分野）",
-          "subjects": [
-            "線形代数",
-            "微積分",
-            "確率統計",
-            "離散数学"
-          ],
+          "subjects": ["線形代数", "微積分", "確率統計", "離散数学"],
           "achievement": "情報数学の幅広い分野で高水準の理解"
         },
         "additionalCertifications": [
@@ -215,12 +210,7 @@
   "technicalSettings": {
     "defaultLicense": "https://opensource.org/licenses/MIT",
     "applicationCategory": "DeveloperApplication",
-    "supportedPlatforms": [
-      "Windows",
-      "macOS",
-      "Linux",
-      "Web"
-    ],
+    "supportedPlatforms": ["Windows", "macOS", "Linux", "Web"],
     "defaultLanguage": "ja-JP",
     "currency": "JPY",
     "availability": "https://schema.org/InStock",
