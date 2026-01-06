@@ -1,3 +1,17 @@
 {
-  "items": []
+  "items": [
+    {
+      "id": "mathlog-sum-concat-generalization",
+      "title": "「33から88までの和が3388になる」現象の一般化",
+      "platform": "Mathlog",
+      "url": "https://mathlog.info/articles/0wrW5Y4ts11wQydRBkaU",
+      "date": "2026-01-06",
+      "tags": [
+        "数学",
+        "整数論",
+        "Python"
+      ],
+      "description": "連続整数の和が開始値と終了値を連結した数と一致する条件を数学的に一般化し、Pythonで全探索した結果をまとめた記事。"
+    }
+  ]
 }
