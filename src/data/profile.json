@@ -23,14 +23,14 @@
       "expectedGraduationYear": "2027",
       "department": "工学部 情報工学科",
       "jobTitle": "情報工学科学生",
-      "currentStatus": "3年次在学中（2027年3月卒業予定・新卒採用対象）",
+      "currentStatus": "3年次在学中（大学院進学予定）",
       "academicFocus": [
         "AI・機械学習（深層学習、画像処理）",
         "音響信号処理（MATLAB活用）",
         "ソフトウェア工学（Web開発、システム設計）",
         "データサイエンス（統計解析、可視化）"
       ],
-      "gpa": "優秀な成績を維持（詳細は面談時にお伝えします）",
+      "gpa": "優秀な成績を維持し、学科290人中2位",
       "honors": [
         "学業優秀者表彰候補",
         "プロジェクト活動での顕著な成果",
@@ -184,7 +184,12 @@
         },
         "emat": {
           "score": "偏差値60超（全分野）",
-          "subjects": ["線形代数", "微積分", "確率統計", "離散数学"],
+          "subjects": [
+            "線形代数",
+            "微積分",
+            "確率統計",
+            "離散数学"
+          ],
           "achievement": "情報数学の幅広い分野で高水準の理解"
         },
         "additionalCertifications": [
@@ -210,7 +215,12 @@
   "technicalSettings": {
     "defaultLicense": "https://opensource.org/licenses/MIT",
     "applicationCategory": "DeveloperApplication",
-    "supportedPlatforms": ["Windows", "macOS", "Linux", "Web"],
+    "supportedPlatforms": [
+      "Windows",
+      "macOS",
+      "Linux",
+      "Web"
+    ],
     "defaultLanguage": "ja-JP",
     "currency": "JPY",
     "availability": "https://schema.org/InStock",
