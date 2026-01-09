@@ -576,6 +576,7 @@ export interface DetailMedia {
 export interface DetailLinks {
   github?: string;
   demo?: string;
+  youtube?: string;
   slides?: string;
   article?: string;
 }
@@ -583,6 +584,7 @@ export interface DetailLinks {
 /** 詳細ページのコンテンツ */
 export interface DetailContent {
   overview?: string;
+  myRole?: string;
   highlights?: string[];
   technologies?: Record<string, string[]>;
   challenges?: string[];

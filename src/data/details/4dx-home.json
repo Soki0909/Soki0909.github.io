@@ -18,6 +18,7 @@
   ],
   "content": {
     "overview": "4DX@HOMEは、JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞した革新的な4Dエフェクトシステムです。映画館の4DX体験を自宅で再現するため、Raspberry Pi・ESP-12E・3Dプリント筐体を駆使し、動画と完全同期した5種類のエフェクト（振動・光・風・水・色彩）を提供します。WebSocket + MQTT + Cloud Runによる3層アーキテクチャで、200ms間隔の高精度同期を実現しました。",
+    "myRole": "APIサーバーの設計・構築を担当し、FastAPIを用いたCloud Run上でのバックエンド実装を行いました。また、Webアプリケーション（React）とRaspberry Pi間の双方向WebSocket通信制御を実装し、200ms間隔の高精度同期システムを実現しました。フロントエンドからバックエンド、デバイス制御まで、通信レイヤー全体のアーキテクチャ設計と実装を担当しました。",
     "highlights": [
       "🏆 JPHACKS 2025 審査委員特別賞",
       "🎖️ Innovator認定",
@@ -182,11 +183,6 @@
       "/images/projects/4dx-home/pitch-time.jpg",
       "/images/projects/4dx-home/expo-booth.jpg",
       "/images/projects/4dx-home/group-photo.jpg"
-    ],
-    "videos": [
-      "/media/videos/4dx-home/promo.mp4",
-      "/media/videos/4dx-home/effect-station-demo.mp4",
-      "/media/videos/4dx-home/action-drive-demo.mp4"
     ]
   },
   "links": {

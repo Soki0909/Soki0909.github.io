@@ -122,6 +122,68 @@ const Document = () => {
               </div>
             ) : detail ? (
               <>
+                {/* Links */}
+                {detail.links && Object.keys(detail.links).length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      リンク
+                    </h2>
+                    <div className="flex flex-wrap gap-3">
+                      {detail.links.github && (
+                        <a
+                          href={detail.links.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
+                        >
+                          GitHub ↗
+                        </a>
+                      )}
+                      {detail.links.demo && (
+                        <a
+                          href={detail.links.demo}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+                        >
+                          Demo ↗
+                        </a>
+                      )}
+                      {detail.links.youtube && (
+                        <a
+                          href={detail.links.youtube}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
+                        >
+                          YouTube ↗
+                        </a>
+                      )}
+                      {detail.links.slides && (
+                        <a
+                          href={detail.links.slides}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
+                        >
+                          Slides ↗
+                        </a>
+                      )}
+                      {detail.links.article && (
+                        <a
+                          href={detail.links.article}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
+                        >
+                          Article ↗
+                        </a>
+                      )}
+                    </div>
+                  </section>
+                )}
+
                 {/* Overview */}
                 {detail.content.overview && (
                   <section>
@@ -131,6 +193,19 @@ const Document = () => {
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.overview}
+                    </p>
+                  </section>
+                )}
+
+                {/* My Role */}
+                {detail.content.myRole && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      担当業務
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      {detail.content.myRole}
                     </p>
                   </section>
                 )}
@@ -294,58 +369,6 @@ const Document = () => {
                       </ul>
                     </section>
                   )}
-
-                {/* Links */}
-                {detail.links && Object.keys(detail.links).length > 0 && (
-                  <section>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
-                      リンク
-                    </h2>
-                    <div className="flex flex-wrap gap-3">
-                      {detail.links.github && (
-                        <a
-                          href={detail.links.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors"
-                        >
-                          GitHub ↗
-                        </a>
-                      )}
-                      {detail.links.demo && (
-                        <a
-                          href={detail.links.demo}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
-                        >
-                          Demo ↗
-                        </a>
-                      )}
-                      {detail.links.slides && (
-                        <a
-                          href={detail.links.slides}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-purple-600 text-white rounded-lg hover:bg-purple-700 transition-colors"
-                        >
-                          Slides ↗
-                        </a>
-                      )}
-                      {detail.links.article && (
-                        <a
-                          href={detail.links.article}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors"
-                        >
-                          Article ↗
-                        </a>
-                      )}
-                    </div>
-                  </section>
-                )}
               </>
             ) : (
               <div className="bg-gray-50 rounded-lg p-8 text-center">
