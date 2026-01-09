@@ -1,0 +1,197 @@
+{
+  "id": "4dx-home",
+  "category": "project",
+  "title": "4DX@HOME - あなたのおうちで「最高の映像」が「最強の体験」へ。",
+  "date": "2025-11",
+  "summary": "JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞。WebSocket同期・MQTT通信で動画と4Dエフェクト（振動・光・風・水・色彩）を同期する革新的システム。",
+  "tags": [
+    "React",
+    "TypeScript",
+    "FastAPI",
+    "Raspberry Pi",
+    "ESP-12E",
+    "MQTT",
+    "IoT",
+    "WebSocket",
+    "Cloud Run",
+    "3Dプリント"
+  ],
+  "content": {
+    "overview": "4DX@HOMEは、JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞した革新的な4Dエフェクトシステムです。映画館の4DX体験を自宅で再現するため、Raspberry Pi・ESP-12E・3Dプリント筐体を駆使し、動画と完全同期した5種類のエフェクト（振動・光・風・水・色彩）を提供します。WebSocket + MQTT + Cloud Runによる3層アーキテクチャで、200ms間隔の高精度同期を実現しました。",
+    "highlights": [
+      "🏆 JPHACKS 2025 審査委員特別賞",
+      "🎖️ Innovator認定",
+      "🏅 株式会社PLAY賞",
+      "🏅 株式会社東海理化賞",
+      "🏅 ULSコンサルティング株式会社賞",
+      "200ms間隔の高精度WebSocket同期",
+      "Raspberry Pi + ESP-12E × 4台の無線MQTT制御",
+      "Autodesk Fusionで設計した3Dプリント筐体"
+    ],
+    "technologies": {
+      "frontend": [
+        "React 18.3.1",
+        "TypeScript 5.9.3",
+        "Vite 7.1.9",
+        "TailwindCSS 4.1.14",
+        "WebSocket API",
+        "Render (デプロイ)"
+      ],
+      "backend": [
+        "FastAPI 0.104.1",
+        "Python 3.9+",
+        "Uvicorn 0.24.0",
+        "WebSockets 11.0.3",
+        "Pydantic 2.5.0",
+        "Google Cloud Run"
+      ],
+      "hardware": [
+        "Raspberry Pi 3 Model B",
+        "ESP-12E (ESP8266) × 4台",
+        "偏心モーター × 8個",
+        "サーボモーター（水噴射制御）",
+        "DC扇風機（PWM制御）",
+        "高輝度LED + RGB LEDテープ"
+      ],
+      "communication": [
+        "WebSocket (Frontend ↔ Cloud Run)",
+        "WebSocket (Cloud Run ↔ Raspberry Pi)",
+        "MQTT (Raspberry Pi ↔ ESP-12E)",
+        "Wi-Fi (802.11n)"
+      ],
+      "design": ["Autodesk Fusion (3D CAD)", "3Dプリント (PLA フィラメント)"]
+    },
+    "architecture": {
+      "overview": "完全無線通信の3層アーキテクチャ",
+      "layers": [
+        {
+          "name": "フロントエンド層",
+          "description": "React SPAで動画再生・同期メッセージ送信",
+          "technologies": ["React", "TypeScript", "Vite", "WebSocket"],
+          "deployment": "Render Static Site"
+        },
+        {
+          "name": "バックエンドAPI層",
+          "description": "WebSocket中継・タイムライン管理・デバイス認証",
+          "technologies": ["FastAPI", "Python", "Uvicorn", "Pydantic"],
+          "deployment": "Google Cloud Run"
+        },
+        {
+          "name": "デバイスハブ層",
+          "description": "Raspberry PiがMQTTブローカーとしてESP-12E × 4台を制御",
+          "technologies": ["Python", "Flask", "MQTT", "Wi-Fi AP"],
+          "deployment": "Raspberry Pi OS"
+        },
+        {
+          "name": "アクチュエーター層",
+          "description": "ESP-12E × 4台が各種エフェクトを物理制御",
+          "technologies": ["Arduino", "C++", "MQTT Client"],
+          "devices": ["偏心モーター", "サーボモーター", "DC扇風機", "LED"]
+        }
+      ]
+    },
+    "devices": [
+      {
+        "name": "EffectStation",
+        "description": "環境エフェクトデバイス（風・水・光・色）",
+        "features": [
+          "4種類の環境エフェクト",
+          "卓上サイズ（約29cm）",
+          "ESP-12E × 2台で制御",
+          "3Dプリント筐体（Autodesk Fusion設計）"
+        ],
+        "effects": [
+          "水: サーボモーター制御の給水口・噴射ノズル",
+          "風: DC扇風機（PWM制御）",
+          "光: 高輝度LED（フラッシュエフェクト）",
+          "色: RGB LEDテープ（色彩エフェクト）"
+        ]
+      },
+      {
+        "name": "ActionDrive",
+        "description": "振動フィードバックデバイス（クッション型）",
+        "features": [
+          "偏心モーター × 8個",
+          "16種類の振動パターン",
+          "1人/2人利用モード対応",
+          "ESP-12E × 2台で制御",
+          "3Dプリント筐体（Autodesk Fusion設計）"
+        ],
+        "modes": [
+          "1人利用: 背中とお尻の2点で異なる振動を制御",
+          "2人利用: 横に並べて2人で振動体験を共有"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "title": "200ms間隔の高精度同期",
+        "description": "動画再生位置を200ms間隔でWebSocket送信し、Cloud Run経由でRaspberry Piに伝達。タイムライン処理エンジンが該当エフェクトをMQTT配信し、ESP-12Eが即座にアクチュエーターを制御。"
+      },
+      {
+        "title": "完全無線通信システム",
+        "description": "Raspberry PiがWi-Fiアクセスポイント（PiMQTT-AP）を提供し、4台のESP-12Eが無線接続。配線の取り回しを最小化し、設置の自由度を向上。"
+      },
+      {
+        "title": "動的タイムライン送信",
+        "description": "フロントエンドから任意の動画のタイムラインJSONをアップロード可能。準備画面で動画選択→タイムライン送信→デバイステストの5ステップフローを実現。"
+      },
+      {
+        "title": "ストップ処理機能",
+        "description": "動画一時停止・終了時に全アクチュエーターを安全停止。WebSocketの`stop_signal`メッセージが全デバイスに伝播し、振動・風・水・光を一斉停止。"
+      },
+      {
+        "title": "3Dプリント筐体",
+        "description": "Autodesk Fusionで設計した専用筐体を3Dプリント（PLAフィラメント）。デバイスを保護しつつ、エフェクトの効果を最大化する構造設計。"
+      }
+    ],
+    "challenges": [
+      "WebSocket + MQTT + 無線通信の3層同期システム設計",
+      "200ms間隔の高頻度同期による通信安定性確保",
+      "Raspberry Pi 1台で4台のESP-12Eを安定制御するMQTTブローカー構築",
+      "動画再生とエフェクトのミリ秒単位のタイミング調整",
+      "3Dプリント筐体設計とアクチュエーター配置の最適化",
+      "Cloud RunとRaspberry Piの双方向WebSocket接続の実装",
+      "ハッカソン期間中の段階的デプロイと動作検証"
+    ],
+    "learned": [
+      "WebSocketによる大規模リアルタイム同期システム設計",
+      "Raspberry PiとESP-12Eを用いたIoTデバイス制御",
+      "MQTT通信プロトコルの実装とブローカー運用",
+      "Cloud Runを用いたスケーラブルなバックエンド構築",
+      "Autodesk Fusionによる3D CAD設計・3Dプリント実践",
+      "ハードウェア・ソフトウェア統合システムのデバッグ手法",
+      "大規模ハッカソンでのチーム開発・プレゼンテーション"
+    ],
+    "impact": "JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞し、「映画館の4DX体験を自宅で再現する」という新しい価値提案が高く評価されました。技術的には、WebSocket + MQTT + 無線通信による3層同期システムの実現、200ms間隔の高精度同期、Raspberry Pi + ESP-12Eによる完全無線IoT制御など、複数の先進技術を統合したアーキテクチャが評価されました。また、Autodesk Fusionによる3D設計と3Dプリントを活用した実用的なデバイス筐体の製作も、プロトタイプとしての完成度を高めました。"
+  },
+  "media": {
+    "images": [
+      "/images/projects/4dx-home/system-architecture.png",
+      "/images/projects/4dx-home/effect-station.jpg",
+      "/images/projects/4dx-home/effect-station-3d.png",
+      "/images/projects/4dx-home/action-drive.jpg",
+      "/images/projects/4dx-home/action-drive-3d.png",
+      "/images/projects/4dx-home/action-drive-contents.png",
+      "/images/projects/4dx-home/device-diagram.png",
+      "/images/projects/4dx-home/web-home.png",
+      "/images/projects/4dx-home/web-select.png",
+      "/images/projects/4dx-home/web-preparation.png",
+      "/images/projects/4dx-home/web-player.png",
+      "/images/projects/4dx-home/award-photo.jpg",
+      "/images/projects/4dx-home/pitch-time.jpg",
+      "/images/projects/4dx-home/expo-booth.jpg",
+      "/images/projects/4dx-home/group-photo.jpg"
+    ],
+    "videos": [
+      "/media/videos/4dx-home/promo.mp4",
+      "/media/videos/4dx-home/effect-station-demo.mp4",
+      "/media/videos/4dx-home/action-drive-demo.mp4"
+    ]
+  },
+  "links": {
+    "github": "https://github.com/jphacks/kz_2504",
+    "demo": "https://kz-2504.onrender.com",
+    "youtube": "https://youtu.be/t1n5mQZU_nM"
+  }
+}

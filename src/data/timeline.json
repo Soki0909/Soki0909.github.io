@@ -1,6 +1,23 @@
 {
   "items": [
     {
+      "id": "4dx-home",
+      "date": "2025-11",
+      "category": "project",
+      "title": "4DX@HOME - あなたのおうちで「最高の映像」が「最強の体験」へ。",
+      "summary": "JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞。WebSocket同期・MQTT通信で動画と4Dエフェクトを同期する革新的システム。",
+      "tags": [
+        "React",
+        "TypeScript",
+        "FastAPI",
+        "Raspberry Pi",
+        "MQTT",
+        "IoT",
+        "WebSocket"
+      ],
+      "hasDetail": true
+    },
+    {
       "id": "sleep-buster",
       "date": "2025-08",
       "category": "project",
