@@ -86,20 +86,28 @@ const Hub = () => {
                 GitHub
               </a>
               <a
-                href="https://x.com/Soki_dev"
+                href="https://x.com/9meeeeee"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-gray-900 transition-colors"
               >
-                X (Twitter)
+                X (旧Twitter)
               </a>
               <a
-                href="https://zenn.dev/soki0909"
+                href="https://note.com/9me"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-500 hover:text-gray-900 transition-colors"
               >
-                Zenn
+                Note
+              </a>
+              <a
+                href="https://mathlog.info/users/raIAdq0dpjYVwcKxGPieX40gx5n1"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-500 hover:text-gray-900 transition-colors"
+              >
+                Mathlog
               </a>
             </div>
           </div>
