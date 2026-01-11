@@ -21,7 +21,7 @@
     "developmentType": "team",
     "teamSize": "4名",
     "developmentPeriod": "地方予選: 2日間（10月11-12日） + 改善期間: 2週間（10月24日-11月8日） + 決勝: 11月9日",
-    "myRole": "APIサーバーの設計・構築を担当し、FastAPIを用いたCloud Run上でのバックエンド実装を行いました。また、Webアプリケーション（React）とRaspberry Pi間の双方向WebSocket通信制御を実装し、200ms間隔の高精度同期システムを実現しました。フロントエンドからバックエンド、デバイス制御まで、通信レイヤー全体のアーキテクチャ設計と実装を担当しました。",
+    "myRole": "APIサーバーの設計・構築を担当し、FastAPIを用いたCloud Run上でのバックエンド実装を行いました。また、Webアプリケーション（React）とRaspberry Pi間の双方向WebSocket通信制御を実装し、200ms間隔の高精度同期システムを実現しました。フロントエンドからバックエンド、デバイス制御まで、通信レイヤー全体のアーキテクチャ設計と実装を担当しました。さらに、GitHubリポジトリのREADME・技術ドキュメント・セットアップガイド等のドキュメント全般をほぼ単独で執筆し、プロジェクトの技術的な情報発信を担当しました。",
     "highlights": [
       "🏆 JPHACKS 2025 審査委員特別賞",
       "🎖️ Innovator認定",
@@ -30,7 +30,8 @@
       "🏅 ULSコンサルティング株式会社賞",
       "200ms間隔の高精度WebSocket同期",
       "Raspberry Pi + ESP-12E × 4台の無線MQTT制御",
-      "Autodesk Fusionで設計した3Dプリント筐体"
+      "Autodesk Fusionで設計した3Dプリント筐体",
+      "📝 GitHubドキュメント全般をほぼ単独で執筆"
     ],
     "technologies": {
       "frontend": [
