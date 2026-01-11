@@ -17,9 +17,10 @@
     "3Dプリント"
   ],
   "content": {
-    "overview": "4DX@HOMEは、JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞した革新的な4Dエフェクトシステムです。映画館の4DX体験を自宅で再現するため、Raspberry Pi・ESP-12E・3Dプリント筐体を駆使し、動画と完全同期した5種類のエフェクト（振動・光・風・水・色彩）を提供します。WebSocket + MQTT + Cloud Runによる3層アーキテクチャで、200ms間隔の高精度同期を実現しました。",
+    "overview": "4DX@HOMEは、国内最大規模の学生向けハックイベントJPHACKS 2025（全国144チーム461名参加）で審査委員特別賞・Innovator認定・企業賞3冠を受賞した革新的な4Dエフェクトシステムです。金沢会場での地方予選（Hack Day）を突破し、16チームのファイナリストとして東京大学で開催された決勝（Award Day）に進出。映画館の4DX体験を自宅で再現するため、Raspberry Pi・ESP-12E・3Dプリント筐体を駆使し、動画と完全同期した5種類のエフェクト（振動・光・風・水・色彩）を提供します。WebSocket + MQTT + Cloud Runによる3層アーキテクチャで、200ms間隔の高精度同期を実現しました。",
     "developmentType": "team",
-    "teamSize": "4名（JPHACKS 2025）",
+    "teamSize": "4名",
+    "developmentPeriod": "地方予選: 2日間（10月11-12日） + 改善期間: 2週間（10月24日-11月8日） + 決勝: 11月9日",
     "myRole": "APIサーバーの設計・構築を担当し、FastAPIを用いたCloud Run上でのバックエンド実装を行いました。また、Webアプリケーション（React）とRaspberry Pi間の双方向WebSocket通信制御を実装し、200ms間隔の高精度同期システムを実現しました。フロントエンドからバックエンド、デバイス制御まで、通信レイヤー全体のアーキテクチャ設計と実装を担当しました。",
     "highlights": [
       "🏆 JPHACKS 2025 審査委員特別賞",
@@ -166,7 +167,7 @@
       "ハードウェア・ソフトウェア統合システムのデバッグ手法",
       "大規模ハッカソンでのチーム開発・プレゼンテーション"
     ],
-    "impact": "JPHACKS 2025で審査委員特別賞・Innovator認定・企業賞3冠を受賞し、「映画館の4DX体験を自宅で再現する」という新しい価値提案が高く評価されました。技術的には、WebSocket + MQTT + 無線通信による3層同期システムの実現、200ms間隔の高精度同期、Raspberry Pi + ESP-12Eによる完全無線IoT制御など、複数の先進技術を統合したアーキテクチャが評価されました。また、Autodesk Fusionによる3D設計と3Dプリントを活用した実用的なデバイス筐体の製作も、プロトタイプとしての完成度を高めました。"
+    "impact": "国内最大規模の学生向けハックイベントJPHACKS 2025（全国144チーム461名参加）で審査委員特別賞・Innovator認定・企業賞3冠を受賞し、「映画館の4DX体験を自宅で再現する」という新しい価値提案が高く評価されました。地方予選（Hack Day）を突破後、約2週間の改善期間（Kaizen Sprint）でプロトタイプを製品レベルまでブラッシュアップし、16チームのファイナリストとして東京大学 伊藤国際ホールでの決勝（Award Day）に進出。技術面では、WebSocket + MQTT + 無線通信による3層同期システムの実現、200ms間隔の高精度同期、Raspberry Pi + ESP-12Eによる完全無線IoT制御など、複数の先進技術を統合したアーキテクチャが評価されました。また、Autodesk Fusionによる3D設計と3Dプリントを活用した実用的なデバイス筐体の製作も、プロトタイプとしての完成度を高めました。"
   },
   "media": {
     "images": [
@@ -190,6 +191,7 @@
   "links": {
     "github": "https://github.com/jphacks/kz_2504",
     "demo": "https://kz-2504.onrender.com",
-    "youtube": "https://youtu.be/t1n5mQZU_nM"
+    "youtube": "https://youtu.be/t1n5mQZU_nM",
+    "official": "https://jphacks.com/2025/result/innovator/"
   }
 }

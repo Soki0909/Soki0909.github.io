@@ -7,8 +7,16 @@ import SEO from '../components/SEO';
  * 久米蒼輝の詳細なプロフィール・実績・スキルを表示
  */
 const Profile = () => {
-  const { personal, education, mission, principles, achievements } =
-    profileData;
+  const {
+    personal,
+    education,
+    mission,
+    principles,
+    achievements,
+    selfIntroduction,
+    turningPoints,
+    personalityType,
+  } = profileData;
 
   return (
     <>
@@ -56,6 +64,39 @@ const Profile = () => {
               </div>
             </div>
           </section>
+
+          {/* Self Introduction */}
+          {selfIntroduction && (
+            <section className="mb-12">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <span className="font-mono text-gray-400">{'// '}</span>
+                {selfIntroduction.title}
+              </h2>
+              <div className="bg-blue-50 rounded-lg p-6 border-l-4 border-blue-500">
+                <p className="text-gray-700 leading-relaxed">
+                  {selfIntroduction.content}
+                </p>
+              </div>
+            </section>
+          )}
+
+          {/* Personality Type */}
+          {personalityType && (
+            <section className="mb-12">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <span className="font-mono text-gray-400">{'// '}</span>
+                性格タイプ
+              </h2>
+              <div className="bg-gray-50 rounded-lg p-6">
+                <p className="text-lg font-medium text-gray-900 mb-2">
+                  {personalityType.result}
+                </p>
+                <p className="text-sm text-gray-600">
+                  {personalityType.description}
+                </p>
+              </div>
+            </section>
+          )}
 
           {/* Education */}
           <section className="mb-12">
@@ -161,6 +202,36 @@ const Profile = () => {
               </p>
             </div>
           </section>
+
+          {/* Turning Points */}
+          {turningPoints && turningPoints.length > 0 && (
+            <section className="mb-12">
+              <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                <span className="font-mono text-gray-400">{'// '}</span>
+                ターニングポイント
+              </h2>
+              <div className="space-y-4">
+                {turningPoints.map((point, index) => (
+                  <div
+                    key={index}
+                    className="bg-gradient-to-r from-gray-50 to-white rounded-lg p-6 border-l-4 border-amber-400"
+                  >
+                    <div className="flex items-start gap-3">
+                      <span className="text-2xl">{point.icon}</span>
+                      <div>
+                        <h3 className="font-semibold text-gray-900 mb-2">
+                          {point.title}
+                        </h3>
+                        <p className="text-sm text-gray-600 leading-relaxed">
+                          {point.description}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
 
           {/* Back to Hub */}
           <div className="text-center">

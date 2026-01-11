@@ -28,20 +28,20 @@
         "AI・機械学習（深層学習、画像処理）",
         "音響信号処理（MATLAB活用）",
         "ソフトウェア工学（Web開発、システム設計）",
-        "データサイエンス（統計解析、可視化）"
+        "IoTシステム（組込み・通信制御）"
       ],
-      "gpa": "優秀な成績を維持し、学科290人中2位",
+      "gpa": "学科290人中2位の成績を維持",
       "honors": [
         "学業優秀者表彰候補",
-        "プロジェクト活動での顕著な成果",
-        "教職課程履修者として模範的な学習姿勢"
+        "JPHACKS 2025 審査委員特別賞・Innovator認定・企業賞3冠",
+        "Hackit 2025 最優秀賞（賞金5万円）"
       ]
     }
   },
   "mission": {
     "title": "エンジニアとしての価値提案",
-    "content": "AI・機械学習・Web開発・音響技術の幅広いスキルセットで、チームの課題解決に貢献し、技術力と人間力で組織に価値を創造します",
-    "description": "Hackit 2025最優秀賞、68名組織サブリーダー、paiza Aランクの実績が、即戦力としての実力を証明しています。"
+    "content": "AI・Web開発・IoT・音響技術の幅広いスキルセットで、チームの課題解決に貢献し、技術力と人間力で組織に価値を創造します",
+    "description": "JPHACKS 2025審査委員特別賞、Hackit 2025最優秀賞、68名組織サブリーダー、paiza Aランクの実績が、即戦力としての実力を証明しています。"
   },
   "principles": {
     "actionPrinciple": {
@@ -52,24 +52,24 @@
     "strengths": {
       "title": "即戦力としての強み",
       "quote": "技術力・実績・チームワークで組織に価値を創造します",
-      "description": "Hackit 2025最優秀賞、68名組織運営、paiza Aランクの実績が示す通り、技術的なスキルとリーダーシップ、そして幅広い課題解決能力を兼ね備えています。新卒から即戦力として貢献できる準備が整っています。",
+      "description": "JPHACKS 2025審査委員特別賞（全国144チーム中16チーム選出）、Hackit 2025最優秀賞、68名組織運営、paiza Aランクの実績が示す通り、技術的なスキルとリーダーシップ、そして幅広い課題解決能力を兼ね備えています。",
       "items": [
         {
           "icon": "🏆",
-          "title": "実績に裏付けられた技術力",
-          "description": "ハッカソン最優秀賞・paiza Aランクなど客観的評価による技術力証明",
+          "title": "全国規模の実績で証明された技術力",
+          "description": "JPHACKS 2025 審査委員特別賞・企業賞3冠、Hackit 2025最優秀賞、paiza Aランク",
           "color": "blue"
         },
         {
           "icon": "👥",
           "title": "68名組織での実践的リーダーシップ",
-          "description": "2年間継続でのサブリーダー・安全活動リーダー・新入生教育経験",
+          "description": "3年間継続でのサブリーダー・安全活動リーダー・新入生教育経験",
           "color": "green"
         },
         {
-          "icon": "🤖",
-          "title": "AI時代対応の幅広いスキルセット",
-          "description": "AI・Web開発・音響技術・教育技術の複合的専門性",
+          "icon": "🌐",
+          "title": "フルスタック対応の幅広いスキルセット",
+          "description": "React/TypeScript/FastAPI/IoT/音響技術の複合的専門性",
           "color": "purple"
         }
       ]
@@ -77,7 +77,7 @@
   },
   "selfIntroduction": {
     "title": "140字自己紹介",
-    "content": "Hackit 2025最優秀賞受賞、paiza Aランク取得、68名組織サブリーダーとして多様な技術課題に挑戦しています。高校時代の画像処理AI学習がきっかけで情報工学科に進学し、現在はAI・機械学習・音響信号処理を掛け合わせた新しい価値創造を模索中。2027年3月卒業予定です。"
+    "content": "JPHACKS 2025審査委員特別賞・企業賞3冠、Hackit 2025最優秀賞受賞。68名組織サブリーダーとしてリーダーシップも発揮。React/TypeScript/FastAPIでのフルスタック開発から、IoTシステム・音響信号処理まで幅広く対応。2027年3月卒業予定です。"
   },
   "personalityType": {
     "result": "自由さと計画性をバランスよく持ち、冷静で誠実な協調型タイプ",
@@ -96,6 +96,41 @@
     }
   ],
   "achievements": [
+    {
+      "icon": "🎖️",
+      "title": "JPHACKS 2025",
+      "subtitle": "審査委員特別賞・Innovator認定・企業賞3冠",
+      "description": "4DX@HOME - 自宅で映画館の4DX体験を再現。WebSocket + MQTT + Cloud Runによる200ms精度の同期システムを担当",
+      "color": "bg-purple-500",
+      "organizer": "JPHACKS組織委員会",
+      "eventDates": {
+        "startDate": "2025-10-11",
+        "endDate": "2025-11-09"
+      },
+      "details": {
+        "participants": "全国144チーム461名参加",
+        "teamSize": "4名",
+        "myRole": "FastAPI/Cloud RunによるAPIサーバー設計・構築、WebSocket通信制御、フロント〜デバイス間の通信アーキテクチャ全体設計",
+        "technologies": [
+          "React",
+          "TypeScript",
+          "FastAPI",
+          "Cloud Run",
+          "WebSocket",
+          "MQTT",
+          "Raspberry Pi",
+          "ESP-12E"
+        ],
+        "achievement": "全国16チームのファイナリストに選出、東京大学での決勝で審査委員特別賞・企業賞3冠を獲得",
+        "awards": [
+          "審査委員特別賞",
+          "Innovator認定",
+          "株式会社PLAY賞",
+          "株式会社東海理化賞",
+          "ULSコンサルティング株式会社賞"
+        ]
+      }
+    },
     {
       "icon": "🏆",
       "title": "Hackit 2025ハッカソン",
@@ -127,8 +162,8 @@
     {
       "icon": "🤖",
       "title": "RCJ2025 Open Challenge",
-      "subtitle": "研究開発部門・Mobile Cloud AI開発",
-      "description": "「mimi Connect」アプリと先回りロボットシステム開発。新入生教育にも専念",
+      "subtitle": "研究開発部門・上位リーグ3位",
+      "description": "「mimi Connect」アプリと先回りロボットシステム開発。Mobile Cloud AI担当・プレゼンテーション・新入生教育",
       "color": "bg-blue-500",
       "organizer": "RoboCup日本委員会",
       "eventDates": {
@@ -145,7 +180,7 @@
           "AI予測・ランダムフォレスト機械学習",
           "ROS・音声認識・ロボット制御"
         ],
-        "achievement": "初の大会出場・「家族の一員として一緒に暮らす」先回りロボット発表"
+        "achievement": "上位リーグ3位・「家族の一員として一緒に暮らす」先回りロボット発表"
       }
     },
     {
@@ -162,11 +197,11 @@
           "新入生教育・指導",
           "国際大会での発表・プレゼンテーション"
         ],
-        "period": "2年間継続中",
+        "period": "3年間継続中",
         "achievements": [
           "安全事故ゼロの維持",
           "新入生定着率の向上",
-          "プロジェクト目標の達成"
+          "RCJ2025上位リーグ3位達成"
         ]
       }
     },
@@ -201,10 +236,10 @@
     "role": "サブリーダー"
   },
   "skillAreas": [
-    "Web開発",
-    "プログラミング",
-    "React",
-    "TypeScript",
+    "Web開発（React/TypeScript/FastAPI）",
+    "IoTシステム（Raspberry Pi/ESP/MQTT）",
+    "AI・機械学習",
+    "音響信号処理",
     "教育技術"
   ],
   "technicalSettings": {

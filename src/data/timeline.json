@@ -59,6 +59,16 @@
       "hasDetail": true
     },
     {
+      "id": "chrome-extension",
+      "date": "2025-05",
+      "category": "project",
+      "developmentType": "individual",
+      "title": "Chrome拡張機能 - 学習効率化ツール",
+      "summary": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール。",
+      "tags": ["JavaScript", "Chrome Extension API", "DOM操作"],
+      "hasDetail": true
+    },
+    {
       "id": "matlab-edm",
       "date": "2025-01",
       "category": "project",
@@ -76,16 +86,6 @@
       "title": "AI体験ブース - 教育イベント企画運営",
       "summary": "小学生向け科学実験教室で「複雑な技術を誰もが楽しめる体験に変える」企画を実現。約50名参加。",
       "tags": ["Teachable Machine", "教育技術", "イベント企画"],
-      "hasDetail": true
-    },
-    {
-      "id": "chrome-extension",
-      "date": "2024-10",
-      "category": "project",
-      "developmentType": "individual",
-      "title": "Chrome拡張機能 - 学習効率化ツール",
-      "summary": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール。",
-      "tags": ["JavaScript", "Chrome Extension API", "DOM操作"],
       "hasDetail": true
     },
     {

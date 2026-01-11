@@ -136,20 +136,37 @@ const Hub = () => {
                     className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
                   >
                     <div className="flex items-center justify-between">
-                      <div>
-                        <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded">
-                          {item.platform}
-                        </span>
+                      <div className="flex-1">
+                        <div className="flex items-center gap-2 flex-wrap">
+                          <span className="text-xs font-medium text-purple-600 bg-purple-50 px-2 py-0.5 rounded">
+                            {item.platform}
+                          </span>
+                          <span className="text-xs text-gray-400 font-mono">
+                            {item.date}
+                          </span>
+                        </div>
                         <h3 className="mt-2 font-medium text-gray-900 group-hover:text-blue-600">
                           {item.title}
                         </h3>
-                        {item.summary && (
+                        {item.description && (
                           <p className="text-sm text-gray-500 mt-1">
-                            {item.summary}
+                            {item.description}
                           </p>
                         )}
+                        {item.tags && item.tags.length > 0 && (
+                          <div className="flex flex-wrap gap-1 mt-2">
+                            {item.tags.map((tag, index) => (
+                              <span
+                                key={index}
+                                className="text-xs px-2 py-0.5 bg-gray-200 text-gray-600 rounded"
+                              >
+                                {tag}
+                              </span>
+                            ))}
+                          </div>
+                        )}
                       </div>
-                      <span className="text-gray-400">↗</span>
+                      <span className="text-gray-400 ml-4">↗</span>
                     </div>
                   </a>
                 ))}

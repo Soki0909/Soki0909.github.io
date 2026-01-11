@@ -164,6 +164,33 @@ const Document = () => {
                           GitHub ↗
                         </a>
                       )}
+                      {/* 複数のGitHubリンク (github_xxx形式) */}
+                      {Object.entries(detail.links)
+                        .filter(
+                          ([key]) =>
+                            key.startsWith('github_') && key !== 'github'
+                        )
+                        .map(([key, url]) => {
+                          const label = key
+                            .replace('github_', '')
+                            .split('_')
+                            .map(
+                              (word) =>
+                                word.charAt(0).toUpperCase() + word.slice(1)
+                            )
+                            .join(' ');
+                          return (
+                            <a
+                              key={key}
+                              href={url as string}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-2 px-4 py-2 bg-gray-700 text-white rounded-lg hover:bg-gray-600 transition-colors"
+                            >
+                              GitHub ({label}) ↗
+                            </a>
+                          );
+                        })}
                       {detail.links.demo && (
                         <a
                           href={detail.links.demo}
@@ -204,6 +231,16 @@ const Document = () => {
                           Article ↗
                         </a>
                       )}
+                      {detail.links.official && (
+                        <a
+                          href={detail.links.official}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-2 px-4 py-2 bg-amber-600 text-white rounded-lg hover:bg-amber-700 transition-colors"
+                        >
+                          公式 ↗
+                        </a>
+                      )}
                     </div>
                   </section>
                 )}
@@ -217,6 +254,32 @@ const Document = () => {
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.overview}
+                    </p>
+                  </section>
+                )}
+
+                {/* Development Period */}
+                {detail.content.developmentPeriod && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      開発期間
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      {detail.content.developmentPeriod}
+                    </p>
+                  </section>
+                )}
+
+                {/* Period (活動期間) */}
+                {detail.content.period && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      活動期間
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      {detail.content.period}
                     </p>
                   </section>
                 )}
@@ -286,6 +349,161 @@ const Document = () => {
                     </div>
                   </section>
                 )}
+
+                {/* Architecture */}
+                {detail.content.architecture && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      アーキテクチャ
+                    </h2>
+                    {detail.content.architecture.overview && (
+                      <p className="text-gray-700 leading-relaxed mb-4">
+                        {detail.content.architecture.overview}
+                      </p>
+                    )}
+                    {detail.content.architecture.layers &&
+                      detail.content.architecture.layers.length > 0 && (
+                        <div className="space-y-4">
+                          {detail.content.architecture.layers.map(
+                            (layer, index) => (
+                              <div
+                                key={index}
+                                className="bg-gray-50 rounded-lg p-4"
+                              >
+                                <h3 className="font-semibold text-gray-900 mb-2">
+                                  {layer.name}
+                                </h3>
+                                <p className="text-gray-600 text-sm mb-2">
+                                  {layer.description}
+                                </p>
+                                {layer.technologies &&
+                                  layer.technologies.length > 0 && (
+                                    <div className="flex flex-wrap gap-1">
+                                      {layer.technologies.map((tech, i) => (
+                                        <span
+                                          key={i}
+                                          className="px-2 py-0.5 text-xs bg-blue-100 text-blue-700 rounded"
+                                        >
+                                          {tech}
+                                        </span>
+                                      ))}
+                                    </div>
+                                  )}
+                              </div>
+                            )
+                          )}
+                        </div>
+                      )}
+                  </section>
+                )}
+
+                {/* Devices */}
+                {detail.content.devices && detail.content.devices.length > 0 && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      デバイス
+                    </h2>
+                    <div className="space-y-4">
+                      {detail.content.devices.map((device, index) => (
+                        <div
+                          key={index}
+                          className="bg-gray-50 rounded-lg p-4"
+                        >
+                          <h3 className="font-semibold text-gray-900 mb-2">
+                            {device.name}
+                          </h3>
+                          <p className="text-gray-600 text-sm mb-3">
+                            {device.description}
+                          </p>
+                          {device.features && device.features.length > 0 && (
+                            <div className="mb-2">
+                              <span className="text-xs font-medium text-gray-500">
+                                特徴:
+                              </span>
+                              <ul className="mt-1 space-y-1">
+                                {device.features.map((feature, i) => (
+                                  <li
+                                    key={i}
+                                    className="text-sm text-gray-700 flex items-start gap-2"
+                                  >
+                                    <span className="text-blue-500">•</span>
+                                    {feature}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {device.effects && device.effects.length > 0 && (
+                            <div className="mt-2">
+                              <span className="text-xs font-medium text-gray-500">
+                                エフェクト:
+                              </span>
+                              <ul className="mt-1 space-y-1">
+                                {device.effects.map((effect, i) => (
+                                  <li
+                                    key={i}
+                                    className="text-sm text-gray-700 flex items-start gap-2"
+                                  >
+                                    <span className="text-purple-500">▸</span>
+                                    {effect}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </section>
+                )}
+
+                {/* Features */}
+                {detail.content.features &&
+                  detail.content.features.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        機能
+                      </h2>
+                      <div className="space-y-4">
+                        {detail.content.features.map((feature, index) => (
+                          <div key={index} className="border-l-2 border-blue-400 pl-4">
+                            <h3 className="font-semibold text-gray-900 mb-1">
+                              {feature.title}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                              {feature.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
+
+                {/* Courses (履修科目) */}
+                {detail.content.courses &&
+                  detail.content.courses.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        履修科目
+                      </h2>
+                      <div className="space-y-4">
+                        {detail.content.courses.map((course, index) => (
+                          <div key={index} className="border-l-2 border-green-400 pl-4">
+                            <h3 className="font-semibold text-gray-900 mb-1">
+                              {course.name}
+                            </h3>
+                            <p className="text-gray-600 text-sm">
+                              {course.description}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
 
                 {/* Media - Images */}
                 {detail.media?.images && detail.media.images.length > 0 && (
@@ -390,6 +608,89 @@ const Document = () => {
                             {learn}
                           </li>
                         ))}
+                      </ul>
+                    </section>
+                  )}
+
+                {/* Impact */}
+                {detail.content.impact && (
+                  <section>
+                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                      <span className="font-mono text-gray-400">{'// '}</span>
+                      インパクト
+                    </h2>
+                    <p className="text-gray-700 leading-relaxed">
+                      {detail.content.impact}
+                    </p>
+                  </section>
+                )}
+
+                {/* Activities */}
+                {detail.content.activities &&
+                  detail.content.activities.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        活動内容
+                      </h2>
+                      <ul className="space-y-2">
+                        {detail.content.activities.map((activity, index) => (
+                          <li
+                            key={index}
+                            className="flex items-start gap-3 text-gray-700"
+                          >
+                            <span className="text-blue-500 mt-1">▸</span>
+                            {activity}
+                          </li>
+                        ))}
+                      </ul>
+                    </section>
+                  )}
+
+                {/* Achievements */}
+                {detail.content.achievements &&
+                  detail.content.achievements.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        実績
+                      </h2>
+                      <ul className="space-y-2">
+                        {detail.content.achievements.map(
+                          (achievement, index) => (
+                            <li
+                              key={index}
+                              className="flex items-start gap-3 text-gray-700"
+                            >
+                              <span className="text-amber-500 mt-1">🏆</span>
+                              {achievement}
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </section>
+                  )}
+
+                {/* Responsibilities */}
+                {detail.content.responsibilities &&
+                  detail.content.responsibilities.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        担当業務
+                      </h2>
+                      <ul className="space-y-2">
+                        {detail.content.responsibilities.map(
+                          (responsibility, index) => (
+                            <li
+                              key={index}
+                              className="flex items-start gap-3 text-gray-700"
+                            >
+                              <span className="text-indigo-500 mt-1">◆</span>
+                              {responsibility}
+                            </li>
+                          )
+                        )}
                       </ul>
                     </section>
                   )}

@@ -549,6 +549,8 @@ export interface WritingItem {
   platform: string;
   url: string;
   summary?: string;
+  description?: string;
+  tags?: string[];
 }
 
 /** タイムラインデータ */
@@ -580,6 +582,59 @@ export interface DetailLinks {
   youtube?: string;
   slides?: string;
   article?: string;
+  official?: string;
+  // 複数GitHubリポジトリ用の動的キー (github_xxx形式)
+  [key: `github_${string}`]: string | undefined;
+}
+
+/** アーキテクチャレイヤー */
+export interface ArchitectureLayer {
+  name: string;
+  description: string;
+  technologies?: string[];
+  deployment?: string;
+  devices?: string[];
+}
+
+/** アーキテクチャ情報 */
+export interface DetailArchitecture {
+  overview?: string;
+  layers?: ArchitectureLayer[];
+}
+
+/** デバイス情報 */
+export interface DetailDevice {
+  name: string;
+  description: string;
+  features?: string[];
+  effects?: string[];
+  modes?: string[];
+}
+
+/** 機能情報 */
+export interface DetailFeature {
+  title: string;
+  description: string;
+}
+
+/** 履修科目情報 */
+export interface DetailCourse {
+  name: string;
+  description: string;
+}
+
+/** イベント情報 */
+export interface DetailEvent {
+  name?: string;
+  participants?: string;
+  role?: string;
+}
+
+/** 役割情報 */
+export interface DetailRole {
+  position?: string;
+  period?: string;
+  teamSize?: string;
 }
 
 /** 詳細ページのコンテンツ */
@@ -587,11 +642,23 @@ export interface DetailContent {
   overview?: string;
   developmentType?: 'individual' | 'team';
   teamSize?: string;
+  developmentPeriod?: string;
   myRole?: string;
   highlights?: string[];
   technologies?: Record<string, string[]>;
+  architecture?: DetailArchitecture;
+  devices?: DetailDevice[];
+  features?: DetailFeature[];
+  courses?: DetailCourse[];
   challenges?: string[];
   learned?: string[];
+  impact?: string;
+  event?: DetailEvent;
+  activities?: string[];
+  period?: string;
+  role?: DetailRole;
+  achievements?: string[];
+  responsibilities?: string[];
 }
 
 /** 詳細データ */

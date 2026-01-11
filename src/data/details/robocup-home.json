@@ -15,13 +15,9 @@
     "overview": "家庭用サービスロボットの研究開発プロジェクト。",
     "developmentType": "team",
     "teamSize": "68名（大規模プロジェクト）",
+    "period": "2023年4月 - 2025年10月",
     "myRole": "サブリーダー・安全活動リーダーとして、技術班の進捗管理、安全活動計画の立案・実行、新入生の教育・育成を担当しました。RoboCup Japan Open 2025 Open Challenge上位リーグ3位を達成。",
-    "role": {
-      "position": "サブリーダー / 安全活動リーダー",
-      "period": "2023年4月 - 2025年10月",
-      "teamSize": "68名"
-    },
-    "achievements": [
+    "highlights": [
       "RoboCup Japan Open 2025 Open Challenge 上位リーグ3位",
       "ロボット大会4年連続出場"
     ],

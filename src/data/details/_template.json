@@ -1,0 +1,160 @@
+{
+  "_comment": "このファイルは詳細ページ用JSONのテンプレートです。必要なキーのみを使用してください。",
+
+  "id": "example-project",
+  "category": "project",
+  "title": "プロジェクト名",
+  "date": "2025-01",
+  "summary": "プロジェクトの概要（100字程度）",
+  "tags": ["React", "TypeScript", "etc"],
+
+  "content": {
+    "_section1": "=== 基本情報 ===",
+    "overview": "プロジェクトの詳細な概要説明",
+    "developmentType": "individual または team",
+    "teamSize": "チーム人数（例: 5名）",
+    "developmentPeriod": "開発期間（例: 2週間）",
+    "period": "活動期間（例: 2024年4月 - 現在）",
+    "myRole": "担当業務の詳細説明",
+
+    "_section2": "=== ハイライト・実績 ===",
+    "highlights": [
+      "🏆 受賞歴やアピールポイント1",
+      "技術的な特徴2",
+      "達成した成果3"
+    ],
+
+    "_section3": "=== 技術情報 ===",
+    "technologies": {
+      "frontend": ["React", "TypeScript", "Tailwind CSS"],
+      "backend": ["FastAPI", "Python"],
+      "infrastructure": ["Google Cloud Run", "Firebase"]
+    },
+
+    "architecture": {
+      "overview": "アーキテクチャの概要説明",
+      "layers": [
+        {
+          "name": "フロントエンド層",
+          "description": "React SPAで構築",
+          "technologies": ["React", "TypeScript"]
+        },
+        {
+          "name": "バックエンド層",
+          "description": "FastAPIで構築",
+          "technologies": ["FastAPI", "Python"]
+        }
+      ]
+    },
+
+    "devices": [
+      {
+        "name": "デバイス名",
+        "description": "デバイスの説明",
+        "features": ["特徴1", "特徴2"],
+        "effects": ["エフェクト1", "エフェクト2"]
+      }
+    ],
+
+    "features": [
+      {
+        "title": "機能名1",
+        "description": "機能の説明"
+      },
+      {
+        "title": "機能名2",
+        "description": "機能の説明"
+      }
+    ],
+
+    "courses": [
+      {
+        "name": "科目名",
+        "description": "科目の説明（サブメジャー等で使用）"
+      }
+    ],
+
+    "_section4": "=== 課題・学び ===",
+    "challenges": [
+      "直面した技術的課題1",
+      "解決した問題2"
+    ],
+
+    "learned": [
+      "学んだこと1",
+      "習得したスキル2"
+    ],
+
+    "_section5": "=== 活動情報 ===",
+    "activities": [
+      "活動内容1",
+      "活動内容2"
+    ],
+
+    "responsibilities": [
+      "担当業務1",
+      "担当業務2"
+    ],
+
+    "_section6": "=== インパクト ===",
+    "impact": "プロジェクトの成果・影響の詳細説明"
+  },
+
+  "media": {
+    "images": [
+      "/images/projects/example-project/screenshot1.png",
+      "/images/projects/example-project/screenshot2.png"
+    ],
+    "videos": [
+      "/media/videos/example-project/demo.mp4"
+    ],
+    "audios": [
+      "/media/audios/example-project/sample.wav"
+    ]
+  },
+
+  "links": {
+    "github": "https://github.com/username/repo",
+    "demo": "https://example.com",
+    "youtube": "https://youtu.be/xxxxx",
+    "slides": "https://slides.com/xxxxx",
+    "article": "https://article.com/xxxxx",
+    "official": "https://official-site.com"
+  },
+
+  "_keyReference": {
+    "_description": "以下は全キーの説明です（実際のJSONでは削除してください）",
+    "id": "一意の識別子（URLにも使用）",
+    "category": "project / activity のいずれか",
+    "title": "タイトル",
+    "date": "YYYY-MM形式の日付",
+    "summary": "概要（timeline.jsonの表示にも使用）",
+    "tags": "タグ配列",
+    "content.overview": "詳細な概要説明",
+    "content.developmentType": "individual（個人）または team（チーム）",
+    "content.teamSize": "チーム人数",
+    "content.developmentPeriod": "開発期間（プロジェクト向け）",
+    "content.period": "活動期間（活動向け）",
+    "content.myRole": "担当業務の説明",
+    "content.highlights": "ハイライト・アピールポイント配列",
+    "content.technologies": "使用技術（カテゴリ別オブジェクト）",
+    "content.architecture": "アーキテクチャ情報（複雑なシステム向け）",
+    "content.devices": "デバイス情報（ハードウェアプロジェクト向け）",
+    "content.features": "機能一覧（title + description）",
+    "content.courses": "履修科目（サブメジャー等向け）",
+    "content.challenges": "技術的課題配列",
+    "content.learned": "学んだこと配列",
+    "content.activities": "活動内容配列",
+    "content.responsibilities": "担当業務配列",
+    "content.impact": "インパクト・成果の詳細説明",
+    "media.images": "画像パス配列",
+    "media.videos": "動画パス配列",
+    "media.audios": "音声パス配列",
+    "links.github": "GitHubリポジトリURL",
+    "links.demo": "デモサイトURL",
+    "links.youtube": "YouTube動画URL",
+    "links.slides": "スライドURL",
+    "links.article": "記事URL",
+    "links.official": "公式サイトURL"
+  }
+}
