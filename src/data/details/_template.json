@@ -75,26 +75,14 @@
     ],
 
     "_section4": "=== 課題・学び ===",
-    "challenges": [
-      "直面した技術的課題1",
-      "解決した問題2"
-    ],
+    "challenges": ["直面した技術的課題1", "解決した問題2"],
 
-    "learned": [
-      "学んだこと1",
-      "習得したスキル2"
-    ],
+    "learned": ["学んだこと1", "習得したスキル2"],
 
     "_section5": "=== 活動情報 ===",
-    "activities": [
-      "活動内容1",
-      "活動内容2"
-    ],
+    "activities": ["活動内容1", "活動内容2"],
 
-    "responsibilities": [
-      "担当業務1",
-      "担当業務2"
-    ],
+    "responsibilities": ["担当業務1", "担当業務2"],
 
     "_section6": "=== インパクト ===",
     "impact": "プロジェクトの成果・影響の詳細説明"
@@ -105,12 +93,8 @@
       "/images/projects/example-project/screenshot1.png",
       "/images/projects/example-project/screenshot2.png"
     ],
-    "videos": [
-      "/media/videos/example-project/demo.mp4"
-    ],
-    "audios": [
-      "/media/audios/example-project/sample.wav"
-    ]
+    "videos": ["/media/videos/example-project/demo.mp4"],
+    "audios": ["/media/audios/example-project/sample.wav"]
   },
 
   "links": {

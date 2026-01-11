@@ -399,65 +399,66 @@ const Document = () => {
                 )}
 
                 {/* Devices */}
-                {detail.content.devices && detail.content.devices.length > 0 && (
-                  <section>
-                    <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
-                      デバイス
-                    </h2>
-                    <div className="space-y-4">
-                      {detail.content.devices.map((device, index) => (
-                        <div
-                          key={index}
-                          className="bg-gray-50 rounded-lg p-4"
-                        >
-                          <h3 className="font-semibold text-gray-900 mb-2">
-                            {device.name}
-                          </h3>
-                          <p className="text-gray-600 text-sm mb-3">
-                            {device.description}
-                          </p>
-                          {device.features && device.features.length > 0 && (
-                            <div className="mb-2">
-                              <span className="text-xs font-medium text-gray-500">
-                                特徴:
-                              </span>
-                              <ul className="mt-1 space-y-1">
-                                {device.features.map((feature, i) => (
-                                  <li
-                                    key={i}
-                                    className="text-sm text-gray-700 flex items-start gap-2"
-                                  >
-                                    <span className="text-blue-500">•</span>
-                                    {feature}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                          {device.effects && device.effects.length > 0 && (
-                            <div className="mt-2">
-                              <span className="text-xs font-medium text-gray-500">
-                                エフェクト:
-                              </span>
-                              <ul className="mt-1 space-y-1">
-                                {device.effects.map((effect, i) => (
-                                  <li
-                                    key={i}
-                                    className="text-sm text-gray-700 flex items-start gap-2"
-                                  >
-                                    <span className="text-purple-500">▸</span>
-                                    {effect}
-                                  </li>
-                                ))}
-                              </ul>
-                            </div>
-                          )}
-                        </div>
-                      ))}
-                    </div>
-                  </section>
-                )}
+                {detail.content.devices &&
+                  detail.content.devices.length > 0 && (
+                    <section>
+                      <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+                        <span className="font-mono text-gray-400">{'// '}</span>
+                        デバイス
+                      </h2>
+                      <div className="space-y-4">
+                        {detail.content.devices.map((device, index) => (
+                          <div
+                            key={index}
+                            className="bg-gray-50 rounded-lg p-4"
+                          >
+                            <h3 className="font-semibold text-gray-900 mb-2">
+                              {device.name}
+                            </h3>
+                            <p className="text-gray-600 text-sm mb-3">
+                              {device.description}
+                            </p>
+                            {device.features && device.features.length > 0 && (
+                              <div className="mb-2">
+                                <span className="text-xs font-medium text-gray-500">
+                                  特徴:
+                                </span>
+                                <ul className="mt-1 space-y-1">
+                                  {device.features.map((feature, i) => (
+                                    <li
+                                      key={i}
+                                      className="text-sm text-gray-700 flex items-start gap-2"
+                                    >
+                                      <span className="text-blue-500">•</span>
+                                      {feature}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                            {device.effects && device.effects.length > 0 && (
+                              <div className="mt-2">
+                                <span className="text-xs font-medium text-gray-500">
+                                  エフェクト:
+                                </span>
+                                <ul className="mt-1 space-y-1">
+                                  {device.effects.map((effect, i) => (
+                                    <li
+                                      key={i}
+                                      className="text-sm text-gray-700 flex items-start gap-2"
+                                    >
+                                      <span className="text-purple-500">▸</span>
+                                      {effect}
+                                    </li>
+                                  ))}
+                                </ul>
+                              </div>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </section>
+                  )}
 
                 {/* Features */}
                 {detail.content.features &&
@@ -469,7 +470,10 @@ const Document = () => {
                       </h2>
                       <div className="space-y-4">
                         {detail.content.features.map((feature, index) => (
-                          <div key={index} className="border-l-2 border-blue-400 pl-4">
+                          <div
+                            key={index}
+                            className="border-l-2 border-blue-400 pl-4"
+                          >
                             <h3 className="font-semibold text-gray-900 mb-1">
                               {feature.title}
                             </h3>
@@ -492,7 +496,10 @@ const Document = () => {
                       </h2>
                       <div className="space-y-4">
                         {detail.content.courses.map((course, index) => (
-                          <div key={index} className="border-l-2 border-green-400 pl-4">
+                          <div
+                            key={index}
+                            className="border-l-2 border-green-400 pl-4"
+                          >
                             <h3 className="font-semibold text-gray-900 mb-1">
                               {course.name}
                             </h3>
