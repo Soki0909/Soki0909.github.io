@@ -1,20 +1,55 @@
 {
   "id": "chrome-extension",
   "category": "project",
-  "title": "Chrome拡張機能 - 学習効率化ツール",
+  "title": "Chrome拡張機能 × 2 - 学習効率化ツール",
   "date": "2024-10",
-  "summary": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール。",
-  "tags": ["JavaScript", "Chrome Extension API", "DOM操作"],
+  "summary": "「マウス不要の操作」コンセプトを実現する学生ポータルサイト用効率化ツール。2つの拡張機能とショートカット設定を組み合わせることで、たった5回のキーボード操作のみでeシラバスが開ける革新的なワークフローを実現。",
+  "tags": [
+    "JavaScript",
+    "Chrome Extension API",
+    "DOM操作",
+    "アクセシビリティ",
+    "UX改善"
+  ],
   "content": {
-    "overview": "キーボード操作だけで学生ポータルを快適に利用できる拡張機能。",
-    "features": [
-      "ショートカットキーによるナビゲーション",
-      "頻繁に使う機能へのクイックアクセス",
-      "ページレイアウトの最適化"
+    "overview": "金沢工業大学の学生ポータル（KITナビ）向けに開発した2つのChrome拡張機能。「Subject Semester Sorter」で履修科目を年度・学期ごとに整理表示し、「KIT Navi Autofocus」でログインやナビ操作を自動化。2つの拡張機能とショートカット設定を組み合わせることで、ポータルトップからeシラバスまでわずか5回のキー操作で到達可能です。",
+    "developmentType": "individual",
+    "myRole": "企画・設計・実装・テストの全工程を担当。学生ポータルのDOM構造を解析し、Chrome Extension APIを活用した効率化ツールを開発しました。キーボード操作だけで完結する直感的なUI設計を実現しました。",
+    "highlights": [
+      "たった5回のキーボード操作でeシラバスにアクセス",
+      "年度・学期別の科目整理で履修管理を効率化",
+      "自動フォーカス機能でログイン操作を高速化",
+      "Tab + Enterだけで科目選択が完了（マウス不要）",
+      "Chrome Extension Manifest V3準拠"
     ],
     "technologies": {
-      "core": ["JavaScript (ES6+)", "Chrome Extension Manifest V3"],
-      "techniques": ["DOM操作", "イベントリスナー", "ローカルストレージ"]
-    }
+      "core": ["JavaScript (ES6+)", "Chrome Extension API", "Manifest V3"],
+      "features": [
+        "Content Scripts",
+        "chrome.storage.sync",
+        "Message Passing API",
+        "DOM操作",
+        "アクセシビリティ対応（ARIA属性）"
+      ]
+    },
+    "challenges": [
+      "学生ポータルのDOM構造の解析と安定した要素取得",
+      "ページ読み込みタイミングに応じた動的フォーカス制御",
+      "キーボード操作だけで完結する直感的なUI設計",
+      "科目情報の多様なフォーマットに対応した解析処理"
+    ],
+    "learned": [
+      "Chrome Extension APIの体系的な理解（scripting, storage, tabs）",
+      "DOM操作のパフォーマンス最適化とエラーハンドリング",
+      "アクセシビリティ対応（tabindex, ARIA属性）の実装",
+      "UXを重視したキーボードナビゲーション設計"
+    ]
+  },
+  "media": {
+    "images": []
+  },
+  "links": {
+    "github_sorter": "https://github.com/Soki0909/subject_semester_sorter",
+    "github_autofocus": "https://github.com/Soki0909/kit_navi_autofocus"
   }
 }

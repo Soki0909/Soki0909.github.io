@@ -77,7 +77,7 @@ const Document = () => {
           {/* Header */}
           <header className="mb-12">
             {/* Category Badge */}
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2 mb-4 flex-wrap">
               <span className={`text-lg ${category.color}`}>
                 {category.icon}
               </span>
@@ -87,6 +87,30 @@ const Document = () => {
               <span className="text-sm text-gray-400 font-mono">
                 {item.date}
               </span>
+
+              {/* Development Type Badge */}
+              {!loading && detail?.content?.developmentType && (
+                <span
+                  className={`px-2 py-1 text-xs font-medium rounded ${
+                    detail.content.developmentType === 'team'
+                      ? 'bg-blue-100 text-blue-700'
+                      : 'bg-purple-100 text-purple-700'
+                  }`}
+                >
+                  {detail.content.developmentType === 'team'
+                    ? '👥 チーム開発'
+                    : '🧑 個人開発'}
+                </span>
+              )}
+
+              {/* Team Size */}
+              {!loading &&
+                detail?.content?.developmentType === 'team' &&
+                detail?.content?.teamSize && (
+                  <span className="text-xs text-gray-500 font-mono">
+                    {detail.content.teamSize}
+                  </span>
+                )}
             </div>
 
             {/* Title */}

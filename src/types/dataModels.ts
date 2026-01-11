@@ -533,6 +533,7 @@ export interface HubTimelineItem {
   id: string;
   date: string;
   category: HubCategory;
+  developmentType?: 'individual' | 'team';
   title: string;
   summary: string;
   tags: string[];
@@ -584,6 +585,8 @@ export interface DetailLinks {
 /** 詳細ページのコンテンツ */
 export interface DetailContent {
   overview?: string;
+  developmentType?: 'individual' | 'team';
+  teamSize?: string;
   myRole?: string;
   highlights?: string[];
   technologies?: Record<string, string[]>;

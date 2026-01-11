@@ -2,11 +2,14 @@
   "id": "ai-booth",
   "category": "project",
   "title": "AI体験ブース - 教育イベント企画運営",
-  "date": "2024-11",
+  "date": "2024-10",
   "summary": "小学生向け科学実験教室で「複雑な技術を誰もが楽しめる体験に変える」企画を実現。約50名参加。",
   "tags": ["Teachable Machine", "教育技術", "イベント企画"],
   "content": {
     "overview": "AIの仕組みを子供たちにわかりやすく体験してもらうイベント。",
+    "developmentType": "team",
+    "teamSize": "6名（AI体験教室ブースチーム）",
+    "myRole": "ブース責任者（リーダー）として、企画立案と運営を担当しました。Teachable Machineを活用した画像認識体験を提供し、子供たちがAIの学習過程を楽しく理解できるよう工夫しました。",
     "event": {
       "name": "科学実験教室",
       "participants": "約50名（小学生）",

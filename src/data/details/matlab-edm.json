@@ -2,11 +2,12 @@
   "id": "matlab-edm",
   "category": "project",
   "title": "MATLABによるEDM楽曲制作",
-  "date": "2025-06",
+  "date": "2025-01",
   "summary": "外部音源を一切使用せず、全ての音をプログラムで生成した80小節のEDM楽曲。Basstripper「In The City」のリミックス。",
   "tags": ["MATLAB", "音響信号処理", "FFT", "デジタルフィルタ"],
   "content": {
     "overview": "韓国のBeatboxer「Hiss」やBasstripperの楽曲に触発され、外部音源を完全に排除してMATLABのみでEDM楽曲を制作した音響信号処理の実践作品です。「音の本質を理解し、それをコードで再現する」という音響工学の根本的挑戦に取り組みました。",
+    "developmentType": "individual",
     "highlights": [
       "原曲: Basstripper - In The City (BPM 180)",
       "80小節完全構成（約3分30秒）",

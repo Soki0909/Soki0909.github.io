@@ -10,7 +10,16 @@ interface WaveCardProps {
  * Notionの「Callout」風デザイン + Hover時の矩形波エフェクト
  */
 const WaveCard = ({ item }: WaveCardProps) => {
-  const { id, title, summary, tags, hasDetail, externalLink, category } = item;
+  const {
+    id,
+    title,
+    summary,
+    tags,
+    hasDetail,
+    externalLink,
+    category,
+    developmentType,
+  } = item;
 
   // カテゴリに応じたアクセントカラー
   const getAccentColor = () => {
@@ -29,10 +38,26 @@ const WaveCard = ({ item }: WaveCardProps) => {
   // カードの内容
   const cardContent = (
     <>
-      {/* タイトル */}
-      <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-        {title}
-      </h3>
+      {/* タイトルとバッジ */}
+      <div className="flex items-start gap-2 mb-2">
+        <h3 className="text-lg font-semibold text-gray-900 group-hover:text-blue-600 transition-colors flex-1">
+          {title}
+        </h3>
+        {developmentType && (
+          <span
+            className={`
+            px-2 py-0.5 text-xs font-medium rounded-full flex-shrink-0
+            ${
+              developmentType === 'team'
+                ? 'bg-blue-100 text-blue-700'
+                : 'bg-purple-100 text-purple-700'
+            }
+          `}
+          >
+            {developmentType === 'team' ? '👥 チーム開発' : '🧑 個人開発'}
+          </span>
+        )}
+      </div>
 
       {/* 概要 */}
       <p className="text-sm text-gray-600 mb-3 line-clamp-2">{summary}</p>

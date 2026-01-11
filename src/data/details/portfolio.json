@@ -2,11 +2,12 @@
   "id": "portfolio",
   "category": "project",
   "title": "ポートフォリオサイト",
-  "date": "2024-09",
+  "date": "2025-09",
   "summary": "React + TypeScript + Tailwind CSSで構築したレスポンシブなポートフォリオサイト。Clean Architecture採用。",
   "tags": ["React", "TypeScript", "Tailwind CSS", "Vite"],
   "content": {
     "overview": "このサイト自身の開発プロジェクト。",
+    "developmentType": "individual",
     "features": [
       "Notionライクなタイムラインデザイン",
       "レスポンシブ対応",
