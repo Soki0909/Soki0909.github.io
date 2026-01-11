@@ -73,6 +73,19 @@ const SEO: React.FC<SEOProps> = ({
       document.head.appendChild(newMetaViewport);
     }
 
+    // Favicon
+    const favicon = document.querySelector('link[rel="icon"]');
+    if (favicon) {
+      favicon.setAttribute('href', '/assets/icons/logo.png');
+      favicon.setAttribute('type', 'image/png');
+    } else {
+      const newFavicon = document.createElement('link');
+      newFavicon.rel = 'icon';
+      newFavicon.type = 'image/png';
+      newFavicon.href = '/assets/icons/logo.png';
+      document.head.appendChild(newFavicon);
+    }
+
     // 言語設定
     document.documentElement.lang = currentLanguage;
 
