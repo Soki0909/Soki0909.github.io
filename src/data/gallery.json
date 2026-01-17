@@ -1,16 +1,133 @@
 {
   "categories": [
     {
-      "id": "manim",
-      "name": "Manim",
-      "description": "数学アニメーション作成ライブラリManimで制作した作品",
-      "icon": "🎬"
+      "id": "trajectory",
+      "name": "軌跡と方程式",
+      "description": "教職課程の模擬授業で実際に使用した数学教材アニメーション",
+      "icon": "📐"
+    },
+    {
+      "id": "sorting",
+      "name": "ソートアルゴリズム",
+      "description": "代表的なソートアルゴリズムの動作を棒グラフで可視化",
+      "icon": "📊"
+    },
+    {
+      "id": "calculus",
+      "name": "微分積分",
+      "description": "微分・積分の概念を視覚的に理解するアニメーション",
+      "icon": "∫"
+    },
+    {
+      "id": "geometry",
+      "name": "幾何学",
+      "description": "幾何学的定理の視覚的証明",
+      "icon": "📏"
     }
   ],
   "items": [
     {
+      "id": "trajectory-intro-black",
+      "category": "trajectory",
+      "title": "導入：距離一定の軌跡（黒背景）",
+      "comment": "原点Cから距離2の点Pが描く円軌跡。教職課程の模擬授業で実際に使用。",
+      "video": "/assets/videos/manim/trajectories/intro_black.mp4",
+      "tags": ["軌跡", "円", "教材"],
+      "date": "2026-01"
+    },
+    {
+      "id": "trajectory-anim01-black",
+      "category": "trajectory",
+      "title": "展開①：固定点と動点（黒背景）",
+      "comment": "点A・Bを固定し、動点Pの条件を段階的に明示。模擬授業で使用。",
+      "video": "/assets/videos/manim/trajectories/anim01_black.mp4",
+      "tags": ["軌跡", "条件", "教材"],
+      "date": "2026-01"
+    },
+    {
+      "id": "trajectory-anim02-black",
+      "category": "trajectory",
+      "title": "展開②：AP²+BP²=k の可視化（黒背景）",
+      "comment": "kの値に応じた円の変化をリアルタイム表示。模擬授業で使用。",
+      "video": "/assets/videos/manim/trajectories/anim02_black.mp4",
+      "tags": ["軌跡", "方程式", "教材"],
+      "date": "2026-01"
+    },
+    {
+      "id": "trajectory-intro-white",
+      "category": "trajectory",
+      "title": "導入：距離一定の軌跡（白背景）",
+      "comment": "教室プロジェクター投影用の白背景版。模擬授業で使用。",
+      "video": "/assets/videos/manim/trajectories/intro_white.mp4",
+      "tags": ["軌跡", "円", "教材", "白背景"],
+      "date": "2026-01"
+    },
+    {
+      "id": "trajectory-anim01-white",
+      "category": "trajectory",
+      "title": "展開①：固定点と動点（白背景）",
+      "comment": "教室プロジェクター投影用の白背景版。模擬授業で使用。",
+      "video": "/assets/videos/manim/trajectories/anim01_white.mp4",
+      "tags": ["軌跡", "条件", "教材", "白背景"],
+      "date": "2026-01"
+    },
+    {
+      "id": "trajectory-anim02-white",
+      "category": "trajectory",
+      "title": "展開②：AP²+BP²=k の可視化（白背景）",
+      "comment": "教室プロジェクター投影用の白背景版。模擬授業で使用。",
+      "video": "/assets/videos/manim/trajectories/anim02_white.mp4",
+      "tags": ["軌跡", "方程式", "教材", "白背景"],
+      "date": "2026-01"
+    },
+    {
+      "id": "bubble-sort",
+      "category": "sorting",
+      "title": "バブルソート",
+      "comment": "隣接要素を比較・交換。黄色でハイライト→緑で確定の視覚効果。",
+      "video": "/assets/videos/manim/BubbleSortScene.mp4",
+      "tags": ["ソート", "O(n²)", "アルゴリズム"],
+      "date": "2026-01"
+    },
+    {
+      "id": "selection-sort",
+      "category": "sorting",
+      "title": "選択ソート",
+      "comment": "各パスで最小値を探索→交換。走査中（黄）と最小値（赤）を色分け。",
+      "video": "/assets/videos/manim/SelectionSortScene.mp4",
+      "tags": ["ソート", "O(n²)", "アルゴリズム"],
+      "date": "2026-01"
+    },
+    {
+      "id": "insertion-sort",
+      "category": "sorting",
+      "title": "挿入ソート",
+      "comment": "キー要素を別パネル表示し、ソート済み領域への挿入過程を可視化。",
+      "video": "/assets/videos/manim/InsertionSortScene.mp4",
+      "tags": ["ソート", "O(n²)", "アルゴリズム"],
+      "date": "2026-01"
+    },
+    {
+      "id": "merge-sort",
+      "category": "sorting",
+      "title": "マージソート",
+      "comment": "分割統治法を色分け（金・緑青）で表現。ポインタで比較対象を明示。",
+      "video": "/assets/videos/manim/MergeSortScene.mp4",
+      "tags": ["ソート", "O(n log n)", "分割統治"],
+      "date": "2026-01"
+    },
+    {
+      "id": "definite-integral",
+      "category": "calculus",
+      "title": "定積分と微分の関係",
+      "comment": "面積S(t)→ΔS→f(x)Δx→誤差の可視化。極限操作でdS/dx=f(x)を導出。",
+      "video": "/assets/videos/manim/DefiniteIntegral.mp4",
+      "tags": ["微分", "積分", "極限"],
+      "date": "2026-01"
+    },
+    {
       "id": "pythagorean-proof",
-      "category": "manim",
+      "category": "geometry",
       "title": "三平方の定理",
       "comment": "三平方の定理を視覚的に理解するアニメーション。初めて作成した記念すべき作品。",
       "video": "/assets/videos/manim/PythagoreanProof.mp4",

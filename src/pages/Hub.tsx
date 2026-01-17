@@ -11,8 +11,11 @@ import SEO from '../components/SEO';
  */
 const Hub = () => {
   const { latestItems: writings, hasWritings } = useWritings();
-  const { items: galleryItems, hasItems: hasGalleryItems } =
-    useGallery('manim');
+  const {
+    categories,
+    items: allGalleryItems,
+    hasItems: hasGalleryItems,
+  } = useGallery();
 
   return (
     <>
@@ -202,21 +205,31 @@ const Hub = () => {
               Gallery
             </h2>
 
-            {/* Manim Category */}
+            {/* カテゴリごとに表示 */}
             {hasGalleryItems && (
-              <div>
-                <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                  <span>🎬</span>
-                  Manim
-                </h3>
-                <p className="text-sm text-gray-500 mb-4">
-                  数学アニメーション作成ライブラリManimで制作した作品
-                </p>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  {galleryItems.map((item) => (
-                    <GalleryCard key={item.id} item={item} />
-                  ))}
-                </div>
+              <div className="space-y-8">
+                {categories.map((category) => {
+                  const categoryItems = allGalleryItems.filter(
+                    (item) => item.category === category.id
+                  );
+                  if (categoryItems.length === 0) return null;
+                  return (
+                    <div key={category.id}>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                        <span>{category.icon}</span>
+                        {category.name}
+                      </h3>
+                      <p className="text-sm text-gray-500 mb-4">
+                        {category.description}
+                      </p>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {categoryItems.map((item) => (
+                          <GalleryCard key={item.id} item={item} />
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             )}
 
