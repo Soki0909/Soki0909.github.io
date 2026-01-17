@@ -110,6 +110,44 @@ src/data/
 - `DetailContent` - 詳細コンテンツ
 - `DetailMedia` - メディア情報
 - `DetailLinks` - リンク情報
+- `GalleryCategory` - ギャラリーカテゴリ
+- `GalleryItem` - ギャラリーアイテム
+- `GalleryData` - ギャラリーデータ
+
+## ギャラリーアイテムの追加
+
+### 1. 動画ファイルを配置
+
+```
+public/assets/videos/manim/
+└── {動画ファイル名}.mp4
+```
+
+### 2. `gallery.json` にアイテムを追加
+
+```json
+{
+  "id": "unique-id",
+  "category": "manim",
+  "title": "作品タイトル",
+  "comment": "ひと言コメント（1-2行程度）",
+  "video": "/assets/videos/manim/{動画ファイル名}.mp4",
+  "tags": ["タグ1", "タグ2"],
+  "date": "2026-01"
+}
+```
+
+### フィールド説明
+
+| フィールド | 必須 | 説明                                   |
+| ---------- | ---- | -------------------------------------- |
+| id         | ✅   | 一意のID（英数字・ハイフン）           |
+| category   | ✅   | カテゴリID（現状は `manim` のみ）      |
+| title      | ✅   | 作品タイトル                           |
+| comment    | ✅   | ひと言コメント                         |
+| video      | ✅   | 動画パス（`/assets/videos/manim/...`） |
+| tags       | 任意 | タグ配列                               |
+| date       | 任意 | 作成年月（`YYYY-MM`形式）              |
 
 ## バリデーション
 
@@ -128,8 +166,10 @@ public/assets/
 │       ├── main.png
 │       └── screenshot.png
 └── videos/
-    └── {id}/
-        └── demo.mp4
+    ├── {id}/            # 詳細ページ用動画
+    │   └── demo.mp4
+    └── manim/           # Manimギャラリー用動画
+        └── {動画名}.mp4
 ```
 
 JSONでの参照は `/assets/...` で開始する絶対パス形式を使用。

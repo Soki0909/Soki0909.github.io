@@ -1,6 +1,8 @@
 import TimelineView from '../components/TimelineView';
 import WaveDivider from '../components/WaveDivider';
+import GalleryCard from '../components/GalleryCard';
 import { useWritings } from '../hooks/useWritings';
+import { useGallery } from '../hooks/useGallery';
 import SEO from '../components/SEO';
 
 /**
@@ -9,6 +11,8 @@ import SEO from '../components/SEO';
  */
 const Hub = () => {
   const { latestItems: writings, hasWritings } = useWritings();
+  const { items: galleryItems, hasItems: hasGalleryItems } =
+    useGallery('manim');
 
   return (
     <>
@@ -183,6 +187,43 @@ const Hub = () => {
               <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-lg">
                 <p className="font-mono text-sm">
                   {'// '}執筆記事は coming soon...
+                </p>
+              </div>
+            )}
+          </section>
+
+          {/* Wave Divider */}
+          <WaveDivider />
+
+          {/* ===== Gallery Area ===== */}
+          <section className="mt-8">
+            <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
+              <span className="font-mono text-gray-400">{'// '}</span>
+              Gallery
+            </h2>
+
+            {/* Manim Category */}
+            {hasGalleryItems && (
+              <div>
+                <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                  <span>🎬</span>
+                  Manim
+                </h3>
+                <p className="text-sm text-gray-500 mb-4">
+                  数学アニメーション作成ライブラリManimで制作した作品
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {galleryItems.map((item) => (
+                    <GalleryCard key={item.id} item={item} />
+                  ))}
+                </div>
+              </div>
+            )}
+
+            {!hasGalleryItems && (
+              <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-lg">
+                <p className="font-mono text-sm">
+                  {'// '}ギャラリーは coming soon...
                 </p>
               </div>
             )}

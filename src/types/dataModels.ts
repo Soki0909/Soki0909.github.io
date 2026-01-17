@@ -673,3 +673,33 @@ export interface DetailData {
   media?: DetailMedia;
   links?: DetailLinks;
 }
+
+// ====================================
+// ギャラリー用型定義
+// ====================================
+
+/** ギャラリーカテゴリ */
+export interface GalleryCategory {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+}
+
+/** ギャラリーアイテム */
+export interface GalleryItem {
+  id: string;
+  category: string;
+  title: string;
+  comment: string;
+  video: string;
+  thumbnail?: string;
+  tags?: string[];
+  date?: string;
+}
+
+/** ギャラリーデータ */
+export interface GalleryData {
+  categories: GalleryCategory[];
+  items: GalleryItem[];
+}
