@@ -99,7 +99,10 @@ const renderItems = () => {
 data.map(item => ...);  // 防御チェックなし
 ```
 
-### Git Commit規約（Conventional Commits）
+### Git Commit規約（Conventional Commits・日本語）
+
+> [!IMPORTANT]
+> コミットメッセージは必ず**日本語**で記述すること。
 
 ```bash
 feat:     # 新機能追加・機能拡張
@@ -108,6 +111,11 @@ refactor: # リファクタリング・構造改善
 docs:     # ドキュメント更新
 style:    # スタイル・UI調整
 chore:    # 設定・依存関係修正
+perf:     # パフォーマンス改善
+
+# 例
+git commit -m "feat: タイムラインにフィルター機能を追加"
+git commit -m "fix: モバイル表示時のレイアウト崩れを修正"
 ```
 
 ---
