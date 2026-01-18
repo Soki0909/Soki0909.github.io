@@ -268,9 +268,12 @@ const Hub = () => {
                   <span className="font-mono text-gray-400">{'# '}</span>
                   Personal
                 </h2>
-                <div className="mt-2">
+                <div className="mt-2 flex items-center gap-1">
                   <span className="text-sm text-gray-400 group-open:rotate-90 transition-transform inline-block">
-                    ▶ クリックして展開
+                    ▶
+                  </span>
+                  <span className="text-sm text-gray-400">
+                    クリックして展開
                   </span>
                 </div>
               </summary>
