@@ -97,7 +97,9 @@ const Document = () => {
                       : 'bg-purple-100 text-purple-700'
                   }`}
                 >
-                  {detail.content.developmentType === 'team' ? 'Team' : 'Solo'}
+                  {detail.content.developmentType === 'team'
+                    ? '👥 チーム開発'
+                    : '🧑 個人開発'}
                 </span>
               )}
 
@@ -667,7 +669,7 @@ const Document = () => {
                               key={index}
                               className="flex items-start gap-3 text-gray-700"
                             >
-                              <span className="text-amber-500 mt-1">★</span>
+                              <span className="text-amber-500 mt-1">🏆</span>
                               {achievement}
                             </li>
                           )

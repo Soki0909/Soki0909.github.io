@@ -85,7 +85,7 @@ const WaveCard = ({ item }: WaveCardProps) => {
 
   // 基本スタイル: 矩形波風のホバーエフェクト
   const baseClasses = `
-    group block p-4 bg-white/80 backdrop-blur-sm rounded-lg 
+    group block p-4 bg-white rounded-lg 
     border-l-4 border border-gray-200
     transition-all duration-200
     hover:shadow-lg hover:border-gray-300
