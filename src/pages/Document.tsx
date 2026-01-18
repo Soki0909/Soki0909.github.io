@@ -97,9 +97,7 @@ const Document = () => {
                       : 'bg-purple-100 text-purple-700'
                   }`}
                 >
-                  {detail.content.developmentType === 'team'
-                    ? '👥 チーム開発'
-                    : '🧑 個人開発'}
+                  {detail.content.developmentType === 'team' ? 'Team' : 'Solo'}
                 </span>
               )}
 
@@ -150,7 +148,7 @@ const Document = () => {
                 {detail.links && Object.keys(detail.links).length > 0 && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       リンク
                     </h2>
                     <div className="flex flex-wrap gap-3">
@@ -249,7 +247,7 @@ const Document = () => {
                 {detail.content.overview && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       概要
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -262,7 +260,7 @@ const Document = () => {
                 {detail.content.developmentPeriod && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       開発期間
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -275,7 +273,7 @@ const Document = () => {
                 {detail.content.period && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       活動期間
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -288,7 +286,7 @@ const Document = () => {
                 {detail.content.myRole && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       担当業務
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -302,7 +300,7 @@ const Document = () => {
                   detail.content.highlights.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         ハイライト
                       </h2>
                       <ul className="space-y-2">
@@ -323,7 +321,7 @@ const Document = () => {
                 {detail.content.technologies && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       使用技術
                     </h2>
                     <div className="space-y-4">
@@ -354,7 +352,7 @@ const Document = () => {
                 {detail.content.architecture && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       アーキテクチャ
                     </h2>
                     {detail.content.architecture.overview && (
@@ -403,7 +401,7 @@ const Document = () => {
                   detail.content.devices.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         デバイス
                       </h2>
                       <div className="space-y-4">
@@ -465,7 +463,7 @@ const Document = () => {
                   detail.content.features.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         機能
                       </h2>
                       <div className="space-y-4">
@@ -491,7 +489,7 @@ const Document = () => {
                   detail.content.courses.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         履修科目
                       </h2>
                       <div className="space-y-4">
@@ -516,7 +514,7 @@ const Document = () => {
                 {detail.media?.images && detail.media.images.length > 0 && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       スクリーンショット
                     </h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -537,7 +535,7 @@ const Document = () => {
                 {detail.media?.videos && detail.media.videos.length > 0 && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       デモ動画
                     </h2>
                     <div className="space-y-4">
@@ -560,7 +558,7 @@ const Document = () => {
                 {detail.media?.youtube && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       動画
                     </h2>
                     <div className="aspect-video">
@@ -580,7 +578,7 @@ const Document = () => {
                   detail.content.challenges.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         技術的な課題
                       </h2>
                       <ul className="space-y-2">
@@ -602,7 +600,7 @@ const Document = () => {
                   detail.content.learned.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         学んだこと
                       </h2>
                       <ul className="space-y-2">
@@ -623,7 +621,7 @@ const Document = () => {
                 {detail.content.impact && (
                   <section>
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                      <span className="font-mono text-gray-400">{'// '}</span>
+                      <span className="font-mono text-gray-400">{'# '}</span>
                       インパクト
                     </h2>
                     <p className="text-gray-700 leading-relaxed">
@@ -637,7 +635,7 @@ const Document = () => {
                   detail.content.activities.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         活動内容
                       </h2>
                       <ul className="space-y-2">
@@ -659,7 +657,7 @@ const Document = () => {
                   detail.content.achievements.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         実績
                       </h2>
                       <ul className="space-y-2">
@@ -669,7 +667,7 @@ const Document = () => {
                               key={index}
                               className="flex items-start gap-3 text-gray-700"
                             >
-                              <span className="text-amber-500 mt-1">🏆</span>
+                              <span className="text-amber-500 mt-1">★</span>
                               {achievement}
                             </li>
                           )
@@ -683,7 +681,7 @@ const Document = () => {
                   detail.content.responsibilities.length > 0 && (
                     <section>
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                        <span className="font-mono text-gray-400">{'// '}</span>
+                        <span className="font-mono text-gray-400">{'# '}</span>
                         担当業務
                       </h2>
                       <ul className="space-y-2">
@@ -705,7 +703,7 @@ const Document = () => {
             ) : (
               <div className="bg-gray-50 rounded-lg p-8 text-center">
                 <p className="text-gray-500 font-mono text-sm">
-                  {'// '}詳細データは準備中です
+                  {'# '}詳細データは準備中です
                 </p>
               </div>
             )}
