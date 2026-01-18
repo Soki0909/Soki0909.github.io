@@ -1,6 +1,7 @@
 import TimelineView from '../components/TimelineView';
 import WaveDivider from '../components/WaveDivider';
 import GalleryCard from '../components/GalleryCard';
+import TableOfContents from '../components/TableOfContents';
 import { useWritings } from '../hooks/useWritings';
 import { useGallery } from '../hooks/useGallery';
 import SEO from '../components/SEO';
@@ -58,8 +59,8 @@ const Hub = () => {
                 className="w-12 h-12 rounded-lg"
               />
               <div className="font-mono text-sm text-gray-500">
-                <span className="text-blue-600">const</span> AUTHOR ={' '}
-                <span className="text-green-600">"KUME Soki"</span>;
+                <span className="text-blue-600">AUTHOR</span> ={' '}
+                <span className="text-green-600">"KUME Soki"</span>
               </div>
             </div>
 
@@ -120,11 +121,14 @@ const Hub = () => {
           </div>
         </header>
 
+        {/* ===== Table of Contents ===== */}
+        <TableOfContents />
+
         {/* ===== Main Stream: Chronological Timeline ===== */}
         <main className="max-w-4xl mx-auto px-4 py-12">
-          <section>
+          <section id="timeline">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="font-mono text-gray-400">{'// '}</span>
+              <span className="font-mono text-gray-400">{'# '}</span>
               Timeline
             </h2>
             <TimelineView />
@@ -134,9 +138,9 @@ const Hub = () => {
           <WaveDivider />
 
           {/* ===== Writing Area ===== */}
-          <section className="mt-8">
+          <section id="writings" className="mt-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="font-mono text-gray-400">{'// '}</span>
+              <span className="font-mono text-gray-400">{'# '}</span>
               Writings
             </h2>
 
@@ -189,7 +193,7 @@ const Hub = () => {
             ) : (
               <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-lg">
                 <p className="font-mono text-sm">
-                  {'// '}執筆記事は coming soon...
+                  {'# '}執筆記事は coming soon...
                 </p>
               </div>
             )}
@@ -199,35 +203,46 @@ const Hub = () => {
           <WaveDivider />
 
           {/* ===== Gallery Area ===== */}
-          <section className="mt-8">
+          <section id="gallery" className="mt-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
-              <span className="font-mono text-gray-400">{'// '}</span>
+              <span className="font-mono text-gray-400">{'# '}</span>
               Gallery
             </h2>
 
-            {/* カテゴリごとに表示 */}
+            {/* カテゴリごとに表示（トグル付き） */}
             {hasGalleryItems && (
-              <div className="space-y-8">
+              <div className="space-y-4">
                 {categories.map((category) => {
                   const categoryItems = allGalleryItems.filter(
                     (item) => item.category === category.id
                   );
                   if (categoryItems.length === 0) return null;
                   return (
-                    <div key={category.id}>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
-                        <span>{category.icon}</span>
-                        {category.name}
-                      </h3>
-                      <p className="text-sm text-gray-500 mb-4">
-                        {category.description}
-                      </p>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        {categoryItems.map((item) => (
-                          <GalleryCard key={item.id} item={item} />
-                        ))}
+                    <details key={category.id} className="group">
+                      <summary className="cursor-pointer list-none">
+                        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                          <span className="text-sm text-gray-400 group-open:rotate-90 transition-transform">
+                            ▶
+                          </span>
+                          <h3 className="font-medium text-gray-800">
+                            {category.name}
+                          </h3>
+                          <span className="text-sm text-gray-400 font-mono ml-auto">
+                            [{categoryItems.length}]
+                          </span>
+                        </div>
+                      </summary>
+                      <div className="mt-3 pl-6 border-l-2 border-gray-100">
+                        <p className="text-sm text-gray-500 mb-4">
+                          {category.description}
+                        </p>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                          {categoryItems.map((item) => (
+                            <GalleryCard key={item.id} item={item} />
+                          ))}
+                        </div>
                       </div>
-                    </div>
+                    </details>
                   );
                 })}
               </div>
@@ -236,7 +251,7 @@ const Hub = () => {
             {!hasGalleryItems && (
               <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-lg">
                 <p className="font-mono text-sm">
-                  {'// '}ギャラリーは coming soon...
+                  {'# '}ギャラリーは coming soon...
                 </p>
               </div>
             )}
@@ -246,11 +261,11 @@ const Hub = () => {
           <WaveDivider />
 
           {/* ===== Personal Area (Toggle) ===== */}
-          <section className="mt-8">
+          <section id="personal" className="mt-8">
             <details className="group">
               <summary className="cursor-pointer list-none">
                 <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
-                  <span className="font-mono text-gray-400">{'// '}</span>
+                  <span className="font-mono text-gray-400">{'# '}</span>
                   Personal
                   <span className="text-sm font-normal text-gray-400 group-open:rotate-90 transition-transform">
                     ▶
@@ -261,9 +276,7 @@ const Hub = () => {
               <div className="mt-4 grid md:grid-cols-2 gap-4">
                 {/* Beatbox */}
                 <div className="p-4 bg-gray-50 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    🎤 Beatbox
-                  </h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">Beatbox</h3>
                   <p className="text-sm text-gray-600">
                     4年の経験。即興ビート組み立て・ハミングメロディとの組み合わせが可能。
                   </p>
@@ -272,7 +285,7 @@ const Hub = () => {
                 {/* Rubik's Cube */}
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-2">
-                    🧩 立体パズル
+                    立体パズル
                   </h3>
                   <p className="text-sm text-gray-600">
                     3×3×3ルービックキューブを2分以内で完成。10種類以上のパズルを所有。
@@ -281,9 +294,7 @@ const Hub = () => {
 
                 {/* Math */}
                 <div className="p-4 bg-gray-50 rounded-lg">
-                  <h3 className="font-semibold text-gray-900 mb-2">
-                    📐 数学探究
-                  </h3>
+                  <h3 className="font-semibold text-gray-900 mb-2">数学探究</h3>
                   <p className="text-sm text-gray-600">
                     EMaT全分野で偏差値60超。数学技能検定1級挑戦中。
                   </p>
@@ -292,7 +303,7 @@ const Hub = () => {
                 {/* Efficiency */}
                 <div className="p-4 bg-gray-50 rounded-lg">
                   <h3 className="font-semibold text-gray-900 mb-2">
-                    ⚡ PC作業効率化
+                    PC作業効率化
                   </h3>
                   <p className="text-sm text-gray-600">
                     「マウス不要の操作」実現。Chrome拡張機能開発など。

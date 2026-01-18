@@ -54,7 +54,7 @@ const WaveCard = ({ item }: WaveCardProps) => {
             }
           `}
           >
-            {developmentType === 'team' ? '👥 チーム開発' : '🧑 個人開発'}
+            {developmentType === 'team' ? 'Team' : 'Solo'}
           </span>
         )}
       </div>
