@@ -26,7 +26,7 @@ const TableOfContents = () => {
 
   return (
     <nav className="max-w-4xl mx-auto px-4 py-6" aria-label="目次">
-      <div className="bg-gray-50 rounded-lg p-4 border border-gray-100">
+      <div className="bg-white rounded-lg p-4 border border-gray-200">
         <h2 className="text-sm font-medium text-gray-500 mb-3 flex items-center gap-2 font-mono">
           <span className="text-gray-400">{'# '}</span>
           contents

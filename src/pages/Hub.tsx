@@ -152,7 +152,7 @@ const Hub = () => {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors group"
+                    className="block p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors group"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
@@ -191,7 +191,7 @@ const Hub = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-lg">
+              <div className="text-center py-8 text-gray-400 bg-white rounded-lg border border-gray-200">
                 <p className="font-mono text-sm">
                   {'# '}執筆記事は coming soon...
                 </p>
@@ -220,7 +220,7 @@ const Hub = () => {
                   return (
                     <details key={category.id} className="group">
                       <summary className="cursor-pointer list-none">
-                        <div className="flex items-center gap-3 p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
+                        <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
                           <span className="text-sm text-gray-400 group-open:rotate-90 transition-transform">
                             ▶
                           </span>
@@ -249,7 +249,7 @@ const Hub = () => {
             )}
 
             {!hasGalleryItems && (
-              <div className="text-center py-8 text-gray-400 bg-gray-50 rounded-lg">
+              <div className="text-center py-8 text-gray-400 bg-white rounded-lg border border-gray-200">
                 <p className="font-mono text-sm">
                   {'# '}ギャラリーは coming soon...
                 </p>
@@ -264,18 +264,20 @@ const Hub = () => {
           <section id="personal" className="mt-8">
             <details className="group">
               <summary className="cursor-pointer list-none">
-                <h2 className="text-2xl font-bold text-gray-900 mb-2 flex items-center gap-2">
+                <h2 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
                   <span className="font-mono text-gray-400">{'# '}</span>
                   Personal
-                  <span className="text-sm font-normal text-gray-400 group-open:rotate-90 transition-transform">
-                    ▶
-                  </span>
                 </h2>
+                <div className="mt-2">
+                  <span className="text-sm text-gray-400 group-open:rotate-90 transition-transform inline-block">
+                    ▶ クリックして展開
+                  </span>
+                </div>
               </summary>
 
               <div className="mt-4 grid md:grid-cols-2 gap-4">
                 {/* Beatbox */}
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-white rounded-lg border border-gray-200">
                   <h3 className="font-semibold text-gray-900 mb-2">Beatbox</h3>
                   <p className="text-sm text-gray-600">
                     4年の経験。即興ビート組み立て・ハミングメロディとの組み合わせが可能。
@@ -283,7 +285,7 @@ const Hub = () => {
                 </div>
 
                 {/* Rubik's Cube */}
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-white rounded-lg border border-gray-200">
                   <h3 className="font-semibold text-gray-900 mb-2">
                     立体パズル
                   </h3>
@@ -293,7 +295,7 @@ const Hub = () => {
                 </div>
 
                 {/* Math */}
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-white rounded-lg border border-gray-200">
                   <h3 className="font-semibold text-gray-900 mb-2">数学探究</h3>
                   <p className="text-sm text-gray-600">
                     EMaT全分野で偏差値60超。数学技能検定1級挑戦中。
@@ -301,7 +303,7 @@ const Hub = () => {
                 </div>
 
                 {/* Efficiency */}
-                <div className="p-4 bg-gray-50 rounded-lg">
+                <div className="p-4 bg-white rounded-lg border border-gray-200">
                   <h3 className="font-semibold text-gray-900 mb-2">
                     PC作業効率化
                   </h3>
@@ -314,38 +316,54 @@ const Hub = () => {
           </section>
         </main>
 
-        {/* ===== Footer Area: Output / Terminal ===== */}
+        {/* ===== Footer Area: Python/Terminal Style ===== */}
         <footer className="bg-gray-900 text-gray-300 py-12 px-4 mt-16">
           <div className="max-w-4xl mx-auto font-mono text-sm">
-            <div className="mb-4 text-green-400">{'> '}contact --list</div>
+            <div className="mb-4">
+              <span className="text-blue-400">def</span>{' '}
+              <span className="text-yellow-400">contact</span>
+              <span className="text-gray-400">():</span>
+            </div>
 
-            <div className="space-y-2 ml-4">
+            <div className="space-y-2 ml-8">
               <div>
-                <span className="text-gray-500">email:</span>{' '}
+                <span className="text-green-400">
+                  """Get in touch with me."""
+                </span>
+              </div>
+              <div className="mt-4">
+                <span className="text-blue-400">return</span>
+                {' {'}
+              </div>
+              <div className="ml-8">
+                <span className="text-purple-400">"email"</span>:{' '}
                 <a
                   href="mailto:c1302855@st.kanazawa-it.ac.jp"
-                  className="text-blue-400 hover:underline"
+                  className="text-green-400 hover:underline"
                 >
-                  c1302855@st.kanazawa-it.ac.jp
+                  "c1302855@st.kanazawa-it.ac.jp"
                 </a>
+                ,
               </div>
-              <div>
-                <span className="text-gray-500">github:</span>{' '}
+              <div className="ml-8">
+                <span className="text-purple-400">"github"</span>:{' '}
                 <a
                   href="https://github.com/Soki0909"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-blue-400 hover:underline"
+                  className="text-green-400 hover:underline"
                 >
-                  Soki0909
+                  "Soki0909"
                 </a>
+                ,
               </div>
+              <div>{'}'}</div>
             </div>
 
             <div className="mt-8 pt-4 border-t border-gray-700 text-gray-500 text-xs">
               <p>
-                &copy; 2024-2026 KUME Soki. Built with React + TypeScript +
-                Tailwind CSS.
+                <span className="text-gray-600"># </span>© 2024-2026 KUME Soki.
+                Built with React + TypeScript + Tailwind CSS.
               </p>
             </div>
           </div>
