@@ -12,7 +12,7 @@ const GalleryCard = ({ item }: GalleryCardProps) => {
   const { title, comment, video, tags } = item;
 
   return (
-    <div className="group bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-gray-300">
+    <div className="group bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-gray-300 relative">
       {/* 動画プレイヤー */}
       <div className="relative aspect-video bg-gray-900">
         <video

@@ -152,7 +152,7 @@ const Hub = () => {
                     href={item.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors group"
+                    className="block p-4 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors group relative"
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex-1">
@@ -191,7 +191,7 @@ const Hub = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-8 text-gray-400 bg-white rounded-lg border border-gray-200">
+              <div className="text-center py-8 text-gray-400 bg-white rounded-lg border border-gray-200 relative">
                 <p className="font-mono text-sm">
                   {'# '}執筆記事は coming soon...
                 </p>
@@ -220,7 +220,7 @@ const Hub = () => {
                   return (
                     <details key={category.id} className="group">
                       <summary className="cursor-pointer list-none">
-                        <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors">
+                        <div className="flex items-center gap-3 p-3 bg-white rounded-lg border border-gray-200 hover:bg-gray-50 transition-colors relative">
                           <span className="text-sm text-gray-400 group-open:rotate-90 transition-transform">
                             ▶
                           </span>
@@ -249,7 +249,7 @@ const Hub = () => {
             )}
 
             {!hasGalleryItems && (
-              <div className="text-center py-8 text-gray-400 bg-white rounded-lg border border-gray-200">
+              <div className="text-center py-8 text-gray-400 bg-white rounded-lg border border-gray-200 relative">
                 <p className="font-mono text-sm">
                   {'# '}ギャラリーは coming soon...
                 </p>
@@ -280,7 +280,7 @@ const Hub = () => {
 
               <div className="mt-4 grid md:grid-cols-2 gap-4">
                 {/* Beatbox */}
-                <div className="p-4 bg-white rounded-lg border border-gray-200">
+                <div className="p-4 bg-white rounded-lg border border-gray-200 relative">
                   <h3 className="font-semibold text-gray-900 mb-2">Beatbox</h3>
                   <p className="text-sm text-gray-600">
                     4年の経験。即興ビート組み立て・ハミングメロディとの組み合わせが可能。
@@ -288,7 +288,7 @@ const Hub = () => {
                 </div>
 
                 {/* Rubik's Cube */}
-                <div className="p-4 bg-white rounded-lg border border-gray-200">
+                <div className="p-4 bg-white rounded-lg border border-gray-200 relative">
                   <h3 className="font-semibold text-gray-900 mb-2">
                     立体パズル
                   </h3>
@@ -298,7 +298,7 @@ const Hub = () => {
                 </div>
 
                 {/* Math */}
-                <div className="p-4 bg-white rounded-lg border border-gray-200">
+                <div className="p-4 bg-white rounded-lg border border-gray-200 relative">
                   <h3 className="font-semibold text-gray-900 mb-2">数学探究</h3>
                   <p className="text-sm text-gray-600">
                     EMaT全分野で偏差値60超。数学技能検定1級挑戦中。
@@ -306,7 +306,7 @@ const Hub = () => {
                 </div>
 
                 {/* Efficiency */}
-                <div className="p-4 bg-white rounded-lg border border-gray-200">
+                <div className="p-4 bg-white rounded-lg border border-gray-200 relative">
                   <h3 className="font-semibold text-gray-900 mb-2">
                     PC作業効率化
                   </h3>
