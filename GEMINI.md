@@ -156,11 +156,42 @@ pages → components → hooks → utils → data/types
 | `README.md`                                     | プロジェクト概要         |
 | `ARCHITECTURE.md`                               | 詳細アーキテクチャ設計書 |
 | `docs/Web_Design_Requirements_Specification.md` | リニューアル要件定義     |
-| `docs/archive/`                                 | 旧構造のアーカイブ       |
+| `src/data/details/_template.json`              | 詳細ページ用JSONの全キー定義 |
 
 ---
 
-## 8. 緊急時対応
+## 8. データ管理規則（タイムライン・詳細ページ追加）
+
+タイムラインに新しい項目を追加する際は以下の規則に従う。
+
+### 事前調査（必須）
+
+- 外部リポジトリの `README.md` を必ず読み込み、正確な情報を把握する
+- イベント・プログラムの**正式名称を確認**してから記述（省略・年号ミス注意）
+  - ❌ `技育博2026` → ✅ `技育博2025 Vol.6`
+
+### JSONキーの使用ルール
+
+- **テンプレート参照必須**: `src/data/details/_template.json` に定義されているキーのみ使用
+- **不要なキーは省略**: すべてのキーを埋める必要はない
+- **`technologies` のカテゴリキーは自由**: プロジェクト特性に合わせて命名する
+  - Webアプリ: `frontend`, `backend`, `infrastructure`
+  - Androidアプリ: `android`, `firmware`, `communication`
+
+### 作業順序
+
+1. 外部リポジトリ・イベントページの調査
+2. `details/{id}.json` の作成（`_template.json` を参考に）
+3. `timeline.json` へのエントリ追加（date 降順で適切な位置に）
+4. ビルドで型チェック: `npm run build`
+
+### `/add-activity` ワークフロー
+
+詳細は `.agent/workflows/add-activity.md` を参照。
+
+---
+
+## 9. 緊急時対応
 
 ```bash
 # 開発環境リセット

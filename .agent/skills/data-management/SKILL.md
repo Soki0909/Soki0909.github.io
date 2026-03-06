@@ -18,87 +18,138 @@ src/data/
 ├── seo.json          # SEO メタデータ
 ├── projects.json     # プロジェクト一覧（旧形式）
 └── details/          # 詳細ページ用JSONファイル
+    ├── _template.json    # ← 使用可能な全キーの定義（必ず参照）
     ├── project-xxx.json
     ├── activity-xxx.json
     └── ...
 ```
 
-## タイムライン項目の追加
+## 詳細ページ追加の流れ
 
-### 1. `timeline.json` にインデックスを追加
+### 1. 事前調査
+
+外部リポジトリや関連ページがある場合は、`README.md` を読んで正確な情報を取得：
+- イベント・プログラムの**正式名称**を確認（例: `技育博2025 Vol.6`）
+- 担当範囲・技術スタック・チーム構成
+- 受賞歴の正確な名称
+
+### 2. テンプレートを参照
+
+`src/data/details/_template.json` を開き、使用するキーを確認。  
+**テンプレートに定義されていないキーは使用しない。**
+
+### 3. 詳細JSONを作成
+
+`src/data/details/{id}.json` を作成。**不要なキーは省略してよい。**
+
+#### プロジェクト（project）の主要キー
 
 ```json
 {
-  "id": "project-new-app",
-  "date": "2026-01",
+  "id": "slug",
   "category": "project",
-  "developmentType": "individual",
-  "title": "新しいアプリ",
-  "summary": "サマリー説明",
-  "tags": ["React", "TypeScript"],
+  "title": "タイトル",
+  "date": "YYYY-MM",
+  "summary": "100字程度の概要",
+  "tags": ["タグ"],
+  "content": {
+    "overview": "詳細な概要",
+    "developmentType": "team",
+    "teamSize": "N名",
+    "developmentPeriod": "X週間（具体的な期間）",
+    "myRole": "担当業務の詳細",
+    "highlights": ["🏆 受賞・実績・ポイント"],
+    "technologies": {
+      "カテゴリ名": ["技術1"]
+    },
+    "features": [
+      { "title": "機能名", "description": "説明" }
+    ],
+    "challenges": ["課題"],
+    "learned": ["学び"],
+    "impact": "成果・影響の詳細"
+  },
+  "links": {
+    "github": "https://github.com/..."
+  }
+}
+```
+
+#### `technologies` のカテゴリキーは自由
+
+プロジェクトの性質に合わせて命名する：
+
+| プロジェクト種別 | キー例 |
+|---|---|
+| Webアプリ | `frontend`, `backend`, `infrastructure` |
+| Androidアプリ | `android`, `firmware`, `communication` |
+| IoTシステム | `android` / `mobile`, `firmware`, `communication` |
+| 活動 | `tools`, `languages` |
+
+#### 使用できる `links` キー
+
+`github`, `demo`, `youtube`, `slides`, `article`, `official`
+
+### 4. `timeline.json` にインデックスを追加
+
+`items` 配列の適切な位置（date 降順）に追加：
+
+```json
+{
+  "id": "{detailsのidと同じ}",
+  "date": "YYYY-MM",
+  "category": "project",
+  "developmentType": "team",
+  "title": "タイトル",
+  "summary": "詳細JSONのsummaryと同じ内容",
+  "tags": ["タグ"],
   "hasDetail": true
 }
 ```
 
-### 2. 詳細ページを作成 (`details/project-new-app.json`)
+> [!IMPORTANT]
+> `timeline.json` の `id`, `summary`, `tags` は `details/{id}.json` と一致させること。
 
-```json
-{
-  "id": "project-new-app",
-  "category": "project",
-  "title": "新しいアプリ",
-  "date": "2026-01",
-  "summary": "サマリー説明",
-  "tags": ["React", "TypeScript"],
-  "content": {
-    "overview": "詳細な説明...",
-    "developmentType": "individual",
-    "developmentPeriod": "2026年1月",
-    "highlights": ["ポイント1", "ポイント2"],
-    "technologies": {
-      "フロントエンド": ["React", "TypeScript"],
-      "その他": ["Vite"]
-    },
-    "challenges": ["課題1"],
-    "learned": ["学び1"]
-  },
-  "media": {
-    "images": ["/assets/images/project-new-app/screenshot.png"]
-  },
-  "links": {
-    "github": "https://github.com/Soki0909/xxx",
-    "demo": "https://xxx.netlify.app"
-  }
-}
+### 5. バリデーション
+
+```bash
+npm run build
 ```
+
+TypeScript による型チェックを含むビルドが通れば OK。
+
+---
 
 ## カテゴリ別フィールド
 
 ### project（プロジェクト）
 
-必須: `developmentType`, `technologies`, `highlights`
-推奨: `challenges`, `learned`, `links.github`
+必須: `developmentType`, `technologies`, `highlights`  
+推奨: `myRole`, `challenges`, `learned`, `impact`, `links.github`  
+任意: `architecture`, `devices`, `features`, `teamSize`, `developmentPeriod`
 
 ### activity（課外活動）
 
-必須: `role`, `period`, `teamSize`
-推奨: `achievements`, `responsibilities`
+必須: `period`, `teamSize`（または `developmentPeriod`）  
+推奨: `myRole`, `responsibilities`, `activities`
 
 ### writing（執筆）
 
-`writings.json` に直接追加（detailsは不要）
+`writings.json` に直接追加（details は不要）
 
 ```json
 {
   "id": "writing-xxx",
-  "date": "2026-01-15",
+  "date": "YYYY-MM-DD",
   "title": "記事タイトル",
   "platform": "Zenn",
   "url": "https://zenn.dev/xxx",
   "summary": "概要",
-  "tags": ["数学", "物理"]
+  "tags": ["数学"]
 }
 ```
+
+---
 
 ## 型定義
 
@@ -110,9 +161,8 @@ src/data/
 - `DetailContent` - 詳細コンテンツ
 - `DetailMedia` - メディア情報
 - `DetailLinks` - リンク情報
-- `GalleryCategory` - ギャラリーカテゴリ
-- `GalleryItem` - ギャラリーアイテム
-- `GalleryData` - ギャラリーデータ
+
+---
 
 ## ギャラリーアイテムの追加
 
@@ -132,30 +182,12 @@ public/assets/videos/manim/
   "title": "作品タイトル",
   "comment": "ひと言コメント（1-2行程度）",
   "video": "/assets/videos/manim/{動画ファイル名}.mp4",
-  "tags": ["タグ1", "タグ2"],
+  "tags": ["タグ1"],
   "date": "2026-01"
 }
 ```
 
-### フィールド説明
-
-| フィールド | 必須 | 説明                                   |
-| ---------- | ---- | -------------------------------------- |
-| id         | ✅   | 一意のID（英数字・ハイフン）           |
-| category   | ✅   | カテゴリID（現状は `manim` のみ）      |
-| title      | ✅   | 作品タイトル                           |
-| comment    | ✅   | ひと言コメント                         |
-| video      | ✅   | 動画パス（`/assets/videos/manim/...`） |
-| tags       | 任意 | タグ配列                               |
-| date       | 任意 | 作成年月（`YYYY-MM`形式）              |
-
-## バリデーション
-
-データ追加後、必ずビルドで型チェック：
-
-```bash
-npm run build
-```
+---
 
 ## 画像・動画の配置
 
@@ -163,7 +195,6 @@ npm run build
 public/assets/
 ├── images/
 │   └── {id}/           # 詳細ID名のフォルダ
-│       ├── main.png
 │       └── screenshot.png
 └── videos/
     ├── {id}/            # 詳細ページ用動画
