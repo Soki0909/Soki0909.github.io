@@ -8,6 +8,7 @@ interface WaveCardProps {
 /**
  * タイムラインカードコンポーネント
  * Notionの「Callout」風デザイン + Hover時の矩形波エフェクト
+ * yui540原則: cubic-bezier(0,0.15,0.25,0.99) で自然な減速感
  */
 const WaveCard = ({ item }: WaveCardProps) => {
   const {
@@ -25,13 +26,13 @@ const WaveCard = ({ item }: WaveCardProps) => {
   const getAccentColor = () => {
     switch (category) {
       case 'project':
-        return 'border-l-blue-500 hover:border-blue-400';
+        return 'border-l-blue-500 hover:border-l-blue-400';
       case 'activity':
-        return 'border-l-green-500 hover:border-green-400';
+        return 'border-l-green-500 hover:border-l-green-400';
       case 'writing':
-        return 'border-l-purple-500 hover:border-purple-400';
+        return 'border-l-purple-500 hover:border-l-purple-400';
       default:
-        return 'border-l-gray-500 hover:border-gray-400';
+        return 'border-l-gray-500 hover:border-l-gray-400';
     }
   };
 
@@ -83,12 +84,15 @@ const WaveCard = ({ item }: WaveCardProps) => {
     </>
   );
 
-  // 基本スタイル: 矩形波風のホバーエフェクト
+  // 基本スタイル
+  // duration: 550ms = yui540のカードと同値
+  // easing: cubic-bezier(0,0.15,0.25,0.99) = yui540のカスタムイージング
+  // hover:-translate-y-1: 微浮上（くどくない程度）
   const baseClasses = `
     group block p-4 bg-white rounded-lg 
     border-l-4 border border-gray-200
-    transition-all duration-200
-    hover:shadow-lg hover:border-gray-300
+    transition-all duration-[550ms] ease-[cubic-bezier(0,0.15,0.25,0.99)]
+    hover:shadow-md hover:border-gray-300 hover:-translate-y-1
     ${getAccentColor()}
   `;
 

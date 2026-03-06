@@ -1,11 +1,13 @@
 import useTimeline from '../hooks/useTimeline';
 import SignalNode from './SignalNode';
 import WaveCard from './WaveCard';
+import AnimatedSection from './AnimatedSection';
 import type { HubCategory } from '../types/dataModels';
 
 /**
  * タイムラインビューコンポーネント
  * タイムライン全体を描画するコンテナ
+ * 各アイテムはスクロール時にスタッガー表示される
  */
 const TimelineView = () => {
   const { items, categoryFilter, setCategoryFilter, categoryCounts } =
@@ -54,22 +56,35 @@ const TimelineView = () => {
               該当するアイテムがありません
             </div>
           ) : (
-            items.map((item) => (
-              <div key={item.id} className="flex gap-4 md:gap-6">
+            items.map((item, index) => (
+              <AnimatedSection
+                key={item.id}
+                animation="fade-up"
+                delay={Math.min(index * 80, 400)}
+                className="flex gap-4 md:gap-6"
+              >
                 {/* 左側: 日付ノード（デスクトップのみ） */}
                 <div className="hidden md:flex flex-shrink-0 w-20 justify-start">
-                  <SignalNode date={item.date} category={item.category} />
+                  <SignalNode
+                    date={item.date}
+                    category={item.category}
+                    animationDelay={Math.min(index * 80, 400)}
+                  />
                 </div>
 
                 {/* 右側: カード */}
                 <div className="flex-1">
                   {/* モバイル用日付表示 */}
                   <div className="md:hidden mb-2 flex items-center gap-2">
-                    <SignalNode date={item.date} category={item.category} />
+                    <SignalNode
+                      date={item.date}
+                      category={item.category}
+                      animationDelay={Math.min(index * 80, 400)}
+                    />
                   </div>
                   <WaveCard item={item} />
                 </div>
-              </div>
+              </AnimatedSection>
             ))
           )}
         </div>

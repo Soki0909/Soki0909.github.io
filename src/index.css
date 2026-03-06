@@ -2,8 +2,10 @@
 
 /* グローバルスタイル */
 :root {
-  --header-height: 4rem; /* 64px (h-16) */
-  --header-height-lg: 5rem; /* 80px (h-20) */
+  --header-height: 4rem;
+  /* 64px (h-16) */
+  --header-height-lg: 5rem;
+  /* 80px (h-20) */
 }
 
 @media (min-width: 1024px) {
@@ -84,8 +86,9 @@ html {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(24px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -97,6 +100,7 @@ html {
     opacity: 0;
     transform: translateX(-20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
@@ -108,23 +112,89 @@ html {
     opacity: 0;
     transform: translateX(20px);
   }
+
   to {
     opacity: 1;
     transform: translateX(0);
   }
 }
 
+/*
+ * slideUpClip: yui540スタイルのテキストスライドイン
+ * overflow: hidden の親要素と組み合わせて使用する
+ */
+@keyframes slideUpClip {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/*
+ * scaleIn: ノード・アイコンのポップイン
+ * transform + opacity のみ使用（GPU合成）
+ */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/*
+ * wipeIn: 横線・区切り線の伸長エフェクト
+ * transform-origin: left で左から右へ伸びる
+ */
+@keyframes wipeIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
 /* ユーティリティクラス */
+/* duration: 0.55s = yui540のカードと同値 */
 .animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
+  animation: fadeInUp 0.55s cubic-bezier(0, 0.15, 0.25, 0.99) both;
 }
 
 .animate-slide-in-left {
-  animation: slideInLeft 0.6s ease-out;
+  animation: slideInLeft 0.55s cubic-bezier(0, 0.15, 0.25, 0.99) both;
 }
 
 .animate-slide-in-right {
-  animation: slideInRight 0.6s ease-out;
+  animation: slideInRight 0.55s cubic-bezier(0, 0.15, 0.25, 0.99) both;
+}
+
+/* テキストスライドイン（overflow: hidden の親要素と組み合わせる） */
+.animate-slide-up-clip {
+  animation: slideUpClip 0.55s cubic-bezier(0, 0.15, 0.25, 0.99) both;
+}
+
+/* ノード・アイコンのポップイン */
+.animate-scale-in {
+  animation: scaleIn 0.4s cubic-bezier(0, 0.15, 0.25, 0.99) both;
+}
+
+/* 横線の伸長エフェクト */
+.animate-wipe-in {
+  animation: wipeIn 0.6s cubic-bezier(0, 0.15, 0.25, 0.99) both;
+  transform-origin: left;
 }
 
 /* 絵文字専用ユーティリティクラス */

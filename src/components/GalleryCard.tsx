@@ -7,12 +7,13 @@ interface GalleryCardProps {
 /**
  * ギャラリーカードコンポーネント
  * 動画 + タイトル + コメントを表示
+ * ホバー時: yui540スタイルのグラデーションオーバーレイ + 微浮上
  */
 const GalleryCard = ({ item }: GalleryCardProps) => {
   const { title, comment, video, tags } = item;
 
   return (
-    <div className="group bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-200 hover:shadow-lg hover:border-gray-300 relative">
+    <div className="group bg-white rounded-lg border border-gray-200 overflow-hidden transition-all duration-[550ms] ease-[cubic-bezier(0,0.15,0.25,0.99)] hover:shadow-md hover:border-gray-300 hover:-translate-y-1 relative">
       {/* 動画プレイヤー */}
       <div className="relative aspect-video bg-gray-900">
         <video
@@ -24,6 +25,19 @@ const GalleryCard = ({ item }: GalleryCardProps) => {
         >
           お使いのブラウザは動画再生に対応していません。
         </video>
+
+        {/*
+         * ホバー時グラデーションオーバーレイ（yui540テクニック）
+         * linear-gradient(to top, rgba(0,0,0,0.3), transparent) を
+         * opacity: 0 → 1 でフェードイン（transform/opacity のみ使用）
+         */}
+        <div
+          className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-[550ms] ease-[cubic-bezier(0,0.15,0.25,0.99)] pointer-events-none"
+          style={{
+            background: 'linear-gradient(to top, rgba(0,0,0,0.3), transparent)',
+          }}
+          aria-hidden="true"
+        />
       </div>
 
       {/* コンテンツエリア */}

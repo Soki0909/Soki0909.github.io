@@ -1,6 +1,7 @@
 import { useParams, Link } from 'react-router-dom';
 import { getTimelineItem } from '../hooks/useTimeline';
 import { useDetail } from '../hooks/useDetail';
+import AnimatedSection from '../components/AnimatedSection';
 import SEO from '../components/SEO';
 
 /**
@@ -75,7 +76,10 @@ const Document = () => {
           </Link>
 
           {/* Header */}
-          <header className="mb-12">
+          <header
+            className="mb-12 animate-fade-in-up"
+            style={{ animationDelay: '0.1s', animationFillMode: 'both' }}
+          >
             {/* Category Badge */}
             <div className="flex items-center gap-2 mb-4 flex-wrap">
               <span className={`text-lg ${category.color}`}>
@@ -148,7 +152,7 @@ const Document = () => {
               <>
                 {/* Links */}
                 {detail.links && Object.keys(detail.links).length > 0 && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       リンク
@@ -242,12 +246,12 @@ const Document = () => {
                         </a>
                       )}
                     </div>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Overview */}
                 {detail.content.overview && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       概要
@@ -255,12 +259,12 @@ const Document = () => {
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.overview}
                     </p>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Development Period */}
                 {detail.content.developmentPeriod && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       開発期間
@@ -268,12 +272,12 @@ const Document = () => {
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.developmentPeriod}
                     </p>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Period (活動期間) */}
                 {detail.content.period && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       活動期間
@@ -281,12 +285,12 @@ const Document = () => {
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.period}
                     </p>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* My Role */}
                 {detail.content.myRole && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       担当業務
@@ -294,13 +298,13 @@ const Document = () => {
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.myRole}
                     </p>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Highlights */}
                 {detail.content.highlights &&
                   detail.content.highlights.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         ハイライト
@@ -316,12 +320,12 @@ const Document = () => {
                           </li>
                         ))}
                       </ul>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Technologies */}
                 {detail.content.technologies && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       使用技術
@@ -347,12 +351,12 @@ const Document = () => {
                         )
                       )}
                     </div>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Architecture */}
                 {detail.content.architecture && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       アーキテクチャ
@@ -395,13 +399,13 @@ const Document = () => {
                           )}
                         </div>
                       )}
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Devices */}
                 {detail.content.devices &&
                   detail.content.devices.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         デバイス
@@ -457,13 +461,13 @@ const Document = () => {
                           </div>
                         ))}
                       </div>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Features */}
                 {detail.content.features &&
                   detail.content.features.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         機能
@@ -483,13 +487,13 @@ const Document = () => {
                           </div>
                         ))}
                       </div>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Courses (履修科目) */}
                 {detail.content.courses &&
                   detail.content.courses.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         履修科目
@@ -509,12 +513,12 @@ const Document = () => {
                           </div>
                         ))}
                       </div>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Media - Images */}
                 {detail.media?.images && detail.media.images.length > 0 && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       スクリーンショット
@@ -530,12 +534,12 @@ const Document = () => {
                         />
                       ))}
                     </div>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Media - Videos */}
                 {detail.media?.videos && detail.media.videos.length > 0 && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       デモ動画
@@ -553,12 +557,12 @@ const Document = () => {
                         </video>
                       ))}
                     </div>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Media - YouTube */}
                 {detail.media?.youtube && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       動画
@@ -572,13 +576,13 @@ const Document = () => {
                         allowFullScreen
                       />
                     </div>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Challenges */}
                 {detail.content.challenges &&
                   detail.content.challenges.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         技術的な課題
@@ -594,13 +598,13 @@ const Document = () => {
                           </li>
                         ))}
                       </ul>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Learned */}
                 {detail.content.learned &&
                   detail.content.learned.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         学んだこと
@@ -616,12 +620,12 @@ const Document = () => {
                           </li>
                         ))}
                       </ul>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Impact */}
                 {detail.content.impact && (
-                  <section>
+                  <AnimatedSection animation="fade-up">
                     <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                       <span className="font-mono text-gray-400">{'# '}</span>
                       インパクト
@@ -629,13 +633,13 @@ const Document = () => {
                     <p className="text-gray-700 leading-relaxed">
                       {detail.content.impact}
                     </p>
-                  </section>
+                  </AnimatedSection>
                 )}
 
                 {/* Activities */}
                 {detail.content.activities &&
                   detail.content.activities.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         活動内容
@@ -651,13 +655,13 @@ const Document = () => {
                           </li>
                         ))}
                       </ul>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Achievements */}
                 {detail.content.achievements &&
                   detail.content.achievements.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         実績
@@ -675,13 +679,13 @@ const Document = () => {
                           )
                         )}
                       </ul>
-                    </section>
+                    </AnimatedSection>
                   )}
 
                 {/* Responsibilities */}
                 {detail.content.responsibilities &&
                   detail.content.responsibilities.length > 0 && (
-                    <section>
+                    <AnimatedSection animation="fade-up">
                       <h2 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
                         <span className="font-mono text-gray-400">{'# '}</span>
                         担当業務
@@ -699,7 +703,7 @@ const Document = () => {
                           )
                         )}
                       </ul>
-                    </section>
+                    </AnimatedSection>
                   )}
               </>
             ) : (

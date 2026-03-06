@@ -3,13 +3,20 @@ import type { HubCategory } from '../types/dataModels';
 interface SignalNodeProps {
   date: string;
   category: HubCategory;
+  /** アニメーション遅延（ミリ秒） */
+  animationDelay?: number;
 }
 
 /**
  * タイムライン上の日付ノードコンポーネント
  * カテゴリに応じた幾何学アイコン（■●▲）を表示
+ * ノードアイコンにscaleInアニメーションを適用（yui540スタイル）
  */
-const SignalNode = ({ date, category }: SignalNodeProps) => {
+const SignalNode = ({
+  date,
+  category,
+  animationDelay = 0,
+}: SignalNodeProps) => {
   // 日付をYYYY.MM形式に変換
   const formatDate = (dateStr: string) => {
     const [year, month] = dateStr.split('-');
@@ -63,9 +70,13 @@ const SignalNode = ({ date, category }: SignalNodeProps) => {
         {formatDate(date)}
       </span>
 
-      {/* カテゴリアイコン */}
+      {/* カテゴリアイコン: animate-scale-in でポップイン */}
       <div
-        className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${style.bgColor} ${style.borderColor}`}
+        className={`w-8 h-8 flex items-center justify-center rounded-full border-2 ${style.bgColor} ${style.borderColor} animate-scale-in`}
+        style={{
+          animationDelay: `${animationDelay}ms`,
+          animationFillMode: 'both',
+        }}
         title={style.label}
       >
         <span className={`text-lg ${style.color}`}>{style.icon}</span>

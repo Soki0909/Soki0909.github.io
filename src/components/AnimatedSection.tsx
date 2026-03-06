@@ -11,7 +11,13 @@ interface AnimatedSectionProps {
   /** アニメーションのしきい値 */
   threshold?: number;
   /** アニメーションタイプ */
-  animation?: 'fade-up' | 'fade-in' | 'fade-left' | 'fade-right' | 'scale';
+  animation?:
+    | 'fade-up'
+    | 'fade-in'
+    | 'fade-left'
+    | 'fade-right'
+    | 'scale'
+    | 'slide-up-clip';
   /** HTML要素のタグ */
   as?: React.ElementType;
 }
@@ -45,41 +51,45 @@ const AnimatedSection: React.FC<AnimatedSectionProps> = ({
   animation = 'fade-up',
   as: Component = 'div',
 }) => {
-  const { ref, animationClass } = useScrollAnimation({
+  const { ref, isVisible } = useScrollAnimation({
     delay,
     threshold,
     once: true,
   });
 
   // アニメーションタイプに応じたクラス名の生成
+  // yui540原則: transform + opacity のみ使用（GPU合成レイヤーで処理）
   const getAnimationClasses = () => {
-    const baseClasses = 'transition-all duration-700 ease-out';
+    const baseTransition =
+      'transition-all duration-[550ms] ease-[cubic-bezier(0,0.15,0.25,0.99)]';
 
     switch (animation) {
       case 'fade-in':
-        return `${baseClasses} ${animationClass}`;
       case 'fade-up':
-        return `${baseClasses} ${animationClass}`;
+        return `${baseTransition} ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`;
       case 'fade-left':
-        return `${baseClasses} ${
-          animationClass.includes('opacity-100')
-            ? 'opacity-100 translate-x-0'
-            : 'opacity-0 translate-x-8'
+        return `${baseTransition} ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
         }`;
       case 'fade-right':
-        return `${baseClasses} ${
-          animationClass.includes('opacity-100')
-            ? 'opacity-100 translate-x-0'
-            : 'opacity-0 -translate-x-8'
+        return `${baseTransition} ${
+          isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'
         }`;
       case 'scale':
-        return `${baseClasses} ${
-          animationClass.includes('opacity-100')
-            ? 'opacity-100 scale-100'
-            : 'opacity-0 scale-95'
+        return `${baseTransition} ${
+          isVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        }`;
+      // yui540スタイル: overflow:hidden の親要素と組み合わせてテキストをクリップ
+      case 'slide-up-clip':
+        return `${baseTransition} ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-full'
         }`;
       default:
-        return `${baseClasses} ${animationClass}`;
+        return `${baseTransition} ${
+          isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
+        }`;
     }
   };
 

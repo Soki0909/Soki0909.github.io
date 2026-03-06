@@ -52,7 +52,7 @@ export const useScrollAnimation = (
 ): UseScrollAnimationReturn => {
   const {
     threshold = 0.1,
-    rootMargin = '0px 0px -50px 0px',
+    rootMargin = '0px 0px -100px 0px',
     delay = 0,
     once = true,
   } = options;
