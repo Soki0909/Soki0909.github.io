@@ -40,3 +40,15 @@ git push origin main
 
 - デプロイ状況: https://github.com/Soki0909/Soki0909.github.io/actions
 - 本番サイト: https://soki0909.github.io
+
+## 環境変数（GitHub Secrets）
+
+`VITE_*` 変数はビルド時に JS へバンドル（焼き込み）される。`.env.production` を git に含める必要はなく、**GitHub Secrets に登録**する。
+
+| Secret 名                | 用途                    |
+| ------------------------ | ----------------------- |
+| `VITE_GA_MEASUREMENT_ID` | Google Analytics 測定ID |
+
+> [!CAUTION]
+> `.env.production` を **git にコミットしない**。値は GitHub Secrets で管理。
+> 登録先: `Settings` → `Secrets and variables` → `Actions`

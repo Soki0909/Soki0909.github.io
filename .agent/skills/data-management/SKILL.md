@@ -29,6 +29,7 @@ src/data/
 ### 1. 事前調査
 
 外部リポジトリや関連ページがある場合は、`README.md` を読んで正確な情報を取得：
+
 - イベント・プログラムの**正式名称**を確認（例: `技育博2025 Vol.6`）
 - 担当範囲・技術スタック・チーム構成
 - 受賞歴の正確な名称
@@ -62,9 +63,7 @@ src/data/
     "technologies": {
       "カテゴリ名": ["技術1"]
     },
-    "features": [
-      { "title": "機能名", "description": "説明" }
-    ],
+    "features": [{ "title": "機能名", "description": "説明" }],
     "challenges": ["課題"],
     "learned": ["学び"],
     "impact": "成果・影響の詳細"
@@ -79,12 +78,12 @@ src/data/
 
 プロジェクトの性質に合わせて命名する：
 
-| プロジェクト種別 | キー例 |
-|---|---|
-| Webアプリ | `frontend`, `backend`, `infrastructure` |
-| Androidアプリ | `android`, `firmware`, `communication` |
-| IoTシステム | `android` / `mobile`, `firmware`, `communication` |
-| 活動 | `tools`, `languages` |
+| プロジェクト種別 | キー例                                            |
+| ---------------- | ------------------------------------------------- |
+| Webアプリ        | `frontend`, `backend`, `infrastructure`           |
+| Androidアプリ    | `android`, `firmware`, `communication`            |
+| IoTシステム      | `android` / `mobile`, `firmware`, `communication` |
+| 活動             | `tools`, `languages`                              |
 
 #### 使用できる `links` キー
 

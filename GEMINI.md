@@ -151,12 +151,12 @@ pages → components → hooks → utils → data/types
 
 ## 7. 参照ドキュメント
 
-| ファイル                                        | 目的                     |
-| ----------------------------------------------- | ------------------------ |
-| `README.md`                                     | プロジェクト概要         |
-| `ARCHITECTURE.md`                               | 詳細アーキテクチャ設計書 |
-| `docs/Web_Design_Requirements_Specification.md` | リニューアル要件定義     |
-| `src/data/details/_template.json`              | 詳細ページ用JSONの全キー定義 |
+| ファイル                                        | 目的                         |
+| ----------------------------------------------- | ---------------------------- |
+| `README.md`                                     | プロジェクト概要             |
+| `ARCHITECTURE.md`                               | 詳細アーキテクチャ設計書     |
+| `docs/Web_Design_Requirements_Specification.md` | リニューアル要件定義         |
+| `src/data/details/_template.json`               | 詳細ページ用JSONの全キー定義 |
 
 ---
 
@@ -191,7 +191,38 @@ pages → components → hooks → utils → data/types
 
 ---
 
-## 9. 緊急時対応
+## 9. 環境変数管理
+
+このサイトは **GitHub Pages（静的サイト）** にホストされ、ビルドは **GitHub Actions** で行われる。  
+`VITE_*` 変数はビルド時に JS へバンドル（焼き込み）されるため、ランタイムには不要。
+
+### 変数の置き場所
+
+| ファイル                      | 用途                           | git に含める？                   |
+| ----------------------------- | ------------------------------ | -------------------------------- |
+| `.env.production`             | ローカルビルド用（任意）       | ❌ **禁止**（`.gitignore` 済み） |
+| `.env.example`                | 設定項目の一覧（ダミー値のみ） | ✅ 推奨                          |
+| **GitHub Repository Secrets** | CI/CD ビルド時の本番値         | — （GitHub UI で管理）           |
+
+### GitHub Secrets への登録手順
+
+1. `Settings` → `Secrets and variables` → `Actions`
+2. `New repository secret` をクリック
+3. 現在登録が必要なシークレット:
+
+| Secret 名                | 値             | 用途                    |
+| ------------------------ | -------------- | ----------------------- |
+| `VITE_GA_MEASUREMENT_ID` | `G-XXXXXXXXXX` | Google Analytics 測定ID |
+
+### 禁止事項
+
+> [!CAUTION]
+> `.env.production` や `.env.development` などの実際の値が入ったファイルを **git にコミットしない**。  
+> 過去に誤ってコミットした履歴がある場合、測定IDの再発行を検討すること。
+
+---
+
+## 10. 緊急時対応
 
 ```bash
 # 開発環境リセット
