@@ -1,6 +1,26 @@
 {
   "items": [
     {
+      "id": "encounter",
+      "date": "2026-02",
+      "category": "project",
+      "developmentType": "team",
+      "title": "EnCounter - ハイパーローカル・すれちがいマッチングアプリ",
+      "summary": "スマプロハッカソン2026で最優秀賞受賞。BLEでリアルタイムにすれちがいを検知し、気分・興味タグが一致した時だけマッチングするAndroidアプリ。バックエンド/ロジック全般を担当。",
+      "tags": ["Android", "Kotlin", "BLE", "Firebase", "Jetpack Compose"],
+      "hasDetail": true
+    },
+    {
+      "id": "4d-at-home-android",
+      "date": "2026-02",
+      "category": "project",
+      "developmentType": "team",
+      "title": "4D@HOME Android - BLE直結で実現した自宅4DXシステム",
+      "summary": "技育博2025 Vol.6に向けて1週間でAndroidアプリ化。BLEでESP32を直接制御し、Raspberry Pi・インターネット不要の完全オフライン4DXシステムを実現。アプリロジック・BLE通信・ESP32ファームウェアを担当。",
+      "tags": ["Android", "Kotlin", "BLE", "ESP32", "Jetpack Compose"],
+      "hasDetail": true
+    },
+    {
       "id": "4dx-home",
       "date": "2025-11",
       "category": "project",

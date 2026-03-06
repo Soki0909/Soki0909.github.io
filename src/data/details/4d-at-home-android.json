@@ -1,0 +1,151 @@
+{
+  "id": "4d-at-home-android",
+  "category": "project",
+  "title": "4D@HOME Android - BLE直結で実現した自宅4DXシステム",
+  "date": "2026-02",
+  "summary": "技育博2025 Vol.6に向けて1週間でAndroidアプリ化。BLEでESP32を直接制御し、Raspberry Pi・インターネット不要のオフライン4DXシステムを実現。アプリロジック・BLE通信・ESP32ファームウェアを担当。",
+  "tags": [
+    "Android",
+    "Kotlin",
+    "Jetpack Compose",
+    "BLE",
+    "ESP32",
+    "Arduino",
+    "PlatformIO",
+    "MVVM",
+    "Clean Architecture",
+    "IoT"
+  ],
+  "content": {
+    "overview": "4D@HOME Androidは、JPHACKS 2025で受賞した4DX@HOMEのWeb版をベースに、技育博2025 Vol.6（2026年2月1日）での展示に向けてAndroidアプリとしてフルリメイクしたシステムです。従来版はRaspberry Pi・クラウドサーバー・インターネット接続が必須でしたが、Android版ではBLE（Bluetooth Low Energy）を使ってAndroid端末からESP32に直接通信することで、これらをすべて不要にしました。1週間という短期間で、アプリのロジック全般・BLE通信層・ESP32マイコン内処理を一人で担当し、完全オフライン動作のシステムを完成させました。",
+    "developmentType": "team",
+    "teamSize": "4名",
+    "developmentPeriod": "1週間（2026年1月末〜2月1日 技育博2025 Vol.6当日）",
+    "myRole": "アプリケーションのロジック部分全般（PlaybackSyncEngine・CommandSenderなどのドメインレイヤー）と、BLE通信レイヤー（BleDeviceManager・BleScanner）の設計・実装を担当しました。合わせてハードウェア側のESP32ファームウェア（EffectStation・ActionDrive Motor1/2の3台分）もほぼ単独で実装しました。BLEプロトコル設計からマイコン内の制御ロジックまで、ソフト・ハード双方の中間レイヤーを一貫して担当しました。",
+    "highlights": [
+      "🎓 技育博2025 Vol.6（2026年2月1日）に展示",
+      "1週間でAndroidアプリ + ESP32ファームウェアをフルスクラッチ実装",
+      "Raspberry Pi・インターネット不要の完全オフラインBLE直接通信を実現",
+      "50ms先読みによるリアルタイムBLE同期（従来の200ms WebSocket方式を大幅改善）",
+      "ESP32 3台（EffectStation × 1・ActionDrive × 2）を同時制御",
+      "MVVM + Clean Architecture採用でスケーラブルなアーキテクチャを実現",
+      "アプリロジック・BLE通信・ESP32ファームウェアを単独で担当"
+    ],
+    "technologies": {
+      "android": [
+        "Kotlin 2.0.21",
+        "Jetpack Compose (BOM 2024.12.01)",
+        "Material Design 3",
+        "Navigation Compose 2.8.5",
+        "Hilt 2.53.1 (依存性注入)",
+        "Media3 ExoPlayer 1.5.1",
+        "Kotlin Coroutines 1.9.0",
+        "DataStore Preferences 1.1.2",
+        "kotlinx.serialization 1.7.3"
+      ],
+      "firmware": [
+        "ESP32 DevKit",
+        "Arduino フレームワーク",
+        "PlatformIO (ビルドシステム)",
+        "ESP32 BLE Arduino (BLE通信)",
+        "Adafruit NeoPixel (RGBW LED制御)"
+      ],
+      "communication": [
+        "BLE (Bluetooth Low Energy) 4.2+",
+        "GATT プロトコル",
+        "Custom Service UUID: 4D580001-...",
+        "Write Request / Notification"
+      ]
+    },
+    "architecture": {
+      "overview": "MVVM + Clean Architecture（3層構造）+ BLE直接通信",
+      "layers": [
+        {
+          "name": "Presentation層",
+          "description": "Jetpack ComposeによるUI。再生画面・制御画面・設定画面の3画面構成。ViewModelがStateFlowでUIStateを管理。",
+          "technologies": ["Jetpack Compose", "ViewModel", "StateFlow"]
+        },
+        {
+          "name": "Domain層",
+          "description": "ビジネスロジックの中核。PlaybackSyncEngineが動画再生位置を監視し、タイムラインJSONに基づいてCommandSenderへエフェクト命令を発行。",
+          "technologies": ["PlaybackSyncEngine", "CommandSender", "Use Cases"]
+        },
+        {
+          "name": "Data層",
+          "description": "BLE通信レイヤー（BleDeviceManager・BleScanner）とローカル永続化（DataStore）。3台のESP32デバイスを並行管理。",
+          "technologies": [
+            "BleDeviceManager",
+            "BleScanner",
+            "DataStore",
+            "Kotlin Coroutines"
+          ]
+        }
+      ]
+    },
+    "devices": [
+      {
+        "name": "EffectStation",
+        "description": "風・水・ミスト・LEDを制御する環境エフェクトデバイス。BLEデバイス名: 4D_ES_XXXX",
+        "effects": [
+          "ファン（風）: ON/OFF burst制御",
+          "水噴射: ワンショット burst",
+          "ミスト: トグル（burst一瞬 / stream継続）",
+          "フラッシュ（白LED）: PWM調光、点滅、呼吸",
+          "カラーLED（RGBW NeoPixel）: 12色（ピンク・赤・橙・黄・緑・青・紫・白など）"
+        ]
+      },
+      {
+        "name": "ActionDrive Motor1 / Motor2",
+        "description": "座席振動を再現する振動フィードバックデバイス。2台構成（背中側・お尻側）。BLEデバイス名: 4D_AD1_XXXX / 4D_AD2_XXXX",
+        "effects": [
+          "振動方向: 上・下・上下の3軸",
+          "強度: 弱・中弱・中強・強の4段階",
+          "特殊パターン: 心拍（鼓動風）"
+        ]
+      }
+    ],
+    "features": [
+      {
+        "title": "BLE直接通信（Raspberry Pi不要）",
+        "description": "従来のWeb版はRaspberry Pi + MQTTブローカーを介してESP-12Eを制御していたが、Android版ではAndroid端末からESP32へBLEで直接通信。中間ハードウェア不要でシステム構成を大幅シンプル化。"
+      },
+      {
+        "title": "50ms先読みによるリアルタイム同期",
+        "description": "PlaybackSyncEngineが動画の再生位置を50ms先読みしてコマンドを発行。BLEの通信遅延を考慮した先送りにより、映像とエフェクトのズレを最小化。従来WebSocket方式（200ms間隔）を大幅に改善。"
+      },
+      {
+        "title": "タイムラインJSONによるエフェクト制御",
+        "description": "エフェクトのタイミングをJSONファイルで定義。start/stop/shotの3アクションと各エフェクトタイプを組み合わせた柔軟な演出が可能。動画とは独立してタイムラインをカスタマイズできる。"
+      },
+      {
+        "title": "3台同時BLE接続管理",
+        "description": "ESP32 3台（EffectStation × 1・ActionDrive × 2）をAndroidアプリから同時接続・管理。各デバイスのフィルタリングはBLEデバイス名のプレフィックス（4D_ES_ / 4D_AD1_ / 4D_AD2_）で自動識別。"
+      },
+      {
+        "title": "3画面構成のAndroidアプリ",
+        "description": "再生画面（動画 + タイムライン同期再生・キャプション表示）、制御画面（各エフェクトの手動テスト）、設定画面（BLEデバイスのスキャン・接続管理）の3画面をJetpack Composeで実装。"
+      }
+    ],
+    "challenges": [
+      "1週間という超短期間でAndroidアプリとESP32ファームウェアを並行開発",
+      "BLEのGATTプロトコル設計とカスタムUUID体系の構築",
+      "3台のESP32を非同期に並行制御するCoroutinesベースの通信管理",
+      "50ms先読み同期ロジックの設計と映像遅延に対するキャリブレーション",
+      "Arduino/PlatformIO環境でのESP32 BLEスタック実装",
+      "MVVM + Clean Architectureを短期間で適切に設計・実装"
+    ],
+    "learned": [
+      "Android BLE API（GATT通信・スキャン・ペアリング）の実装",
+      "ESP32 BLE Ardiuno ライブラリを用いたBLEサービス・キャラクタリスティック構築",
+      "PlatformIOを使ったESP32マルチデバイスファームウェア開発",
+      "PlaybackSyncEngineによるメディア再生位置と外部制御の同期設計",
+      "Hilt DI + Kotlin CoroutinesによるClean Architectureの実践",
+      "短期ハッカソン的開発における優先度判断と技術的スコープコントロール"
+    ],
+    "impact": "技育博2025 Vol.6（2026年2月1日）での展示を通じて、「映画館の4DX体験を自宅で再現する」プロダクトをAndroidアプリとして完成させ、JPHACKS 2025の成果をさらに発展させました。Web版と比べてRaspberry Pi・インターネット接続・クラウドサーバーが一切不要になり、設置のハードルが大幅に下がりました。BLE直接通信と50ms先読み同期により、同期精度も大幅に向上。ソフトウェア（Androidアプリ）とハードウェア（ESP32ファームウェア）を一人で両立して実装したことで、IoTシステム全体を一貫して設計・開発する実践的なスキルを獲得しました。"
+  },
+  "links": {
+    "github": "https://github.com/wildcard-project/4d-at-home-android",
+    "youtube": "https://youtu.be/t1n5mQZU_nM"
+  }
+}

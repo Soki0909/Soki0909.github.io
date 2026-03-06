@@ -1,0 +1,103 @@
+{
+  "id": "encounter",
+  "category": "project",
+  "title": "EnCounter - ハイパーローカル・すれちがいマッチングアプリ",
+  "date": "2026-02",
+  "summary": "スマプロハッカソン2026で最優秀賞受賞。BLEで半径数メートルのすれちがいをリアルタイム検知し、気分・興味タグが一致した時だけマッチングするAndroidアプリ。バックエンド/ロジック全般・BLE通信・Firebase連携を担当。",
+  "tags": [
+    "Android",
+    "Kotlin",
+    "Jetpack Compose",
+    "BLE",
+    "Firebase",
+    "Firestore",
+    "Hilt",
+    "MVVM",
+    "Clean Architecture"
+  ],
+  "content": {
+    "overview": "EnCounterは「群衆の中の孤独」を解消するハイパーローカル・すれちがいマッチングアプリです。スマートフォンのBLE（Bluetooth Low Energy）機能を活用し、半径数メートル以内にいるユーザーをリアルタイム検知。今の気分（Mood）や興味タグが一致した時だけ通知し、リアルな「偶然の出会い」を演出します。スマプロハッカソン2026（2026年2月5日〜6日）で開発し、最優秀賞を受賞しました。バックエンド担当として、アーキテクチャ設計・BLE通信レイヤー・Firebase連携・マッチングロジックを担当しました。",
+    "developmentType": "team",
+    "teamSize": "2名",
+    "developmentPeriod": "2日間（2026年2月5日〜6日、スマプロハッカソン2026）",
+    "myRole": "バックエンド / ロジック担当として、アーキテクチャ設計（MVVM + Clean Architecture）、BLE通信レイヤー（BleManager：BLEアドバタイズ・スキャン・フィルタリング）、Firebase連携（Firestore・匿名認証によるユーザー管理・チャット機能）、マッチングロジック（ステータス＋タグによる条件マッチング・uidPrefixキャッシュ・バッチクエリ）、通知システム（鼓動風バイブレーション・SoundPool効果音）を担当しました。ディレクトリ構造設計によってUI担当とのコンフリクトも防止しました。",
+    "highlights": [
+      "🏆 スマプロハッカソン2026 最優秀賞受賞",
+      "BLE（Bluetooth Low Energy）でインターネット・位置情報不要のプライバシー重視設計",
+      "9種類のステータス（気分）× 興味タグによる条件付きマッチングシステム",
+      "uidPrefixキャッシュ・バッチクエリによるFirebase照会の高速化",
+      "鼓動風バイブレーションパターン（弱→強→弱のリズム）による通知",
+      "匿名認証・ステルスモード・チャット機能を2日間で完成",
+      "GitHub Copilot（Claude Opus 4.5）を活用したAI駆動開発"
+    ],
+    "technologies": {
+      "android": [
+        "Kotlin 2.0+",
+        "Jetpack Compose (Material 3)",
+        "Hilt (Dagger, 依存性注入)",
+        "Kotlin Coroutines + Flow",
+        "Navigation Compose",
+        "SharedPreferences"
+      ],
+      "backend": [
+        "Firebase Auth (匿名認証)",
+        "Firebase Firestore",
+        "Firestore Sub-collection (チャット)",
+        "Firestore whereIn バッチクエリ"
+      ],
+      "communication": [
+        "Android BLE API",
+        "BLE Advertise (自分のuidPrefixをService UUIDに格納)",
+        "BLE Scan (Service UUIDフィルタリング)",
+        "RSSI閾値による距離推定（3段階プリセット）",
+        "カスタムService UUID: 0000EC00-xxxx"
+      ]
+    },
+    "features": [
+      {
+        "title": "BLEすれちがい検知（位置情報・インターネット不要）",
+        "description": "BLE Advertise/Scanを用いて半径数メートルのユーザーを検知。カスタムService UUID（0000EC00-xxxx）でEnCounterユーザーのみをフィルタリング。Android 12以降はBluetooth権限のみで動作し、位置情報サービス不要。"
+      },
+      {
+        "title": "条件付きマッチング（ステータス＋タグ一致）",
+        "description": "BLE検知直後にFirestoreでプロフィールを照会し、9種類の気分ステータスと興味タグが1つ以上一致した場合のみ通知。早期フィルタリングにより不要な通知を削減。"
+      },
+      {
+        "title": "鼓動風バイブレーション通知",
+        "description": "マッチング時に弱→強→弱のリズムの振動でさりげなく通知。SoundPoolによる低遅延効果音と組み合わせ、心臓の高鳴りを模した体験を演出。"
+      },
+      {
+        "title": "uidPrefixキャッシュとバッチクエリ最適化",
+        "description": "BLE Scan ResponseにユーザーIDの先頭16文字を格納し、同一ユーザーの繰り返し検知時にFirestore照会を省略。FirestoreのwhereIn制限（30件）に対応したチャンク処理も実装。"
+      },
+      {
+        "title": "ステルスモードとプライバシー設計",
+        "description": "自分をアドバタイズせずにスキャンのみ行うステルスモードを実装。メールアドレス不要の匿名認証、位置情報不使用、一期一会の設計で重厚なSNSとは異なる軽い繋がりを実現。"
+      },
+      {
+        "title": "リアルタイムチャット（Firebase Firestore）",
+        "description": "マッチングしたユーザーとFirestore Sub-collectionを用いたリアルタイムチャットが可能。その場を離れれば関係は終了する一期一会のコンセプトを体現。"
+      }
+    ],
+    "challenges": [
+      "2日間というハッカソン期間でBLE通信・Firebase・マッチングロジックを完全実装",
+      "BLE AdvertiseとScanの両立によるバッテリー消費の最小化",
+      "2名での並行開発時のコンフリクト回避（ディレクトリ構造による担当分離）",
+      "FirestoreのwhereIn 30件制限に対応したバッチクエリ処理の設計",
+      "BLE検知のRSSI閾値と距離推定の精度チューニング",
+      "匿名認証・ステルスモード・位置情報不要を両立したプライバシー設計"
+    ],
+    "learned": [
+      "Android BLE API（Advertise・Scan・RSSI距離推定）の実践的実装",
+      "Service UUIDによるBLEデバイスフィルタリング手法",
+      "Firebase Firestore + 匿名認証の組み合わせによる軽量バックエンド構築",
+      "uidPrefixキャッシュ等のパフォーマンス最適化パターン",
+      "GitHub Copilot（Claude Opus 4.5）との役割分担を意識したAI駆動開発",
+      "2名チームでのコンフリクト回避を考慮したアーキテクチャ設計"
+    ],
+    "impact": "スマプロハッカソン2026（2026年2月5日〜6日）で最優秀賞を受賞しました。「群衆の中の孤独」というリアルな課題に対し、BLEとFirebaseを組み合わせた独自のソリューションを2日間で完成させ、審査員から高評価を獲得。位置情報を使わずBLEのみでプライバシーを守りながらリアルな出会いを実現するアプローチ、ゲーミフィケーション的な「すれちがい図鑑」やドット絵RPG風デザインが総合的に評価されました。バックエンド担当として短期間でBLE通信・Firebase・マッチングロジックの複雑な組み合わせを実装し、AI駆動開発の有効活用を実証しました。"
+  },
+  "links": {
+    "github": "https://github.com/razy6174/EnCounter"
+  }
+}
